@@ -243,12 +243,60 @@
 
 
 //13
-	Integer naturals = 0, numbers, results
+	Integer natural = 0, naturals_limit, result = 0
+	Array naturals_list = new Array
 
 
 	Enviar "Introduce la cantidad de números naturales a sumar"
-	Introduce numbers
+	Introduce naturals_limit
 
 
-	Mientras naturals <= numbers, natural++
-		
+	Mientras natural <= naturals_limit, natural++
+		Insertar en naturals_list natural
+	Mientras_fin
+
+
+	Para  Integer naturals: los numeros almacenados en naturals_list
+		result + naturals
+	Para_fin
+
+
+	Enviar "La suma da: " + result
+
+
+//14
+	Integer natural = 0, naturals_limit = 10, result = 0
+	Array naturals_list = new Array
+
+	/* NATURALS_LIMIT IMPUESTO */
+	//Enviar "Introduce la cantidad de números naturales a sumar"
+	//Introduce naturals_limit
+	Enviar "Introduce el natural desde el cual quieres empezar a sumar"
+	Introduce natural
+
+
+
+	Mientras natural <= naturals_limit, natural++
+		Insertar en naturals_list natural
+	Mientras_fin
+
+
+	Para  Integer naturals: los numeros almacenados en naturals_list
+		Si naturals % 2 es igual a 0
+			Enviar naturals + "añadido a la suma"
+			result + naturals
+	Para_fin
+
+
+	Enviar "\nLa suma da" + result
+
+
+//15
+	String unformated
+
+
+	Enviar "Introduce una secuencia de números delimitados por comas (1,2,9,8,15)" + "/n[Los números negativos no se tendrán en cuenta]"
+	Introduce unformated
+
+
+	
