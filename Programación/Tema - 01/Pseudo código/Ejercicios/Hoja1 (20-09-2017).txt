@@ -233,6 +233,22 @@
 
 
 //12
+	Integer results
 
 
-	
+	Para  Integer naturals: los numeros entre 1 y 9 incluidos
+		results = naturals ^ 2
+		Enviar results
+	Para_fin
+
+
+//13
+	Integer naturals = 0, numbers, results
+
+
+	Enviar "Introduce la cantidad de números naturales a sumar"
+	Introduce numbers
+
+
+	Mientras naturals <= numbers, natural++
+		
