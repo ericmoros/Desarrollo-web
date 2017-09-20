@@ -1,0 +1,238 @@
+//1
+
+//2
+
+	Integer num1, num2, result
+
+	Enviar "Introduce un número"
+	Introduce num1
+
+	Enviar "Introduce un número"
+	Introduce num2
+
+		result = num1 + num2
+			Eviar "La suma de " + num1 + " y " + num2 + "es:\n" + result
+
+		result = num1 - num2
+			Eviar "La resta de " + num1 + " y " + "num2" + "es:\n" + result
+
+		result = num1 * num2
+			Eviar "El producto de " + num1 + " y " + "num2" + "es:\n" + result
+
+		result = num1 / num2
+			Eviar "La división de " + num1 + " y " + "num2" + "es:\n" + result	
+
+//3
+	Integer num1, num2
+
+
+	Enviar "Introduce un número"
+	Introduce num1
+
+	Enviar "Introduce un número"
+	Introduce num2
+
+
+	Si num1 es igual a num2
+		Enviar "Los números son iguales"
+	y Si num1 es mayor a num2
+		Enviar "El primer número es mayor que es segundo"
+
+	y Si num1 es menor a num2
+		Enviar "El primer número es menor que es segundo"
+
+	Si no
+		Enviar "No se a tenido en cuenta"
+
+// 4
+	Integer num1, num2, num3
+
+
+	Enviar "Introduce un número"
+	Introduce num1
+
+	Enviar "Introduce un número"
+	Introduce num2
+
+	Enviar "Introduce un número"
+	Introduce num3
+
+
+	Si num1 mayor que num2 y num3
+		Enviar "El primer número es mayor que los demás"
+	Si num2 mayor que num1 y num3
+		Enviar "El segundo número es mayor que los demás"
+	Si num3 mayor que num1 y num2
+		Enviar "El tercernúmero es mayor que los demás"
+	Si no
+		Enviar "No se a tenido en cuenta"
+
+
+//5
+	Integer num1, num2, num3, result
+	String excepcion
+
+
+	Enviar "Introduce un número"
+	Introduce num1
+
+	Enviar "Introduce un número"
+	Introduce num2
+
+	Enviar "Introduce un número"
+	Introduce num3
+
+
+	Si num1 menor que 0
+		result = num1 * num2 * num3
+			Enviar "El producto de los tres números es: /n" + result
+	si no
+		result = num1 + num2 + num3
+			Enviar "La suma de los tres números es: /n" + result
+
+
+//6
+	Integer num1
+	Double result
+	String excepcion, texto
+
+	Enviar "Introduce un número"
+	Introduce num1
+
+
+	Si num1 es igual o menor a 0
+		excepcion = "El número no puede ser igual o menor a 0"
+			Enviar excepcion
+		Salir
+	y si num1 es mayor a 0
+		result = num1 ^ 2
+			texto = "Del número " + num1 + "su potencia es " + result
+
+		result = RAID(num1)
+			texto + ("y su raid " + result)
+
+		Enviar texto
+	Si no
+		Enviar "No se a tenido en cuenta"
+
+
+//7
+	Integer alumnos, niños, niñas, result
+	String texto
+
+	Enviar "Introduce la cantidad de alumnos"
+	Introduce alumnos
+
+	Enviar "Introduce la cantidad de niños"
+	Introduce niños
+
+	Enviar "Introduce la cantidad de niños"
+	Introduce niñas
+
+
+		texto = "De los " + alumnos
+
+		result = redondear(niños / alumnos * 100)
+			texto + (", " + result + "son niños")
+
+		result = redondear(niñas / alumnos * 100)
+			texto + ("y " + result + "son niñas")
+
+
+				Enviar texto
+
+
+//8
+	Float importe
+	Float descuento
+	String mes
+
+
+	Enviar "Introduce el importe"
+	Introduce importe
+
+	Enviar "Introduce el mes"
+	Introduce mes
+
+
+	Si mes es igual a "octubre" es mayor que 0
+		descuento = 15
+
+		importe = importe - (descuento / importe) * 100
+			Enviar "Como estamos a " + mes
+			Esperar 1 segundos
+			Enviar "Le aplicaremos un descuento del" + descuento + "%"
+			Esperar 1 segundos
+			Enviar "Nuevo importe: " + importe
+
+	Si no
+		Enviar "No se puede aplicar el descuento"
+
+
+//9
+	Integer num1, result
+
+
+	Enviar "Introduce un número"
+	Introduce num1
+
+
+	Si num1 % 2 es igual a 0
+		Enviar num1 + "es par"
+
+	Si no
+		Enviar num1 + "es impar"
+
+
+//10
+	Integer num1 = 0, result
+
+
+	Mientras num1 sea 0
+		Enviar "Introduce un número diferente de 0"
+		Introduce num1
+	Mientras_fin
+
+
+		Si num1 % 2 es igual a 0
+			Enviar num1 + "es par"
+
+		Si no
+			Enviar num1 + "es impar"
+
+
+//11
+	Boolean titulo = null
+	Float prueba_acceso, nota_min = 6
+
+
+	Mientras IGNORECASE(titulo) sea diferente de true o false
+		Enviar "¿Tienes el título de bachiller? (true/false)"
+		Introduce titulo
+	Mientras_fin
+
+
+	Si titulo = true
+		Esperar 1
+		Enviar "Felicidades!"
+		Esperar 1
+		Enviar "Has sido admitido en el ciclo :D"
+	y Si titulo = false
+		Mientras  prueba_acceso >= 0 y prueba_acceso <= 10
+			Enviar "Introduce la nota de tu prueba de acceso"
+			Introduce prueba_acceso
+		Mientras_fin
+
+		Si prueba_acceso >= nota_min
+			Esperar 1
+			Enviar "Felicidades!"
+			Esperar 1
+			Enviar "Has sido admitido en el ciclo :D"
+	Si no
+		Enviar "Lo siento mucho, pero necesitas como poco un título de bachiller o una nota mínima en la prueba de acceso mayor o igual a" + nota_min
+
+
+//12
+
+
+	
