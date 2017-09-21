@@ -293,10 +293,28 @@
 
 //15
 	String unformated
+	Array formated
+	Integer result
 
-
-	Enviar "Introduce una secuencia de números delimitados por comas (1,2,9,8,15)" + "/n[Los números negativos no se tendrán en cuenta]"
+	Enviar "Introduce una secuencia de números delimitados por comas (1,2,9,8,15)"
+	Enviar "[Los números negativos no se tendrán en cuenta]"
 	Introduce unformated
 
 
+	Para Integer naturals_unformated: unformated.Delimitado_por(",")
+		Si naturals % 2 es igual a 0 y naturals es diferente de -1
+			Añadir naturals a formated
+		Si no
+			Enviar "Se ha excluido" + naturals
+	Para_fin
+
+	Para  Integer naturals_formated: los numeros almacenados en formated
+			Enviar naturals + "añadido a la suma"
+			result + naturals
+	Para_fin
+
+	Enviar "\nLa suma da" + result
+
+
+//16
 	
