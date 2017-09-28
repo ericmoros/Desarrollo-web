@@ -294,7 +294,9 @@
 //15
 	String unformated
 	Array formated
-	Integer result
+	Integer result = 0
+	Integer counter = 0
+	Integer naturals_average
 
 	Enviar "Introduce una secuencia de números delimitados por comas (1,2,9,8,15)"
 	Enviar "[Los números negativos no se tendrán en cuenta]"
@@ -304,17 +306,229 @@
 	Para Integer naturals_unformated: unformated.Delimitado_por(",")
 		Si naturals % 2 es igual a 0 y naturals es diferente de -1
 			Añadir naturals a formated
+			counter + 1
 		Si no
 			Enviar "Se ha excluido" + naturals
 	Para_fin
 
-	Para  Integer naturals_formated: los numeros almacenados en formated
-			Enviar naturals + "añadido a la suma"
-			result + naturals
+	Para  Integer naturals_formated: los números almacenados en formated
+			Enviar naturals_formated + "añadido a la media"
+			naturals_average = (naturals_formated / counter)
+			result = (result + naturals_average)
 	Para_fin
 
-	Enviar "\nLa suma da" + result
+	Enviar "\nLa media da" + result
 
 
 //16
-	
+	String password = "eureka"
+	Boolean password_status = false
+	Integer strikes = 0
+	Integer strikes_limit = 3
+	String input_text
+	String output_text
+
+
+	Enviar "Introduce la contraseña"
+	Introduce input_text
+
+
+	Mientras (strikes <= strikes_limit) o (password_status == true), strikes ++
+		Si password == "eureka"
+			password_status = true
+		Si no 
+			Enviar "[AVISO] Intento fallido" + "\n Restan: " + (strikes_limit - strikes)
+	Mientras_fin
+
+
+	Si password_status == true
+		output_text + "\n[CORRECTO] Fin del programa..."
+	Si no
+		output_text + EXTERNAL.Color(red, "[FALLO]") + " Fin del programa..."
+
+
+	Enviar output_text
+
+
+//17
+	Integer number
+	Integer max = 0
+	Integer min = 0
+	Integer percentage
+	Integer average = 0
+	Integer counter = 0
+
+
+	Mientras number != 0, counter++
+		Enviar "\nIntroduce un número"
+		Introduce number
+
+
+		percentage = (number / counter)
+		average = (average + percentage)
+
+
+		Si number >= max
+			max = number
+		y Si number <= min y además counter != 1
+			min = number
+		Si no
+			min = number
+
+
+		Enviar "\nEl número más pequeño es: " + min
+		Enviar "\nEl número más grande es: " + max
+		Enviar "\nLa media es: " + average
+
+
+		Enviar "[INFO] Para salir Introduce 0"
+	Mientras_fin
+
+
+//18
+	Integer number
+	Integer result_2 = 0
+	Integer result_3 = 0
+
+
+	Para  Integer numbers: los numeros del 1 al 100
+		Si numbers % 2 == 0
+			result_2 + numbers
+
+
+		Si numbers % 3 == 0
+			result_3 + numbers
+	Para_fin
+
+
+	Enviar "Estos números del 1 al 100 son multiplos de 2 " + result_2
+	Enviar "Estos números del 1 al 100 son multiplos de 3 " + result_3
+
+
+//19
+	Integer day
+	Integer month
+	Integer year
+
+	Integer day_limit
+
+	String day_formated
+	String month_formated
+	String year_formated
+
+	Boolean output_status = false
+	String output_text
+
+	Mientras output_status != true
+		Enviar "Introduce el número de día"
+		Introduce day
+
+		Enviar "Introduce el número del mes"
+		Introduce month
+
+		Enviar "Introduce el número del año"
+		Introduce year
+
+
+		Si year < 0
+			year_formated = (year + "ac");
+
+
+		Si month == 1
+			month_formated = "Enero"
+			day_limit = 31
+		y Si month == 2
+			month_formated = "Febrero"
+			day_limit = 30
+		y Si month == 3
+			month_formated = "Marzo"
+			day_limit = 31
+		y Si month == 4
+			month_formated = "Abril"
+			day_limit = 30
+		y Si month == 5
+			month_formated = "Mayo"
+			day_limit = 31
+		y Si month == 6
+			month_formated = "Junio"
+			day_limit = 30
+		y Si month == 7
+			month_formated = "Julio"
+			day_limit = 31
+		y Si month == 8
+			month_formated = "Agosto"
+			day_limit = 31
+		y Si month == 9
+			month_formated = "Septiembre"
+			day_limit = 30
+		y Si month == 10
+			month_formated = "Octubre"
+			day_limit = 31
+		y Si month == 11
+			month_formated = "Nomviembre"
+			day_limit = 30
+		Si no
+			month_formated = "Diciembre"
+			day_limit = 31
+
+
+		Si day == day_limit
+			day_formated = day
+			output_text + day_formated
+		y Si month >= 1 y <= 12
+			output_status = true
+			output_text + (" de " + month_formated)
+		Si no 
+			output_status = false
+
+
+		Si output_status == true
+			Enviar day_formated + month_formated + " de " + year_formated
+		si no
+			Enviar "[ERROR]"
+	Mientras_fin
+
+
+//20 -- PENDIENTE
+	Boolean output_status = false
+
+	Float max_result = 10
+
+	Float teorical_per = 4 / max_result
+	Float problems_per = 5 / max_result
+	Float practical_per = 1 / max_result
+
+	Float teorical
+	Float problems
+	Float practical
+
+	Float result
+
+	String output_text
+	String student
+
+
+	Mientras output_status != true
+		Enviar "Introduce tu nombre"
+		Introduce student
+
+		Enviar "Introduce la nota de tu examen teórico"
+		Introduce teorical
+
+		Enviar "Introduce la nota de tu examen de problemas"
+		Introduce problems
+
+		Enviar "Introduce la nota de tu examen práctico"
+		Introduce practical
+
+
+		Si teorical >= 0 y problems >= 0 y practical >= 0 y además teorical <= max_result y problems <= max_result y practical <= max_result
+			result = (teorical_per / teorical * 100) + (problems_per / problems * 100) + (practical_per / practical * 100)
+			output_text = "Tienes una nota media de " + result
+			output_status = true
+		si no
+			output_text = "[ERROR]"
+
+
+		Enviar output_text
+	Mientras_fin
