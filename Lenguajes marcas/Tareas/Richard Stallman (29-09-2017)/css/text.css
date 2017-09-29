@@ -1,0 +1,46 @@
+/*           ________________________________________________________
+              /¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\  
+                                      TEXT
+              \____________________________________________________/  
+              ¯¯¯¯|¯¯¯¯|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\                               */
+
+@font-face {
+    font-family: tangerine;
+    src: url(fonts/tangerine/Tangerine-Regular.ttf);
+}
+
+@font-face {
+    font-family: dancing;
+    src: url(fonts/tangerine/DancingScript-Regular.ttf);
+}
+
+@font-face {
+    font-family: zilla;
+    src: url(fonts/tangerine/ZillaSlabHighlight-Regular.ttf);
+}
+
+
+
+h1.tangerine {
+ 	font-family: 'tangerine', cursive;
+}
+
+h1.zilla {
+ 	font-family: 'zilla', cursive;
+}
+
+/*h1.zilla > p {*/
+* {
+	font-family: 'dancing', cursive;
+	text-align: justify;
+}
+
+
+
+.center {
+	text-align: center;
+}
+/*
+
+\___________________________________                               */
