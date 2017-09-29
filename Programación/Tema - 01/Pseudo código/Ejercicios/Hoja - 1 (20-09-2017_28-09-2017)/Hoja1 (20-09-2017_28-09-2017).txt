@@ -1,4 +1,22 @@
 //1
+	Integer num1, num2, cache
+
+
+	Enviar "Introduce el primer número"
+	Introduce num1
+
+	Enviar "Introduce el segundo número"
+	Introduce num2
+
+
+	num1 = cache
+	num1 = num2
+	num2 = cache
+
+	Enviar "El primer número ahora es " + num1
+	Enviar "El segundo número ahora es " + num2
+
+
 
 //2
 
