@@ -5,14 +5,31 @@
               ¯¯¯¯|¯¯¯¯|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\                               */
 div.center {
-	width: 600px;
+    width: 60%;
     display: block;
 	margin-left: auto;
-	margin-right: auto;;
+	margin-right: auto;
 }
-/*div.section {
-	margin-top: 500px;
-}*/
+div.section {
+    margin-top: 400px;
+    margin-bottom: 100px;
+}
+
+div.section-page {
+    margin-top: 400px;
+    margin-bottom: 100px;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 5%
+}
+
+div.section-page-arrow {
+    margin-top: 200px;
+    margin-bottom: 100px;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 5%
+}
 /*
 
 \___________________________________                               */
