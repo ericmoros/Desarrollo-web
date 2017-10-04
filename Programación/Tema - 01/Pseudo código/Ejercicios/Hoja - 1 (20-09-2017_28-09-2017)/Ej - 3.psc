@@ -12,10 +12,14 @@ Proceso H1_Ej3
 	Si num1 == num2 Entonces
 		Escribir "Los números son iguales";
 	Sino
-		
-		Escribir "Los números son iguales";
+		Si num1 > num2 Entonces
+			Escribir "El primer número es mayor que el segundo";
+		Sino
+			Si num1 < num2 Entonces
+				Escribir "El primer número es menor que el segundo";
+			SiNo
+				Escribir "No se a tenido en cuenta";
+			FinSi
+		FinSi
 	FinSi
-	
-	result <- num1 + num2;
-	Escribir "La suma de ", num1, " y ", num2, " es: ", result;
 FinProceso
