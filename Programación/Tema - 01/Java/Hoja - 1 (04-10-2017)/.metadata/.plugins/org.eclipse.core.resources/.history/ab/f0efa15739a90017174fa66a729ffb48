@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class H1_Ej1 {
+	private static Scanner keyboard = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		Integer num1, num2, cache;
+		
+		
+			System.out.println("Introduce el primer número");
+			num1 = keyboard.nextInt();
+		
+			System.out.println("Introduce el segundo número");
+			num2 = keyboard.nextInt();
+		
+			
+				cache = num1;
+				num1 = num2;
+				num1 = cache;
+				
+			
+					System.out.println("El primer número ahora es: " + num1);
+					System.out.println("El segundo número ahora es: " + num2);
+			
+		
+		
+	}
+}
