@@ -16,7 +16,7 @@ public class H1_Ej1 {
 			
 				cache = num1;
 				num1 = num2;
-				num1 = cache;
+				num2 = cache;
 				
 			
 					System.out.println("El primer número ahora es: " + num1);
