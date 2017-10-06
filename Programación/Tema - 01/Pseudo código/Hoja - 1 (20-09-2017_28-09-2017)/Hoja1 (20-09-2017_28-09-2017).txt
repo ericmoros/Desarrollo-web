@@ -112,31 +112,28 @@
 //6
 	Integer num1
 	Double result
-	String excepcion, texto
+	String output_text
 
 	Enviar "Introduce un número"
 	Introduce num1
 
 
 	Si num1 es igual o menor a 0
-		excepcion = "El número no puede ser igual o menor a 0"
-			Enviar excepcion
-		Salir
+		output_text = "El número no puede ser igual o menor a 0"
 	y si num1 es mayor a 0
 		result = num1 ^ 2
-			texto = "Del número " + num1 + "su potencia es " + result
+			output_text = "\nLa potencia de " + num1 + " es: " + result
 
 		result = RAID(num1)
-			texto + ("y su raid " + result)
-
-		Enviar texto
+			output_text + ("\n y su raid cuadrada " + result)
 	Si no
-		Enviar "No se a tenido en cuenta"
-
-
+		output_text = "No se a tenido en cuenta"
+		
+	
+	Enviar output_text
 //7
 	Integer alumnos, niños, niñas, result
-	String texto
+	String output_text
 
 	Enviar "Introduce la cantidad de alumnos"
 	Introduce alumnos
@@ -148,16 +145,16 @@
 	Introduce niñas
 
 
-		texto = "De los " + alumnos
+		output_text = "De los " + alumnos
 
 		result = redondear(niños / alumnos * 100)
-			texto + (", " + result + "son niños")
+			output_text + (", " + result + " son niños")
 
 		result = redondear(niñas / alumnos * 100)
-			texto + ("y " + result + "son niñas")
+			output_text + ("y " + result + " son niñas")
 
 
-				Enviar texto
+				Enviar output_text
 
 
 //8

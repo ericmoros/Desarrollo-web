@@ -4,17 +4,17 @@ public class H1_Ej4 {
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
-		int num1, num2, num3;
+		double num1, num2, num3;
 		
 		
 			System.out.println("Introduce un número");
-			num1 = keyboard.nextInt();
+			num1 = keyboard.nextDouble();
 			
 			System.out.println("Introduce un número");
-			num2 = keyboard.nextInt();
+			num2 = keyboard.nextDouble();
 			
 			System.out.println("Introduce un número");
-			num3 = keyboard.nextInt();
+			num3 = keyboard.nextDouble();
 		
 			
 				if (num1 > num2 && num1 > num3){

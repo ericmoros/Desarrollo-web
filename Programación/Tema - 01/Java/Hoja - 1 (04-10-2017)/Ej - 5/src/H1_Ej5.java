@@ -4,17 +4,17 @@ public class H1_Ej5 {
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
-		int num1, num2, num3, result;
+		double num1, num2, num3, result;
 		
 		
 			System.out.println("Introduce un número");
-			num1 = keyboard.nextInt();
+			num1 = keyboard.nextDouble();
 			
 			System.out.println("Introduce un número");
-			num2 = keyboard.nextInt();
+			num2 = keyboard.nextDouble();
 			
 			System.out.println("Introduce un número");
-			num3 = keyboard.nextInt();
+			num3 = keyboard.nextDouble();
 		
 			
 				if (num1 < 0){

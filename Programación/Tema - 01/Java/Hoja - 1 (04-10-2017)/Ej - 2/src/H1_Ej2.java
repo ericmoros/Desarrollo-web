@@ -4,14 +4,14 @@ public class H1_Ej2 {
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
-		int num1, num2, result;
+		double num1, num2, result;
 		
 		
 			System.out.println("Introduce un número");
-			num1 = keyboard.nextInt();
+			num1 = keyboard.nextDouble();
 			
 			System.out.println("Introduce un número");
-			num2 = keyboard.nextInt();
+			num2 = keyboard.nextDouble();
 		
 			
 				result = num1  + num2;
