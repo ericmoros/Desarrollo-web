@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
-public class H1_Ej5 {
+public class H1_Ej6 {
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
+		Scanner keyboard = new Scanner(System.in);
 		int num1;
 		double result;
 		//str execpcion, texto; INCOMPLETO!!!!!!!

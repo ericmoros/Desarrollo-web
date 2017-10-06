@@ -1,7 +1,0 @@
-INDEX VERSION 1.130+Z:\Desarrollo-web\Programación\Tema - 01\Java\Hoja - 1 (04-10-2017)\.metadata\.plugins\org.eclipse.jdt.core
-2795385474.index
-1066885944.index
-3516465684.index
-1342019511.index
-2717120155.index
-955950881.index

@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class H1_Ej1 {
 	public static void main(String[] args) {
+		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
 		int num1, num2, cache;
 		
