@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
@@ -5,9 +6,11 @@ public class H1_Ej8 {
 	public static void main(String[] args) throws InterruptedException {
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
-		Float amount;
-		Float discount = (float) 15;
+		BigDecimal amount_converted;
+		float amount;
+		float discount = (float) 25;
 		String month;
+		String output_text;
 		
 			
 			System.out.println("Introduce el importe");
@@ -18,22 +21,21 @@ public class H1_Ej8 {
 			
 			
 				if (month.equalsIgnoreCase("Octubre") && amount > 0) {
-					amount -= (discount / amount) * 100;
+					amount -= discount * amount / 100;
 					
-					
-					System.out.println("Como estamos a " + month);
+					System.out.println("\nComo estamos a " + month);
 					
 					TimeUnit.SECONDS.sleep(2);
-					
-					System.out.println("Le aplicaremos un descuento del " + discount + "%");
-
-					TimeUnit.SECONDS.sleep(2);
-					
-					System.out.println("Nuevo importe: " + amount);
-					
+					System.out.println(" Le aplicaremos un descuento del " + discount + "%");
 				} else {
-					System.out.println("No se puede aplicar el descuento");
+					System.out.println("\nNo le puedo aplicar el descuento");
 				}
+				
+					amount_converted = new BigDecimal(amount).setScale(2, BigDecimal.ROUND_HALF_UP);
+						TimeUnit.SECONDS.sleep(2);
+						output_text = "Importe final: " + amount_converted + "€";
+						
+							System.out.print("\n\n" + output_text);
 	}
 }
 
