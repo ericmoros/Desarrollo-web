@@ -1,0 +1,2526 @@
+DBLUN10
+*SYSTEM
+object_id double
+flag int
+name char[100]
+short_name char[12]
+creation_date char[10]
+semantics_desc desc
+technical_desc desc
+sys_mo rel
+sys_sch rel
+link rel
+user_viewable rel
+viewable_note rel
+go_uo rel
+go_st rel
+act_arg rel
+go_nn_note rel
+*META_OBJECT
+object_id double
+flag int
+name char[100]
+type short
+semantics_desc desc
+mo_mp rel
+concept_mo rel
+*META_PROPERTY
+object_id double
+flag int
+name char[100]
+type short
+funct int
+semantics_desc desc
+*SCHEMA
+object_id double
+flag int
+name char[100]
+short_name char[12]
+version char[16]
+creation_date char[10]
+last_update char[10]
+lock char
+type char
+semantics_desc desc
+technical_desc desc
+trace_on int
+from rel
+to rel
+is_in rel
+sch_do rel
+sch_col rel
+sch_inst rel
+owner_pu rel
+user_viewable rel
+viewable_note rel
+go_uo rel
+go_st rel
+act_arg rel
+go_nn_note rel
+*ENTITY_TYPE
+object_id double
+flag int
+name char[100]
+short_name char[12]
+semantics_desc desc
+technical_desc desc
+owner_att rel
+owner_group rel
+col_do2 rel
+owner_pu rel
+et_role1 rel
+decomp rel
+general rel
+domain rel
+go_uo rel
+go_st rel
+act_arg rel
+go_nn_note rel
+*REL_TYPE
+object_id double
+flag int
+name char[100]
+short_name char[12]
+semantics_desc desc
+technical_desc desc
+owner_att rel
+owner_group rel
+col_do2 rel
+owner_pu rel
+rt_type rel
+go_uo rel
+go_st rel
+act_arg rel
+go_nn_note rel
+*CO_ATTRIBUTE
+object_id double
+flag int
+name char[100]
+short_name char[12]
+semantics_desc desc
+technical_desc desc
+min_rep unsigned int
+max_rep unsigned int
+set_type char
+owner_att rel
+owner_group rel
+col_do2 rel
+domain rel
+at_ro_gr rel
+go_uo rel
+go_st rel
+act_arg rel
+go_nn_note rel
+*SI_ATTRIBUTE
+object_id double
+flag int
+name char[100]
+short_name char[12]
+semantics_desc desc
+technical_desc desc
+min_rep unsigned int
+max_rep unsigned int
+set_type char
+stable char
+recyclable char
+type char
+length unsigned int
+decim short
+owner_group rel
+col_do2 rel
+domain rel
+at_ro_gr
+go_uo rel
+go_st rel
+act_arg rel
+go_nn_note rel
+*ROLE
+object_id double
+flag int
+name char[100]
+min_con unsigned int
+max_con unsigned int
+aggregation char
+semantics_desc desc
+technical_desc desc
+at_ro_gr
+et_role2 rel
+go_uo rel
+go_st rel
+act_arg rel
+go_nn_note rel
+*ET_ROLE
+object_id double
+flag int
+*GROUP
+object_id double
+flag int
+name char[100]
+type char
+funct int
+min_rep unsigned int
+max_rep unsigned int
+semantics_desc desc
+technical_desc desc
+at_ro_gr
+gr_comp rel
+member_gr rel
+go_uo rel
+go_st rel
+act_arg rel
+go_nn_note rel
+*COMPONENT
+object_id double
+flag int
+*MEMBER_CST
+object_id double
+flag int
+mem_role char
+*CONSTRAINT
+object_id double
+flag int
+type char
+mbr_cst rel
+go_uo rel
+*COLLECTION
+object_id double
+flag int
+name char[100]
+short_name char[12]
+semantics_desc desc
+technical_desc desc
+col_do1 rel
+go_uo rel
+go_st rel
+act_arg rel
+go_nn_note rel
+*COL_DO
+object_id double
+flag int
+*CLUSTER
+object_id double
+flag int
+cluster_id char[100]
+type int
+criterion char[30]
+special rel
+go_uo rel
+go_st rel
+act_arg rel
+go_nn_note rel
+*SUB_TYPE
+object_id double
+flag int
+value char[30]
+go_uo rel
+*USER_VIEW
+object_id double
+flag int
+name char[100]
+type int
+zoom int
+reduce int
+xgrid int
+ygrid int
+font_size int
+font_name char[30]
+text_font_size int
+text_font_name char[30]
+markplan int
+uv_uo rel
+*USER_OBJECT
+object_id double
+flag int
+posx int
+posy int
+color int
+*CONNECTION
+object_id double
+flag int
+type char[10]
+seq_nbr int
+*TEXT
+object_id double
+flag int
+name char[100]
+version char[16]
+path char[260]
+creation_date char[10]
+last_update char[10]
+type_of_file char[10]
+num_line int
+lock char
+sem_desc desc
+tech_desc desc
+from rel
+to rel
+is_in rel
+text_inst rel
+line rel
+user_viewable rel
+viewable_note rel
+go_uo rel
+go_st rel
+act_arg rel
+go_nn_note rel
+*LINE
+object_id double
+flag int
+num int
+description desc
+go_uo rel
+*PROD_SET
+object_id double
+flag int
+name char[100]
+version char[16]
+creation_date char[10]
+last_update char[10]
+lock char
+sem_desc desc
+tech_desc desc
+from rel
+to rel
+is_in rel
+contains rel
+set_inst rel
+go_uo rel
+*PROD_SET_ELEM
+object_id double
+flag int
+*PROC_UNIT
+object_id double
+flag int
+name char[100]
+short_name char[12]
+semantics_desc desc
+technical_desc desc
+type char
+mode char
+owner_group rel
+col_do2 rel
+p_decl rel
+p_fct_call rel
+invokes_pu rel
+pu_made_of rel
+cons_pu rel
+go_st rel
+act_arg rel
+go_nn_note rel
+go_uo rel
+*ENVIRONMENT
+object_id double
+flag int
+name char[100]
+type char
+mode char
+semantics_desc desc
+technical_desc desc
+go_nn_note rel
+go_uo rel
+*STATE
+object_id double
+flag int
+name char[100]
+short_name char[12]
+semantics_desc desc
+technical_desc desc
+owner_group rel
+col_do2 rel
+st_env rel
+go_nn_note rel
+go_uo rel
+*ELEMENT
+object_id double
+flag int
+type char
+description desc
+p_made_of rel
+p_part_of rel
+go_nn_note rel
+go_uo rel
+*REL_ELEMENT
+object_id double
+flag int
+name char[100]
+type char
+mode char
+semantics_desc desc
+technical_desc desc
+go_nn_note rel
+go_uo rel
+*P_EXPRESSION
+object_id double
+flag int
+oper int
+constant char[255]
+description desc
+sub_expression rel
+go_uo rel
+*CONSUMPTION
+object_id double
+flag int
+name char[100]
+short_name char[12]
+semantics_desc desc
+technical_desc desc
+owner_group rel
+col_do2 rel
+cons_res rel
+cons_role rel
+cons_pu rel
+go_st rel
+act_arg rel
+go_nn_note rel
+go_uo rel
+*CONS_PU
+object_id double
+flag int
+name char[100]
+min_card int
+max_card int
+semantics_desc desc
+technical_desc desc
+go_nn_note rel
+go_uo rel
+*CONS_RES
+object_id double
+flag int
+name char[100]
+min_card int
+max_card int
+semantics_desc desc
+technical_desc desc
+go_nn_note rel
+go_uo rel
+*CONS_ROLE
+object_id double
+flag int
+name char[100]
+min_card int
+max_card int
+semantics_desc desc
+technical_desc desc
+go_nn_note rel
+go_uo rel
+*RESOURCE
+object_id double
+flag int
+name char[100]
+short_name char[12]
+semantics_desc desc
+technical_desc desc
+type char
+owner_group rel
+col_do2 rel
+cons_res rel
+cp_res rel
+re_gen rel
+re_spec rel
+go_st rel
+act_arg rel
+go_nn_note rel
+go_uo rel
+*RES_ROLE
+object_id double
+flag int
+name char[100]
+short_name char[12]
+semantics_desc desc
+technical_desc desc
+owner_group rel
+col_do2 rel
+cons_role rel
+cp_rol rel
+ro_gen rel
+ro_spec rel
+go_st rel
+act_arg rel
+go_nn_note rel
+go_uo rel
+*RE_ISA
+object_id double
+flag int
+name char[100]
+semantics_desc desc
+technical_desc desc
+go_nn_note rel
+go_uo rel
+*RO_ISA
+object_id double
+flag int
+name char[100]
+semantics_desc desc
+technical_desc desc
+go_nn_note rel
+go_uo rel
+*CAN_PLAY
+object_id double
+flag int
+go_nn_note rel
+go_uo rel
+*DYNAMIC_PROPERTY
+mp_id double
+object_id double
+value text
+*METHODOLOGY
+object_id double
+title char[100]
+version char[16]
+date char[10]
+author char[100]
+help_file char[255]
+semantics_desc desc
+user_viewable rel
+viewable_note rel
+*STATEMENT
+object_id double
+type int
+state char
+glbtrsf trsfscr
+sub_stmt rel
+strategy rel
+condition rel
+stmt_param rel
+pp_inst rel
+ep_inst rel
+cs_inst rel
+*EXPRESSION
+object_id double
+type int
+not char
+weak char
+sub_expression rel
+cond_dec rel
+expr_param rel
+*PARAMETER
+object_id double
+integer int
+string char[255]
+analysis_expr anallist
+type char
+mode char
+usage char
+*PROCESS_TYPE
+object_id double
+name char[100]
+title char[100]
+explain char[100]
+semantics_desc desc
+perform rel
+form_arg rel
+invokes rel
+*TOOLBOX
+object_id double
+name char[100]
+title char[100]
+functions list_int
+semantics_desc desc
+uses rel
+*TEXT_TYPE
+object_id double
+name char[100]
+title char[100]
+weak char
+min_mul int
+max_mul int
+usage char
+semantics_desc desc
+act_arg rel
+ttext_inst rel
+*SCHEMA_TYPE
+object_id double
+name char[100]
+title char[100]
+weak char
+min_mul int
+max_mul int
+usage char
+semantics_desc desc
+act_arg rel
+tschema_inst rel
+*PROD_SET_TYPE
+object_id double
+name char[100]
+title char[100]
+min_mul int
+max_mul int
+usage char
+semantics_desc desc
+actarg rel
+tset_inst rel
+*TEXT_MODEL
+object_id double
+name char[100]
+title char[100]
+semantics_desc desc
+default_ext list_char[3]
+grammar char[255]
+model_expr rel
+specialization rel
+text_conform rel
+*SCHEMA_MODEL
+object_id double
+name char[100]
+title char[100]
+semantics_desc desc
+constraints anallist
+model_expr rel
+specialization rel
+schema_conform rel
+have_concept rel
+*MOD_CONCEPT
+object_id double
+contextual_name char[100]
+funct1 unsigned int
+funct2 unsigned int
+*ENGINEERING_PROCESS
+object_id double
+name char[100]
+start_date char[10]
+start_time char[10]
+end_date char[10]
+end_time char[10]
+in_progress char
+semantics_desc desc
+flag int
+io_proc rel
+made_of rel
+start rel
+user_viewable rel
+viewable_note rel
+go_uo rel
+go_nn_note rel
+*DECISION
+object_id double
+name char[100]
+start_date char[10]
+start_time char[10]
+end_date char[10]
+end_time char[10]
+in_progress char
+yes_no char
+semantics_desc desc
+flag int
+io_proc rel
+go_uo rel
+go_nn_note rel
+*PRIMITIVE_PROCESS
+object_id double
+name char[100]
+start_date char[10]
+start_time char[10]
+end_date char[10]
+end_time char[10]
+in_progress char
+semantics_desc desc
+flag int
+io_proc rel
+go_uo rel
+go_nn_note rel
+*CONTROL_STRUCTURE
+object_id double
+name char[100]
+start_date char[10]
+start_time char[10]
+end_date char[10]
+end_time char[10]
+in_progress char
+golist list_int
+semantics_desc desc
+io_proc rel
+*SCHEMA_INSTANCE
+object_id double
+usage char
+checkpoint char[100]
+flag int
+go_nn_note rel
+*TEXT_INSTANCE
+object_id double
+usage char
+checkpoint char[100]
+flag int
+go_nn_note rel
+*PROD_SET_INSTANCE
+object_id double
+usage char
+checkpoint char[100]
+flag int
+go_nn_note rel
+*NOTE
+object_id double
+flag int
+description desc
+note_nn_note rel
+go_uo rel
+*NN_NOTE
+object_id double
+flag int
+*LOG
+schema double
+length long
+text FILE
+*
+*0
+0
+0
+Carreteras del Gobierno de Aragón
+
+20171016
+
+
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+-
+71
+-
+63
+-
+1
+-
+-
+-
+-
+-
+-
+*1
+21
+0
+In-out
+43
+
+48
+47
+-
+-
+*1
+20
+0
+State
+61
+
+59
+60
+-
+-
+*1
+19
+0
+Actor generalization
+62
+
+52
+51
+-
+-
+*1
+18
+0
+Actor
+48
+
+50
+49
+-
+-
+*1
+17
+0
+Actor association role
+66
+
+58
+57
+-
+-
+*1
+16
+0
+Use case association role
+68
+
+56
+55
+-
+-
+*1
+15
+0
+Association
+47
+
+54
+53
+-
+-
+*1
+14
+0
+Processing unit relation
+45
+
+62
+61
+-
+-
+*1
+13
+0
+Processing unit
+40
+
+46
+45
+-
+-
+*1
+12
+0
+Collection
+4
+
+41
+42
+-
+-
+*1
+11
+0
+Role
+14
+
+32
+31
+-
+-
+*1
+10
+0
+Group
+16
+
+44
+43
+-
+-
+*1
+9
+0
+Compound attribute
+6
+
+40
+39
+-
+-
+*1
+8
+0
+Atomic attribute
+7
+
+38
+37
+36
+35
+34
+33
+-
+-
+*1
+7
+0
+Rel-type
+12
+
+30
+29
+-
+-
+*1
+6
+0
+Entity type
+11
+
+28
+27
+-
+-
+*1
+5
+0
+Product set
+41
+
+26
+-
+-
+*1
+4
+0
+Text
+31
+
+24
+25
+-
+-
+*1
+3
+0
+Schema
+2
+
+22
+23
+-
+-
+*1
+2
+0
+Project
+1
+
+-
+-
+*2
+62
+0
+MappingOID
+78
+10
+
+*2
+61
+0
+Stereotype
+86
+14
+
+*2
+60
+0
+MappingOID
+78
+10
+
+*2
+59
+0
+Stereotype
+86
+14
+#VALUES=
+ET
+RT
+Att
+Coll
+#
+*2
+58
+0
+MappingOID
+78
+10
+
+*2
+57
+0
+Stereotype
+86
+14
+
+*2
+56
+0
+MappingOID
+78
+10
+
+*2
+55
+0
+Stereotype
+86
+14
+
+*2
+54
+0
+MappingOID
+78
+10
+
+*2
+53
+0
+Stereotype
+86
+14
+
+*2
+52
+0
+MappingOID
+78
+10
+
+*2
+51
+0
+Stereotype
+86
+14
+
+*2
+50
+0
+MappingOID
+78
+10
+
+*2
+49
+0
+Stereotype
+86
+14
+
+*2
+48
+0
+MappingOID
+78
+10
+
+*2
+47
+0
+Stereotype
+86
+14
+
+*2
+46
+0
+MappingOID
+78
+10
+
+*2
+45
+0
+Stereotype
+86
+14
+
+*2
+44
+0
+MappingOID
+78
+10
+
+*2
+43
+0
+User-constraint
+86
+1
+
+*2
+42
+0
+MappingOID
+78
+10
+
+*2
+41
+0
+Stereotype
+86
+14
+#VALUES=
+Area
+DBD
+SQLSchema
+SubSchema
+TableSpace
+#
+*2
+40
+0
+MappingOID
+78
+10
+
+*2
+39
+0
+Stereotype
+86
+14
+
+*2
+38
+0
+Default value
+86
+2
+
+*2
+37
+0
+MappingOID
+78
+10
+
+*2
+36
+0
+physLen
+78
+2
+
+*2
+35
+0
+physType
+86
+2
+
+*2
+34
+0
+Stereotype
+86
+14
+
+*2
+33
+0
+Value constraint
+86
+10
+
+*2
+32
+0
+MappingOID
+78
+10
+
+*2
+31
+0
+Stereotype
+86
+14
+
+*2
+30
+0
+MappingOID
+78
+10
+
+*2
+29
+0
+Stereotype
+86
+14
+
+*2
+28
+0
+MappingOID
+78
+10
+
+*2
+27
+0
+Stereotype
+86
+14
+
+*2
+26
+0
+Stereotype
+86
+14
+
+*2
+25
+0
+Stereotype
+86
+14
+
+*2
+24
+0
+productType
+86
+6
+#VALUES=
+COBOL
+CODASYL
+IMS
+Relational
+SQL
+XML
+C/C++
+Java
+#
+*2
+23
+0
+Stereotype
+86
+14
+
+*2
+22
+0
+productType
+86
+6
+#VALUES=
+COBOL
+CODASYL
+IMS
+Relational
+SQL
+XML
+C/C++
+Java
+#
+*3
+71
+256
+Carreteras
+
+1
+20171016
+20171016
+F
+E
+
+
+0
+-
+-
+-
+79
+83
+81
+87
+199
+179
+148
+85
+99
+152
+181
+183
+187
+185
+144
+204
+222
+215
+217
+247
+189
+-
+-
+72
+74
+77
+-
+-
+73
+-
+-
+78
+-
+-
+-
+-
+*4
+222
+0
+Destino
+
+
+
+-
+-
+-
+-
+229
+-
+224
+-
+-
+-
+223
+-
+-
+-
+-
+*4
+199
+0
+Salida
+
+
+
+215
+217
+-
+-
+-
+-
+206
+202
+-
+-
+-
+-
+200
+-
+-
+-
+-
+*4
+179
+0
+Servicio
+
+
+
+181
+187
+-
+-
+-
+-
+256
+-
+-
+225
+-
+-
+180
+-
+-
+-
+-
+*4
+148
+0
+Población
+
+
+
+183
+185
+-
+-
+-
+-
+253
+-
+-
+227
+-
+-
+149
+-
+-
+-
+-
+*4
+87
+0
+Comarcales
+
+
+
+-
+-
+-
+-
+-
+-
+98
+-
+-
+88
+-
+-
+-
+-
+*4
+85
+0
+Nacionales
+
+
+
+-
+-
+-
+-
+-
+-
+97
+-
+-
+86
+-
+-
+-
+-
+*4
+83
+0
+Autovías
+
+
+
+-
+-
+-
+-
+-
+-
+96
+-
+-
+84
+-
+-
+-
+-
+*4
+81
+0
+Autopista
+
+
+
+-
+-
+-
+-
+265
+-
+-
+94
+-
+-
+82
+-
+-
+-
+-
+*4
+79
+0
+Carretera
+
+
+
+99
+144
+152
+-
+121
+-
+-
+-
+268
+220
+-
+93
+-
+-
+-
+80
+-
+-
+-
+-
+*5
+247
+0
+Con dirección a_
+
+
+
+-
+-
+-
+-
+252
+255
+-
+248
+-
+-
+-
+-
+*5
+204
+0
+Con dirección a
+
+
+
+-
+-
+-
+-
+205
+219
+228
+267
+-
+209
+-
+-
+-
+-
+*5
+189
+0
+Tiene
+
+
+
+-
+-
+-
+-
+201
+264
+-
+190
+-
+-
+-
+-
+*7
+217
+0
+Kilometro
+
+
+
+1
+1
+ 
+F
+T
+A
+1
+0
+-
+-
+-
+-
+218
+-
+-
+-
+-
+*7
+215
+0
+ID
+
+
+
+1
+1
+ 
+F
+T
+A
+1
+0
+-
+-
+-
+-
+216
+-
+-
+-
+-
+*7
+187
+0
+Nombre
+
+
+
+1
+1
+ 
+F
+T
+A
+1
+0
+-
+-
+-
+-
+188
+-
+-
+-
+-
+*7
+185
+0
+Nombre
+
+
+
+1
+1
+ 
+F
+T
+A
+1
+0
+-
+-
+-
+-
+186
+-
+-
+-
+-
+*7
+183
+0
+ID
+
+
+
+1
+1
+ 
+F
+T
+A
+1
+0
+-
+-
+-
+-
+184
+-
+-
+-
+-
+*7
+181
+0
+ID
+
+
+
+1
+1
+ 
+F
+T
+A
+1
+0
+-
+-
+-
+-
+182
+-
+-
+-
+-
+*6
+152
+0
+Kilometros
+
+
+
+1
+1
+ 
+-
+-
+-
+-
+-
+153
+-
+-
+-
+-
+*7
+144
+0
+Nombre
+
+
+
+1
+1
+ 
+F
+T
+A
+1
+0
+-
+-
+-
+-
+145
+-
+-
+-
+-
+*7
+99
+0
+ID
+
+
+
+1
+1
+ 
+F
+T
+A
+1
+0
+-
+-
+-
+122
+-
+100
+-
+-
+-
+-
+*8
+267
+0
+Carretera_1
+0
+N
+ 
+
+
+-
+268
+-
+269
+-
+-
+-
+-
+*8
+264
+0
+
+1
+1
+ 
+
+
+-
+265
+-
+266
+-
+-
+-
+-
+*8
+255
+0
+
+0
+N
+ 
+
+
+-
+256
+-
+257
+-
+-
+-
+-
+*8
+252
+0
+
+0
+N
+ 
+
+
+-
+253
+-
+254
+-
+-
+-
+-
+*8
+228
+0
+
+0
+N
+ 
+
+
+-
+229
+-
+230
+-
+-
+-
+-
+*8
+219
+0
+
+0
+N
+ 
+
+
+-
+220
+-
+221
+-
+-
+-
+-
+*8
+205
+0
+
+1
+N
+ 
+
+
+-
+206
+-
+210
+-
+-
+-
+-
+*8
+201
+0
+
+1
+N
+ 
+
+
+-
+202
+-
+203
+-
+-
+-
+-
+*9
+268
+0
+*9
+265
+0
+*9
+256
+0
+*9
+253
+0
+*9
+229
+0
+*9
+220
+0
+*9
+206
+0
+*9
+202
+0
+*10
+121
+0
+IDCarreteras
+A
+2
+0
+N
+
+
+-
+122
+-
+-
+123
+-
+-
+-
+-
+*11
+122
+0
+*16
+224
+0
+Destinos
+0
+
+227
+225
+-
+226
+-
+-
+-
+-
+*16
+93
+0
+Carreteras
+3
+
+98
+97
+96
+94
+-
+95
+-
+-
+-
+-
+*17
+227
+0
+
+-
+*17
+225
+0
+
+-
+*17
+98
+0
+
+-
+*17
+97
+0
+
+-
+*17
+96
+0
+
+-
+*17
+94
+0
+
+-
+*18
+73
+0
+
+23
+120
+100
+0
+0
+0
+
+0
+
+1
+78
+80
+82
+84
+86
+88
+95
+100
+123
+145
+149
+153
+180
+182
+184
+186
+188
+190
+200
+203
+209
+210
+216
+218
+221
+223
+226
+230
+248
+254
+257
+266
+269
+-
+*18
+69
+0
+
+23
+100
+100
+0
+0
+0
+
+0
+
+1
+70
+-
+*18
+64
+0
+
+0
+100
+100
+0
+0
+0
+
+0
+
+1
+-
+*18
+1
+0
+
+23
+100
+100
+0
+0
+0
+
+0
+
+1
+-
+*19
+269
+0
+113956
+55835
+0
+*19
+266
+0
+71675
+21582
+0
+*19
+257
+0
+77256
+171753
+0
+*19
+254
+0
+76169
+159065
+0
+*19
+248
+0
+59666
+165166
+0
+*19
+230
+0
+140227
+129099
+0
+*19
+226
+0
+116882
+165146
+0
+*19
+223
+0
+139752
+164914
+0
+*19
+221
+0
+113122
+81977
+0
+*19
+218
+0
+0
+0
+0
+*19
+216
+0
+0
+0
+0
+*19
+210
+0
+141085
+53914
+0
+*19
+209
+0
+140680
+81874
+0
+*19
+203
+0
+116941
+24083
+0
+*19
+200
+0
+141165
+24083
+0
+*19
+190
+0
+93209
+24085
+0
+*19
+188
+0
+0
+0
+0
+*19
+186
+0
+0
+0
+0
+*19
+184
+0
+0
+0
+0
+*19
+182
+0
+0
+0
+0
+*19
+180
+0
+92834
+177586
+0
+*19
+153
+0
+0
+0
+0
+*19
+149
+0
+92580
+152999
+0
+*19
+145
+0
+0
+0
+0
+*19
+123
+0
+0
+0
+0
+*19
+100
+0
+0
+0
+0
+*19
+95
+0
+74640
+48126
+0
+*19
+88
+0
+48715
+77317
+0
+*19
+86
+0
+49115
+58617
+0
+*19
+84
+0
+49582
+39234
+0
+*19
+82
+0
+48583
+18899
+0
+*19
+80
+0
+93265
+80467
+0
+*19
+78
+0
+32000
+4000
+0
+*19
+70
+0
+37600
+8600
+0
+*40
+32
+267
+267
+*40
+32
+264
+264
+*40
+32
+255
+255
+*40
+32
+252
+252
+*40
+32
+228
+228
+*40
+32
+219
+219
+*40
+32
+205
+205
+*40
+32
+201
+201
+*40
+44
+121
+121
+*40
+40
+152
+146
+*40
+37
+217
+217
+*40
+37
+215
+215
+*40
+37
+187
+187
+*40
+37
+185
+185
+*40
+37
+183
+183
+*40
+37
+181
+181
+*40
+37
+144
+144
+*40
+37
+99
+99
+*40
+30
+247
+247
+*40
+30
+204
+204
+*40
+30
+189
+189
+*40
+28
+222
+222
+*40
+28
+199
+199
+*40
+28
+179
+179
+*40
+28
+148
+148
+*40
+28
+87
+87
+*40
+28
+85
+85
+*40
+28
+83
+83
+*40
+28
+81
+81
+*40
+28
+79
+79
+*41
+63
+
+
+20171016
+
+
+
+64
+-
+-
+*42
+75
+18
+0
+-
+-
+-
+-
+-
+76
+-
+-
+-
+*42
+66
+13
+0
+-
+-
+67
+-
+-
+-
+-
+-
+-
+*45
+67
+No_method
+No method
+
+
+63
+-
+-
+-
+*46
+65
+Everything
+Do whatever you want
+14001
+-
+
+66
+-
+*53
+68
+Carreteras del Gobierno de Aragón
+20171016
+184310
+
+
+T
+
+0
+72
+74
+-
+76
+-
+63
+-
+69
+-
+-
+70
+-
+-
+*55
+76
+New schema
+20171016
+184710
+20171016
+184710
+F
+
+0
+77
+-
+-
+-
+*57
+77
+o
+
+0
+-
+*57
+74
+n
+
+0
+-
+*57
+72
+C
+
+0
+-
+*62
+71
+19
+*POT "begin-file"
+
