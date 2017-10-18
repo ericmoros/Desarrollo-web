@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class H1_Ej15 {
+public class H1_Ej16 {
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
