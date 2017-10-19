@@ -4,64 +4,79 @@ public class H1_Ej16 {
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
-		int nums_to_average = 0;
-		int inputs = 0;
-		int exit = -1;
-		int sum = 0;
-		int average;
+		boolean password_status = false;
+		int strikes = 0;
+		int strikes_limit = 3;
+		String password = "eureka";
+		String input_text;
+		String output_text = "";
 		
 			
-		
-			System.out.println(
-					"Introduce una secuencia de números delimitados por comas (1,2,9,8,15)"
-				  + "\n[-1] Para dejar de añadir números a la media"
-			);
-			
+			while (strikes < strikes_limit && password_status != true) {
+				System.out.println("Introduce la contraseña");
+				input_text = keyboard.next();
 				
-				while (inputs != exit) {
-					inputs = keyboard.nextInt();
-					
-					
-					if (inputs != -1) {
-						sum += inputs;
-						
-						
-						nums_to_average ++;
+				
+					if (input_text.equals(password)) {
+						password_status = true;
+					} else {
+						strikes ++;
+						System.out.println(
+								"[AVISO] Intento fallido"
+						    + "\n Restan: " + (strikes_limit - strikes)
+						);
 					}
+			}
+			
+			
+				if (password_status == true) {
+						output_text += "\n[CORRECTO] Fin del programa...";
+				} else {
+						output_text += "\n[FALLO] Fin del programa...";
 				}
 				
-					average = (sum / nums_to_average);
 			
-			
-						System.out.println("La media de números es: " + average);
+					System.out.println(output_text);
 	}
 }
 
 /*
-	String unformated
-	Array formated
-	Integer result = 0
-	Integer counter = 0
-	Integer naturals_average
-
-	Enviar "Introduce una secuencia de números delimitados por comas (1,2,9,8,15)"
-	Enviar "[Los números negativos no se tendrán en cuenta]"
-	Introduce unformated
-
-
-	Para Integer naturals_unformated: unformated.Delimitado_por(",")
-		Si naturals % 2 es igual a 0 y naturals es diferente de -1
-			Añadir naturals a formated
-			counter + 1
-		Si no
-			Enviar "Se ha excluido" + naturals
-	Para_fin
-
-	Para  Integer naturals_formated: los números almacenados en formated
-			Enviar naturals_formated + "añadido a la media"
-			naturals_average = (naturals_formated / counter)
-			result = (result + naturals_average)
-	Para_fin
-
-	Enviar "\nLa media da" + result
+Proceso H1_Ej16
+	Definir password_status Como Logico;
+	Definir strikes, strikes_limit Como Entero;
+	Definir password, input_text, output_text Como Cadena;
+	
+	
+		password_status <- Falso;
+		strikes <- 0;
+		strikes_limit <- 3;
+		password <- "eureka";
+		output_text <- "";
+		
+		
+			Mientras strikes < strikes_limit && password_status != Verdadero Hacer
+				Escribir "Introduce la contraseña";
+				Leer input_text;
+				
+				
+					Si input_text == password Entonces
+						password_status <- Verdadero;
+					SiNo
+						strikes = strikes + 1;
+						Escribir "[AVISO] Intento fallido";
+						Escribir " Restan: ", (strikes_limit - strikes);
+					Fin Si
+				Fin Mientras
+				
+				
+					Si password_status == Verdadero Entonces
+						output_text <- output_text + "[CORRECTO] Fin del programa...";
+					SiNo
+						output_text <- output_text + "[FALLO] Fin del programa...";
+					Fin Si
+				
+				
+						Escribir "";
+						Escribir output_text;
+FinProceso
 */

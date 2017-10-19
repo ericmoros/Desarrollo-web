@@ -14,7 +14,7 @@ public class H1_Ej15 {
 		
 			System.out.println(
 					"Introduce una secuencia de números delimitados por comas (1,2,9,8,15)"
-				  + "\n[-1] Para dejar de añadir números a la media"
+			   + "\n[-1] Para dejar de añadir números a la media"
 			);
 			
 				
@@ -22,46 +22,46 @@ public class H1_Ej15 {
 					inputs = keyboard.nextInt();
 					
 					
-					if (inputs != -1) {
-						sum += inputs;
-						
-						
-						nums_to_average ++;
-					}
+						if (inputs != exit) {
+							sum += inputs;
+							
+							
+							nums_to_average ++;
+						}
 				}
 				
 					average = (sum / nums_to_average);
-			
-			
 						System.out.println("La media de números es: " + average);
 	}
 }
 
 /*
-	String unformated
-	Array formated
-	Integer result = 0
-	Integer counter = 0
-	Integer naturals_average
-
-	Enviar "Introduce una secuencia de números delimitados por comas (1,2,9,8,15)"
-	Enviar "[Los números negativos no se tendrán en cuenta]"
-	Introduce unformated
-
-
-	Para Integer naturals_unformated: unformated.Delimitado_por(",")
-		Si naturals % 2 es igual a 0 y naturals es diferente de -1
-			Añadir naturals a formated
-			counter + 1
-		Si no
-			Enviar "Se ha excluido" + naturals
-	Para_fin
-
-	Para  Integer naturals_formated: los números almacenados en formated
-			Enviar naturals_formated + "añadido a la media"
-			naturals_average = (naturals_formated / counter)
-			result = (result + naturals_average)
-	Para_fin
-
-	Enviar "\nLa media da" + result
+Proceso H1_Ej15 //Hay veces que no va y no se porque... Si alquien encuetra el problema comentarme a ver
+	Definir nums_to_average, inputs, exit, sum, average Como Entero;
+	
+	
+		nums_to_average <- 0;
+		inputs <- 0;
+		exit <- -1;
+		sum <- 0;
+		
+		
+			Escribir "Introduce una secuencia de números delimitados por comas (1,2,9,8,15)";
+			Escribir "[-1] Para dejar de añadir números a la media";
+			
+			
+				Mientras (inputs != exit) Hacer
+					Leer inputs;
+					
+						Si (inputs != exit) Entonces
+							sum <- sum + inputs;
+							
+							
+							nums_to_average <- nums_to_average + 1;
+						Fin Si
+				Fin Mientras
+					
+					average <- (sum / nums_to_average);
+						Escribir "La media de números es: ", average;
+FinProceso
 */
