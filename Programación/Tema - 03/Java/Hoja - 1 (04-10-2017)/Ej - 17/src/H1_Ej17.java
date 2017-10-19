@@ -4,21 +4,43 @@ public class H1_Ej17 { //INCOMPLETOOOO!!!!!
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		Scanner keyboard = new Scanner(System.in);
-		boolean password_status = false;
-		int number;
+		int input_num = 0;
+		int counter = 1;
+		int sum = 0;
+		int exit = 0;
 		int max = 0;
 		int min = 0;
-		int percentage;
 		int average = 0;
-		int counter = 0;
+		
 		
 			
-			while (number != 0) {
+			while (input_num != exit || counter == 0) {
 				System.out.println("Introduce un número");
-				number = keyboard.nextInt();
+				input_num = keyboard.nextInt();
 				
 				
-					percentage = number * counter / 100;
+					sum += input_num;
+					average = (sum / counter);
+					
+					
+					if (input_num >= max) {
+						max = input_num;
+					} else if (input_num < min && counter == 1) {
+						min = input_num;
+					} else {
+						min = input_num;
+					}
+					
+					
+						System.out.println(
+								  "\nEl número más pequeño es: " + min
+								+ "\nEl número más grande es: " + max
+								+ "\nLa media es: " + average
+								+ "\n"
+								+ "\n[INFO] Para salir Introduce 0"
+						);
+						
+						counter++;
 			}
 	}
 }

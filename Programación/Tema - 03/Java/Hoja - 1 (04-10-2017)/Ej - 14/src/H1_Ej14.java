@@ -1,5 +1,3 @@
-package src;
-
 import java.util.Scanner;
 
 public class H1_Ej14 {
