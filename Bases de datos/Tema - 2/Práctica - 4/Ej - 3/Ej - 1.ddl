@@ -3,7 +3,7 @@
 -- *--------------------------------------------
 -- * DB-MAIN version: 10.0.3              
 -- * Generator date: Aug 17 2017              
--- * Generation date: Fri Oct 20 19:01:05 2017 
+-- * Generation date: Fri Oct 20 18:52:07 2017 
 -- * LUN file: Z:\Desarrollo-web\Bases de datos\Tema - 2\Práctica - 4\Ej - 1\Ej - 1.lun 
 -- * Schema: Tarjetas company/SQL1 
 -- ********************************************* 
