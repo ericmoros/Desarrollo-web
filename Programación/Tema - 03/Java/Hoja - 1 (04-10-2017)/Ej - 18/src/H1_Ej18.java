@@ -1,56 +1,66 @@
-public class H1_Ej18 { //INCOMPLETOOOO!!!!!
-	private static int result_2s[];
-	private static int result_3s[];
+import java.util.ArrayList;
 
-	public static void main(String[] args) {
+public class H1_Ej18 {
+
+	public static void main(String[] args) throws InterruptedException {
 		int num_from = 1;
 		int num_to 	 = 100;
-		int counter = 0;
-		result_2s = null;
-		result_3s = null;
-		
+		//int counter = 0;
+		ArrayList<Integer> result_2 = new ArrayList<>();
+		ArrayList<Integer> result_3 = new ArrayList<>();
+		// Quería usar esto en lugar de los objetos pero no me salió...
+		//int result_2[] = {};
+		//int result_3[] = {};
+	
 			
-			for (int num = num_from; num_from <= num_to; num++) {
+			for (int num = num_from; num <= num_to; num++) {
 				if (num % 2 == 0) {
-					result_2s[counter] = num;
+					result_2.add(num);
+					// result_2[counter] = num;
 				}
 	
 				if (num % 3 == 0) {
-					result_3s[counter] = num;
+					result_3.add(num);
+					// result_3[counter] = num;
 				}
-				
-				
-				counter++;
+				//
+				//
+				//counter++;
 			}
 			
 			
 				System.out.println(
-							"Del " + num_from + " al " + num_to + "son multiplos de:"
+							"Del " + num_from + " al " + num_to + " son multiplos de:"
 				   + "\n" + " [2]:"
-				   + "\n" + "    " + result_2s
+				   + "\n" + "    " + result_2
 				   + "\n" + " [3]:"
-				   + "\n" + "    " + result_3s
-						
+				   + "\n" + "    " + result_3
 				);
 	}
 }
 
-/* TEMPORAL!!!!!
-	Integer number
-	Integer result_2 = 0
-	Integer result_3 = 0
-
-
-	Para  Integer numbers: los numeros del 1 al 100
-		Si numbers % 2 == 0
-			result_2 + numbers
-
-
-		Si numbers % 3 == 0
-			result_3 + numbers
-	Para_fin
-
-
-	Enviar "Estos números del 1 al 100 son multiplos de 2 " + result_2
-	Enviar "Estos números del 1 al 100 son multiplos de 3 " + result_3
+/*
+Proceso H1_Ej18
+	Definir num_from, num_to Como Entero;
+	
+		num_from <- 1;
+		num_to <- 100;
+		
+		
+			Escribir "Del ", num_from, " al ", num_to, " son multiplos de:";
+		
+			Escribir " [2]:";
+			Para num <- num_from Hasta num_to Con Paso 1 Hacer
+				Si num % 2 == 0 Entonces
+					Escribir "    ", num;
+				Fin Si
+			Fin Para
+			
+			Escribir " [3]:";
+			Para num <- num_from Hasta num_to Con Paso 1 Hacer
+				Si num % 3 == 0 Entonces
+					Escribir "    ", num;
+				Fin Si
+			Fin Para
+FinProceso
 */
