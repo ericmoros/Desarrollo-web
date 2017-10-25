@@ -5,45 +5,49 @@ public class H4_Ej3 {
 		Scanner keyboard = new Scanner(System.in);
 		
 		String input_text;
+		String input_word;
+		
 		int input_length;
-		char input_char;
-		int input_word = 1;
-		String input_text_word;
+		char found_char;
+		
+		int actual_word = 1;
 		String word = "";
-		boolean word_status;
+		//boolean word_status = false;
+		
 		
 			System.out.println("Introduce una frase: ");
 			input_text = keyboard.nextLine();
 			
 			System.out.println("Buscar palabra: ");
-			input_text_word = keyboard.nextLine();
+			input_word = keyboard.nextLine();
 		
 			
 				input_length = input_text.length();
 		
 				
-				System.out.println("\nLista de palabras insertadas en la frase (delimitadas por espacios)");
+				//System.out.println("\nLista de palabras insertadas en la frase (delimitadas por espacios)");
+				System.out.println("\nBuscando la palabra " + input_word);
 				
-					System.out.print(" - Palabra 1: ");
-					word_status = false;
-					for (int position = 0; position < input_length && word_status == false; position++) {
-						input_char = input_text.charAt(position);
+					//System.out.print(" - Palabra 1: ");
+					//word_status = false;
+					
+					//for (int position = 0; position < input_length && word_status == false; position++) {
+					for (int position = 0; position < input_length; position++) {
+						found_char = input_text.charAt(position);
 						
-							if (input_char == ' ') {
-								input_word++;
-								//System.out.print("\n - Palabra " + input_word + ": ");
+							if (found_char == ' ') {
+								actual_word++;
+								
+								word = "";
 							} else {
-								System.out.print(input_char);
+								word += found_char;
 								
-								
-								word += input_char;
-								
-								if (word.equals(input_text_word)) {
-									System.out.print("\n" + word);
-									word_status = true;
+								if (word.equals(input_word)) {
+									System.out.print("\n - Palabra " + actual_word + ": " + word);
+									//word_status = true;
 								}
 							}
 					}
-					System.out.print("\nI'm fake: " + word);
+						//System.out.print("\nI'm fake: " + word);
 	}
 }
