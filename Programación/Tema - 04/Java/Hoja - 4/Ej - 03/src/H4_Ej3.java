@@ -51,3 +51,9 @@ public class H4_Ej3 {
 						//System.out.print("\nI'm fake: " + word);
 	}
 }
+
+
+/*
+Programa que lea una frase y una palabra y que nos diga la posición de dicha palabra en la
+frase o un mensaje indicando que no está.
+*/
