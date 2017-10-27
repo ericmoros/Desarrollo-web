@@ -1,0 +1,121 @@
+_____________________________________________________________
+
+       Dictionary report
+
+       Project             Ej - 1
+_____________________________________________________________
+
+
+
+                        schema Tarjetas company/SQL
+
+   Classic
+      ID_Tar
+      id: ID_Tar
+         ref: ->  Tarjetas.ID_Tar
+         access key
+   Clientes
+      ID_Cli
+      ID_Persona[0-1]
+      Empresas[0-1]
+      id: ID_Cli
+         access key
+      id': ID_Persona
+         equ: =  Personas.ID_Persona
+         access key
+      exactly one: ID_Persona, Empresas
+   Cuentas
+      ID_Cue
+      ID_Tar
+      Ordinaria[0-1]
+      Familiar[0-1]
+      Empresarial[0-1]
+      id: ID_Cue
+         access key
+      ref: ID_Tar -> Tarjetas.ID_Tar
+         access key
+      exactly one: Empresarial, Familiar, Ordinaria
+   Electron
+      ID_Tar
+      id: ID_Tar
+         ref: ->  Tarjetas.ID_Tar
+         access key
+   Empresarial
+      ID_Emp
+      ID_Cue
+      id: ID_Emp
+         access key
+      id': ID_Cue
+         ref: ->  Cuentas.ID_Cue
+         access key
+   Empresas
+      ID_Cli
+      id: ID_Cli
+         ref: ->  Clientes.ID_Cli
+         access key
+   Familiar
+      ID_Fam
+      ID_Cue
+      id: ID_Fam
+         access key
+      id': ID_Cue
+         ref: ->  Cuentas.ID_Cue
+         access key
+   Gestiona_E
+      ID_Emp
+      ID_Tar
+      id: ID_Tar, ID_Emp
+         access key
+      ref: ID_Tar -> Tarjetas.ID_Tar
+      ref: ID_Emp -> Empresarial.ID_Emp
+         access key
+   Gestiona_F
+      ID_Fam
+      ID_Tar
+      id: ID_Tar, ID_Fam
+         access key
+      ref: ID_Tar -> Tarjetas.ID_Tar
+      ref: ID_Fam -> Familiar.ID_Fam
+         access key
+   Ordinaria
+      ID_Ord
+      ID_Cue
+      id: ID_Ord
+         access key
+      id': ID_Cue
+         ref: ->  Cuentas.ID_Cue
+         access key
+   Oro
+      ID_Tar
+      id: ID_Tar
+         ref: ->  Tarjetas.ID_Tar
+         access key
+   Personas
+      ID_Persona
+      DNI
+      Nombre
+      Dir_Calle
+      Dir_Numero
+      Dir_Piso
+      id: ID_Persona
+         access key
+   Tarjetas
+      ID_Tar
+      Oro[0-1]
+      Electron[0-1]
+      Classic[0-1]
+      ID_Ord
+      id: ID_Tar
+         access key
+      ref: ID_Ord -> Ordinaria.ID_Ord
+         access key
+      exactly one: Electron, Oro, Classic
+   Tiene_2
+      ID_Cli
+      ID_Cue
+      id: ID_Cli, ID_Cue
+         access key
+      equ: ID_Cue = Cuentas.ID_Cue
+         access key
+      ref: ID_Cli -> Clientes.ID_Cli
+
