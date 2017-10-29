@@ -11,13 +11,6 @@ table {
     margin: auto;
 }
 
-/* table.nope {
-    width: 60%;
-}
-table.nope1 {
-    width: 30%;
-} */
-
 th, td {
     border: 1px solid #dddddd;
     text-align: left;
@@ -32,31 +25,9 @@ td.code {
     text-align: center;
 }
 
-/* td > a > img {
-    display: none;
-}
-
-td > div > table {
-    display: none;
-}
-
-td > div:hover > span {
-    display: none;
-}
-
-td > a:hover > img {
-    display: inline;
-}
-
-td > div:hover > table {
-    display: block;
-} */
-
-
 th.total, td.total, td.total > div {
     text-align: center;
 }
-
 
 tr:nth-child(even) {
     background-color: #dddddd;

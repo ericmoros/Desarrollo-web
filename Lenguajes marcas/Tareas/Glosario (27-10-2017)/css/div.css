@@ -6,32 +6,7 @@
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\                               */
 div.navigator {
     text-align: center;
-    margin-top: 5%;
-}
-
-div.center {
-    margin-left: 15%;
-    margin-right: 15%;
-}
-div.section {
-    margin-top: 20%;
-    margin-bottom: 100px;
-}
-
-div.section-page {
-    margin-top: 400px;
-    margin-bottom: 100px;
-    margin-left: 5%;
-    margin-right: 5%;
-    padding-top: 5%
-}
-
-div.section-page-arrow {
-    margin-top: 200px;
-    margin-bottom: 100px;
-    margin-left: 5%;
-    margin-right: 5%;
-    padding-top: 5%
+    margin-top: 10%;
 }
 /*
 
