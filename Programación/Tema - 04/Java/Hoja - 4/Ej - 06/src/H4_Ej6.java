@@ -7,7 +7,7 @@ public class H4_Ej6 {
 		
 		String inputText;
 		int inputLength;
-		final int inputLenghtMax = 3000;
+		final int inputLenghtMax = 80;
 		
 		int vocals = 0;
 		int consonants = 0;
