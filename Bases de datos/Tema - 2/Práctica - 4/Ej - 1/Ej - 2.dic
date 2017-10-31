@@ -1,0 +1,24 @@
+_____________________________________________________________
+
+       Dictionary report
+
+       Project             Ej - 1
+_____________________________________________________________
+
+
+
+                        schema Una guardería/1
+
+   Cliente
+      is-a Matricula
+      ID_Cliente
+      Nombre
+      Apellidos
+      DNI
+      Dirección
+      Teléfono
+   Cliente_tipo
+      is-a Cliente
+   Matricula
+      ID_Matricula
+
