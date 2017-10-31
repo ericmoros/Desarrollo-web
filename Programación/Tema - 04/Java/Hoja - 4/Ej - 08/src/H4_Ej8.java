@@ -11,6 +11,8 @@ public class H4_Ej8 {
 		
 		short inputNum;
 		
+		char inputChar;
+		
 		char foundChar;
 		String generatedText = "";
 		
@@ -25,61 +27,10 @@ public class H4_Ej8 {
 			for (int position = 0; position < inputLength; position++) {
 				foundChar = inputText.charAt(position);
 				
-				if (foundChar != ' ') {
-					int asciiChar = (int) foundChar;
-					
-					if (asciiChar >= 65 && asciiChar <= 90) {
-						generatedText += foundChar;
-					}
-				}
-			}
-			
-			if (generatedText.equals(inputText)) {
-				inputStatus = true;
-			} else {
-				generatedText = "";
-			}
-		} while (inputStatus == false);
-		
-		
-		do {
-			System.out.println("Introduce un número entre 1 y 10: ");
-			inputNum = keyboard.nextShort();
-		} while (inputNum < 1 || inputNum > 10);
-		
-		
-		generatedText = "";
-		for (int position = 0; position < inputLength; position++) {
-			foundChar = inputText.charAt(position);
-			
-			if (foundChar != ' ') {
-				generatedText += (char) (foundChar + inputNum);
-			}
-		}
-		
-		
-		System.out.println(generatedText);
-		
-		
-		//DECODIFICADO
-		inputStatus = false;
-		
-		do {
-			System.out.println("Introduce una frase en mayúsculas: ");
-			inputText = keyboard.nextLine();
-			
-			inputLength = inputText.length();
-			generatedText = "";
-			
-			for (int position = 0; position < inputLength; position++) {
-				foundChar = inputText.charAt(position);
+				int asciiChar = (int) foundChar;
 				
-				if (foundChar != ' ') {
-					int asciiChar = (int) foundChar;
-					
-					if (asciiChar >= 65 && asciiChar <= 90) {
-						generatedText += foundChar;
-					}
+				if (asciiChar >= 65 && asciiChar <= 90) {
+					generatedText += foundChar;
 				}
 			}
 			
@@ -97,12 +48,32 @@ public class H4_Ej8 {
 		} while (inputNum < 1 || inputNum > 10);
 		
 		
+		do {
+			System.out.println("¿Codificar(C) o decodificar (D)?");
+			inputChar = keyboard.next().charAt(0);
+		} while (inputChar != 'C' && inputChar != 'D');
+		
+		
+		
 		generatedText = "";
 		for (int position = 0; position < inputLength; position++) {
 			foundChar = inputText.charAt(position);
 			
-			if (foundChar != ' ') {
-				generatedText += (char) (foundChar - inputNum);
+			
+			if (inputChar == 'C') {
+				if (foundChar + inputNum > 90) {
+					short overCoded = (short) ((foundChar + inputNum) - 90);
+					generatedText += (char) (64 + overCoded);
+				} else {
+					generatedText += (char) (foundChar + inputNum);
+				}
+			} else if (inputChar == 'D') {
+				if (foundChar - inputNum < 65) {
+					short underCoded = (short) ((-foundChar -inputNum) + 65);
+					generatedText += (char) (91 + underCoded);
+				} else {
+					generatedText += (char) (foundChar - inputNum);
+				}
 			}
 		}
 		
