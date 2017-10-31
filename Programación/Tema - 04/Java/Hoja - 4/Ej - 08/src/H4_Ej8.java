@@ -69,7 +69,7 @@ public class H4_Ej8 {
 				}
 			} else if (inputChar == 'D') {
 				if (foundChar - inputNum < 65) {
-					short underCoded = (short) ((-foundChar -inputNum) + 65);
+					short underCoded = (short) ((foundChar - inputNum) - 65);
 					generatedText += (char) (91 + underCoded);
 				} else {
 					generatedText += (char) (foundChar - inputNum);
