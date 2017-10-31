@@ -16,7 +16,8 @@ public class H4_Ej8 {
 		char foundChar;
 		String generatedText = "";
 		
-		//CODIFICADO
+		
+		
 		do {
 			System.out.println("Introduce una frase en mayúsculas: ");
 			inputText = keyboard.nextLine();
@@ -56,26 +57,34 @@ public class H4_Ej8 {
 		
 		
 		generatedText = "";
-		for (int position = 0; position < inputLength; position++) {
-			foundChar = inputText.charAt(position);
-			
-			
-			if (inputChar == 'C') {
-				if (foundChar + inputNum > 90) {
-					short overCoded = (short) ((foundChar + inputNum) - 90);
-					generatedText += (char) (64 + overCoded);
-				} else {
-					generatedText += (char) (foundChar + inputNum);
+		
+		switch (inputChar) {
+			case 'C': //CODIFICADO
+				for (int position = 0; position < inputLength; position++) {
+					foundChar = inputText.charAt(position);
+					
+					if (foundChar + inputNum > 90) {
+						short overCoded = (short) ((foundChar + inputNum) - 90);
+						generatedText += (char) (64 + overCoded);
+					} else {
+						generatedText += (char) (foundChar + inputNum);
+					}
 				}
-			} else if (inputChar == 'D') {
-				if (foundChar - inputNum < 65) {
-					short underCoded = (short) ((foundChar - inputNum) - 65);
-					generatedText += (char) (91 + underCoded);
-				} else {
-					generatedText += (char) (foundChar - inputNum);
+				break;
+			case 'D': //DECODIFICADO
+				for (int position = 0; position < inputLength; position++) {
+					foundChar = inputText.charAt(position);
+					
+					if (foundChar - inputNum < 65) {
+						short underCoded = (short) ((foundChar - inputNum) - 65);
+						generatedText += (char) (91 + underCoded);
+					} else {
+						generatedText += (char) (foundChar - inputNum);
+					}
 				}
-			}
+				break;
 		}
+		
 		
 		
 		System.out.println(generatedText);
