@@ -1,263 +1,89 @@
 _____________________________________________________________
 
+       Dictionary report
+
        Project             Ej - 1
 _____________________________________________________________
 
 
 
-                        schema Guardería
+                        schema Relacional/1
 
-   Classic
-      MappingOID: 294
-      ID_Tar
-         MappingOID: 2146
-      id: ID_Tar
-         MappingOID: 2007
-         ref: ->  Tarjetas.ID_Tar
-         access key
-            MappingOID: 2007
-   Clientes
-      MappingOID: 363
-      ID_Cli
-         MappingOID: 2166
-      ID_Persona[0-1]
-         MappingOID: 94
-      Empresas[0-1]
-         MappingOID: 2166
-         Stereotype: subt
-      id: ID_Cli
-         MappingOID: 2167
-         access key
-            MappingOID: 2167
-      id': ID_Persona
-         MappingOID: 2064
-         equ: =  Personas.ID_Persona
-         access key
-            MappingOID: 2064
-      exactly one: ID_Persona, Empresas
-         MappingOID: 2066
-   Cuentas
-      MappingOID: 286
-      ID_Cue
-         MappingOID: 2162
-      ID_Tar
-         MappingOID: 2146
-      Ordinaria[0-1]
-         MappingOID: 2162
-         Stereotype: subt
-      Familiar[0-1]
-         MappingOID: 2162
-         Stereotype: subt
-      Empresarial[0-1]
-         MappingOID: 2162
-         Stereotype: subt
-      id: ID_Cue
-         MappingOID: 2163
-         access key
-            MappingOID: 2163
-      ref: ID_Tar -> Tarjetas.ID_Tar
-         MappingOID: 307
-         access key
-            MappingOID: 307
-      exactly one: Empresarial, Familiar, Ordinaria
-         MappingOID: 2045
-   Electron
-      MappingOID: 298
-      ID_Tar
-         MappingOID: 2146
-      id: ID_Tar
-         MappingOID: 2005
-         ref: ->  Tarjetas.ID_Tar
-         access key
-            MappingOID: 2005
-   Empresarial
-      MappingOID: 290
-      ID_Emp
-         MappingOID: 2158
-      ID_Cue
-         MappingOID: 2162
-      id: ID_Emp
-         MappingOID: 2159
-         access key
-            MappingOID: 2159
-      id': ID_Cue
-         MappingOID: 2042
-         ref: ->  Cuentas.ID_Cue
-         access key
-            MappingOID: 2042
-   Empresas
-      MappingOID: 365
-      ID_Cli
-         MappingOID: 2166
-      id: ID_Cli
-         MappingOID: 2065
-         ref: ->  Clientes.ID_Cli
-         access key
-            MappingOID: 2065
-   Familiar
-      MappingOID: 331
-      ID_Fam
-         MappingOID: 2154
-      ID_Cue
-         MappingOID: 2162
-      id: ID_Fam
-         MappingOID: 2155
-         access key
-            MappingOID: 2155
-      id': ID_Cue
-         MappingOID: 2043
-         ref: ->  Cuentas.ID_Cue
-         access key
-            MappingOID: 2043
-   Fisica
-      MappingOID: 130
-      ID_Pedido
-         MappingOID: 121
-      id: ID_Pedido
-         MappingOID: 2027
-         ref: ->  Pedidos.ID_Pedido
-         access key
-            MappingOID: 2027
-   Gestiona_E
-      MappingOID: 396
-      ID_Emp
-         MappingOID: 2158
-      ID_Tar
-         MappingOID: 2146
-      id: ID_Tar, ID_Emp
-         MappingOID: 2111
-         access key
-            MappingOID: 2111
-      ref: ID_Tar -> Tarjetas.ID_Tar
-         MappingOID: 2109
-      ref: ID_Emp -> Empresarial.ID_Emp
-         MappingOID: 2107
-         access key
-            MappingOID: 2107
-   Gestiona_F
-      MappingOID: 394
-      ID_Fam
-         MappingOID: 2154
-      ID_Tar
-         MappingOID: 2146
-      id: ID_Tar, ID_Fam
-         MappingOID: 2098
-         access key
-            MappingOID: 2098
-      ref: ID_Tar -> Tarjetas.ID_Tar
-         MappingOID: 2096
-      ref: ID_Fam -> Familiar.ID_Fam
-         MappingOID: 2094
-         access key
-            MappingOID: 2094
-   Ordinaria
-      MappingOID: 284
-      ID_Ord
-         MappingOID: 2150
-      ID_Cue
-         MappingOID: 2162
-      id: ID_Ord
-         MappingOID: 2151
-         access key
-            MappingOID: 2151
-      id': ID_Cue
-         MappingOID: 2044
-         ref: ->  Cuentas.ID_Cue
-         access key
-            MappingOID: 2044
-   Oro
-      MappingOID: 296
-      ID_Tar
-         MappingOID: 2146
-      id: ID_Tar
-         MappingOID: 2006
-         ref: ->  Tarjetas.ID_Tar
-         access key
-            MappingOID: 2006
-   Pedidos
-      MappingOID: 82
-      ID_Pedido
-         MappingOID: 121
-      Fecha
-         MappingOID: 126
-      Web[0-1]
-         MappingOID: 121
-         Stereotype: subt
-      Fisica[0-1]
-         MappingOID: 121
-         Stereotype: subt
-      id: ID_Pedido
-         MappingOID: 123
-         access key
-            MappingOID: 123
-      exclusive: Fisica, Web
-         MappingOID: 2029
-   Personas
-      MappingOID: 84
-      ID_Persona
-         MappingOID: 94
-      DNI
-         MappingOID: 96
+   ID_Especia
+      ID_ID_
       Nombre
-         MappingOID: 98
-      Dir_Calle
-         MappingOID: 106
-      Dir_Numero
-         MappingOID: 114
-      Dir_Piso
-         MappingOID: 116
-      id: ID_Persona
-         MappingOID: 118
+      ID_Matricula
+      id: ID_ID_
          access key
-            MappingOID: 118
-   Tarjetas
-      MappingOID: 288
-      ID_Tar
-         MappingOID: 2146
-      Oro[0-1]
-         MappingOID: 2146
-         Stereotype: subt
-      Electron[0-1]
-         MappingOID: 2146
-         Stereotype: subt
-      Classic[0-1]
-         MappingOID: 2146
-         Stereotype: subt
-      ID_Ord
-         MappingOID: 2150
-      id: ID_Tar
-         MappingOID: 2147
+      ref: ID_Matricula -> Matricula.ID_Matricula
          access key
-            MappingOID: 2147
-      ref: ID_Ord -> Ordinaria.ID_Ord
-         MappingOID: 392
+   Persona
+      ID_Cliente
+      Nombre
+      Apellidos
+      DNI
+      Direccion
+      Telefono
+      id: ID_Cliente
          access key
-            MappingOID: 392
-      exactly one: Electron, Oro, Classic
-         MappingOID: 2008
-   Tiene_2
-      MappingOID: 342
-      ID_Cli
-         MappingOID: 2166
-      ID_Cue
-         MappingOID: 2162
-      id: ID_Cli, ID_Cue
-         MappingOID: 2085
+   Matricula
+      ID_Matricula
+      Nombre
+      Apellidos
+      id: ID_Matricula
          access key
-            MappingOID: 2085
-      equ: ID_Cue = Cuentas.ID_Cue
-         MappingOID: 2081
+   Menu
+      ID_Menu
+      id: ID_Menu
          access key
-            MappingOID: 2081
-      ref: ID_Cli -> Clientes.ID_Cli
-         MappingOID: 2083
-   Web
-      MappingOID: 128
-      ID_Pedido
-         MappingOID: 121
-      id: ID_Pedido
-         MappingOID: 2028
-         ref: ->  Pedidos.ID_Pedido
+   Consume
+      Fecha
+      ID_Menu
+      Coste
+      ID_Matricula
+      id: Fecha
          access key
-            MappingOID: 2028
+      id': ID_Menu
+         equ: =  Menu.ID_Menu
+         access key
+      equ: ID_Matricula = Matricula.ID_Matricula
+         access key
+   Plato
+      ID_Pla
+      ID_Plato
+      Nombre
+      ID_ID_
+      id: ID_Pla
+         access key
+      ref: ID_ID_ -> ID_Especia.ID_ID_
+         access key
+   Recoger
+      ID_Matricula
+      ID_Cliente
+      Par_Cliente[0-1]
+      Par_Familiar[0-1]
+      Par_Tercero[0-1]
+      id: ID_Cliente, ID_Matricula
+         access key
+      equ: ID_Cliente = Persona.ID_Cliente
+      equ: ID_Matricula = Matricula.ID_Matricula
+         access key
+   Registra
+      Fecha
+      ID_Cliente
+      ID_Matricula
+      id: Fecha
+         access key
+      ref: ID_Cliente -> Persona.ID_Cliente
+         access key
+      equ: ID_Matricula = Matricula.ID_Matricula
+         access key
+   Tiene
+      ID_Pla
+      ID_Menu
+      id: ID_Pla, ID_Menu
+         access key
+      equ: ID_Menu = Menu.ID_Menu
+         access key
+      equ: ID_Pla = Plato.ID_Pla
 
