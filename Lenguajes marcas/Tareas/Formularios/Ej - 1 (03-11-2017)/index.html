@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<meta name="description" content="Formulario 1"/>
+		<meta name="keywords" content="XHTML, CSS3, Formulario, 1"/>
+		<meta name="author" content="Eric Moros Pérez"/>
+		<title>Formulario 1</title>
+		<!--ESTILOS-->
+        <link rel="stylesheet" type="text/css" href="css/table.css"/>
+        <link rel="stylesheet" type="text/css" href="css/form.css"/>
+	</head>
+    <body>
+        <div>
+            <form action="#Sent!" method="get">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Name</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td><label for="name">Name</label></td>
+                            <!-- He intentado añadir el atributo autofocus en name pero no parece que se pueda usar -->
+                            <!-- Pondría todos los inputs como required pero no parece que se pueda usar -->
+                            <td><input type="text" name="name" id="name" tabindex="1"/></td>
+                        </tr>
+                        <tr>
+                            <td><label for="sex">Sex</label></td>
+                            <td>
+                                <input type="radio" name="sex" id="male" tabindex="2"/>Male<br/>
+                                <input type="radio" name="sex" id="female" checked="checked" tabindex="3"/>Female
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="eyecolor">Eye color</label></td>
+                            <td>
+                                <select name="eyecolor" tabindex="4">
+                                    <option value="black">black</option>
+                                    <option value="blue">blue</option>
+                                    <option value="brown">brown</option>
+                                    <option value="gray">gray</option>
+                                    <option value="green" selected="selected">green</option>
+                                    <option value="orange">orange</option>
+                                    <option value="pink">pink</option>
+                                    <option value="purple">purple</option>
+                                    <option value="red">red</option>
+                                    <option value="white">white</option>
+                                    <option value="yellow">yellow</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="check_aply">Check all that apply</label></td>
+                            <td>
+                                <input type="checkbox" name="check_aply" id="over_6_feet_tall" tabindex="5"/>Over 6 feet tall<br/>
+                                <input type="checkbox" name="check_aply" id="over_200_pounds" tabindex="6"/>Over 200 pounds
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><label for="ability">Describe your athletic ability:</label></td>
+                        </tr>
+                        <tr>
+                            <!-- He preferido poner las dimensiones del textarea con css -->
+                            <td colspan="2"><textarea name="ability" cols="0" rows="0" id="ability" tabindex="7"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td class="send" colspan="2"><input type="submit" value="Enter my information" tabindex="8"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </body>
+</html>
