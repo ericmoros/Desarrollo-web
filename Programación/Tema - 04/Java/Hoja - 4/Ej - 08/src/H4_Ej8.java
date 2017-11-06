@@ -23,22 +23,26 @@ public class H4_Ej8 {
 			inputText = keyboard.nextLine();
 			
 			inputLength = inputText.length();
-			generatedText = "";
+//			generatedText = "";
 			
-			for (int position = 0; position < inputLength; position++) {
-				foundChar = inputText.charAt(position);
-				
-				int asciiChar = (int) foundChar;
-				
-				if (asciiChar >= 65 && asciiChar <= 90) {
-					generatedText += foundChar;
-				}
-			}
+//			for (int position = 0; position < inputLength; position++) {
+//				foundChar = inputText.charAt(position);
+//				
+//				int asciiChar = (int) foundChar;
+//				
+//				if (asciiChar >= 65 && asciiChar <= 90) {
+//					generatedText += foundChar;
+//				}
+//			}
+//			
+//			if (generatedText.equals(inputText)) {
+//				inputStatus = true;
+//			} else {
+//				generatedText = "";
+//			}
 			
-			if (generatedText.equals(inputText)) {
+			if (inputText == inputText.toUpperCase()) {
 				inputStatus = true;
-			} else {
-				generatedText = "";
 			}
 		} while (inputStatus == false);
 		
