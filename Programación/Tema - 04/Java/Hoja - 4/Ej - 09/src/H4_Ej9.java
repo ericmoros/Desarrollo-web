@@ -17,6 +17,7 @@ public class H4_Ej9 {
 		
 		boolean keyNum = false;
 		boolean keySex = false;
+		boolean keyCourse = false;
 		boolean keyRandom = true;
 		
 		
@@ -53,9 +54,9 @@ public class H4_Ej9 {
 				checkKey = "";
 				checkKey += inputText.charAt(5);
 				
-				if (checkKey.charAt(5) == 1 || checkKey.charAt(5) == 2) {
-					course = checkKey.charAt(0);
-					keySex = true;
+				if (Short.parseShort(checkKey) == 1 || Short.parseShort(checkKey) == 2) {
+					course = Short.parseShort(checkKey);
+					keyCourse = true;
 				}
 				
 				
@@ -70,6 +71,7 @@ public class H4_Ej9 {
 				  "\n Num: " + keyNum
 				+ "\n Sex: " + keySex
 				+ "\n Ran: " + keyRandom
+				+ "\n Cou: " + keyCourse
 			);
 		} while (keyNum != true || keySex != true || keyRandom != true);
 		
