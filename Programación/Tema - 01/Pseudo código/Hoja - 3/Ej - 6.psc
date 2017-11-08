@@ -1,4 +1,4 @@
-Proceso ej6h3
+Proceso H3Ej6
 	Definir i Como Real;;
 	definir num como real;
 	Escribir "Introduce un número";

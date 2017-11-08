@@ -1,4 +1,4 @@
-Proceso ej4h3
+Proceso H3Ej4
 	Definir i como real;
 	Definir suma como real;
 	suma = 0;

@@ -1,4 +1,4 @@
-Proceso ej7h3
+Proceso H3Ej7
 	Definir frase como Caracter;
 	Definir contador como Real;
 	Contador = 0;

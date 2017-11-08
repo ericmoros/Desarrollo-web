@@ -76,7 +76,7 @@ public class H4_Ej9 {
 		} while (keyNum != true || keySex != true || keyRandom != true);
 		
 		
-		System.out.print("\n" + num + sex);
+		System.out.print("\n" + num + sex + course);
 	}
 }
 

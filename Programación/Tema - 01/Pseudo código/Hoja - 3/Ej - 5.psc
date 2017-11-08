@@ -1,4 +1,4 @@
-Proceso ej5h3
+Proceso H3Ej5
 	Definir i Como Real;
 	definir contador Como Real;
 	contador = 0;

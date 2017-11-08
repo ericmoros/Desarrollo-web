@@ -1,4 +1,4 @@
-Proceso ej10h3
+Proceso H3Ej10
 	Definir num como real;
 	Escribir "Introduce un número";
 	Leer num;

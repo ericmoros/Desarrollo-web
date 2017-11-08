@@ -1,4 +1,4 @@
-Proceso Ej8h3
+Proceso H3Ej8
 	Definir char Como Caracter;
 	Escribir "Introduce S o N, por favor.";
 	Leer char;
