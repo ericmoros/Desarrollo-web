@@ -1,0 +1,84 @@
+_____________________________________________________________
+
+       Dictionary report
+
+       Project             Teatro
+_____________________________________________________________
+
+
+
+                        schema Entidad Relación/SQL
+
+   Teatro
+      Nombre
+      Aforo
+      Telefono
+      Email
+      Direccion
+      CP
+      Ciudad
+      id: Nombre
+         access key
+   Obra
+      ID_Obra
+      Titulo
+      id: ID_Obra
+         access key
+   Actor
+      ID_Actor
+      Nombre
+      Apellido
+      Alias
+      Foto
+      id: ID_Actor
+         access key
+   Autor
+      Nombre
+      Apellidos
+      id: Nombre
+         access key
+   Libro
+      Nombre
+      id: Nombre
+         access key
+   Basada
+      Nombre
+      ID_Obra
+      id: Nombre, ID_Obra
+         access key
+      equ: ID_Obra = Obra.ID_Obra
+         access key
+      ref: Nombre -> Libro.Nombre
+   Escribe
+      Nombre
+      ID_Obra
+      Fecha
+      id: ID_Obra, Nombre
+         access key
+      equ: ID_Obra = Obra.ID_Obra
+      ref: Nombre -> Autor.Nombre
+         access key
+   Participa
+      ID_Actor
+      ID_Obra
+      id: ID_Actor, ID_Obra
+         access key
+      equ: ID_Obra = Obra.ID_Obra
+         access key
+      equ: ID_Actor = Actor.ID_Actor
+   Representa
+      ID_Represetacion
+      Fecha
+      Personaje
+      Nombre
+      ID_Obra
+      ID_Actor
+      id: ID_Represetacion
+         access key
+      equ: Nombre = Teatro.Nombre
+         access key
+      equ: ID_Obra = Obra.ID_Obra
+         access key
+      equ: ID_Actor = Actor.ID_Actor
+         access key
+
