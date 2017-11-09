@@ -19,6 +19,13 @@ public class H4_Ej9 {
 		boolean keySex = false;
 		boolean keyCourse = false;
 		boolean keyRandom = true;
+		boolean keyOk = false;
+		
+		int sexH = 0;
+		int sexM = 0;
+		int course1 = 0;
+		int course2 = 0;
+		int okTries = 0;
 		
 		
 		do {
@@ -61,10 +68,12 @@ public class H4_Ej9 {
 				
 				
 				//Random
-//				checkKey = "";
-//				for (short position = 6; position < 8; position++) {
-//					checkKey += inputText.charAt(position);
-//				}
+				checkKey = "";
+				for (short position = 6; position < 8; position++) {
+					checkKey += inputText.charAt(position);
+				}
+				
+				random = checkKey;
 			}
 			
 			System.out.println(
@@ -73,10 +82,25 @@ public class H4_Ej9 {
 				+ "\n Ran: " + keyRandom
 				+ "\n Cou: " + keyCourse
 			);
-		} while (keyNum != true || keySex != true || keyRandom != true);
+			
+			if (keyNum != true || keySex != true || keyCourse != true || keyRandom != true) {
+				if (sex == 'H') {
+					sexH++;
+				} else if (sex == 'M') {
+					sexM++;
+				}
+				
+				
+			} else if (num + sex + course + random == "00000000") {
+				keyOk = true;
+			} else {
+				keyOk = false;
+				okTries++;
+			}
+		} while (keyOk != true);
 		
 		
-		System.out.print("\n" + num + sex + course);
+		System.out.print("\nUsuario: " + num + sex + course + random + " //Añadido a la lista...");
 	}
 }
 
@@ -91,6 +115,7 @@ octavo pueden tener cualquier valor. Deben rechazarse los códigos que no cumplan
 Ejercicios de cadenas
 Pagina 2 de 2
 condiciones, la finalización de entrada de códigos se produce cuando se introduce el código
-“00000000”. Al final el programa debe sacar un informe indicando cuántos hombres y
-mujeres
+“00000000”.  Al  final  el  programa  debe  sacar  un  informe  indicando  cuántos  hombres
+y mujeres hay  matriculados  en  primero  y  segundo  y  cuántos  códigos  correctos  han 
+sido leídos
 */
