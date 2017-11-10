@@ -10,10 +10,10 @@ public class H4_Ej9 {
 		
 		String checkKey;
 		
-		short num = 0;
-		char sex = 0;
+		short num = 0000;
+		char sex = '0';
 		short course = 0;
-		String random = "0";
+		String random = "00";
 		
 		boolean keyNum = false;
 		boolean keySex = false;
@@ -77,12 +77,10 @@ public class H4_Ej9 {
 			}
 			
 			
-			System.out.println(
-				    " Num: " + keyNum 	 + " -> " + num
-				+ "\n Sex: " + keySex 	 + " -> " + sex
-				+ "\n Cou: " + keyCourse + " -> " + course
-				+ "\n Ran: " + keyRandom + " -> " + random
-			);
+			System.out.printf(  " Num: %1$-5b -> %2$d", keyNum,    num	 );
+			System.out.printf("%n Sex: %1$-5b -> %2$c", keySex,	   sex	 );
+			System.out.printf("%n Cou: %1$-5b -> %2$d", keyCourse, course);
+			System.out.printf("%n Ran: %1$-5b -> %2$s", keyRandom, random);
 			
 			
 			if (keyNum != true || keySex != true || keyCourse != true || keyRandom != true) {
@@ -113,7 +111,8 @@ public class H4_Ej9 {
 			
 			
 			System.out.println(
-					  "\n Hombres:   " + sexH
+					  "\n"
+					+ "\n Hombres:   " + sexH
 					+ "\n Mujeres:   " + sexM
 					+ "\n Curso 1:   " + course1
 					+ "\n Curso 2:   " + course2
