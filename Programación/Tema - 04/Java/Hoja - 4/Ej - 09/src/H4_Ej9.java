@@ -19,7 +19,7 @@ public class H4_Ej9 {
 		boolean keySex = false;
 		boolean keyCourse = false;
 		boolean keyRandom = true;
-		boolean keyOk = false;
+		boolean keyExit = false;
 		
 		int sexH = 0;
 		int sexM = 0;
@@ -31,8 +31,11 @@ public class H4_Ej9 {
 		do {
 			System.out.println("Introduce el codigo (1990M1?@)");
 			inputText = keyboard.nextLine();
+//			keyboard.nextLine();
+//			inputText = "1990M1?@";
 			
 			inputLength = (short) inputText.length();
+			
 			
 			if (inputLength == 8) {
 				//Num
@@ -46,7 +49,6 @@ public class H4_Ej9 {
 					keyNum = true;
 				}
 				
-				
 				//Sex
 				checkKey = "";
 				checkKey += inputText.charAt(4);
@@ -55,7 +57,6 @@ public class H4_Ej9 {
 					sex = checkKey.charAt(0);
 					keySex = true;
 				}
-				
 				
 				//Course
 				checkKey = "";
@@ -66,7 +67,6 @@ public class H4_Ej9 {
 					keyCourse = true;
 				}
 				
-				
 				//Random
 				checkKey = "";
 				for (short position = 6; position < 8; position++) {
@@ -76,46 +76,70 @@ public class H4_Ej9 {
 				random = checkKey;
 			}
 			
+			
 			System.out.println(
-				  "\n Num: " + keyNum
-				+ "\n Sex: " + keySex
-				+ "\n Ran: " + keyRandom
-				+ "\n Cou: " + keyCourse
+				    " Num: " + keyNum 	 + " -> " + num
+				+ "\n Sex: " + keySex 	 + " -> " + sex
+				+ "\n Cou: " + keyCourse + " -> " + course
+				+ "\n Ran: " + keyRandom + " -> " + random
 			);
 			
+			
 			if (keyNum != true || keySex != true || keyCourse != true || keyRandom != true) {
-				if (sex == 'H') {
-					sexH++;
-				} else if (sex == 'M') {
-					sexM++;
+				switch (sex) {
+					case 'H':
+						sexH++;
+						break;
+					case 'M':
+						sexM++;
+						break;
 				}
 				
-				
-			} else if (num + sex + course + random == "00000000") {
-				keyOk = true;
-			} else {
-				keyOk = false;
-				okTries++;
+				switch (course) {
+					case '1':
+						course1++;
+						break;
+					case '2':
+						course2++;
+						break;
+				}
+			} else if (inputText == "00000000") {
+				keyExit = true;
+				okTries--;
 			}
-		} while (keyOk != true);
+			
+			
+			okTries++;
+			
+			
+			System.out.println(
+					  "\n Hombres:   " + sexH
+					+ "\n Mujeres:   " + sexM
+					+ "\n Curso 1:   " + course1
+					+ "\n Curso 2:   " + course2
+					+ "\n Registros: " + okTries
+					+ "\n"
+					+ "\n"
+			);
+		} while (keyExit != true);
 		
 		
-		System.out.print("\nUsuario: " + num + sex + course + random + " //AÒadido a la lista...");
+		System.out.print("\nUsuario: " + num + sex + course + random + " //A√±adido a la lista...");
 	}
 }
 
 /*
-ì1990H1AZî
-ì1995M11?î
+‚Äú1990H1AZ‚Äù
+‚Äú1995M11?‚Äù
 
-Escribir un programa que lea cÛdigos de personas de 8 caracteres de modo que los cuatro
-primeros sean numÈricos y contenidos entre 1990-1995 (un aÒo), el quinto car·cter sea solo
-(H Û M) sexo, el sexto un numero que representa el curso 1 Û 2 y los caracteres sÈptimo y
-octavo pueden tener cualquier valor. Deben rechazarse los cÛdigos que no cumplan estas
+Escribir un programa que lea c√≥digos de personas de 8 caracteres de modo que los cuatro
+primeros sean num√©ricos y contenidos entre 1990-1995 (un a√±o), el quinto car√°cter sea solo
+(H √≥ M) sexo, el sexto un numero que representa el curso 1 √≥ 2 y los caracteres s√©ptimo y
+octavo pueden tener cualquier valor. Deben rechazarse los c√≥digos que no cumplan estas
 Ejercicios de cadenas
 Pagina 2 de 2
-condiciones, la finalizaciÛn de entrada de cÛdigos se produce cuando se introduce el cÛdigo
-ì00000000î.  Al  final  el  programa  debe  sacar  un  informe  indicando  cu·ntos  hombres
-y mujeres hay  matriculados  en  primero  y  segundo  y  cu·ntos  cÛdigos  correctos  han 
-sido leÌdos
+condiciones, la finalizaci√≥n de entrada de c√≥digos se produce cuando se introduce el c√≥digo
+‚Äú00000000‚Äù.  Al  final  el  programa  debe  sacar  un  informe  indicando  cu√°ntos  hombres
+y mujeres hay  matriculados  en  primero  y  segundo  y  cu√°ntos  c√≥digos  correctos  han 
+sido le√≠dos
 */
