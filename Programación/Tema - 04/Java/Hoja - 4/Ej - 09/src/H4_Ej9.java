@@ -15,20 +15,29 @@ public class H4_Ej9 {
 		short course = 0;
 		String random = "00";
 		
-		boolean keyNum = false;
-		boolean keySex = false;
-		boolean keyCourse = false;
-		boolean keyRandom = true;
-		boolean keyExit = false;
+		boolean keyNum;
+		boolean keySex;
+		boolean keyCourse;
+		boolean keyRandom;
+		boolean keyExit;
 		
 		int sexH = 0;
 		int sexM = 0;
 		int course1 = 0;
 		int course2 = 0;
-		int okTries = 0;
+		int tries = 0;
+		int triesOk = 0;
+		int triesBad = 0;
 		
 		
 		do {
+			keyNum = false;
+			keySex = false;
+			keyCourse = false;
+			keyRandom = true;
+			keyExit = false;
+			
+			
 			System.out.println("Introduce el codigo (1990M1?@)");
 			inputText = keyboard.nextLine();
 //			keyboard.nextLine();
@@ -37,6 +46,7 @@ public class H4_Ej9 {
 			inputLength = (short) inputText.length();
 			
 			
+			//No me gusta mucho como he dejado los try catch
 			if (inputLength == 8) {
 				//Num
 				checkKey = "";
@@ -44,27 +54,42 @@ public class H4_Ej9 {
 					checkKey += ((short) inputText.charAt(position) - 48);
 				}
 				
-				if (Short.parseShort(checkKey) >= 1990 && Short.parseShort(checkKey) <= 1995) {
+				try {
 					num = Short.parseShort(checkKey);
-					keyNum = true;
+					if (num >= 1990 && num <= 1995) {
+						keyNum = true;
+					}
+					System.out.printf(  " Num: %1$-5b -> %2$d", keyNum,    num	 );
+				} catch (Exception eNum) {
+					System.out.printf(  " Num: %1$-5b -> (1990 - 1995)", keyNum);
 				}
-				
+					
 				//Sex
 				checkKey = "";
 				checkKey += inputText.charAt(4);
 				
-				if (checkKey.charAt(0) == 'H' || checkKey.charAt(0) == 'M') {
+				try {
 					sex = checkKey.charAt(0);
-					keySex = true;
+					if (sex == 'H' || sex == 'M') {
+						keySex = true;
+					}
+					System.out.printf("%n Sex: %1$-5b -> %2$c", keySex,	   sex	 );
+				} catch (Exception eSex) {
+					System.out.printf("%n Sex: %1$-5b -> (H / M)", keySex);
 				}
 				
 				//Course
 				checkKey = "";
 				checkKey += inputText.charAt(5);
 				
-				if (Short.parseShort(checkKey) == 1 || Short.parseShort(checkKey) == 2) {
+				try {
 					course = Short.parseShort(checkKey);
-					keyCourse = true;
+					if (course == 1 || course == 2) {
+						keyCourse = true;
+					}
+					System.out.printf("%n Cou: %1$-5b -> %2$d", keyCourse, course);
+				} catch (Exception eCourse) {
+					System.out.printf("%n Cou: %1$-5b -> (1 / 2)", keyCourse);
 				}
 				
 				//Random
@@ -73,17 +98,17 @@ public class H4_Ej9 {
 					checkKey += inputText.charAt(position);
 				}
 				
-				random = checkKey;
+				try {
+					random = checkKey;
+					System.out.printf("%n Ran: %1$-5b -> %2$s", keyRandom, random);
+				} catch (Exception eRandom) {
+					System.out.printf("%n Ran: %1$-5b -> (??)", keyRandom);
+				}
+				
 			}
 			
 			
-			System.out.printf(  " Num: %1$-5b -> %2$d", keyNum,    num	 );
-			System.out.printf("%n Sex: %1$-5b -> %2$c", keySex,	   sex	 );
-			System.out.printf("%n Cou: %1$-5b -> %2$d", keyCourse, course);
-			System.out.printf("%n Ran: %1$-5b -> %2$s", keyRandom, random);
-			
-			
-			if (keyNum != true || keySex != true || keyCourse != true || keyRandom != true) {
+			if (keyNum == true && keySex == true && keyCourse == true && keyRandom == true) {
 				switch (sex) {
 					case 'H':
 						sexH++;
@@ -94,20 +119,24 @@ public class H4_Ej9 {
 				}
 				
 				switch (course) {
-					case '1':
+					case 1:
 						course1++;
 						break;
-					case '2':
+					case 2:
 						course2++;
 						break;
 				}
+				
+				triesOk++;
 			} else if (inputText == "00000000") {
 				keyExit = true;
-				okTries--;
+				tries--;
+			} else {
+				triesBad++;
 			}
 			
 			
-			okTries++;
+			tries++;
 			
 			
 			System.out.println(
@@ -116,14 +145,16 @@ public class H4_Ej9 {
 					+ "\n Mujeres:   " + sexM
 					+ "\n Curso 1:   " + course1
 					+ "\n Curso 2:   " + course2
-					+ "\n Registros: " + okTries
+					+ "\n Registros: " + tries
+					+ "\n   - Bien: " + triesOk
+					+ "\n   - Mal:  " + triesBad
 					+ "\n"
 					+ "\n"
 			);
 		} while (keyExit != true);
 		
 		
-		System.out.print("\nUsuario: " + num + sex + course + random + " //Añadido a la lista...");
+		System.out.print("Fin del programa...");
 	}
 }
 
