@@ -1,0 +1,32 @@
+/*           ________________________________________________________
+              /¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\  
+                                      STYLE
+              \____________________________________________________/  
+              ¯¯¯¯|¯¯¯¯|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\                               */
+@font-face {
+    font-family: indieflower;
+    src: url(fonts/indieflower/IndieFlower.ttf);
+}
+
+* {
+    font-family: indieflower;
+}
+
+body {
+    background-color: rgb(102, 232, 255);
+    background: linear-gradient(to bottom, rgb(102, 232, 255) 0%, rgb(43, 240, 207) 100%);
+}
+h1 {
+    text-align: center;
+    margin-bottom: 5%;
+    border-style: ridge;
+    border-width: 15px;
+    border-color: white;
+    color: white;
+    font-size: 50px;
+    position: relative;
+    
+}
+/*
+\___________________________________                               */
