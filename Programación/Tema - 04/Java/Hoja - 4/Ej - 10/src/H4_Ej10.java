@@ -8,19 +8,32 @@ public class H4_Ej10 {
 		String inputText;
 		short inputMax = 60;
 		
-//		short inputLength;
+		int inputLength;
 		boolean keyCheker = false;
 		
 		
 		System.out.println("Introduce un texto en mayúsculas (60 max)");
 		inputText = keyboard.nextLine();
+		inputLength = inputText.length();
 		
 //		do {
 			System.out.print("Comprobando formato: ");
-			for (int checker = 0; checker < inputMax; checker++) {
-				char actualChar = inputText.charAt(checker);
-				System.out.print(actualChar);
+			if (inputLength <= inputMax) {
+				for (int checker = 0; checker < inputMax; checker++) {
+					char actualChar = inputText.charAt(checker);
+					if (actualChar >= 65 && actualChar <= 90 || actualChar.equals('L')) {
+						System.out.print(actualChar);
+					} else {
+						System.out.println("\n [ERROR] La letra: " + (checker + 1) + " no es mayúscula");
+						System.out.println("  - Letra: '" + actualChar + "'");
+						checker = inputMax;
+					}
+				}
+			} else {
+				System.out.println("\n [ERROR] El tamaño es superior a " + inputMax + " carácteres");
+				System.out.println("  - Carácteres: " + inputLength);
 			}
+			
 			
 //		} while ();
 	}
