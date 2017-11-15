@@ -128,7 +128,7 @@ public class H4_Ej9 {
 				}
 				
 				triesOk++;
-			} else if (inputText == "00000000") {
+			} else if (inputText.equals("00000000")) {
 				keyExit = true;
 				tries--;
 			} else {
@@ -159,17 +159,17 @@ public class H4_Ej9 {
 }
 
 /*
-“1990H1AZ”
-“1995M11?”
+â€œ1990H1AZâ€�
+â€œ1995M11?â€�
 
-Escribir un programa que lea códigos de personas de 8 caracteres de modo que los cuatro
-primeros sean numéricos y contenidos entre 1990-1995 (un año), el quinto carácter sea solo
-(H ó M) sexo, el sexto un numero que representa el curso 1 ó 2 y los caracteres séptimo y
-octavo pueden tener cualquier valor. Deben rechazarse los códigos que no cumplan estas
+Escribir un programa que lea cÃ³digos de personas de 8 caracteres de modo que los cuatro
+primeros sean numÃ©ricos y contenidos entre 1990-1995 (un aÃ±o), el quinto carÃ¡cter sea solo
+(H Ã³ M) sexo, el sexto un numero que representa el curso 1 Ã³ 2 y los caracteres sÃ©ptimo y
+octavo pueden tener cualquier valor. Deben rechazarse los cÃ³digos que no cumplan estas
 Ejercicios de cadenas
 Pagina 2 de 2
-condiciones, la finalización de entrada de códigos se produce cuando se introduce el código
-“00000000”.  Al  final  el  programa  debe  sacar  un  informe  indicando  cuántos  hombres
-y mujeres hay  matriculados  en  primero  y  segundo  y  cuántos  códigos  correctos  han 
-sido leídos
+condiciones, la finalizaciÃ³n de entrada de cÃ³digos se produce cuando se introduce el cÃ³digo
+â€œ00000000â€�.  Al  final  el  programa  debe  sacar  un  informe  indicando  cuÃ¡ntos  hombres
+y mujeres hay  matriculados  en  primero  y  segundo  y  cuÃ¡ntos  cÃ³digos  correctos  han 
+sido leÃ­dos
 */
