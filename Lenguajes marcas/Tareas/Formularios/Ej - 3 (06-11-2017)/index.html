@@ -16,46 +16,98 @@
     <body>
         <div>
             <h1>Formulario 3</h1>
-        </div>
-        <div>
-            <h2>Agregar Congreso</h2>
             <form action="#Sent!" method="get">
-                <table>
-                    <caption><h3>DATOS PRINCIPALES</h3></caption>
-                    <tbody>
-                        <tr>
-                            <th><label for="key">Clave:</label></th>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="key" id="key" tabindex="1"/></td>
-                        </tr>
-                        <tr class="section">
-                            <th><label for="name">Nombre completo</label></th>
-                            <th><label for="headquarters">Sede</label></th>
-                            <th><label for="event">Tipo de Evento</label></th>
-                        </tr>
-                        <tr>
-                            <td><input type="text" name="name" id="name" tabindex="2"/></td>
-                            <td><input type="text" name="headquarters" id="headquarters" tabindex="3"/></td>
-                            <td><input type="text" name="event" id="event" tabindex="4"/></td>
-                        </tr>
-                        <tr>
-                            <th><label for="description">Descipción del Evento (No mayor a 500 carácteres)</label></th>
-                        </tr>
-                        <tr>
-                            <td colspan="3"><textarea name="description" id="description" cols="30" rows="10" tabindex="5"></textarea></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table>
-                    <caption><h3>CONFIGURACIÓN GENERAL</h3></caption>
-                    <tbody>
-                        <tr>
-                            <th><span>AQUIIIIIIII!!!!!</span></th>
-                        </tr>
-                    </tbody>
-                </table>
-                <input type="submit" value="Enviar" tabindex="10"/>
+                <div>
+                    <h2>Agregar Congreso</h2>
+                    <table>
+                        <caption><span>DATOS PRINCIPALES</span></caption>
+                        <tbody>
+                            <tr>
+                                <th><label for="key">Clave:</label></th>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="key" id="key" tabindex="1"/></td>
+                            </tr>
+                            <tr class="section">
+                                <th><label for="name">Nombre completo</label></th>
+                                <th><label for="headquarters">Sede</label></th>
+                                <th><label for="event">Tipo de Evento</label></th>
+                            </tr>
+                            <tr>
+                                <td><input type="text" name="name" id="name" tabindex="2"/></td>
+                                <td><input type="text" name="headquarters" id="headquarters" tabindex="3"/></td>
+                                <td><input type="text" name="event" id="event" tabindex="4"/></td>
+                            </tr>
+                            <tr>
+                                <th><label for="description">Descipción del Evento (No mayor a 500 carácteres)</label></th>
+                            </tr>
+                            <tr>
+                                <td colspan="3"><textarea name="description" id="description" cols="30" rows="10" tabindex="5"></textarea></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <table>
+                        <caption><span>CONFIGURACIÓN GENERAL</span></caption>
+                        <tbody>
+                            <tr>
+                                <th><label for="coin">Tipo de moneda</label></th>
+                                <th><label for="costiva">Costo (incluyendo impustos)</label></th>
+                                <th><label for="mxn">Tipo de cambio a MXN</label></th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select name="coin" id="coin" tabindex="6">
+                                        <option value="" disabled="disabled" selected="selected">Seleccione una opción </option>
+                                        <option value="BTC">BTC</option>
+                                        <option value="BCC">BCC</option>
+                                        <option value="ETH">ETH</option>
+                                        <option value="HUSH">HUSH</option>
+                                        <option value="ZEN">ZEN</option>
+                                        <option value="LBC">LBC</option>
+                                        <option value="EUR">EUR</option>
+                                        <option value="USD">USD</option>
+                                        <option value="MONA">MONA</option>
+                                        <option value="DCR">DCR</option>
+                                        <option value="XMR">XMR</option>
+                                    </select>
+                                </td>
+                                <!--  placeholder="0.00"????? -->
+                                <td><input type="text" name="costiva" id="costiva" value="0.00" tabindex="7"/></td>
+                                <!--  placeholder="0.00"????? -->
+                                <td><input type="text" name="mxn" id="mxn" value="0.00" tabindex="8"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <table>
+                        <caption><span>STATUS</span></caption>
+                        <tbody>
+                            <tr>
+                                <th><label for="coin">Status del evento</label></th>
+                                <th><label for="costiva">Activar el idioma Inglés</label></th>
+                                <td><input type="checkbox" name="normalregister" id="normalregister" tabindex="9"/><label for="normalregister">Registro normal</label></td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="event" id="event2" tabindex="10"/><label for="event">Activo</label></td>
+                                <td><input type="checkbox" name="english" id="english" tabindex="11"/><label for="english">Activo</label></td>
+                                <td><input type="checkbox" name="keysregister" id="keysregister" tabindex="12"/><label for="keysregister">Registro con claves</label></td>
+                            </tr>
+                            <tr>
+                                <th><label for="backlink">Link de retorno (ej: http://www.dominio.com)</label></th>
+                            </tr>
+                            <tr>
+                                <!-- type="url"????? -->
+                                <td><input type="text" name="backlink" id="backlink"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    <input type="submit" value="Guardar" tabindex="13"/>
+                </p>
             </form>
         </div>
     </body>
