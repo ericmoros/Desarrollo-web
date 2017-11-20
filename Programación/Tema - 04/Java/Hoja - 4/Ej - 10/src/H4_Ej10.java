@@ -21,13 +21,13 @@ public class H4_Ej10 {
 			if (inputLength <= inputMax) {
 				for (int checker = 0; checker < inputMax; checker++) {
 					char actualChar = inputText.charAt(checker);
-					if (actualChar >= 65 && actualChar <= 90 || actualChar.equals('L')) {
-						System.out.print(actualChar);
-					} else {
-						System.out.println("\n [ERROR] La letra: " + (checker + 1) + " no es mayúscula");
-						System.out.println("  - Letra: '" + actualChar + "'");
-						checker = inputMax;
-					}
+//					if (actualChar >= 65 && actualChar <= 90 || actualChar.equals('L')) {
+//						System.out.print(actualChar);
+//					} else {
+//						System.out.println("\n [ERROR] La letra: " + (checker + 1) + " no es mayúscula");
+//						System.out.println("  - Letra: '" + actualChar + "'");
+//						checker = inputMax;
+//					}
 				}
 			} else {
 				System.out.println("\n [ERROR] El tamaño es superior a " + inputMax + " carácteres");

@@ -2,7 +2,7 @@ public class H3_Ej42 {
 	public static void main(String[] args) {
 		final int months = 12;
 		final int representatives = 3;
-		final int products = 4;
+		final int products = 25;
 		
 		final int max = 1;
 		final int min = 10;
