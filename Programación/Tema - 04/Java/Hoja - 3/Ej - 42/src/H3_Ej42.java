@@ -2,7 +2,7 @@ public class H3_Ej42 {
 	public static void main(String[] args) {
 		final int months = 12;
 		final int representatives = 3;
-		final int products = 25;
+		final int products = 4;
 		
 		final int max = 1;
 		final int min = 10;
@@ -43,28 +43,38 @@ public class H3_Ej42 {
 		}
 		
 		
-		System.out.print("\n\n\n +-----");
+		System.out.println("\n\n\n\nRepresentantes (Total)");
+		System.out.print("     ");
 		for (int productsPos = 0; productsPos < products; productsPos++) {
-			System.out.print("+-----");
+			System.out.printf("  P%1$-3d", (productsPos + 1));
 		}
-		System.out.print("+\n |Re/Pr");
-		for (int productsPos = 0; productsPos < products; productsPos++) {
-			System.out.printf("|P%1$-4d", (productsPos + 1));
-		}
-		System.out.print("|\n +-----");
-		for (int productsPos = 0; productsPos < products; productsPos++) {
-			System.out.print("+-----");
+		for (int monthsPos = 0; monthsPos < months; monthsPos++) {
+			System.out.printf("\n M%1$-3d", (monthsPos + 1));
+			for (int productsPos = 0; productsPos < products; productsPos++) {
+				int cells = 0;
+				for (int representativesPos = 0; representativesPos < representatives; representativesPos++) {
+					cells += ventas[representativesPos][monthsPos][productsPos];
+				}
+				System.out.printf("  %1$04d", cells);
+			}
 		}
 		
-		System.out.print("+\n |Total");
-		for (int representativesVentas: totalVentas) {
-			System.out.printf("|%1$05d", representativesVentas);
-		}
-		System.out.print("|\n +-----");
+		System.out.print("\n     ");
 		for (int productsPos = 0; productsPos < products; productsPos++) {
-			System.out.print("+-----");
+			System.out.print("  ----");
 		}
-		System.out.print("+");
+		System.out.print("\nTotal");
+		for (int productsPos = 0; productsPos < products; productsPos++) {
+			int productsTotal = 0;
+			for (int monthsPos = 0; monthsPos < months; monthsPos++) {
+				for (int representativesPos = 0; representativesPos < representatives; representativesPos++) {
+					int cells = ventas[representativesPos][monthsPos][productsPos];
+					productsTotal += cells;
+				}
+			}
+			System.out.printf("  %1$04d", productsTotal);
+			totalVentas[productsPos] += productsTotal;
+		}
 	}
 }
 
