@@ -8,12 +8,14 @@
     border: 0.5px solid black;
 } */
 
-th, td {
-    width: 150px;
-}
 th {
-    /* background-color: #CCCCFF; */
     text-align: right;
+    width: 150px;
+    /* background-color: #CCCCFF; */
+}
+
+td {
+    width: 210px;
 }
 
 td.send {
