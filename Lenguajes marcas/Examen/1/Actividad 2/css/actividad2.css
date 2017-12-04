@@ -1,0 +1,17 @@
+div {
+	width: 42%;
+    margin-top: 10%;
+    margin-left: 10%;
+}
+
+#right {
+	float: right;
+}
+
+#left {
+	float: left;
+}
+
+h2 {
+	text-decoration: underline;
+}

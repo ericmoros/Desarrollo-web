@@ -1,0 +1,23 @@
+#a {
+	width: 75%;
+	height: 75%;
+	background-color: blue;
+	margin: auto;
+	display: flex;
+}
+
+#b {
+	width: 50%;
+	height: 50%;
+	background-color: red;
+	margin: auto;
+	display: block;
+}
+
+#c {
+	width: 25%;
+	height: 25%;
+	background-color: green;
+	margin: auto;
+	display: block;
+}
