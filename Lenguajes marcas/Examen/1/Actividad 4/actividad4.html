@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<meta name="description" content="ACTIVIDAD 4"/>
+		<meta name="keywords" content="HTML5, CSS3, ACTIVIDAD, 4, FORMULARIO"/>
+		<meta name="autdor" content="Eric Moros Pérez"/>
+		<title>ACTIVIDAD 4 - Formulario</title>
+		<!-- STYLES -->
+		<link rel="stylesheet" type="text/css" href="css/actividad4.css"/>
+	</head>
+	<body>
+		<div>
+            <form action="#Sent!" method="get">
+                <p>Si solo eres cliente de ADSL/Fibra, introduce tu documento y cotraseña</p>
+				<h2>fijo</h2>
+				<hr>
+                <table>
+                    <!-- <caption><span>DATOS PRINCIPALES</span></caption> -->
+                    <tbody>
+                        <tr>
+                            <th><label for="document">Tu documento:</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="document" id="document" tabindex="1" disabled="disabled"/></td>
+                            <td>NIF, CIF, CIE, o Pasaporte</td>
+                        </tr>
+                        <tr>
+                            <th><label for="password">Contraseña:</label></th>
+                        </tr>
+                        <tr>
+                            <td><input type="password" name="password" id="password" tabindex="2" disabled="disabled"/></td>
+                            <td><input type="submit" value="Entrar" tabindex="3"/></td>
+                        </tr>
+                        <tr>
+                        	<td><input type="checkbox" name="event" id="remember-password" tabindex="4"/><label for="remember-password">Recordar contraseña</label></td>
+                        </tr>
+                        <tr>
+                        	<td><input type="checkbox" name="event" id="new-user" tabindex="5"/><label for="new-user">Nuevo usuario</label></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+	</body>
+</html>
