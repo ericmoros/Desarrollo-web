@@ -5,14 +5,15 @@
               ¯¯¯¯|¯¯¯¯|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\                               */
 div {
-    background: linear-gradient(to bottom, #ffffff 0%, #C2CADF 100%);
+    background: linear-gradient(to bottom, #ffffff 15%, #C2CADF 100%);
     margin: auto;
     margin-top: 10%;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
     vertical-align: middle;
-    width: 502px;
-    height: 507px;
+    width: 450px;
+    height: 500px;
+    border: 1px solid black;
 }
 /*
 
