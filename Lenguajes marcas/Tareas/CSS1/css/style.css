@@ -1,0 +1,114 @@
+/*           ________________________________________________________
+              /¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\  
+                                      STYLE
+              \____________________________________________________/  
+              ¯¯¯¯|¯¯¯¯|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\                               */
+@font-face {
+    font-family: bailey;
+    src: url(font/bailey-sans-itc-book.ttf);
+}
+
+
+
+body {
+    margin: 0;
+    background-color: #6C7D73;
+}
+
+
+
+* {
+    font-family: bailey;
+}
+
+p {
+    font-family: 'Times New Roman';
+}
+
+
+.container {
+    overflow: hidden;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.sec {
+    width: 47.5%;
+}
+
+
+.center {
+    text-align: center;
+}
+.cursive {
+    font-style: italic;
+}
+
+
+
+header, footer, .content {
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+
+header, footer {
+    color: rgba(255, 255, 255, 0.534);
+}
+
+/* header {
+    overflow: hidden;
+    background-color: #6C7D73;
+    position: fixed;
+    top: 0;
+    width: 100%;
+} */    
+
+h1 {
+    font-size: 50px;
+    color: white;
+}
+
+h2, h3 {
+    color: #6C7D73;
+}
+
+.subtitle, .author, hr {
+    color: gray;
+}
+
+
+
+h2 {
+    margin-bottom: 0px;
+}
+
+.author {
+    margin-top: 0px;
+}
+
+
+
+.img {
+    background-color: white;
+}
+
+.img > img {
+    max-width: 100%;
+}
+
+
+
+.content {
+    background-color: white;
+}
+/*
+\___________________________________                               */
