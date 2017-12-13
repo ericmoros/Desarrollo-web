@@ -4,24 +4,26 @@
               \____________________________________________________/  
               ¯¯¯¯|¯¯¯¯|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\                               */
-/* input[type="text"] {
-    width: 150px;
-}
-
-input[type="email"] {
-    width: 150px;
-} */
-
-/* tr.section {
-    height: 30px;
-} */
 option[value=""][disabled] {
     display: none;
 }
-textarea {
-    resize: none;
-    width: 306px;
-    height: 75px;
+
+input, option {
+    height: 25px;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+}
+
+input[type=submit] {
+    float: left;
+    height: 31px;
+    background-color: rgb(120, 185, 90);
+    color: white;
+    font-weight: bold;
+    width: 150px;
+    border: 1px ridge black;
 }
 /*
 

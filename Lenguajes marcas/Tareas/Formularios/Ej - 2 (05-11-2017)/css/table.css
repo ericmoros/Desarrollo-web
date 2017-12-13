@@ -4,11 +4,16 @@
               \____________________________________________________/  
               ¯¯¯¯|¯¯¯¯|¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\                               */
+<<<<<<< HEAD
 /* table, th, td {
     border: 0.5px solid black;
 } */
 
 th {
+=======
+th {
+    width: 150px;
+>>>>>>> dc6100770ebc735d267ce79760b5f6d1641cecea
     text-align: right;
     width: 150px;
     /* background-color: #CCCCFF; */
@@ -16,6 +21,10 @@ th {
 
 td {
     width: 210px;
+}
+
+td {
+    width: 60%;
 }
 
 td.send {

@@ -9,6 +9,7 @@
 }
 
 h1 {
+<<<<<<< HEAD
     margin-bottom: 0px !important;
     color: #2c3358;
 }
@@ -16,6 +17,36 @@ h1 {
 h2 {
     margin-top: 0px !important;
     color: #272b50;
+=======
+    margin-bottom: 0px;
+    font-size: 30px;
+}
+
+h2 {
+    margin-top: 0px;
+    font-size: 25px;
+}
+
+h1, h2 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+hr {
+    margin-top: 18%;
+    color: #1D2758;
+}
+
+* {
+    color: rgb(14, 34, 99);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+}
+
+.litle {
+    font-size: 9.45px;
+    float: left;
+    text-align: left;
+>>>>>>> dc6100770ebc735d267ce79760b5f6d1641cecea
 }
 /*
 
