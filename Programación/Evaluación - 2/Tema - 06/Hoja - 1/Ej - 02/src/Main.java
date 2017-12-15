@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.Scanner;
 
 public class Main {
@@ -7,6 +8,32 @@ public class Main {
 		Useful.print("Presiona para iniciar el reloj");
 		keyboard.nextLine();
 		clock.on();
+=======
+import java.io.IOException;
+
+public class Main {
+	public static void main(String[] args) {
+		Clock clock = new Clock();
+		Time time = new Time(clock);
+		Thread hands = new Thread(time);
+		
+		Console.print("Presiona [Enter] para iniciar tu reloj");
+		try {
+			System.in.read();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		hands.start();
+		
+		Console.print("Presiona [Enter] para ver la hora");
+		try {
+			System.in.read();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Console.print(clock.getHour() + "" + clock.getMin() + "" + clock.getSec());
+>>>>>>> e1c41b2cfd063922dd879de3ea3a97842ec84760
 		
 		for (int loop = 0; loop < -1; loop++) {
 			Useful.print("Presiona para ver la hora");
