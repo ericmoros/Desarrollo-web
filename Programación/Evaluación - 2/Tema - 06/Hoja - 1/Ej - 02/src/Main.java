@@ -5,9 +5,12 @@ import java.io.IOException;
 public class Main {
 	public static void main(String[] args) {
 		Scanner keyboard = new Scanner(System.in);
-		Clock clock = new Clock();
-		Time time = new Time(clock);
-		Thread hands = new Thread(time);
+//		Clock clock = new Clock();
+//		Time time = new Time(clock);
+//		Thread thread = new Thread(time);
+//		time.T
+		Time time = new Time();
+		Thread thread = new Thread(time);
 		
 		Console.print("Presiona [Enter] para iniciar tu reloj");
 		try {
@@ -16,16 +19,12 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		hands.start();
+		thread.start();
 		
-		Console.print("Presiona [Enter] para ver la hora");
-
-		Console.print(clock.getHour() + "" + clock.getMin() + "" + clock.getSec());
-		
-		for (int loop = 0; loop < -1; loop++) {
+		for (int loop = 0; loop > -1; loop++) {
 			Console.print("Presiona [Enter] para ver la hora");
 			keyboard.nextLine();
-			Console.print(clock.getHour() + "" + clock.getMin() + "" + clock.getSec());
+			System.out.printf("%2d %2d %2d",time.getHour() , time.getMin() , time.getSec());
 		}
 	}
 }

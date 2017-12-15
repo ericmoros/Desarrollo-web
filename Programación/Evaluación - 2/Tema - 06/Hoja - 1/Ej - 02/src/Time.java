@@ -1,11 +1,7 @@
 import java.util.concurrent.TimeUnit;
 
 public class Time implements Runnable {
-	private static Clock clock;
-	
-	public Time (Clock oneClock) {
-		Clock clock = oneClock;
-	}
+	private static Clock clock = new Clock();
 	
 	@Override
 	public void run() {
@@ -23,5 +19,16 @@ public class Time implements Runnable {
 			}
 			clock.upHour();
 		}
+	}
+	public int getHour() {
+		return clock.getHour();
+	}
+	
+	public int getMin() {
+		return clock.getMin();
+	}
+	
+	public int getSec() {
+		return clock.getSec();
 	}
 }

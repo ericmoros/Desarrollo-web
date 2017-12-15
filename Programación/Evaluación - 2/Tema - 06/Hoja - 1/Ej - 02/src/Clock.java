@@ -1,6 +1,6 @@
 
 public class Clock {
-	public static Integer hour = 0, min = 0, sec = 0;
+	public static int hour, min , sec;
 	
 	Clock () {
 		hour = 0;
@@ -8,7 +8,7 @@ public class Clock {
 		sec = 0;
 	}
 
-	public static Integer getHour() {
+	public int getHour() {
 		return hour;
 	}
 
@@ -21,7 +21,7 @@ public class Clock {
 	}
 	
 
-	public Integer getMin() {
+	public int getMin() {
 		return min;
 	}
 
@@ -34,7 +34,7 @@ public class Clock {
 	}
 	
 
-	public Integer getSec() {
+	public int getSec() {
 		return sec;
 	}
 
@@ -43,6 +43,6 @@ public class Clock {
 	}
 	
 	public void upSec () {
-		min++;
+		sec++;
 	}
 }
