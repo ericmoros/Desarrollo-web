@@ -5,10 +5,6 @@ import java.io.IOException;
 public class Main {
 	public static void main(String[] args) {
 		Scanner keyboard = new Scanner(System.in);
-//		Clock clock = new Clock();
-//		Time time = new Time(clock);
-//		Thread thread = new Thread(time);
-//		time.T
 		Time time = new Time();
 		Thread thread = new Thread(time);
 		
@@ -21,10 +17,11 @@ public class Main {
 		
 		thread.start();
 		
+		Console.print("Presiona [Enter] para ver la hora");
 		for (int loop = 0; loop > -1; loop++) {
-			Console.print("Presiona [Enter] para ver la hora");
 			keyboard.nextLine();
-			System.out.printf("%2d %2d %2d",time.getHour() , time.getMin() , time.getSec());
+			Console.print(time.getDay());
+			System.out.printf(" - %02d:%02d:%02d.%03d\n",time.getHour() , time.getMin() , time.getSec(), time.getMSec());
 		}
 	}
 }

@@ -5,30 +5,49 @@ public class Time implements Runnable {
 	
 	@Override
 	public void run() {
-		while (clock.getHour() < 24) {
-			while (clock.getMin() < 60) {
-				while (clock.getSec() < 60) {
-					try {
-						TimeUnit.SECONDS.sleep(1);
-					} catch (InterruptedException e) {
-						e.printStackTrace();
+		while (clock.getDay() > -1) {
+			while (clock.getHour() < 24) {
+				while (clock.getMin() < 60) {
+					while (clock.getSec() < 60) {
+						while (clock.getMSec() < 1000) {
+							try {
+								TimeUnit.MILLISECONDS.sleep(1);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+							clock.upMSec();
+						}
+						clock.upSec();
+						clock.setMSec(0);
 					}
-					clock.upSec();
+					clock.upMin();
+					clock.setSec(0);
 				}
-				clock.upMin();
+				clock.upHour();
+				clock.setMin(0);
 			}
-			clock.upHour();
+			clock.upDay();
+			clock.setHour(0);
 		}
 	}
-	public int getHour() {
+	
+	public Integer getDay() {
+		return clock.getDay();
+	}
+	
+	public Integer getHour() {
 		return clock.getHour();
 	}
 	
-	public int getMin() {
+	public Integer getMin() {
 		return clock.getMin();
 	}
 	
-	public int getSec() {
+	public Integer getSec() {
 		return clock.getSec();
+	}
+	
+	public Integer getMSec() {
+		return clock.getMSec();
 	}
 }

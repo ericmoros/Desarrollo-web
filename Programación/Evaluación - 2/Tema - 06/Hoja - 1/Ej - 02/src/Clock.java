@@ -1,14 +1,29 @@
 
 public class Clock {
-	public static int hour, min , sec;
+	public static Integer day, hour, min , sec, mSec;
 	
 	Clock () {
+		day = 0;
 		hour = 0;
 		min = 0;
 		sec = 0;
+		mSec = 0;
 	}
 
-	public int getHour() {
+	public Integer getDay() {
+		return day;
+	}
+
+	public void setDay(Integer day) {
+		this.day = day;
+	}
+	
+	public void upDay () {
+		day++;
+	}
+	
+	
+	public Integer getHour() {
 		return hour;
 	}
 
@@ -21,7 +36,7 @@ public class Clock {
 	}
 	
 
-	public int getMin() {
+	public Integer getMin() {
 		return min;
 	}
 
@@ -34,7 +49,7 @@ public class Clock {
 	}
 	
 
-	public int getSec() {
+	public Integer getSec() {
 		return sec;
 	}
 
@@ -44,5 +59,18 @@ public class Clock {
 	
 	public void upSec () {
 		sec++;
+	}	
+
+	
+	public Integer getMSec() {
+		return mSec;
+	}
+
+	public void setMSec(Integer MSec) {
+		this.mSec = MSec;
+	}
+	
+	public void upMSec () {
+		mSec++;
 	}
 }
