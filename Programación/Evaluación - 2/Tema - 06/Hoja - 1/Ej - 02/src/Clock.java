@@ -1,6 +1,6 @@
 
 public class Clock {
-	public static Integer day, hour, min , sec, mSec;
+	private static Integer day, hour, min , sec, mSec;
 	
 	Clock () {
 		day = 0;

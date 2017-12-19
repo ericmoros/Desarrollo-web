@@ -8,9 +8,14 @@ public class Main {
 		Console.readEnter();
 		thread.start();
 		
-		Console.print("Presiona [Enter] para ver la hora");
+		Console.print("Presiona [Enter] para ver la hora o [S + Enter] para poner la hora y visualizarla");
 		for (int loop = 0; loop > -1; loop++) {
-			Console.readEnter();
+			String inputText = Console.readEnter();
+			
+			if (Check.textChar(inputText.charAt(0), "S")) {
+				Console.setTime(clock, "Introduce la nueva hora");
+			}
+			
 			Console.printTime(clock);
 		}
 	}
