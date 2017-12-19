@@ -1,7 +1,11 @@
 import java.util.concurrent.TimeUnit;
 
 public class Time implements Runnable {
-	private static Clock clock = new Clock();
+	private static Clock clock;
+	
+	Time (Clock clock) {
+		Time.clock = clock;
+	}
 	
 	@Override
 	public void run() {
@@ -29,25 +33,5 @@ public class Time implements Runnable {
 			clock.upDay();
 			clock.setHour(0);
 		}
-	}
-	
-	public Integer getDay() {
-		return clock.getDay();
-	}
-	
-	public Integer getHour() {
-		return clock.getHour();
-	}
-	
-	public Integer getMin() {
-		return clock.getMin();
-	}
-	
-	public Integer getSec() {
-		return clock.getSec();
-	}
-	
-	public Integer getMSec() {
-		return clock.getMSec();
 	}
 }

@@ -15,7 +15,7 @@ public class Clock {
 	}
 
 	public void setDay(Integer day) {
-		this.day = day;
+		Clock.day = day;
 	}
 	
 	public void upDay () {
@@ -28,7 +28,7 @@ public class Clock {
 	}
 
 	public void setHour(Integer hour) {
-		this.hour = hour;
+		Clock.hour = hour;
 	}
 	
 	public void upHour () {
@@ -41,7 +41,7 @@ public class Clock {
 	}
 
 	public void setMin(Integer min) {
-		this.min = min;
+		Clock.min = min;
 	}
 	
 	public void upMin () {
@@ -54,7 +54,7 @@ public class Clock {
 	}
 
 	public void setSec(Integer sec) {
-		this.sec = sec;
+		Clock.sec = sec;
 	}
 	
 	public void upSec () {
@@ -67,7 +67,7 @@ public class Clock {
 	}
 
 	public void setMSec(Integer MSec) {
-		this.mSec = MSec;
+		Clock.mSec = MSec;
 	}
 	
 	public void upMSec () {
