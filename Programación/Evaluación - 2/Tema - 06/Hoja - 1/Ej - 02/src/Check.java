@@ -7,9 +7,9 @@ public class Check {
 			return false;
 		}
 	}
-	
+
 	public static Boolean textChar(char textChar , String objetiveChar) {
-		if (textChar == objetiveChar.charAt(0)) {
+		if (objetiveChar.length() != 0 && textChar == objetiveChar.charAt(0)) {
 			return true;
 		} else {
 			return false;

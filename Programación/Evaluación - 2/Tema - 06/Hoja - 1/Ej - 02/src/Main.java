@@ -11,8 +11,7 @@ public class Main {
 		Console.print("Presiona [Enter] para ver la hora o [S + Enter] para poner la hora y visualizarla");
 		for (int loop = 0; loop > -1; loop++) {
 			String inputText = Console.readEnter();
-			
-			if (Check.textChar(inputText.charAt(0), "S")) {
+			if (inputText.length() != 0 && Check.textChar(inputText.charAt(0), "S")) {
 				Console.setTime(clock, "Introduce la nueva hora");
 			}
 			
