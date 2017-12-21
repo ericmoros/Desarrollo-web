@@ -1,6 +1,6 @@
 
 public class Clock {
-	private static Integer day, hour, min , sec, mSec;
+	private Integer day, hour, min , sec, mSec;
 	
 	Clock () {
 		day = 0;
@@ -15,7 +15,7 @@ public class Clock {
 	}
 
 	public void setDay(Integer day) {
-		Clock.day = day;
+		this.day = day;
 	}
 	
 	public void upDay () {
@@ -28,7 +28,7 @@ public class Clock {
 	}
 
 	public void setHour(Integer hour) {
-		Clock.hour = hour;
+		this.hour = hour;
 	}
 	
 	public void upHour () {
@@ -41,7 +41,7 @@ public class Clock {
 	}
 
 	public void setMin(Integer min) {
-		Clock.min = min;
+		this.min = min;
 	}
 	
 	public void upMin () {
@@ -54,7 +54,7 @@ public class Clock {
 	}
 
 	public void setSec(Integer sec) {
-		Clock.sec = sec;
+		this.sec = sec;
 	}
 	
 	public void upSec () {
@@ -67,7 +67,7 @@ public class Clock {
 	}
 
 	public void setMSec(Integer MSec) {
-		Clock.mSec = MSec;
+		this.mSec = MSec;
 	}
 	
 	public void upMSec () {

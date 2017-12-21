@@ -8,12 +8,24 @@ public class Main {
 		Console.readEnter();
 		thread.start();
 		
-		Console.print("Presiona [Enter] para ver la hora o [S + Enter] para poner la hora y visualizarla");
+		Console.printHelp();
 		for (int loop = 0; loop > -1; loop++) {
 			String inputText = Console.readEnter();
 			
-			if (Check.textChar(inputText.charAt(0), "S")) {
-				Console.setTime(clock, "Introduce la nueva hora");
+			for (int posChar = 0; posChar < inputText.length(); posChar++) {
+				char actualChar = inputText.charAt(posChar);
+				
+				if (Check.textChar(actualChar, 'S', true)) {
+					Console.setTime(clock, "Introduce la nueva hora");
+				}
+				
+				if (Check.textChar(actualChar, 'C', true)) {
+					Console.print("Pendiente\n");
+				}
+				
+				if (Check.textChar(actualChar, 'H', true)) {
+					Console.printHelp();
+				}
 			}
 			
 			Console.printTime(clock);
