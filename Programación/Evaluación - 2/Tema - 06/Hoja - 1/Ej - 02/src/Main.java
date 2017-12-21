@@ -1,7 +1,8 @@
 public class Main {
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		Clock clock = new Clock();
-		Time time = new Time(clock);
+		Time time = new Time(clock, true);
 		Thread thread = new Thread(time);
 		
 		Console.print("Presiona [Enter] para iniciar tu reloj");
@@ -11,7 +12,6 @@ public class Main {
 		Console.printHelp();
 		for (int loop = 0; loop > -1; loop++) {
 			String inputText = Console.readEnter();
-<<<<<<< HEAD
 			
 			for (int posChar = 0; posChar < inputText.length(); posChar++) {
 				char actualChar = inputText.charAt(posChar);
@@ -22,15 +22,13 @@ public class Main {
 				
 				if (Check.textChar(actualChar, 'C', true)) {
 					Console.print("Pendiente\n");
+					thread.stop();
+					
 				}
 				
 				if (Check.textChar(actualChar, 'H', true)) {
 					Console.printHelp();
 				}
-=======
-			if (inputText.length() != 0 && Check.textChar(inputText.charAt(0), "S")) {
-				Console.setTime(clock, "Introduce la nueva hora");
->>>>>>> 6fbd630ea04ab6d9c134a8721d644833b26fbaeb
 			}
 			
 			Console.printTime(clock);

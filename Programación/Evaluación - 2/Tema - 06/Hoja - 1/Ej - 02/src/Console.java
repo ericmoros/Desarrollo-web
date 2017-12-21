@@ -42,7 +42,6 @@ public class Console {
 					+ "          "
 					);
 			inputText = readEnter();
-<<<<<<< HEAD
 			
 			if (inputText.length() == 8) {
 				if (Check.charNumber(inputText.charAt(0))) {
@@ -69,23 +68,6 @@ public class Console {
 														}
 													}
 												}
-=======
-			if (inputText.length() == 8) {
-				if (Check.charNumber(inputText.charAt(0))) {
-					if (Check.charNumber(inputText.charAt(1))) {
-						if (Check.textChar(inputText.charAt(2), ":")) {
-							if (Check.charNumber(inputText.charAt(3))) {
-								if (Check.charNumber(inputText.charAt(4))) {
-									if (Check.textChar(inputText.charAt(5), ":")) {
-										if (Check.charNumber(inputText.charAt(6))) {
-											if (Check.charNumber(inputText.charAt(7))) {
-												clock.setHour(((inputText.charAt(0) - 48) * 10) + (inputText.charAt(1) - 48));
-												clock.setMin(((inputText.charAt(3) - 48) * 10) + (inputText.charAt(4) - 48));
-												clock.setSec(((inputText.charAt(6) - 48) * 10) + (inputText.charAt(7) - 48));
-												clock.setMSec(0);
-												
-												format = true;
->>>>>>> 6fbd630ea04ab6d9c134a8721d644833b26fbaeb
 											}
 										}
 									}

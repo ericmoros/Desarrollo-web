@@ -22,6 +22,10 @@ public class Clock {
 		day++;
 	}
 	
+	public void downDay () {
+		day--;
+	}
+	
 	
 	public Integer getHour() {
 		return hour;
@@ -33,6 +37,10 @@ public class Clock {
 	
 	public void upHour () {
 		hour++;
+	}
+	
+	public void downHour () {
+		hour--;
 	}
 	
 
@@ -48,6 +56,10 @@ public class Clock {
 		min++;
 	}
 	
+	public void downMin () {
+		min--;
+	}
+	
 
 	public Integer getSec() {
 		return sec;
@@ -59,7 +71,11 @@ public class Clock {
 	
 	public void upSec () {
 		sec++;
-	}	
+	}
+	
+	public void downSec () {
+		sec--;
+	}
 
 	
 	public Integer getMSec() {
@@ -72,5 +88,9 @@ public class Clock {
 	
 	public void upMSec () {
 		mSec++;
+	}
+	
+	public void downMSec () {
+		mSec--;
 	}
 }
