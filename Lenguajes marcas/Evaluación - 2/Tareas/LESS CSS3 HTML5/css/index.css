@@ -1,0 +1,26 @@
+body {
+  margin: 0px;
+}
+video {
+  vertical-align: middle;
+}
+audio {
+  display: hidden;
+}
+.section {
+  overflow: hidden;
+  width: 25%;
+  float: left;
+}
+.section img {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+}
+.section img:hover video {
+  display: inline;
+  margin: auto;
+}
+.section img:hover {
+  display: none;
+}
