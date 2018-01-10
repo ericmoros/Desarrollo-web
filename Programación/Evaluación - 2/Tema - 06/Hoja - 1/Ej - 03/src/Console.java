@@ -28,6 +28,12 @@ public class Console {
 		print(strDate);
 	}
 	
+	//printDateDay
+	public static void printDateDay(Date date) {
+		Integer dateDay = Convert.dateToNumber(date);
+		print(dateDay);
+	}
+	
 	//setDate
 //	public static void setDate(Date date, Integer day, Integer month, Integer year) {
 //		date = new Date(day, month, year);

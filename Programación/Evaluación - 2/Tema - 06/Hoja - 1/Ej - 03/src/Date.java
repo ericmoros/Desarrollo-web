@@ -50,7 +50,7 @@ public class Date {
 	private Boolean date(Integer day, Integer month, Integer year) {
 		Boolean checkDay = false;
 		
-		if (day >= 1) {
+		if (day >= 1 && year >= 0) {
 			switch (month) {
 				//31
 				case 1:
