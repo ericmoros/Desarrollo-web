@@ -1,0 +1,21 @@
+1. SELECT idfab, idproducto, descripcion, precio, precio+(precio*0.16) AS "precio con IVA" FROM PRODUCTOS ORDER BY IDFAB
+
+2. select numpedido, fab, producto, cant, importe/cant as "PRECIO/U", importe from pedidos order by numpedido
+
+3. select repclie, numclie, nombre, limitecredito from clientes order by REPCLIE
+
+4. select region, ciudad, oficina, dir, objetivo, ventas from oficinas order by region, ciudad, oficina DESC;
+
+5. select FECHAPEDIDO, CODIGO, NUMPEDIDO, CLIE, REP, FAB, PRODUCTO, CANT, IMPORTE from pedidos order by fechapedido; 
+
+6. select * from empleados where oficina like '%';
+
+7. select * from oficinas where dir is null;
+
+8. select * from oficinas where region='norte' or region='este' order by region DESC;
+
+9. (select nombre from clientes where nombre like 'Julia %') union (select nombre from empleados where nombre like 'Julia %');
+
+10. select * from productos where idproducto like '_%x%';
+
+11. select * from productos where idproducto like '4%';
