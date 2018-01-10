@@ -2,6 +2,7 @@
 public class Main {
 	public static void main(String[] args) {
 		Integer day, month, year;
+		Date date1;
 		
 		//Fecha...
 		Console.print("Introduce el día: ");
@@ -14,6 +15,10 @@ public class Main {
 		year = Integer.parseInt(Console.readEnter());
 		
 		
-		Console.printDate();
+//		Console.setDate(date1, day, month, year);
+		date1 = new Date(day, month, year);
+		
+		
+		Console.printDate(date1);
 	}
 }

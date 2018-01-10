@@ -23,13 +23,13 @@ public class Console {
 	}
 	
 	//printDate
-	public static String printDate() {
-		String date = "" + Date.getDay() + Date.getMonth() + Date.getYear();
-		return date;
+	public static void printDate(Date date) {
+		String strDate = "" + date.getDay() + "/" + date.getMonth() + "/" + date.getYear();
+		print(strDate);
 	}
 	
 	//setDate
-	public static void setDate() {
-		
-	}
+//	public static void setDate(Date date, Integer day, Integer month, Integer year) {
+//		date = new Date(day, month, year);
+//	}
 }
