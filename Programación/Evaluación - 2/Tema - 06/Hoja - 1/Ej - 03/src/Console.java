@@ -23,8 +23,17 @@ public class Console {
 	}
 	
 	//readDate
-	public static void readDate() {
+	public static Integer loopAskEnterStrToInt(String ask) {
+		String str;
+		Integer toInt;
 		
+		do {
+			print(ask);
+			str = readEnter();
+		} while (! Check.stringNumber(str));
+		
+		toInt = Integer.parseInt(str);
+		return toInt;
 	}
 	
 	//printDate

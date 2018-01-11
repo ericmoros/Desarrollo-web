@@ -8,14 +8,9 @@ public class Main {
 		Check.stringNumber("0123456789");
 		
 		//Fecha...
-		Console.print("Introduce el día: ");
-		day = Integer.parseInt(Console.readEnter());
-		
-		Console.print("Introduce el mes: ");
-		month = Integer.parseInt(Console.readEnter());
-		
-		Console.print("Introduce el año: ");
-		year = Integer.parseInt(Console.readEnter());
+		day = Console.loopAskEnterStrToInt("Introduce el día: ");
+		month = Console.loopAskEnterStrToInt("Introduce el mes: ");
+		year = Console.loopAskEnterStrToInt("Introduce el año: ");
 		
 		
 //		Console.setDate(date1, day, month, year);
@@ -24,14 +19,9 @@ public class Main {
 		Console.print("\n");
 		
 		//Fecha...
-		Console.print("Introduce el día: ");
-		day = Integer.parseInt(Console.readEnter());
-		
-		Console.print("Introduce el mes: ");
-		month = Integer.parseInt(Console.readEnter());
-		
-		Console.print("Introduce el año: ");
-		year = Integer.parseInt(Console.readEnter());
+		day = Console.loopAskEnterStrToInt("Introduce el día: ");
+		month = Console.loopAskEnterStrToInt("Introduce el mes: ");
+		year = Console.loopAskEnterStrToInt("Introduce el año: ");
 		
 		
 //				Console.setDate(date1, day, month, year);
