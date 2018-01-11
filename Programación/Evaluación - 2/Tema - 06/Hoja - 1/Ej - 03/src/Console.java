@@ -22,6 +22,11 @@ public class Console {
 		return str;
 	}
 	
+	//readDate
+	public static void readDate() {
+		
+	}
+	
 	//printDate
 	public static void printDate(Date date) {
 		String strDate = "" + date.getDay() + "/" + date.getMonth() + "/" + date.getYear();

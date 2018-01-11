@@ -5,6 +5,8 @@ public class Main {
 		Date date1;
 		Date date2;
 		
+		Check.stringNumber("0123456789");
+		
 		//Fecha...
 		Console.print("Introduce el día: ");
 		day = Integer.parseInt(Console.readEnter());
