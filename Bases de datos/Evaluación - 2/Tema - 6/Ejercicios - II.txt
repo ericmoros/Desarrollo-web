@@ -1,0 +1,53 @@
+01. CREATE TABLE EMPLEADOS3 AS SELECT * FROM employees WHERE department_id=100;
+  A) No se trae las restricciones de la vieja tabla
+
+02. CREATE TABLE DEPARTAMENTOS2 AS SELECT * FROM departments;
+
+03. ALTER TABLE EMPLEADOS3 ADD (hobby VARCHAR(40), NHIJOS NUMBER(2,0));
+
+04. ALTER TABLE EMPLEADOS3 ADD (EDAD NUMBER(3,0) NOT NULL);
+  A) No se crea porque ya existen registros que no tienen datos en edad
+     con lo que habría que dar un valor por defecto para solucionarlo.
+
+05. ALTER TABLE EMPLEADOS3 ADD (EDAD NUMBER(3,0) DEFAULT 0 NOT NULL);
+  A) Dar un valor por defecto al añadir la columna.
+
+06. ALTER TABLE EMPLEADOS3 DROP (EDAD, NHIJOS);
+
+07. ALTER TABLE EMPLEADOS3 MODIFY HOBBY VARCHAR(30);
+
+08. ALTER TABLE EMPLEADOS3 MODIFY FIRST_NAME VARCHAR(3);
+  A) Da error porque existen registros con un nombre superior al nuevo limite de caracteres.
+
+09. ALTER TABLE EMPLEADOS3 MODIFY EMPLOYEE_ID NUMBER(5);
+  A) Da error porque para reducir la precision del número los registros deben de ser como máximo del tamaño expecificado.
+  B) ALTER TABLE EMPLEADOS3 MODIFY EMPLOYEE_ID NUMBER(8)
+	//Funciona porque los datos están dentro del rango
+
+10. ALTER TABLE DEPARTAMENTS DROP DEPARTAMENT_ID;
+  A) No se puede borrar porque se perdería la clave primaria.
+
+11. ALTER TABLE EMPLEADOS3 ADD CONSTRAINT PK_EMPLE3 PRIMARY KEY (EMPLOYEE_ID);
+     CONSTRAINT_NAME	CONSTRAINT_TYPE
+  A) PK_EMPLE3		Primary_Key
+
+12. ALTER TABLE EMPLEADOS3 ADD CONSTRAINT SALARIOS CHECK (SALARY BETWEEN 1000 AND 4000);
+  A) No se pude aplicar la restricción porque hay valores superiores a 4000.
+  B) ALTER TABLE EMPLEADOS3 ADD CONSTRAINT SALARIOS CHECK (SALARY BETWEEN 1000 AND 20000);
+
+13. CREATE TABLE DEPARTAMENTOS AS SELECT * FROM departments;
+
+14. INSERT INTO DEPARTAMENTOS VALUES (10,'Admin', 203, 1700);
+
+15. ALTER TABLE departamentos ADD CONSTRAINT primary_key PRIMARY KEY (department_id);
+ A) No se puede aplicar la resticción porque existen valores duplicados en los registros.
+ B) Una solución prodía ser borrar el registro con nombre de departamento 'Administracion'
+    y mantener el registro de 'admin' como sustitución del anterior.
+    DELETE FROM departamentos WHERE department_name LIKE 'Administration';
+    ALTER TABLE departamentos ADD CONSTRAINT primary_key PRIMARY KEY (department_id);
+
+-- UPDATE empleados3 SET commission_pct = 5 WHERE commission_pct = 0;
+-- ALTER TABLE empleados3 DROP CONSTRAINT NOUP5FEE;
+-- SELECT * FROM empleados3;
+-- UPDATE empleados3 SET commission_pct = 05.11 WHERE commission_pct = 0;
+-- UPDATE empleados3 SET commission_pct = 5 WHERE commission_pct IS NULL;
