@@ -1,2 +1,0 @@
-ls -l ~ | tr -s " " | cut -d" " -f1,9
-ls -l /usr/bin/ | tr -s " " | cut -d " " -f1,9- | cut -c1,12- | grep ^l
