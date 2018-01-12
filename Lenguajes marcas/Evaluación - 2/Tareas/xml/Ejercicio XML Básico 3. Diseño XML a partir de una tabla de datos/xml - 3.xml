@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+	<desayuno>
+		<nombre>Gofres Belgas</nombre>
+		<precio>5.95</precio>
+		<descripcion>Dos de nuestros famosos Gofres belgas con abundante sirope</descripcion>
+		<calorias>650</calorias>
+	</desayuno>
+</menu>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pedidos>
+	<pedido>
+		<articulos>
+			<articulo>
+				<id>A2023</id>
+				<descripcion>Bicicleta</descripcion>
+			</articulo>
+		</articulos>
+		<entrega>
+			<destinatario>
+				<nombre>Juan</nombre>
+				<apellidos>
+					<ap1>Delagado</ap1>
+					<ap2>Martínez</ap2>
+				</apellidos>
+			</destinatario>
+			<direccion>
+				<cp>null</cp>
+				<localidad>null</localidad>
+				<calle>Barco</calle>
+				<numero>4</numero>
+				<piso>3</piso>
+				<puerta>A</puerta>
+			</direccion>
+			<fecha>
+				<dia>19</dia>
+				<mes>5</mes>
+				<año>2000</año>
+			</fecha>
+		</entrega>
+	</pedido>
+</pedidos>
