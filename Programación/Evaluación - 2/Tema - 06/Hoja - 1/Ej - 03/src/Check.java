@@ -1,6 +1,7 @@
+import java.util.ArrayList;
 
 public class Check {
-	public static Boolean charNumber(char textChar) {
+	public static Boolean charNumber(Character textChar) {
 		if (textChar >= 48 && textChar <= 57) {
 			return true;
 		} else {
@@ -10,16 +11,25 @@ public class Check {
 	
 	public static Boolean stringNumber(String text) {
 		Integer textLenght = text.length();
-		Boolean numCheck = true; 
+		ArrayList<Character> charList = new ArrayList<>();
+		ArrayList<Boolean> textCheck = new ArrayList<>();
+		
 		
 		for (Integer charPos = 0; charPos < textLenght; charPos++) {
-			if (charNumber(text.charAt(charPos)) != true) {
-				numCheck = false;
-				break;
+			charList.add(text.charAt(charPos));
+		}
+		
+		for (Character textChar: charList) {
+			if (charNumber(textChar)) {
+				textCheck.add(true);
+			} else {
+				textCheck.add(false);
 			}
 		}
 		
-		if (numCheck == true) {
+		if (textCheck.contains(false)) {
+			return false;
+		} else if (textCheck.contains(true)) {
 			return true;
 		} else {
 			return false;

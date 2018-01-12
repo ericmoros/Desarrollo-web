@@ -1,36 +1,47 @@
+import java.util.HashMap;
 
 public class Main {
 	public static void main(String[] args) {
+		HashMap<String, Date> dateList = new HashMap<>();
+		String name;
 		Integer day, month, year;
-		Date date1;
-		Date date2;
 		
 		Check.stringNumber("0123456789");
 		
-		//Fecha...
-		day = Console.loopAskEnterStrToInt("Introduce el día: ");
-		month = Console.loopAskEnterStrToInt("Introduce el mes: ");
-		year = Console.loopAskEnterStrToInt("Introduce el año: ");
+		do {
+			//Fecha...
+			Console.print("Nombre de la fecha: ");
+			name = Console.readEnter();
+			day = Console.loopAskEnterStrToInt("Introduce el día: ");
+			month = Console.loopAskEnterStrToInt("Introduce el mes: ");
+			year = Console.loopAskEnterStrToInt("Introduce el año: ");
+			
+			dateList.put(name, new Date(day, month, year));
+			
+			for (String dateName: dateList.keySet()) {
+				Console.print(dateName + ": ");
+				Console.printDate(dateList.get(dateName));
+				Console.print("\n");
+			}
+			Console.print("\n");
+		} while (true != false);
 		
 		
-//		Console.setDate(date1, day, month, year);
-		date1 = new Date(day, month, year);
-		Console.printDate(date1);
-		Console.print("\n");
-		
-		//Fecha...
-		day = Console.loopAskEnterStrToInt("Introduce el día: ");
-		month = Console.loopAskEnterStrToInt("Introduce el mes: ");
-		year = Console.loopAskEnterStrToInt("Introduce el año: ");
-		
-		
-//				Console.setDate(date1, day, month, year);
-		date2 = new Date(day, month, year);
-		Console.printDate(date2);
-		Console.print("\n");
+//		Console.print("\n");<
+//		
+//		//Fecha...
+//		day = Console.loopAskEnterStrToInt("Introduce el día: ");
+//		month = Console.loopAskEnterStrToInt("Introduce el mes: ");
+//		year = Console.loopAskEnterStrToInt("Introduce el año: ");
+//		
+//		
+////				Console.setDate(date1, day, month, year);
+//		date2 = new Date(day, month, year);
+//		Console.printDate(date2);
+//		Console.print("\n");
 		
 		
 		
-		Console.print("Diferencia de " + (Convert.dateToNumber(date1) - Convert.dateToNumber(date2)) + " días");
+//		Console.print("Diferencia de " + (Convert.dateToNumber(date1) - Convert.dateToNumber(date2)) + " días");
 	}
 }
