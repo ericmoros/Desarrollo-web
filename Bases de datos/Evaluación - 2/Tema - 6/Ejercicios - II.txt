@@ -46,8 +46,35 @@
     DELETE FROM departamentos WHERE department_name LIKE 'Administration';
     ALTER TABLE departamentos ADD CONSTRAINT primary_key PRIMARY KEY (department_id);
 
--- UPDATE empleados3 SET commission_pct = 5 WHERE commission_pct = 0;
--- ALTER TABLE empleados3 DROP CONSTRAINT NOUP5FEE;
--- SELECT * FROM empleados3;
--- UPDATE empleados3 SET commission_pct = 05.11 WHERE commission_pct = 0;
--- UPDATE empleados3 SET commission_pct = 5 WHERE commission_pct IS NULL;
+16. UPDATE empleados3 SET commission_pct = 0 WHERE commission_pct IS NULL;
+    ALTER TABLE empleados3 ADD CONSTRAINT NOUP5FEE CHECK (commission_pct <= 5);
+
+17. 
+	UPDATE empleados3 SET commission_pct = 9;
+ A) Primero me da un error con la precisión del número
+    	ALTER TABLE empleados3 MODIFY commission_pct NUMBER(4,2);
+    Da un error porque la restricción evita que superemos una comisión del 5%.
+    
+ B) 
+	UPDATE empleados3 SET commission_pct = 2.0;
+
+18. 
+	ALTER TABLE empleados3 ADD CONSTRAINT fk_emple3 FOREIGN KEY (department_id) REFERENCES departamentos (department_id) ON DELETE CASCADE;
+
+19. 
+	CREATE TABLE tiendas (
+ 	 NIF VARCHAR(9),
+ 	 NOMBRE VARCHAR(25),
+ 	 DIRECCION VARCHAR(25),
+ 	 POBLACION VARCHAR(25),
+ 	 CIUDAD VARCHAR(25),
+ 	 PROVINCIA VARCHAR(25),
+ 	 CODPOSTAL VARCHAR(5)
+	);
+
+	ALTER TABLE tiendas
+	ADD CONSTRAINT nif_pk PRIMARY KEY (NIF)
+  	ADD CONSTRAINT prov_mayus CHECK (UPPER(provincia) = provincia)
+	ADD CONSTRAINT just_zgz_hu_ter CHECK (provincia IN ('Zaragoza', 'Huesca', 'Teruel'))
+	MODIFY (nombre NOT NULL);
+	
