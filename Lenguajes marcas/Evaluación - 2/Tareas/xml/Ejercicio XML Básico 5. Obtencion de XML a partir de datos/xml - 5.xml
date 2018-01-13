@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arboles>
+	<arbol>
+		<nombre>
+			<cientifico>Acer monspessulanum</cientifico>
+			<comun>Arce de Montpellier, Arce menor</comun>
+		</nombre>
+		<vegetacion>
+			<tipo>Caducifolio</tipo>
+			<color>
+				<primavera>null</primavera>
+				<verano>null</verano>
+				<otono>null</otono>
+				<invierno>null</invierno>
+			</color>
+		</vegetacion>
+		<forma>
+			<altura>
+				<max>10</max>
+				<min>6</min>
+			</altura>
+			<copa>Esferica</copa>
+			<tronco>Recto con bifurcaciones</tronco>
+			<ramaje>Colgante</ramaje>
+		</forma>
+		<resistencia>
+			<temperaturas>
+				<max>null</max>
+				<min>-15</min>
+			</temperaturas>
+		</resistencia>
+	</arbol>
+	<arbol>
+		<nombre>
+			<cientifico>Olea europea</cientifico>
+			<comun>Olivo</comun>
+		</nombre>
+		<vegetacion>
+			<tipo>Perenne</tipo>
+			<color>
+				<primavera>null</primavera>
+				<verano>null</verano>
+				<otono>null</otono>
+				<invierno>null</invierno>
+			</color>
+		</vegetacion>
+		<forma>
+			<altura>
+				<max>15</max>
+				<min>8</min>
+			</altura>
+			<copa>Irregular</copa>
+			<tronco>Irregular con bifurcaciones</tronco>
+			<ramaje>null</ramaje>
+		</forma>
+		<resistencia>
+			<temperaturas>
+				<max>null</max>
+				<min>null</min>
+			</temperaturas>
+		</resistencia>
+	</arbol>
+	<arbol>
+		<nombre>
+			<cientifico>Ramaje tortuoso</cientifico>
+			<comun>null</comun>
+		</nombre>
+		<vegetacion>
+			<tipo>null</tipo>
+			<color>
+				<primavera>Haz verde oscuro, envés verde plateado</primavera>
+				<verano>null</verano>
+				<otono>null</otono>
+				<invierno>null</invierno>
+			</color>
+		</vegetacion>
+		<forma>
+			<altura>
+				<max>null</max>
+				<min>null</min>
+			</altura>
+			<copa>-10</copa>
+			<tronco>null</tronco>
+			<ramaje>null</ramaje>
+		</forma>
+		<resistencia>
+			<temperaturas>
+				<max>null</max>
+				<min>null</min>
+			</temperaturas>
+		</resistencia>
+	</arbol>
+	<arbol>
+		<nombre>
+			<cientifico>Platanus orientalis</cientifico>
+			<comun>Platano</comun>
+		</nombre>
+		<vegetacion>
+			<tipo>Caducifolio</tipo>
+			<color>
+				<primavera>Haz verde medio, enves verde claro</primavera>
+				<verano>null</verano>
+				<otono>Ocre</otono>
+				<invierno>null</invierno>
+			</color>
+		</vegetacion>
+		<forma>
+			<altura>
+				<max>25</max>
+				<min>20</min>
+			</altura>
+			<copa>ovoidal</copa>
+			<tronco>recto</tronco>
+			<ramaje>expandido</ramaje>
+		</forma>
+		<resistencia>
+			<temperaturas>
+				<max>null</max>
+				<min>-20</min>
+			</temperaturas>
+		</resistencia>
+	</arbol>
+	<arbol>
+		<nombre>
+			<cientifico>Quercus ilex</cientifico>
+			<comun>Encina</comun>
+		</nombre>
+		<vegetacion>
+			<tipo>Perenne</tipo>
+			<color>
+				<primavera>Plateado en hojas jóvenes. En hojas antiguas, haz verde oscuro, envés plateado</primavera>
+				<verano>null</verano>
+				<otono>null</otono>
+				<invierno>null</invierno>
+			</color>
+		</vegetacion>
+		<forma>
+			<altura>
+				<max>25</max>
+				<min>25</min>
+			</altura>
+			<copa>esférica o elíptica irregular</copa>
+			<tronco>recto</tronco>
+			<ramaje>tortuoso</ramaje>
+		</forma>
+		<resistencia>
+			<temperaturas>
+				<max>null</max>
+				<min>-15</min>
+			</temperaturas>
+		</resistencia>
+	</arbol>
+</arboles>

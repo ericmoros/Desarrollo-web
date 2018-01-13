@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<documento>
+  <p>Mi Primer &lt;destacar importancia=1&gt;documento XML&lt;/destacar&gt;</p>
+  <p>Comienza con la etiqueta &lt;documento&gt;</p>
+  <p>A continuacion colocamos un elemento sin contenido</p>
+  <imagen fichero="imagen.gif"/>
+</documento>
