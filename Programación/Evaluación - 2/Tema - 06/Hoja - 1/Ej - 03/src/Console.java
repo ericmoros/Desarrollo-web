@@ -48,6 +48,10 @@ public class Console {
 		print(dateDay);
 	}
 	
+	public static void printMenu() {
+		print(Text.menu);
+	}
+	
 	//setDate
 //	public static void setDate(Date date, Integer day, Integer month, Integer year) {
 //		date = new Date(day, month, year);

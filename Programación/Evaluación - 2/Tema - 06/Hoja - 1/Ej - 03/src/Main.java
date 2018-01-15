@@ -2,29 +2,48 @@ import java.util.HashMap;
 
 public class Main {
 	public static void main(String[] args) {
-		HashMap<String, Date> dateList = new HashMap<>();
-		String name;
-		Integer day, month, year;
-		
-		Check.stringNumber("0123456789");
-		
+		String inputText;
 		do {
-			//Fecha...
-			Console.print("Nombre de la fecha: ");
-			name = Console.readEnter();
-			day = Console.loopAskEnterStrToInt("Introduce el día: ");
-			month = Console.loopAskEnterStrToInt("Introduce el mes: ");
-			year = Console.loopAskEnterStrToInt("Introduce el año: ");
-			
-			dateList.put(name, new Date(day, month, year));
-			
-			for (String dateName: dateList.keySet()) {
-				Console.print(dateName + ": ");
-				Console.printDate(dateList.get(dateName));
-				Console.print("\n");
+			Console.printMenu();
+			inputText = Console.readEnter();
+				
+			for (int posChar = 0; posChar < inputText.length(); posChar++) {
+				char actualChar = inputText.charAt(posChar);
+				
+				if (Check.textChar(actualChar, '1', true)) {
+					
+				}
 			}
-			Console.print("\n");
-		} while (true != false);
+		} while (! Check.textChar(inputText.charAt(0), 'X', true)); //Solo lee el primer caracter... :C
+		
+		
+		
+//		HashMap<String, Date> dateList = new HashMap<>();
+//		String name;
+//		Integer day, month, year;
+//		
+//		//Fecha...
+//		do {
+//			Console.print("Nombre de la fecha: ");
+//			name = Console.readEnter();
+//			do {
+//				day = Console.loopAskEnterStrToInt("Introduce el día: ");
+//				month = Console.loopAskEnterStrToInt("Introduce el mes: ");
+//				year = Console.loopAskEnterStrToInt("Introduce el año: ");
+//				
+//			} while (! Check.date(day, month, year));
+//			
+//			dateList.put(name, new Date(day, month, year));
+//			
+//			for (String dateName: dateList.keySet()) {
+//				Console.print(dateName + ": ");
+//				Console.printDate(dateList.get(dateName));
+//				Console.print("\n");
+//			}
+//			Console.print("\n");
+//			
+//			
+//		} while (true != false);
 		
 		
 //		Console.print("\n");<
