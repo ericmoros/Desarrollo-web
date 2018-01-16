@@ -52,6 +52,15 @@ public class Check {
 		}
 	}
 	
+	public static Boolean dateInList(String dateName) {
+		if (Ultimate.list().contains(dateName)) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+	
 	public static Boolean date(Integer day, Integer month, Integer year) {
 		Boolean checkDay = false;
 		
