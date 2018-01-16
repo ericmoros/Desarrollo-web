@@ -5,6 +5,10 @@ public class Main {
 			Console.printMenu();
 			Console.print(Text.newLine);
 			inputText = Console.readEnter();
+			
+			if (inputText.length() == 0) {
+				inputText = "" + Text.opt10;
+			}
 				
 			for (int posChar = 0; posChar < inputText.length(); posChar++) {
 				char actualChar = inputText.charAt(posChar);
@@ -29,7 +33,7 @@ public class Main {
 						Console.print(dateName + Text.newLine);
 					}
 				} else if (Check.textChar(actualChar, Text.opt3, true)) {/////////
-					Console.print(Text.askDate);
+					Console.print(Text.askName);
 					String inputDate = Console.readEnter();
 					if (Check.dateInList(inputDate)) {
 						Date date = Ultimate.getDate(inputDate);

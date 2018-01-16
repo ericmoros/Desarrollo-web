@@ -18,7 +18,8 @@ public class Console {
 
 	//readEnter
 	public static String readEnter() {
-		String str = keyboard.nextLine();
+		String str = "";
+		str = keyboard.nextLine();
 		return str;
 	}
 	

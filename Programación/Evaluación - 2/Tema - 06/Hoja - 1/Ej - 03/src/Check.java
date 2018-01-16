@@ -62,6 +62,7 @@ public class Check {
 	}
 	
 	public static Boolean date(Integer day, Integer month, Integer year) {
+
 		Boolean checkDay = false;
 		
 		if (day >= 1 && year >= 0) {
@@ -89,7 +90,7 @@ public class Check {
 					break;
 				//29 o 28
 				case 2:
-					if (year % 4 == 0 ) {
+					if ((year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0))) { ////////////////
 						if (day <= 29) {
 							checkDay = true;
 						}

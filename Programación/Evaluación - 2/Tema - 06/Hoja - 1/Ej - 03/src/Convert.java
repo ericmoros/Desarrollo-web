@@ -61,7 +61,7 @@ public class Convert {
 					break;
 				//29 o 28
 				case 2:
-					if (year % 4 == 0 ) { ////////////////
+					if ((year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0))) { ////////////////
 						number += 29;
 					} else {
 						number += 28;
