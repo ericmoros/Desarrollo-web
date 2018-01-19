@@ -53,4 +53,9 @@ public class Extract {
 
 		return wordsFound;
 	}
+	
+	public static String findTrimWord (String text, String word) {
+		String textTrimmed = text.replace(wordFromText(text, word), "");
+		return textTrimmed;
+	}
 }

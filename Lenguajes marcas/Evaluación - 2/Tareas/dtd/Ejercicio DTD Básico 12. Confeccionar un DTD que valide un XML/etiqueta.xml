@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE etiqueta SYSTEM "etiqueta.dtd">
+<etiqueta>
+	<nombre>Roberto García</nombre>
+	<calle>c/ Mayor, 27</calle>
+	<ciudad>Coslada</ciudad>
+	<pais>España</pais>
+	<codigo>39343</codigo>
+</etiqueta>

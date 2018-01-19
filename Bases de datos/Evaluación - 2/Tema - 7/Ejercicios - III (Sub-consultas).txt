@@ -1,0 +1,40 @@
+22- SELECT * FROM employees WHERE department_id = (SELECT department_id FROM departments WHERE department_name like 'Marketing');
+
+23- SELECT * FROM employees WHERE salary < (SELECT AVG(salary) FROM employees);
+
+24- SELECT * FROM countries WHERE region_id = (SELECT region_id FROM regions WHERE region_name like 'Americas') AND country_name NOT LIKE 'Argentina';
+
+25- SELECT * FROM employees WHERE salary < (SELECT AVG(salary) FROM employees WHERE job_id LIKE 'SA_MAN');
+
+26- SELECT * FROM employees WHERE department_id = (SELECT department_id FROM employees WHERE (first_name LIKE 'David' AND last_name LIKE 'Austin'));
+
+27- SELECT * FROM employees WHERE job_id = (SELECT job_id FROM jobs WHERE job_title LIKE 'Sales Manager');
+
+28- SELECT * FROM employees WHERE department_id != (SELECT department_id FROM employees WHERE (first_name LIKE 'Steven' AND last_name LIKE 'King'));
+
+29- SELECT * FROM employees WHERE salary > ALL (SELECT salary FROM employees WHERE department_id = 30);
+
+30- SELECT * FROM departments WHERE location_id = (SELECT location_id FROM locations WHERE city LIKE 'Seattle');
+
+31-  SELECT first_name, last_name, department_name
+  	FROM employees, departments
+	    WHERE 
+	          location_id IN (SELECT location_id FROM locations WHERE city LIKE 'Seattle')
+	      AND employees.department_id = departments.department_id;
+
+32- SELECT *
+  FROM employees
+    WHERE 
+      employees.department_id IN (SELECT department_id FROM departments WHERE (department_name != 'Marketing' AND department_name != 'Sales'));
+
+33- SELECT *
+  FROM employees
+    WHERE 
+      employees.department_id IN (SELECT department_id FROM departments WHERE (department_name = 'Marketing' OR department_name = 'Sales'));
+
+34- SELECT country_name
+  FROM countries
+    WHERE
+      region_id IN (SELECT region_id FROM regions WHERE region_name = 'Europe');
+
+35- 

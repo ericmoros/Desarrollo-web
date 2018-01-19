@@ -79,9 +79,14 @@ public class Convert {
 		
 		
 		day = Extract.strNumberRangeFromText(text, 1, 31);
-		scanText = day//////HERE!!!!!!
-		month = Extract.wordFromText(text, monthList);
+		scanText = Extract.findTrimWord(scanText, Extract.strNumberRangeFromText(scanText, 1, 31));
 		
+		month = Extract.findTrimWord(scanText, Extract.wordFromText(text, monthList));
+		
+		year = "";
+		for (Integer num: Extract.numberRange(1, 9)) {
+			year += num;
+		}
 		
 		return null;
 	}
