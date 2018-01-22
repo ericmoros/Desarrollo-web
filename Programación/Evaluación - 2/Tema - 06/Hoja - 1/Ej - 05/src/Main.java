@@ -1,13 +1,12 @@
 public class Main {
 	public static void main(String[] args) {
 		String inputText;
+		Console.printMenu();
 		do {
-			Console.printMenu();
-			Console.print(Text.newLine);
 			inputText = Console.readEnter();
 			
 			if (inputText.length() == 0) {
-				inputText = "" + Text.opt10;
+				inputText = "" + Text.opt8;
 			}
 				
 			for (int posChar = 0; posChar < inputText.length(); posChar++) {
@@ -21,6 +20,8 @@ public class Main {
 					
 					Console.print(Text.askName);
 					name = Console.readEnter();
+					Console.print(Text.askDate);
+					//Date date = Convert.textDate(Console.readEnter()); ABANDONADO
 					do {
 						day   = Console.loopAskEnterStrToInt(Text.askDay);
 						month = Console.loopAskEnterStrToInt(Text.askMonth);
@@ -67,57 +68,13 @@ public class Main {
 						Console.print(Text.noDate("[" + inputDate + "/" + inputDate2 + "]"));
 					}
 					Console.print(Text.newLine);
+				} else if (Check.textChar(actualChar, Text.opt9, true)) {
+					Console.printMenu();
+					Console.print(Text.newLine);
+				} else if (Check.textChar(actualChar, Text.opt8, true)) {
+					Console.print(Text.noOpt);
 				}
 			}
-			Console.print(Text.pressEnter);
-			Console.readEnter();
 		} while (! Check.textChar(inputText.charAt(0), Text.opt10, true));
-		
-		
-		
-//		HashMap<String, Date> dateList = new HashMap<>();
-//		String name;
-//		Integer day, month, year;
-//		
-//		//Fecha...
-//		do {
-//			Console.print("Nombre de la fecha: ");
-//			name = Console.readEnter();
-//			do {
-//				day = Console.loopAskEnterStrToInt("Introduce el día: ");
-//				month = Console.loopAskEnterStrToInt("Introduce el mes: ");
-//				year = Console.loopAskEnterStrToInt("Introduce el año: ");
-//				
-//			} while (! Check.date(day, month, year));
-//			
-//			dateList.put(name, new Date(day, month, year));
-//			
-//			for (String dateName: dateList.keySet()) {
-//				Console.print(dateName + ": ");
-//				Console.printDate(dateList.get(dateName));
-//				Console.print("\n");
-//			}
-//			Console.print("\n");
-//			
-//			
-//		} while (true != false);
-		
-		
-//		Console.print("\n");<
-//		
-//		//Fecha...
-//		day = Console.loopAskEnterStrToInt("Introduce el día: ");
-//		month = Console.loopAskEnterStrToInt("Introduce el mes: ");
-//		year = Console.loopAskEnterStrToInt("Introduce el año: ");
-//		
-//		
-////				Console.setDate(date1, day, month, year);
-//		date2 = new Date(day, month, year);
-//		Console.printDate(date2);
-//		Console.print("\n");
-		
-		
-		
-//		Console.print("Diferencia de " + (Convert.dateToNumber(date1) - Convert.dateToNumber(date2)) + " días");
 	}
 }

@@ -5,6 +5,8 @@ public class Text {
 	public static final Character opt3 = '3';
 	public static final Character opt4 = '4';
 	public static final Character opt5 = '5';
+	public static final Character opt8 = '-';
+	public static final Character opt9 = 'H';
 	public static final Character opt10 = 'X';
 	
 	public static final String menu   = "+-----------------------------+"
@@ -15,7 +17,8 @@ public class Text {
 					  		   + "\n" + "|  " + opt3 + "- Imprimir fecha/s.       |"
 					  		   + "\n" + "|  " + opt4 + "- Imprimir fecha en días. |"
 					  		   + "\n" + "|  " + opt5 + "- Comparar dos fechas.    |"
-					  		   + "\n" + "|  " + opt10 + "- Cerrar el programa.     |"
+					  		   + "\n" + "|  " + opt9 + "- Mostrar menú.           |"
+					  		   + "\n" + "|  " + opt10 +"- Cerrar el programa.     |"
 					  		   + "\n" + "+-----------------------------+";
 	
 	public static final String askName  = "Nombre de la fecha: ";
@@ -25,7 +28,9 @@ public class Text {
 	public static final String askDate = "Introduce la fecha: ";
 	
 	public static final String newLine = "\n";
-
+	
+	public static final String noOpt = "Opción no reconocida";
+	
 	public static final String pressEnter = "Presiona Enter para continuar...";
 	public static final String inProgress = "Pendiente";
 	

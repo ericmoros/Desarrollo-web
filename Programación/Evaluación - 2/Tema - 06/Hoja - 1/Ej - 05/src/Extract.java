@@ -1,9 +1,8 @@
 import java.util.ArrayList;
 
 public class Extract {
-	@SuppressWarnings("null")
 	public static ArrayList<Integer> numberRange(Integer from, Integer to) {
-		ArrayList<Integer> nums = null;
+		ArrayList<Integer> nums = new ArrayList<>();
 		
 		for (Integer posNum = from; posNum <= to; posNum++) {
 			nums.add(posNum);
