@@ -37,4 +37,50 @@
     WHERE
       region_id IN (SELECT region_id FROM regions WHERE region_name = 'Europe');
 
-35- 
+35- SELECT * 
+  FROM employees 
+    WHERE 
+      first_name LIKE 'H%' AND
+      salary > ANY (SELECT salary FROM employees WHERE department_id = 100);
+
+36- SELECT first_name, last_name, employee_id
+  FROM employees
+    WHERE
+      employee_id = (SELECT manager_id FROM employees WHERE first_name = 'David' AND last_name = 'Austin');
+
+37-
+SELECT *
+FROM employees
+WHERE department_id IN 
+  (SELECT department_id
+   FROM departments
+   WHERE location_id IN
+      (SELECT location_id
+       FROM locations
+       WHERE country_id IN
+          (SELECT country_id
+           FROM countries
+           WHERE country_name = 'United States of America')));
+
+38- 
+SELECT *
+FROM employees
+WHERE 
+  salary = (SELECT min_salary FROM jobs WHERE job_id = employees.job_id);
+
+39- 
+SELECT *
+FROM departments
+WHERE
+  department_name LIKE 'R%' AND
+  department_id NOT IN (SELECT employee_id FROM employees);
+
+40-
+SELECT *
+FROM departments
+WHERE department_id IN
+    (SELECT department_id
+     FROM employees
+     WHERE first_name LIKE 'A%');
+
+41-
