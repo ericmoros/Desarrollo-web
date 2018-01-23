@@ -26,7 +26,7 @@ public class Text {
 					  		   + "\n" + "|     " + opt9 + "- Menú  "  + opt10 +"- Cerrar     |"
 					  		   + "\n" + "+----------------------------+";
 	
-	public static final String askName  = "Nombre de la fecha: ";
+	public static final String askIDA  = "Introduce el IDA del autor a modificar: ";
 	
 	public static final String newLine = "\n";
 	public static final String noOpt = "Opción no reconocida";

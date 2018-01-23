@@ -21,9 +21,14 @@ public class Author {
 		authorList.add(this);
 	}
 	
+	Author(Integer IDA, String name, String eMail, Integer genrePos) {
+		this.name	= name;
+		this.eMail	= eMail;
+		this.genre	= genreList.get(genrePos);
+		
+		authorList.set(IDA, this);
+	}
 	
-	//
-
 	
 	//
 	public String getName() {
@@ -46,5 +51,8 @@ public class Author {
 	//
 	public static ArrayList<Author> getAuthorList() {
 		return authorList;
+	}
+	public static Author getAuthor(Integer IDA) {
+		return authorList.get(IDA);
 	}
 }

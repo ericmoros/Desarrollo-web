@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Check {
 	public static Boolean textChar(char textChar , char objetiveChar, Boolean ignoreCase) {
 		if (textChar == objetiveChar) {
