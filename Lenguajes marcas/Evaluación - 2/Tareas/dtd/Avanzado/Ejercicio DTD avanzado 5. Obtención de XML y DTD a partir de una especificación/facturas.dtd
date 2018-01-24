@@ -1,0 +1,34 @@
+<!ELEMENT videoclub (peliculas,clientes,facturas)>
+<!ELEMENT peliculas (pelicula)+>
+<!ELEMENT clientes (cliente)+>
+<!ELEMENT facturas (factura)+>
+<!ELEMENT factura (fecha,cliente,cesta,importe,total)>
+<!ATTLIST factura id_factura CDATA #REQUIRED>
+<!ELEMENT cesta (pelicula)+>
+<!ELEMENT importe (#PCDATA)>
+<!ATTLIST importe metodo NMTOKEN #REQUIRED>
+<!ELEMENT total (#PCDATA)>
+<!ELEMENT pelicula (titulo?,(genero,duracion,reparto,caratula)?,fecha?,
+                    (devolucion_fecha|extra)?)>
+<!ATTLIST pelicula
+  formato NMTOKEN #IMPLIED
+  id_pelicula CDATA #REQUIRED
+  objeto NMTOKEN #IMPLIED
+  precio CDATA #IMPLIED
+  valoracion CDATA #IMPLIED>
+<!ELEMENT titulo (#PCDATA)>
+<!ELEMENT genero (#PCDATA)>
+<!ELEMENT duracion (#PCDATA)>
+<!ELEMENT reparto (actor)+>
+<!ELEMENT caratula EMPTY>
+<!ATTLIST caratula enlace CDATA #REQUIRED>
+<!ELEMENT devolucion_fecha (#PCDATA)>
+<!ELEMENT extra (#PCDATA)>
+<!ELEMENT actor (#PCDATA)>
+<!ELEMENT cliente (nombre,apellido+,dni,telefono)?>
+<!ATTLIST cliente id_cliente CDATA #REQUIRED>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT apellido (#PCDATA)>
+<!ELEMENT dni (#PCDATA)>
+<!ELEMENT telefono (#PCDATA)>
+<!ELEMENT fecha (#PCDATA)>

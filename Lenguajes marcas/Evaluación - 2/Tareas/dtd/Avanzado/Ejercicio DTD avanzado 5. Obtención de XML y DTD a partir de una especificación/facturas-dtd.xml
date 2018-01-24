@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE videoclub [
+  <!ELEMENT videoclub (peliculas,clientes,facturas)>
+  <!ELEMENT peliculas (pelicula)+>
+  <!ELEMENT clientes (cliente)+>
+  <!ELEMENT facturas (factura)+>
+  <!ELEMENT factura (fecha,cliente,cesta,importe,total)>
+  <!ATTLIST factura id_factura CDATA #REQUIRED>
+  <!ELEMENT cesta (pelicula)+>
+  <!ELEMENT importe (#PCDATA)>
+  <!ATTLIST importe metodo NMTOKEN #REQUIRED>
+  <!ELEMENT total (#PCDATA)>
+  <!ELEMENT pelicula (titulo?,(genero,duracion,reparto,caratula)?,fecha?,
+                    (devolucion_fecha|extra)?)>
+  <!ATTLIST pelicula
+  formato NMTOKEN #IMPLIED
+  id_pelicula CDATA #REQUIRED
+  objeto NMTOKEN #IMPLIED
+  precio CDATA #IMPLIED
+  valoracion CDATA #IMPLIED>
+  <!ELEMENT titulo (#PCDATA)>
+  <!ELEMENT genero (#PCDATA)>
+  <!ELEMENT duracion (#PCDATA)>
+  <!ELEMENT reparto (actor)+>
+  <!ELEMENT caratula EMPTY>
+  <!ATTLIST caratula enlace CDATA #REQUIRED>
+  <!ELEMENT devolucion_fecha (#PCDATA)>
+  <!ELEMENT extra (#PCDATA)>
+  <!ELEMENT actor (#PCDATA)>
+  <!ELEMENT cliente (nombre,apellido+,dni,telefono)?>
+  <!ATTLIST cliente id_cliente CDATA #REQUIRED>
+  <!ELEMENT nombre (#PCDATA)>
+  <!ELEMENT apellido (#PCDATA)>
+  <!ELEMENT dni (#PCDATA)>
+  <!ELEMENT telefono (#PCDATA)>
+  <!ELEMENT fecha (#PCDATA)>
+]>
+<videoclub>
+  <peliculas>
+    <pelicula id_pelicula="1" valoracion="4">
+      <titulo>El libro de la selva</titulo>
+      <genero>Fantasía</genero>
+      <duracion>106</duracion>
+      <reparto>
+        <actor>Neel Sethi</actor>
+        <actor>Ben Kingsley</actor>
+        <actor>Bill Murray</actor>
+      </reparto>
+      <caratula enlace="caratulas/c0360.jpg"/>
+    </pelicula>
+    <pelicula id_pelicula="2" valoracion="4">
+      <titulo>Jumanji: Bienvenidos a la jungla</titulo>
+      <genero>Aventura</genero>
+      <duracion>119</duracion>
+      <reparto>
+        <actor>Dwayne Johnson</actor>
+        <actor>Jack Black</actor>
+        <actor>Karen Gillan</actor>
+      </reparto>
+      <caratula enlace="caratulas/c0437.jpg"/>
+    </pelicula>
+    <pelicula id_pelicula="3" valoracion="4">
+      <titulo>Star Wars: Los últimos Jedi</titulo>
+      <genero>Ciencia ficción</genero>
+      <duracion>132</duracion>
+      <reparto>
+        <actor>Adam Driver</actor>
+        <actor>Carrie Fisher</actor>
+        <actor>Daisy Ridley</actor>
+      </reparto>
+      <caratula enlace="caratulas/c1201.jpg"/>
+    </pelicula>
+    <pelicula id_pelicula="4" valoracion="4">
+      <titulo>Perfectos desconocidos</titulo>
+      <genero>Comedia</genero>
+      <duracion>96</duracion>
+      <reparto>
+        <actor>Belén Rueda</actor>
+        <actor>Dafne Fernández</actor>
+        <actor>Eduard Fernández</actor>
+      </reparto>
+      <caratula enlace="caratulas/c1201.jpg"/>
+    </pelicula>
+  </peliculas>
+  <clientes>
+    <cliente id_cliente="1">
+      <nombre>Juan Francisco</nombre>
+      <apellido>Villa</apellido>
+      <apellido>Mesa</apellido>
+      <dni>00000000P</dni>
+      <telefono>000000000</telefono>
+    </cliente>
+    <cliente id_cliente="2">
+      <nombre>Jesus</nombre>
+      <apellido>Miquel</apellido>
+      <apellido>Santos</apellido>
+      <dni>11111111Q</dni>
+      <telefono>111111111</telefono>
+    </cliente>
+    <cliente id_cliente="3">
+      <nombre>Sofía</nombre>
+      <apellido>Solana</apellido>
+      <apellido>cabo</apellido>
+      <dni>22222222R</dni>
+      <telefono>222222222</telefono>
+    </cliente>
+  </clientes>
+  <facturas>
+    <factura id_factura="1">
+      <fecha>24-01-2018</fecha>
+      <cliente id_cliente="1"/>
+      <cesta>
+        <pelicula id_pelicula="1" formato="dvd" objeto="compra" precio="6">
+          <titulo>El libro de la selva - 2017</titulo><!--Entiendo que el que está escrito en el disco-->
+          <fecha>12-06-2017</fecha><!--Entiendo que con fecha de salida al mercado se refieré a la de la adquisición para su distribución-->
+          <extra>Una pegatina de un mono</extra>
+        </pelicula>
+        <pelicula id_pelicula="2" formato="vhs-rebobinado" objeto="compra" precio="4"/>
+        <pelicula id_pelicula="3" formato="vhs" objeto="compra" precio="3"/>
+      </cesta>
+      <importe metodo="metalico">20</importe>
+      <total>13</total>
+    </factura>
+    <factura id_factura="2">
+      <fecha>25-01-2018</fecha>
+      <cliente id_cliente="2"/>
+      <cesta>
+        <pelicula id_pelicula="1" formato="dvd" objeto="compra" precio="5">
+          <titulo>El libro de la selva - 2017</titulo>
+          <fecha>12-06-2017</fecha>
+        </pelicula>
+      </cesta>
+      <importe metodo="tarjeta">5</importe>
+      <total>5</total>
+    </factura>
+    <factura id_factura="3">
+      <fecha>26-01-2018</fecha>
+      <cliente id_cliente="2"/>
+      <cesta>
+        <pelicula id_pelicula="1" formato="dvd" objeto="alquiler" precio="3">
+          <titulo>El libro de la selva - 2017</titulo>
+          <fecha>12-06-2017</fecha>
+          <devolucion_fecha>30-01-2018</devolucion_fecha>
+        </pelicula>
+      </cesta>
+      <importe metodo="tarjeta">1.5</importe>
+      <total>1.5</total>
+    </factura>
+    <factura id_factura="4">
+      <fecha>26-01-2018</fecha>
+      <cliente id_cliente="2"/>
+      <cesta>
+        <pelicula id_pelicula="4" formato="vhs" objeto="alquiler" precio="1.5">
+          <devolucion_fecha>30-01-2018</devolucion_fecha>
+        </pelicula>
+        <pelicula id_pelicula="4" formato="vhs-rebobinado" objeto="alquiler" precio="2">
+          <devolucion_fecha>01-02-2018</devolucion_fecha>
+        </pelicula>
+      </cesta>
+      <importe metodo="metalico">5</importe>
+      <total>3.5</total>
+    </factura>
+  </facturas>
+</videoclub>
