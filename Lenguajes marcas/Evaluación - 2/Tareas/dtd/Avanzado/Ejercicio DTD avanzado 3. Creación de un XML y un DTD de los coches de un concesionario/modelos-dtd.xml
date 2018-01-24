@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE modelos [
+  <!ELEMENT modelos (modelo+)>
+  <!ELEMENT modelo ((mr,descripcion)?,mmr?)>
+  <!ATTLIST modelo id CDATA #REQUIRED>
+  <!ELEMENT mr (id+)>
+  <!ELEMENT descripcion (motor,cilindros,(caballos|potencia),cambio,
+                       lmedia,precio)>
+  <!ELEMENT mmr (id)>
+  <!ELEMENT motor (#PCDATA)>
+  <!ELEMENT cilindros (#PCDATA)>
+  <!ELEMENT caballos (#PCDATA)>
+  <!ELEMENT potencia (#PCDATA)>
+  <!ELEMENT cambio (#PCDATA)>
+  <!ATTLIST cambio tipo NMTOKEN #IMPLIED>
+  <!ELEMENT lmedia (#PCDATA)>
+  <!ELEMENT precio (#PCDATA)>
+  <!ELEMENT id (#PCDATA)>
+]>
+<modelos>
+  <modelo id="556"/>
+  <modelo id="555">
+    <mr>
+      <id>444</id>
+      <id>556</id>
+    </mr>
+    <descripcion>
+      <motor>1.998cc 16v</motor>
+      <cilindros>4</cilindros>
+      <potencia>128</potencia>
+      <cambio tipo="manual"/>
+      <lmedia>11</lmedia>
+      <precio>2225000</precio>
+    </descripcion>
+  </modelo>
+  <modelo id="557"/>
+  <modelo id="154"/>
+  <modelo id="444">
+    <mr>
+      <id>555</id>
+      <id>554</id>
+    </mr>
+    <descripcion>
+      <motor>2.000cc 16v</motor>
+      <cilindros>4</cilindros>
+      <caballos>128</caballos>
+      <cambio>manual</cambio>
+      <lmedia>11</lmedia>
+      <precio>2500000</precio>
+    </descripcion>
+    <mmr>
+      <id>556</id>
+    </mmr>
+  </modelo>
+</modelos>

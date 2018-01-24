@@ -1,0 +1,21 @@
+<!ELEMENT cartelera (película)+>
+<!ELEMENT película (título,título_original?,nacionalidad,género,
+                    (clasificación|sin_clasificar),sinopsis,director,
+                    reparto,(web,cartel)?)>
+<!ATTLIST película
+  año NMTOKEN #IMPLIED
+  código NMTOKEN #REQUIRED
+  duración CDATA #REQUIRED>
+<!ELEMENT título (#PCDATA)>
+<!ELEMENT título_original (#PCDATA)>
+<!ELEMENT nacionalidad (#PCDATA)>
+<!ELEMENT género (#PCDATA)>
+<!ELEMENT clasificación EMPTY>
+<!ATTLIST clasificación edad (tp) #REQUIRED>
+<!ELEMENT sin_clasificar EMPTY>
+<!ELEMENT sinopsis (#PCDATA)>
+<!ELEMENT director (#PCDATA)>
+<!ELEMENT reparto (actor+)>
+<!ELEMENT web (#PCDATA)>
+<!ELEMENT cartel (#PCDATA)>
+<!ELEMENT actor (#PCDATA)>

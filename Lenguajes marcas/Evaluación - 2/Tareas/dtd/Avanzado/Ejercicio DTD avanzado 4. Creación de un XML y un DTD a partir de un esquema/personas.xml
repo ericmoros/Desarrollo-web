@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE personas SYSTEM "personas.dtd">
+<personas>
+  <persona>
+    <nombre></nombre>
+    <nacimiento dia="10" mes="Abril" anyo="1982"/>
+    <direccion>
+      <calle>caoba, 1</calle>
+      <poblacion>Madrid</poblacion>
+      <provincia>Madrid</provincia>
+      <cpostal>28005</cpostal>
+    </direccion>
+    <varon/>
+  </persona>
+  <persona>
+    <nombre></nombre>
+    <direccion>
+      <calle>caoba, 1</calle>
+      <poblacion>Madrid</poblacion>
+      <provincia>Madrid</provincia>
+      <cpostal>28005</cpostal>
+    </direccion>
+    <mujer/>
+  </persona>
+</personas>

@@ -1,0 +1,19 @@
+<!ELEMENT ventas (empresa)>
+<!ELEMENT empresa (nombre,informes)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT informes (informe)>
+<!ELEMENT informe (descripcion,zona)>
+<!ATTLIST informe
+  id    CDATA   #REQUIRED
+  tipo  NMTOKEN #REQUIRED
+  fecha CDATA   #REQUIRED>
+<!ELEMENT descripcion (#PCDATA)>
+<!ELEMENT zona (norte,centro,sur)>
+<!ELEMENT norte (trimestre)+>
+<!ELEMENT centro (trimestre)+>
+<!ELEMENT sur (trimestre)+>
+<!ELEMENT trimestre (#PCDATA)>
+<!ATTLIST trimestre
+  numero (1|2|3|4) #REQUIRED
+  default (NO_INFO) #REQUIRED
+  numero CDATA #REQUIRED>
