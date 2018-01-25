@@ -7,8 +7,6 @@ public class Author {
 		genreList.add('f');
 	};
 	
-	private static ArrayList<Author> authorList = new ArrayList<Author>();
-	
 	//
 	private String name;
 	private String eMail;
@@ -18,15 +16,14 @@ public class Author {
 		this.name	= name;
 		this.eMail	= eMail;
 		this.genre	= genreList.get(genrePos);
-		authorList.add(this);
+		Authors.addAuthor(this);
 	}
 	
 	Author(Integer IDA, String name, String eMail, Integer genrePos) {
 		this.name	= name;
 		this.eMail	= eMail;
 		this.genre	= genreList.get(genrePos);
-		
-		authorList.set(IDA, this);
+		Authors.setAuthor(IDA, this);
 	}
 	
 	
@@ -45,14 +42,5 @@ public class Author {
 
 	public Character getGenre() {
 		return genre;
-	}
-	
-	
-	//
-	public static ArrayList<Author> getAuthorList() {
-		return authorList;
-	}
-	public static Author getAuthor(Integer IDA) {
-		return authorList.get(IDA);
 	}
 }
