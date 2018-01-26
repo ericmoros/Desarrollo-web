@@ -1,6 +1,6 @@
 <!ELEMENT modelos (modelo+)>
 <!ELEMENT modelo ((mr,descripcion)?,mmr?)>
-<!ATTLIST modelo id CDATA #REQUIRED>
+<!ATTLIST modelo id ID #REQUIRED>
 <!ELEMENT mr (id+)>
 <!ELEMENT descripcion (motor,cilindros,(caballos|potencia),cambio,
                        lmedia,precio)>
@@ -13,4 +13,5 @@
 <!ATTLIST cambio tipo NMTOKEN #IMPLIED>
 <!ELEMENT lmedia (#PCDATA)>
 <!ELEMENT precio (#PCDATA)>
-<!ELEMENT id (#PCDATA)>
+<!ELEMENT id EMPTY>
+<!ATTLIST id mmr IDREF #REQUIRED>

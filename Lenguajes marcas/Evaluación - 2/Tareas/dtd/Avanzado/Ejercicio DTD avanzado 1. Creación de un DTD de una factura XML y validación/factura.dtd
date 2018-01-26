@@ -1,14 +1,14 @@
 <!ELEMENT factura (datos_empresa, datos_cliente, datos_factura)>
-<!ATTLIST factura n_fac NMTOKEN #REQUIRED>
+<!ATTLIST factura n_fac ID #REQUIRED>
 <!ELEMENT datos_empresa (nombre, dir, poblacion, provincia, cif, telefono)>
 <!ELEMENT datos_cliente (nombre, dir_env, poblacion, provincia)>
-<!ATTLIST datos_cliente n_cli NMTOKEN #REQUIRED>
+<!ATTLIST datos_cliente n_cli ID #REQUIRED>
 <!ELEMENT datos_factura (fecha, linea+, base, cuota_iva, total)>
 <!ATTLIST datos_factura
   f_pago  (efectivo|tarjeta|plazos) #REQUIRED
   iva NMTOKEN #REQUIRED
   moneda (euro) #REQUIRED
-  n_ped NMTOKEN #REQUIRED>
+  n_ped ID #REQUIRED>
 <!ELEMENT dir (#PCDATA)>
 <!ELEMENT cif (#PCDATA)>
 <!ELEMENT telefono EMPTY>

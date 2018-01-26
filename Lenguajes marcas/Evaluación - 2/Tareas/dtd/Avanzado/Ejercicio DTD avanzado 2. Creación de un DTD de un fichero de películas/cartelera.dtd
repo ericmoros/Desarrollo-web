@@ -4,7 +4,7 @@
                     reparto,(web,cartel)?)>
 <!ATTLIST película
   año NMTOKEN #IMPLIED
-  código NMTOKEN #REQUIRED
+  código ID #REQUIRED
   duración CDATA #REQUIRED>
 <!ELEMENT título (#PCDATA)>
 <!ELEMENT título_original (#PCDATA)>

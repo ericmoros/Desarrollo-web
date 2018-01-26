@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE modelos SYSTEM "modelos.dtd">
 <modelos>
-  <modelo id="556"/>
-  <modelo id="555">
+  <modelo id="M556"/>
+  <modelo id="M555">
     <mr>
-      <id>444</id>
-      <id>556</id>
+      <id mmr="M444" />
+      <id mmr="M556" />
     </mr>
     <descripcion>
       <motor>1.998cc 16v</motor>
@@ -16,12 +16,12 @@
       <precio>2225000</precio>
     </descripcion>
   </modelo>
-  <modelo id="557"/>
-  <modelo id="154"/>
-  <modelo id="444">
+  <modelo id="M557"/>
+  <modelo id="M154"/>
+  <modelo id="M444">
     <mr>
-      <id>555</id>
-      <id>554</id>
+      <id mmr="M555" />
+      <id mmr="M444" />
     </mr>
     <descripcion>
       <motor>2.000cc 16v</motor>
@@ -32,7 +32,7 @@
       <precio>2500000</precio>
     </descripcion>
     <mmr>
-      <id>556</id>
+      <id mmr="M556" />
     </mmr>
   </modelo>
 </modelos>
