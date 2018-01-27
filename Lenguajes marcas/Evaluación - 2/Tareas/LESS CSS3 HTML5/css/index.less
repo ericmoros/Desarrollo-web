@@ -1,7 +1,27 @@
+/*___ (8.1) VARIABLES _______________________*/
+@dimensions: 100%;
+@color1: gray;
+/*_________________________________________*/
+
+/*___ (8.2) MIXINS SIN PARÁMETROS____________*/
+.rellenar {
+    max-width: @dimensions; 
+    max-height: @dimensions;
+    margin:auto;
+    display:block;
+}
+/*_________________________________________*/
+
+/*___ (8.3) MIXINS CON PARÁMETROS____________*/
+.degradado(@color1; @color2) {
+    background: linear-gradient(unit(@angulo, deg), @color1, @color2);
+ }
+/*_________________________________________*/
+
 body {
     margin: 0px;
+    background-color: gray;
 }
-
 video {
     vertical-align: middle;
 }
@@ -10,21 +30,18 @@ audio {
     display: hidden;
 }
 .section {
+    cursor: pointer;
     overflow: hidden;
     width: 25%;
     float: left;
     img {
-        height: 100%;
-        width: 100%;
-        margin: 0px;
+        .rellenar;
+        opacity: 0.5;
     }
+}
 
-    img:hover video {
-        display: inline;
-        margin: auto;
-    }
-
-    img:hover {
-        display: none;
+.section:hover {
+    img {
+        opacity: 1;
     }
 }
