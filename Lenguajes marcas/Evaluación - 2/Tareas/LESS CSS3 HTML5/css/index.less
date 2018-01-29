@@ -1,47 +1,83 @@
 /*___ (8.1) VARIABLES _______________________*/
 @dimensions: 100%;
 @color1: gray;
-/*_________________________________________*/
+/*___________________________________________*/
 
-/*___ (8.2) MIXINS SIN PARÁMETROS____________*/
+/*___ (8.2) MIXINS SIN PARÁMETROS ___________*/
 .rellenar {
     max-width: @dimensions; 
     max-height: @dimensions;
     margin:auto;
     display:block;
 }
-/*_________________________________________*/
+/*___________________________________________*/
 
-/*___ (8.3) MIXINS CON PARÁMETROS____________*/
-.degradado(@color1; @color2) {
-    background: linear-gradient(unit(@angulo, deg), @color1, @color2);
- }
-/*_________________________________________*/
+/*___ (8.3) MIXINS CON PARÁMETROS ___________*/
+.fondo (@index) {
+    position: fixed;
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: @index;
+}
+/*___________________________________________*/
+
+/*___ (8.7) MIXINS CON CONDICIÓN ____________*/
+    //___ (8.4) FUNCIONES _______________________
+    .colorFade (@a; @b) {
+        color: fade(@a, @b);
+    }
+    //___________________________________________
+
+    //___ (8.4) OPERADORES LÓGICOS ______________
+    .mixin2 (@a) when (@media = mobile) {//Ejemplo - no lo uso porque no se me ocurre nada
+
+    }
+    //___________________________________________
+/*___________________________________________*/
+
+p {
+    .colorFade(white, black);
+}
 
 body {
     margin: 0px;
     background-color: gray;
-}
-video {
-    vertical-align: middle;
+    video {
+        .fondo(-100);
+    }
 }
 
 audio {
     display: hidden;
 }
-.section {
+
+/*___ (8.4) REGLAS INTERNAS _________________*/
+.float-block {
     cursor: pointer;
     overflow: hidden;
     width: 25%;
     float: left;
     img {
         .rellenar;
-        opacity: 0.5;
+        opacity: 0.65;
     }
 }
+/*___________________________________________*/
 
-.section:hover {
+.float-block:hover {
     img {
         opacity: 1;
     }
+}
+
+#author {
+    text-align: center;
+    vertical-align: middle;
+    margin: 25%;
+    margin-top: 42%;
+    margin-bottom: 44%;
 }
