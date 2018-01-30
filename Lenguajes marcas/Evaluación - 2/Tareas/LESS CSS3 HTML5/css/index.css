@@ -1,26 +1,59 @@
+/*___ (8.1) VARIABLES _______________________*/
+/*___________________________________________*/
+/*___ (8.2) MIXINS SIN PARÁMETROS ___________*/
+.rellenar {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  display: block;
+}
+/*___________________________________________*/
+/*___ (8.3) MIXINS CON PARÁMETROS ___________*/
+/*___________________________________________*/
+/*___ (8.7) MIXINS CON CONDICIÓN ____________*/
+/*___________________________________________*/
+p {
+  color: #ffffff;
+}
 body {
   margin: 0px;
+  background-color: gray;
 }
-video {
-  vertical-align: middle;
+body video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
 }
 audio {
   display: hidden;
 }
-.section {
+/*___ (8.4) REGLAS INTERNAS _________________*/
+.float-block {
+  cursor: pointer;
   overflow: hidden;
   width: 25%;
   float: left;
 }
-.section img {
-  height: 100%;
-  width: 100%;
-  margin: 0px;
-}
-.section img:hover video {
-  display: inline;
+.float-block img {
+  max-width: 100%;
+  max-height: 100%;
   margin: auto;
+  display: block;
+  opacity: 0.65;
 }
-.section img:hover {
-  display: none;
+/*___________________________________________*/
+.float-block:hover img {
+  opacity: 1;
+}
+#author {
+  text-align: center;
+  vertical-align: middle;
+  margin: 25%;
+  margin-top: 42%;
+  margin-bottom: 44%;
 }

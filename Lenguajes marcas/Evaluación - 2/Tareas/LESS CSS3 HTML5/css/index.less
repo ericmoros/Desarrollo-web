@@ -1,30 +1,83 @@
-body {
-    margin: 0px;
+/*___ (8.1) VARIABLES _______________________*/
+@dimensions: 100%;
+@color1: gray;
+/*___________________________________________*/
+
+/*___ (8.2) MIXINS SIN PARÁMETROS ___________*/
+.rellenar {
+    max-width: @dimensions; 
+    max-height: @dimensions;
+    margin:auto;
+    display:block;
+}
+/*___________________________________________*/
+
+/*___ (8.3) MIXINS CON PARÁMETROS ___________*/
+.fondo (@index) {
+    position: fixed;
+    right: 0; 
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    width: auto; 
+    height: auto;
+    z-index: @index;
+}
+/*___________________________________________*/
+
+/*___ (8.7) MIXINS CON CONDICIÓN ____________*/
+    //___ (8.4) FUNCIONES _______________________
+    .colorFade (@a; @b) {
+        color: fade(@a, @b);
+    }
+    //___________________________________________
+
+    //___ (8.4) OPERADORES LÓGICOS ______________
+    .mixin2 (@a) when (@media = mobile) {//Ejemplo - no lo uso porque no se me ocurre nada
+
+    }
+    //___________________________________________
+/*___________________________________________*/
+
+p {
+    .colorFade(white, black);
 }
 
-video {
-    vertical-align: middle;
+body {
+    margin: 0px;
+    background-color: gray;
+    video {
+        .fondo(-100);
+    }
 }
 
 audio {
     display: hidden;
 }
-.section {
+
+/*___ (8.4) REGLAS INTERNAS _________________*/
+.float-block {
+    cursor: pointer;
     overflow: hidden;
     width: 25%;
     float: left;
     img {
-        height: 100%;
-        width: 100%;
-        margin: 0px;
+        .rellenar;
+        opacity: 0.65;
     }
+}
+/*___________________________________________*/
 
-    img:hover video {
-        display: inline;
-        margin: auto;
+.float-block:hover {
+    img {
+        opacity: 1;
     }
+}
 
-    img:hover {
-        display: none;
-    }
+#author {
+    text-align: center;
+    vertical-align: middle;
+    margin: 25%;
+    margin-top: 42%;
+    margin-bottom: 44%;
 }
