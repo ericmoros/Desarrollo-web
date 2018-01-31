@@ -8,7 +8,50 @@ public class Main {
 		while (! Check.textChar(inputText.charAt(0), Text.opt10, true)) {
 			for (int posChar = 0; posChar < inputText.length(); posChar++) {
 				char actualChar = inputText.charAt(posChar);
-				if (Check.textChar(actualChar, Text.opt5, true)) {
+				
+				//CREAR AUTOR
+				if (Check.textChar(actualChar, Text.opt4, true)) {
+					String name = null;
+					String eMail = null;
+					Integer genre = null;
+					
+					//
+					Console.print(Text.askName);
+					inputText = Console.readEnter();
+					while (name != inputText) {
+						name = inputText;
+					}
+					
+					//
+					Console.print(Text.askEMail);
+					inputText = Console.readEnter();
+					while (eMail != inputText) {
+						eMail = inputText;
+					}
+					
+					//No me gusta
+					Console.print(Text.askGenre + Text.newLine);
+					inputText = Console.readEnter();
+					while (! (genre.equals(0) && genre.equals(1))) {
+						switch (inputText.charAt(0)) {
+							case 'm':
+								genre = 0;
+								break;
+							case 'f':
+								genre = 1;
+								break;
+							default:
+								genre = 0;
+								break;
+						}
+					}
+				
+					//
+					new Author(name, eMail, genre);
+					Console.print(Text.newLine + Text.authorModified);
+				}
+				//MODIFICAR AUTOR
+				else if (Check.textChar(actualChar, Text.opt5, true)) {
 					Author authorOld;
 					Integer IDA;
 					String name;
@@ -26,7 +69,7 @@ public class Main {
 					
 					//
 					Console.print(Text.askName);
-					name = Console.readEnter();
+					inputText = Console.readEnter();
 					if (inputText != "") {
 						name = inputText;
 					} else {
@@ -35,17 +78,28 @@ public class Main {
 					
 					//
 					Console.print(Text.askEMail);
-					eMail = Console.readEnter();
+					inputText = Console.readEnter();
 					if (inputText != "") {
 						eMail = inputText;
 					} else {
 						eMail = authorOld.getEMail();
 					}
 					
-					//
-					Console.print(Text.askGenre);
+					//No me gusta
+					Console.print(Text.askGenre + Text.newLine);
+					inputText = Console.readEnter();
 					if (inputText != "") {
-						genre = Integer.parseInt(Console.readEnter());
+						switch (inputText.charAt(0)) {
+							case 'm':
+								genre = 0;
+								break;
+							case 'f':
+								genre = 1;
+								break;
+							default:
+								genre = 0;
+								break;
+						}
 					} else {
 						switch (authorOld.getGenre()) {
 							case 'm':
@@ -54,7 +108,7 @@ public class Main {
 							case 'f':
 								genre = 1;
 								break;
-							default://Esto no haría
+							default:
 								genre = 0;
 								break;
 						}
@@ -62,18 +116,20 @@ public class Main {
 				
 					//
 					new Author(IDA, name, eMail, genre);
+					Console.print(Text.newLine + Text.authorModified);
 					
-					Console.print(Text.newLine);
-					Console.print(Text.authorModified);
-					
+				//MOSTRAR AUTORES
 				} else if (Check.textChar(actualChar, Text.opt6, true)) {
 					Console.print(Text.strAuthor(Authors.getAuthorList()));
+				
+				//MOSTRAR MENÚ
 				} else if (Check.textChar(actualChar, Text.opt9, true)) {
 					Console.printMenu();
 					Console.print(Text.newLine);
+					
+				//OPCIÓN NO RECONOCÍDA
 				} else {
-					Console.print("'" + actualChar + "' " + Text.noOpt);
-					Console.print(Text.newLine);
+					Console.print("'" + actualChar + "' " + Text.noOpt + Text.newLine);
 				}
 			}
 			
