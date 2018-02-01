@@ -40,6 +40,7 @@ public class Text {
 	public static final String pressEnter = "Presiona Enter para continuar...";
 	public static final String inProgress = "Pendiente";
 	
+	//Lista autor
 	public static String strAuthor(Author author) {
 		return "Nombre: " + author.getName() + ", e-mail: " + author.getEMail() + ", género: " + author.getGenre();
 	}
@@ -49,5 +50,17 @@ public class Text {
 			strAuthorList.add("IDA: " + authorList.indexOf(author) + ", " + strAuthor(author) + "\n");
 		}
 		return strAuthorList;
+	}
+	
+	//Lista libro
+	public static String strBook(Book book) {
+		return "Título: " + book.getTitle() + ", precio: " + book.getPrice() + ", restantes: " + book.getStock();
+	}
+	public static ArrayList<String> strBook(ArrayList<Book> bookList) {
+		ArrayList<String> strBookList = new ArrayList<>();
+		for (Book book: bookList) {
+			strBookList.add("IDB: " + bookList.indexOf(book) + ", " + strBook(book) + "\n");
+		}
+		return strBookList;
 	}
 }

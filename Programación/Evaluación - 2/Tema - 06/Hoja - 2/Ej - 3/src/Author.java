@@ -16,14 +16,14 @@ public class Author {
 		this.name	= name;
 		this.eMail	= eMail;
 		this.genre	= genreList.get(genrePos);
-		Authors.addAuthor(this);
+		BooksAuthors.addAuthor(this);
 	}
 	
 	Author(Integer IDA, String name, String eMail, Integer genrePos) {
 		this.name	= name;
 		this.eMail	= eMail;
 		this.genre	= genreList.get(genrePos);
-		Authors.setAuthor(IDA, this);
+		BooksAuthors.setAuthor(IDA, this);
 	}
 	
 	
