@@ -1,0 +1,11 @@
+12) Seleccionar los departamentos y la ciudad en la que están situados.
+13) Seleccionar todos los empleados con su nombre de departamento.
+14) Obtener los distintos departamentos de la tabla empleados.
+15) Seleccionar el identificador, apellido y oficio (nombre de oficio) de los empleados que Pertenezcan al departamento 80.
+16) Obtener el apellido y el oficio de los empleados cuyo oficio no sea Jefe de ventas, Sales Manager.
+17) Selecciona los departamentos, ciudad y país donde están ubicados.
+18) Selecciona el apellido, nombre de oficio y nombre de departamento de todos los empleados cuyo apellido comienza por a y tiene más de 6 letras.
+19) Selecciona el apellido de los empleados que tengan el mismo oficio que su jefe.
+20) Obtener el apellido de los empleados junto con el apellido de su correspondiente jefe ordenado por el apellido del director.
+Composiciones o combinaciones basadas en desigualdad.
+21) Listar los empleados de departamentos con código mayor que el código del departamento de Marketing (hacerlo mediante subconsulta y mediante consultas multitabla).

@@ -1,0 +1,2 @@
+-- 94)	Visualiza el salario medio de cada departamento junto con el número de departamento.
+SELECT dept_no, AVG(salario) FROM emple GROUP BY dept_no;
