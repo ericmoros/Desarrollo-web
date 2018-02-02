@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://w3schools.com"
+           xmlns="https://w3schools.com"
+           elementFormDefault="qualified">
+  <xs:element name="nota">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="para" type="xs:string"></xs:element>
+        <xs:element name="de" type="xs:string"></xs:element>
+        <xs:element name="titulo" type="xs:string"></xs:element>
+        <xs:element name="contenido" type="xs:string"></xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
