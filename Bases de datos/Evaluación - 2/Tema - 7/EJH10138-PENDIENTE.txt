@@ -11464,7 +11464,9 @@ SELECT NOMBRE, tlf FROM PROVEEDORES WHERE PROVINCIA = 'MADRID' OR 'CACERES';
 29)	Mostrar un listado en orden alfabético de los nombres de productos que empiezan por 'Dog'.
 30)	Listar los nombres de todos los proveedores con sede en Batres, Belmonte o Robledo.
 31)	Mostrar en orden alfabético la lista de los nombres de productos cuyo precio de venta sea igual o superior a 125.00 euros.
-32)	Listar en orden alfabético los nombres de los proveedores que no tienen página web.
+-- 32)	Listar en orden alfabético los nombres
+de los proveedores que no tienen página web.
+SELECT NOMBRE FROM PROVEEDORES WHERE PAGINA_WEB IS NULL ORDER BY NOMBRE;
 33)	Intersección: Listar los número de pedidos en los que se han pedido tanto bicicletas  (sabiendo que sus números de producto son 1, 2, 6 y 11) como cascos (sabiendo que sus números de producto son 10, 25 y 26).
 34)	Diferencia: Listar los número de pedidos que han comprado alguna bicicleta (sabiendo que sus números de producto son 1, 2, 6 y 11)  pero no cascos (sabiendo que sus números de producto son 10, 25 y 26). 
 35)	Unión: Listar los número de pedidos que han comprado alguna bicicleta (sabiendo que sus números de producto son 1, 2, 6 y 11)  o algún casco (sabiendo que sus números de producto son 10, 25 y 26). 

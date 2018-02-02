@@ -1,0 +1,48 @@
+-- 39. Listar todos los números de pedidos en los que se ha vendido algún producto cuyo número de producto es mayor que el número del producto con nombre 'Shinoman 105 SC Frenos'. No deben repetirse números de pedido.
+SELECT numero_pedido
+FROM detalles_pedidos
+WHERE numero_producto IN
+  (SELECT numero_producto
+    FROM productos
+    WHERE numero_producto >
+    (SELECT numero_producto
+      FROM productos 
+      WHERE nombre = 'Shinoman 105 SC Frenos'));
+
+-- 40. Selecciona todos los nombres de proveedores que llevan productos que empiezan por la letra C y se enviaron en pedidos antes del 1 de Marzo del 2008.
+SELECT nombre
+FROM proveedores
+WHERE id_prov IN
+  (SELECT id_prov
+    FROM proveedores
+    WHERE id_prov IN 
+    (SELECT id_prov
+      FROM productos_proveedores
+      WHERE
+        numero_producto IN
+        (SELECT numero_producto
+          FROM productos
+          WHERE nombre LIKE 'C%') AND
+        numero_producto IN
+         (SELECT numero_producto
+          FROM detalles_pedidos
+          WHERE numero_pedido IN 
+          (SELECT numero_pedido
+            FROM pedidos
+            WHERE fecha_envio < TO_DATE('01/03/2018', 'dd/mm/yyyy')))));
+
+
+-- 41. Selecciona todos los nombres de proveedores que llevan productos que empiezan por la letra V y no se han vendido.
+-- 42. Intersección: Listar los clientes que han comprado tanto productos que contengan la cadena 'Bike' en el nombre como productos que contengan la cadena 'Casco' en el nombre.
+-- 43. Diferencia: Listar los clientes que han comprado algún producto que contenga la cadena 'Bike' en el nombre pero ningún producto que contenga la cadena 'Casco' en el nombre.
+-- 44. Unión: Listar los clientes que han comprado algún producto que contenga la cadena 'Bike' o la cadena 'Casco' en el nombre.
+-- 45. Clientes que viven en una ciudad que no coincide con ninguna de los empleados.
+-- 46. Lista de los clientes que han comprado algún producto que contenga la cadena 'Bike' en el nombre seguida de la lista de los que han comprado algún producto que contenga la cadena 'Casco' en el nombre (cruce de tablas).
+-- 47. Seleccionar los nombres de los productos que pertenecen a la categoría 'Componentes'.
+-- 48. Selecciona los productos cuyo precio sea mayor o igual que el de todos los demás.
+-- 49. Selecciona los productos cuyo precio sea menor que el producto 'Eagle SA-120 Pedales sin clip', ordenados por el precio de venta.
+-- 50. Modifica la descripción de la categoría 5 a 'Baca para el coche' y luego selecciona todos los productos que no pertenecen a las categorías 'Ruedas' ni 'Baca para el coche'.
+-- 51. Seleccionar los productos cuyo precio de venta sea mayor que cualquier producto de la categoría 'Componentes'.
+-- 52. Selecciona los clientes que son de la misma ciudad que el cliente con id 1001, en la lista no tiene que salir el cliente 1001.
+-- 53. Encuentra los productos que tienen el precio de venta mínimo de su categoría.
+-- 54. Selecciona las categorías que no tienen productos.
