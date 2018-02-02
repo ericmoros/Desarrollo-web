@@ -40,5 +40,14 @@ public class BooksAuthors {
 	}
 	
 	//BooksAuthors
+	private static ArrayList<Integer[]> references = new ArrayList<>();
 	
+	public static void populateReference(Book book, Author author) {
+		Integer[] register = new Integer[4];
+		register[0] = bookList.indexOf(book);
+		register[1] = 0;
+		register[2] = authorList.indexOf(author);
+		register[3] = 0;
+		references.add(register);
+	}
 }
