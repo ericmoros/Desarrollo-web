@@ -1,7 +1,7 @@
 
 public class Main {
 	public static void main(String[] args) {
-		String inputText = "" + Text.opt9;
+		String inputText = "" + Text.opt11;
 		
 		//Unos cuantos libros por defecto para probrar (Borrar)
 		new Book("Kaliop", 10F, 15);
@@ -17,46 +17,56 @@ public class Main {
 		new Author("Pepa", "pepa1989@gmail.com", 1);
 		new Author("Bill", "billgates@applerules.yeah", 0);
 		
-		while (! Check.textChar(inputText.charAt(0), Text.opt10, true)) {
+		BooksAuthors.populateReference(BooksAuthors.getBook(0), BooksAuthors.getAuthor(0));
+		BooksAuthors.populateReference(BooksAuthors.getBook(1), BooksAuthors.getAuthor(0));
+		BooksAuthors.populateReference(BooksAuthors.getBook(2), BooksAuthors.getAuthor(1));
+		
+		while (! Check.textChar(inputText.charAt(0), Text.opt12, true)) {
 			for (int posChar = 0; posChar < inputText.length(); posChar++) {
 				char actualChar = inputText.charAt(posChar);
 				
 				//LISTAR LIBROS
-				if (Check.textChar(actualChar, Text.opt3, true)) {
+				if (Check.textChar(actualChar, Text.opt9, true)) {
 					Console.print(Text.strBook(BooksAuthors.getBookList()));
 					
 				//CREAR AUTOR
-				} else if (Check.textChar(actualChar, Text.opt4, true)) {
+				} else if (Check.textChar(actualChar, Text.opt5, true)) {
 					String name = null;
 					String eMail = null;
 					Integer genre = null;
 					
 					//Nombre
 					Console.print(Text.askName);
-					inputText = Console.readEnter();
 					while (name != inputText) {
+						inputText = Console.readEnter();
 						name = inputText;
 					}
 					
 					//E-Mail
 					Console.print(Text.askEMail);
-					inputText = Console.readEnter();
 					while (eMail != inputText) {
+						inputText = Console.readEnter();
 						eMail = inputText;
 					}
 					
 					//Género (No me gusta)
 					Console.print(Text.askGenre + Text.newLine);
-					inputText = Console.readEnter();
 					while (genre == null || genre != 0 && genre != 1) {
-						switch (inputText.charAt(0)) {
+						inputText = Console.readEnter();
+						if (inputText.length() == 1) {
+							switch (inputText.charAt(0)) {
 							case '1':
 								genre = 0;
 								break;
 							case '2':
 								genre = 1;
 								break;
-						}
+							default:
+								Console.print("'" + inputText.charAt(0) + "'" + Text.noOpt);
+							}
+						} else {
+							Console.print(Text.noOpt);
+						}	
 					}
 				
 					//Creación
@@ -64,7 +74,7 @@ public class Main {
 					Console.print(Text.newLine + Text.authorModified);
 				}
 				//MODIFICAR AUTOR
-				else if (Check.textChar(actualChar, Text.opt5, true)) {
+				else if (Check.textChar(actualChar, Text.opt6, true)) {
 					Author authorOld;
 					Integer IDA;
 					String name;
@@ -122,7 +132,7 @@ public class Main {
 								genre = 1;
 								break;
 							default:
-								genre = 0;
+								genre = -1;
 								break;
 						}
 					}
@@ -132,11 +142,11 @@ public class Main {
 					Console.print(Text.newLine + Text.authorModified);
 					
 				//MOSTRAR AUTORES
-				} else if (Check.textChar(actualChar, Text.opt6, true)) {
+				} else if (Check.textChar(actualChar, Text.opt10, true)) {
 					Console.print(Text.strAuthor(BooksAuthors.getAuthorList()));
 				
 				//MOSTRAR MENÚ
-				} else if (Check.textChar(actualChar, Text.opt9, true)) {
+				} else if (Check.textChar(actualChar, Text.opt11, true)) {
 					Console.printMenu();
 					Console.print(Text.newLine);
 					
@@ -149,7 +159,7 @@ public class Main {
 			//Introducir opción
 			inputText = Console.readEnter();
 			if (inputText.length() == 0) {
-				inputText += Text.opt8;
+				inputText += Text.opt13;
 			}
 		}
 	}

@@ -1,29 +1,42 @@
 import java.util.ArrayList;
 
 public class Text {
-	public static final Character opt1 = '1';
-	public static final Character opt2 = '2';
-	public static final Character opt3 = '3';
-	public static final Character opt4 = '4';
-	public static final Character opt5 = '5';
-	public static final Character opt6 = '6';
-	public static final Character opt8 = '-';
-	public static final Character opt9 = 'H';
-	public static final Character opt10 = 'X';
+	public static final Character opt1 	= '1';
+	public static final Character opt2 	= '2';
+	public static final Character opt3 	= '3';
+	public static final Character opt4 	= '4';
+	public static final Character opt5 	= '5';
+	public static final Character opt6 	= '6';
+	public static final Character opt7 	= '7';
+	public static final Character opt8 	= '8';
+	public static final Character opt9	= '9';
+	public static final Character opt10	= '0';
+	public static final Character opt11	= '?';
+	public static final Character opt12	= 'X';
+	public static final Character opt13	= '-';
 	
 	public static final String menu   = "+----------------------------+"
 					  		   + "\n" + "|        LibroUnAutor        |"
 					  		   + "\n" + "+----------------------------+"
-					  		   + "\n" + "|  Libros                    |"
+					  		   + "\n" + "|  Libro                     |"
 					  		   + "\n" + "|   " + opt1 + "- Crear                 |"
 					  		   + "\n" + "|   " + opt2 + "- Modificar             |"
-					  		   + "\n" + "|   " + opt3 + "- Listar                |"
-					  		   + "\n" + "|  Autores                   |"
-					  		   + "\n" + "|   " + opt4 + "- Crear                 |"
-					  		   + "\n" + "|   " + opt5 + "- Modificar             |"
-					  		   + "\n" + "|   " + opt6 + "- Listar                |"
+					  		   + "\n" + "|   " + opt3 + "- Relacionar            |"
+					  		   + "\n" + "|   " + opt4 + "- Listar autores        |"
+					  		   + "\n" + "|  Autor                     |"
+					  		   + "\n" + "|   " + opt5 + "- Crear                 |"
+					  		   + "\n" + "|   " + opt6 + "- Modificar             |"
+					  		   + "\n" + "|   " + opt7 + "- Relacionar            |"
+					  		   + "\n" + "|   " + opt8 + "- Listar libros         |"
 					  		   + "\n" + "+----------------------------+"
-					  		   + "\n" + "|     " + opt9 + "- Menú  "  + opt10 +"- Cerrar     |"
+   					  		   + "\n" + "|       LibrosAutores        |"
+					  		   + "\n" + "+----------------------------+"
+					  		   + "\n" + "|  Libros                    |"
+					  		   + "\n" + "|   " + opt9 + "- Listar                |"
+					  		   + "\n" + "|  Autores                   |"
+					  		   + "\n" + "|   " + opt10 + "- Listar                |"
+					  		   + "\n" + "+----------------------------+"
+					  		   + "\n" + "|     " + opt11 + "- Menú  "  + opt12 +"- Cerrar     |"
 					  		   + "\n" + "+----------------------------+";
 	
 	public static final String askData    = "(En caso de no introducir un dato se mantendrá el anterior) ";
