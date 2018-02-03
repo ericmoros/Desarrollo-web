@@ -11,9 +11,10 @@ public class Text {
 	public static final Character opt8 	= '8';
 	public static final Character opt9	= '9';
 	public static final Character opt10	= '0';
-	public static final Character opt11	= '?';
-	public static final Character opt12	= 'X';
-	public static final Character opt13	= '-';
+	public static final Character opt11	= 't';
+	public static final Character opt12	= '?';
+	public static final Character opt13	= 'X';
+	public static final Character opt14	= '-';
 	
 	public static final String menu   = "+----------------------------+"
 					  		   + "\n" + "|        LibroUnAutor        |"
@@ -35,18 +36,46 @@ public class Text {
 					  		   + "\n" + "|   " + opt9 + "- Listar                |"
 					  		   + "\n" + "|  Autores                   |"
 					  		   + "\n" + "|   " + opt10 + "- Listar                |"
+					  		   + "\n" + "|  Relaciones                |"
+					  		   + "\n" + "|   " + opt11 + "- Listar                |"
 					  		   + "\n" + "+----------------------------+"
-					  		   + "\n" + "|     " + opt11 + "- Menú  "  + opt12 +"- Cerrar     |"
+					  		   + "\n" + "|     " + opt12 + "- Menú  "  + opt13 +"- Cerrar     |"
 					  		   + "\n" + "+----------------------------+";
 	
-	public static final String askData    = "(En caso de no introducir un dato se mantendrá el anterior) ";
+	public static final String askIfEmpty    = "(En caso de no introducir un dato se mantendrá el anterior) ";
+	
 	public static final String askIDA    = "Introduce el IDA del autor a modificar: ";
 	public static final String askName   = "Introduce el Nombre: ";
 	public static final String askEMail  = "Introduce el E-Mail: ";
 	public static final String askGenre  = "Introduce el Género: "
 								  + "\n" + " (1) Hombre"
 								  + "\n" + " (2) Mujer";
-	public static final String authorModified = "El autor ha sido modificado";
+	public static String authorRegistered(Integer IDA) {
+		Author author = BooksAuthors.getAuthor(IDA);
+		String name = author.getName();
+		return "El autor " + IDA + '-' +'"' + name + '"' + " ha sido registrado";
+	}
+	public static String authorModified(Integer IDA) {
+		Author author = BooksAuthors.getAuthor(IDA);
+		String name = author.getName();
+		return "El autor " + IDA + '-' +'"' + name + '"' + " ha sido sido modificado";
+	}
+	
+	public static final String askIDB	= "Introduce el IDB del libro a modificar: ";
+	public static final String askTitle = "Introduce el titulo: ";
+	public static final String askPrice = "Introduce el precio: ";
+	public static final String askStock = "Introduce el stock: ";
+	
+	public static String bookRegistered(Integer IDB) {
+		Book book = BooksAuthors.getBook(IDB);
+		String title = book.getTitle();
+		return "El libro " + IDB + '-' +'"' + title + '"' + " ha sido registrado";
+	}
+	public static String bookModified(Integer IDB) {
+		Book book = BooksAuthors.getBook(IDB);
+		String title = book.getTitle();
+		return "El libro " + IDB + '-' +'"' + title + '"' + " ha sido modificado";
+	}
 	
 	public static final String newLine = "\n";
 	public static final String noOpt = "Opción no reconocida";
@@ -75,5 +104,19 @@ public class Text {
 			strBookList.add("IDB: " + bookList.indexOf(book) + ", " + strBook(book) + "\n");
 		}
 		return strBookList;
+	}
+	
+	//Lista relaciones
+	public static String strRelation(Relation IDR) {
+		return "IDB: " + IDR.getIDB() + ", IDA: " +  IDR.getIDA();
+	}
+	
+	public static ArrayList<String> strRelation(ArrayList<Relation> relationList) {
+		ArrayList<String> strRelationList = new ArrayList<>();
+		
+		for (Relation relation: relationList) {
+			strRelationList.add("IDR: " + relationList.indexOf(relation) + ", " + strRelation(relation) + "\n");
+		}
+		return strRelationList;
 	}
 }

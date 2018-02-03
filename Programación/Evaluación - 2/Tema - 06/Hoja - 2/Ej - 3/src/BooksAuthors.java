@@ -20,6 +20,10 @@ public class BooksAuthors {
 		return bookList.get(IDB);
 	}
 	
+	public static Integer getIDB(Book book) {
+		return bookList.indexOf(book);
+	}
+	
 	//Authors
 	private static ArrayList<Author> authorList = new ArrayList<>();
 	
@@ -39,15 +43,24 @@ public class BooksAuthors {
 		return authorList.get(IDA);
 	}
 	
-	//BooksAuthors
-	private static ArrayList<Integer[]> references = new ArrayList<>();
+	public static Integer getIDA(Author author) {
+		return authorList.indexOf(author);
+	}
 	
-	public static void populateReference(Book book, Author author) {
-		Integer[] register = new Integer[4];
-		register[0] = bookList.indexOf(book);
-		register[1] = 0;
-		register[2] = authorList.indexOf(author);
-		register[3] = 0;
-		references.add(register);
+	//BooksAuthors
+	private static ArrayList<Relation> relationList = new ArrayList<>();
+	
+	public static void addRelation(Relation relation) {
+		relationList.add(relation);
+	}
+	
+	public static void addRelation(Book book, Author author) {
+		Integer IDB = bookList.indexOf(book);
+		Integer IDA = authorList.indexOf(author);
+		new Relation(IDB, IDA);
+	}
+	
+	public static ArrayList<Relation> getRelationList() {
+		return relationList;
 	}
 }

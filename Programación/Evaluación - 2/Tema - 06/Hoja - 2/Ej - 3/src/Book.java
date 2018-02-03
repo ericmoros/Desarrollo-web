@@ -13,6 +13,13 @@ public class Book {
 //		this.authorsPos = authorsPos;
 		BooksAuthors.addBook(this);
 	}
+	
+	Book(Integer IDB, String title, Float price, Integer stock) {
+		this.title = title;
+		this.price = price;
+		this.stock = stock;
+		BooksAuthors.setBook(IDB, this);
+	}
 
 	public String getTitle() {
 		return title;
