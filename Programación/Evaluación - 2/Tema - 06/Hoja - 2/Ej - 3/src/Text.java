@@ -5,16 +5,15 @@ public class Text {
 	public static final Character opt2 	= '2';
 	public static final Character opt3 	= '3';
 	public static final Character opt4 	= '4';
-	public static final Character opt5 	= '5';
+	public static final Character opt5	= '5';
 	public static final Character opt6 	= '6';
-	public static final Character opt7 	= '7';
+	public static final Character opt7	= '7';
 	public static final Character opt8 	= '8';
 	public static final Character opt9	= '9';
 	public static final Character opt10	= '0';
-	public static final Character opt11	= 't';
-	public static final Character opt12	= '?';
-	public static final Character opt13	= 'X';
-	public static final Character opt14	= '-';
+	public static final Character opt11	= '?';
+	public static final Character opt12	= 'X';
+	public static final Character opt13	= '-';
 	
 	public static final String menu   = "+----------------------------+"
 					  		   + "\n" + "|        LibroUnAutor        |"
@@ -22,29 +21,29 @@ public class Text {
 					  		   + "\n" + "|  Libro                     |"
 					  		   + "\n" + "|   " + opt1 + "- Crear                 |"
 					  		   + "\n" + "|   " + opt2 + "- Modificar             |"
-					  		   + "\n" + "|   " + opt3 + "- Relacionar            |"
-					  		   + "\n" + "|   " + opt4 + "- Listar autores        |"
 					  		   + "\n" + "|  Autor                     |"
-					  		   + "\n" + "|   " + opt5 + "- Crear                 |"
-					  		   + "\n" + "|   " + opt6 + "- Modificar             |"
-					  		   + "\n" + "|   " + opt7 + "- Relacionar            |"
-					  		   + "\n" + "|   " + opt8 + "- Listar libros         |"
+					  		   + "\n" + "|   " + opt3 + "- Crear                 |"
+					  		   + "\n" + "|   " + opt4 + "- Modificar             |"
 					  		   + "\n" + "+----------------------------+"
    					  		   + "\n" + "|       LibrosAutores        |"
 					  		   + "\n" + "+----------------------------+"
 					  		   + "\n" + "|  Libros                    |"
-					  		   + "\n" + "|   " + opt9 + "- Listar                |"
+					  		   + "\n" + "|   " + opt5 + "- Listar                |"
+					  		   + "\n" + "|   " + opt6 + " * por autor            |"
 					  		   + "\n" + "|  Autores                   |"
-					  		   + "\n" + "|   " + opt10 + "- Listar                |"
+					  		   + "\n" + "|   " + opt7 + "- Listar                |"
+					  		   + "\n" + "|   " + opt8 + " * por libro            |"
 					  		   + "\n" + "|  Relaciones                |"
-					  		   + "\n" + "|   " + opt11 + "- Listar                |"
+					  		   + "\n" + "|   " + opt9 + "- Relacionar            |"
+					  		   + "\n" + "|   " + opt10 + "- Listar                |"
 					  		   + "\n" + "+----------------------------+"
-					  		   + "\n" + "|     " + opt12 + "- Menú  "  + opt13 +"- Cerrar     |"
+					  		   + "\n" + "|     " + opt11 + "- Menú  "  + opt12 +"- Cerrar     |"
 					  		   + "\n" + "+----------------------------+";
 	
 	public static final String askIfEmpty    = "(En caso de no introducir un dato se mantendrá el anterior) ";
 	
-	public static final String askIDA    = "Introduce el IDA del autor a modificar: ";
+	//Autor
+	public static final String askIDA    = "Introduce el IDA del autor: ";
 	public static final String askName   = "Introduce el Nombre: ";
 	public static final String askEMail  = "Introduce el E-Mail: ";
 	public static final String askGenre  = "Introduce el Género: "
@@ -61,7 +60,8 @@ public class Text {
 		return "El autor " + IDA + '-' +'"' + name + '"' + " ha sido sido modificado";
 	}
 	
-	public static final String askIDB	= "Introduce el IDB del libro a modificar: ";
+	//libro
+	public static final String askIDB	= "Introduce el IDB del libro: ";
 	public static final String askTitle = "Introduce el titulo: ";
 	public static final String askPrice = "Introduce el precio: ";
 	public static final String askStock = "Introduce el stock: ";
@@ -75,6 +75,13 @@ public class Text {
 		Book book = BooksAuthors.getBook(IDB);
 		String title = book.getTitle();
 		return "El libro " + IDB + '-' +'"' + title + '"' + " ha sido modificado";
+	}
+	
+	//Relacion
+	public static String askRelationed(Book book, Author author) {
+		String strBook = "" + BooksAuthors.getBookList().indexOf(book) + '-' +'\"' + book.getTitle() + '"';
+		String strAuthor = "" +  BooksAuthors.getAuthorList().indexOf(author) + '-' +'\"' + author.getName() + '"';
+		return "Relación del libro " + strBook + " y el autor " + strAuthor;
 	}
 	
 	public static final String newLine = "\n";
