@@ -33,11 +33,141 @@ WHERE id_prov IN
 
 
 -- 41. Selecciona todos los nombres de proveedores que llevan productos que empiezan por la letra V y no se han vendido.
+SELECT nombre
+FROM proveedores
+WHERE id_prov IN
+  (SELECT id_prov
+    FROM productos_proveedores
+    WHERE 
+      numero_producto IN
+      (SELECT numero_producto
+        FROM productos
+        WHERE nombre LIKE 'V%') AND
+      numero_producto IN
+       (SELECT numero_producto
+        FROM detalles_pedidos
+        WHERE numero_pedido IN
+            (SELECT numero_pedido
+              FROM pedidos)));
+
 -- 42. Intersección: Listar los clientes que han comprado tanto productos que contengan la cadena 'Bike' en el nombre como productos que contengan la cadena 'Casco' en el nombre.
+(SELECT *
+FROM clientes
+WHERE id_cliente IN
+  (SELECT id_cliente
+    FROM pedidos
+    WHERE numero_pedido IN 
+      ((SELECT numero_pedido
+        FROM detalles_pedidos
+        WHERE numero_producto IN
+          (SELECT numero_producto
+            FROM productos
+            WHERE nombre LIKE '%Casco%'))))
+INTERSECT
+SELECT *
+FROM clientes
+WHERE id_cliente IN
+  (SELECT id_cliente
+    FROM pedidos
+    WHERE numero_pedido IN 
+      ((SELECT numero_pedido
+        FROM detalles_pedidos
+        WHERE numero_producto IN
+          (SELECT numero_producto
+            FROM productos
+            WHERE nombre LIKE '%Casco%')))));
+
 -- 43. Diferencia: Listar los clientes que han comprado algún producto que contenga la cadena 'Bike' en el nombre pero ningún producto que contenga la cadena 'Casco' en el nombre.
+(SELECT *
+FROM clientes
+WHERE id_cliente IN
+  (SELECT id_cliente
+    FROM pedidos
+    WHERE numero_pedido IN 
+      (SELECT numero_pedido
+        FROM detalles_pedidos
+        WHERE numero_producto IN
+          (SELECT numero_producto
+            FROM productos
+            WHERE nombre LIKE '%Bike%')))
+MINUS
+SELECT *
+FROM clientes
+WHERE id_cliente IN
+  (SELECT id_cliente
+    FROM pedidos
+    WHERE numero_pedido IN 
+      (SELECT numero_pedido
+        FROM detalles_pedidos
+        WHERE numero_producto IN
+          (SELECT numero_producto
+            FROM productos
+            WHERE nombre LIKE '%Casco%'))));
+
 -- 44. Unión: Listar los clientes que han comprado algún producto que contenga la cadena 'Bike' o la cadena 'Casco' en el nombre.
+(SELECT *
+FROM clientes
+WHERE id_cliente IN
+  (SELECT id_cliente
+    FROM pedidos
+    WHERE numero_pedido IN 
+      (SELECT numero_pedido
+        FROM detalles_pedidos
+        WHERE numero_producto IN
+          (SELECT numero_producto
+            FROM productos
+            WHERE nombre LIKE '%Bike%')))
+UNION
+SELECT *
+FROM clientes
+WHERE id_cliente IN
+  (SELECT id_cliente
+    FROM pedidos
+    WHERE numero_pedido IN 
+      (SELECT numero_pedido
+        FROM detalles_pedidos
+        WHERE numero_producto IN
+          (SELECT numero_producto
+            FROM productos
+            WHERE nombre LIKE '%Casco%'))));
+
 -- 45. Clientes que viven en una ciudad que no coincide con ninguna de los empleados.
+SELECT *
+FROM clientes
+WHERE ciudad NOT IN
+  (SELECT ciudad
+    FROM empleados);
+
 -- 46. Lista de los clientes que han comprado algún producto que contenga la cadena 'Bike' en el nombre seguida de la lista de los que han comprado algún producto que contenga la cadena 'Casco' en el nombre (cruce de tablas).
+(SELECT *
+FROM clientes
+WHERE id_cliente IN
+  (SELECT id_cliente
+    FROM pedidos
+    WHERE numero_pedido IN 
+      ((SELECT numero_pedido
+        FROM detalles_pedidos
+        WHERE numero_producto IN
+          (SELECT numero_producto
+            FROM productos
+            WHERE nombre LIKE '%FDSA%'))))
+INTERSECT
+SELECT *
+FROM clientes
+WHERE id_cliente IN
+  (SELECT id_cliente
+    FROM pedidos
+    WHERE numero_pedido IN 
+      ((SELECT numero_pedido
+        FROM detalles_pedidos
+        WHERE numero_producto IN
+          (SELECT numero_producto
+            FROM productos
+            WHERE nombre LIKE '%Casco%')))));
+
+-- Select * from empleados empl, empleados jefe, departamentos where empl.manager_id= select(jefe.empleado_id where nombre='PACO');
+
+
 -- 47. Seleccionar los nombres de los productos que pertenecen a la categoría 'Componentes'.
 -- 48. Selecciona los productos cuyo precio sea mayor o igual que el de todos los demás.
 -- 49. Selecciona los productos cuyo precio sea menor que el producto 'Eagle SA-120 Pedales sin clip', ordenados por el precio de venta.
