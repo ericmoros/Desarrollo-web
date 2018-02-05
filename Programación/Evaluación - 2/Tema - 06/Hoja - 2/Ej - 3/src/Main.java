@@ -148,7 +148,7 @@ public class Main {														//main Abajo del todo
 		Integer IDA;
 		inputText = "";
 		
-		//ID del libro (IDA)
+		//ID del autor (IDA)
 		Console.print(Text.askIDA);
 		inputText = Console.readEnter();
 		IDA = Integer.parseInt(inputText);
