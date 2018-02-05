@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<vehiculos xmlns="https://w3schools.com"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="vehiculos.xsd">
+  <vehiculo>
+    <nombre>Count Zero</nombre>
+    <modelo>Series I, 80"</modelo>
+    <fabricacion>
+      <inicio>
+        <dia>21</dia>
+        <mes>July</mes>
+        <anyo>1949</anyo>
+      </inicio>
+      <fin>
+        <dia>9</dia>
+        <mes>August</mes>
+        <anyo>1949</anyo>
+      </fin>
+    </fabricacion>
+    <modificaciones>
+      <modificacion>Change Engine</modificacion>
+      <modificacion>Change pedals</modificacion>
+      <modificacion>Change gearbox</modificacion>
+      <modificacion>Fit Rollcage</modificacion>
+    </modificaciones>
+  </vehiculo>
+</vehiculos>

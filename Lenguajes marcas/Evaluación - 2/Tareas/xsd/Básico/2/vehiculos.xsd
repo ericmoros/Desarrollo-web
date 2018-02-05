@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://w3schools.com"
+           xmlns="https://w3schools.com"
+           elementFormDefault="qualified">
+  <xs:element name="vehiculos">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="vehiculo" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" type="xs:string" maxOccurs="unbounded" />
+              <xs:element name="modelo" type="xs:string" />
+              <xs:element name="fabricacion">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="inicio">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="dia" type="xs:string"/>
+                          <xs:element name="mes" type="xs:string"/>
+                          <xs:element name="anyo" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="fin">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="dia" type="xs:string"/>
+                          <xs:element name="mes" type="xs:string"/>
+                          <xs:element name="anyo" type="xs:string"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="modificaciones">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="modificacion" type="xs:string" maxOccurs="unbounded" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
