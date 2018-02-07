@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Console {
 	private static Scanner keyboard = new Scanner(System.in);
 
-	// print
+	//print
 	public static void print(String str) {
 		System.out.print(str);
 	}
@@ -22,16 +23,37 @@ public class Console {
 			print(str);
 		}
 	}
+	
+	//error
+	public static void printError(String str) {
+		System.err.println(str);
+	}
+	
+	//printMenu
+	public static void printMenu() {
+		print(Text.menu);
+	}
 
-	// readEnter
+		
+	//readEnter
 	public static String readEnter() {
 		String str = "";
 		str = keyboard.nextLine();
 		return str;
 	}
 	
-	//printMenu
-	public static void printMenu() {
-		print(Text.menu);
+
+	//readInteger
+	public static Integer readInteger() {
+		Pattern justNums = Pattern.compile("\\d+");
+		String str = null;
+		
+		str = keyboard.nextLine();
+		
+		if (Check.matchPattern(justNums, str) ) {
+			return Integer.parseInt(str);
+		} else {
+			return null;
+		}
 	}
 }

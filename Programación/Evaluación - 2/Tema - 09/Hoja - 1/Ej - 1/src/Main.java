@@ -31,21 +31,29 @@ public class Main {														//main Abajo del todo
 	private static ArrayList<Employee> employeeList = new ArrayList<>();
 	
 	private static void registerEmployee() {
-		Employee employee = null;
+		Employee employee = new Employee(null, null);
 		String name = null;
+		Integer lechugas = null; 
 		Float salary = null;
-		Console.print(name.toString());
+		
+		
+		Console.print(Text.wtf);
+		lechugas = Console.readInteger();
+		while (lechugas == null) {
+			Console.printError(Text.errorInteger);
+			Console.print(Text.wtf);
+			lechugas = Console.readInteger();
+		}
 		
 		Console.print(Text.askName);
-		inputText = Console.readEnter(); 
+		inputText = Console.readEnter();
 		name = inputText;
 		
 		Console.print(Text.askSalary);
 		inputText = Console.readEnter();
 		salary = Float.parseFloat(inputText);
 		
-		//employee.setEmployee(name, salary);
-		employee = new Employee(name, salary);
+		employee.setEmployee(name, salary);
 		employeeList.add(employee);
 	}
 	

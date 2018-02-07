@@ -34,7 +34,9 @@ public class Text {
 	
 	public static final String newLine = "\n";
 	public static final String noOpt = "Opción no reconocida";
+	public static final String wtf = "¿Lechuga?";
 	public static final String pressEnter = "Presiona Enter para continuar...";
 	public static final String inProgress = "Pendiente";
 	
+	public static final String errorInteger = "[ERROR] El dato a de ser un número entero.";
 }
