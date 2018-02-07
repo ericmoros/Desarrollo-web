@@ -56,4 +56,17 @@ public class Console {
 			return null;
 		}
 	}
+	
+	public static Float readFloat() {
+		Pattern justNums = Pattern.compile("\\d+\\.\\d+");
+		String str = null;
+		
+		str = keyboard.nextLine();
+		
+		if (Check.matchPattern(justNums, str) ) {
+			return Float.parseFloat(str);
+		} else {
+			return null;
+		}
+	}
 }

@@ -7,12 +7,6 @@ public class Employee {
 		this.name = name;
 		this.salary = salary;
 	}
-	
-	//Rellenar datos (Para porder dejarme preparado el objetocomo null y despues darle los datos)
-	public void setEmployee(String name, Float salary) {
-		this.name = name;
-		this.salary = salary;
-	}
 
 	//Nombre
 	public String getName() {

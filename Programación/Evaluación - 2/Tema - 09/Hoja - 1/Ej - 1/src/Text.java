@@ -16,9 +16,9 @@ public class Text {
 	public static final String menu   = "+----------------------------+"
 					  		   + "\n" + "|        EmpleadoJefe        |"
 					  		   + "\n" + "+----------------------------+"
-					  		   + "\n" + "|  Libro                     |"
+					  		   + "\n" + "|  Empleado                  |"
 					  		   + "\n" + "|   " + opt1 + "- Registrar             |"
-					  		   + "\n" + "|   " + opt2 + "- Modificar             |"
+					  		   + "\n" + "|   " + opt2 + " * como jefe            |"
 					  		   + "\n" + "+----------------------------+"
 					  		   + "\n" + "|     " + opt11 + "- Menú  "  + opt12 +"- Cerrar     |"
 					  		   + "\n" + "+----------------------------+";
@@ -37,6 +37,17 @@ public class Text {
 	public static final String wtf = "¿Lechuga?";
 	public static final String pressEnter = "Presiona Enter para continuar...";
 	public static final String inProgress = "Pendiente";
+	public static final String askTotalRegisters = "¿Cúantos desea registrar? ";
+	public static final String money = "€";
 	
-	public static final String errorInteger = "[ERROR] El dato a de ser un número entero.";
+	public static final String errorInteger = "[ERROR] El dato a de ser un número entero (0)";
+	public static final String errorFloat = "[ERROR] El dato a de ser un número flotante (0.0)";
+	
+	public static String employeeData(Integer IDE, String name, Float salary) {
+		return "IDE: " + IDE + ", nombre: " + name + ", salario: " + salary;
+	}
+	
+	public static String registeredEmployeeData(Integer IDE, String name, Float salary) {
+		return "Registrado empleado(IDE"+ IDE +") con el nombre: " + name + " y un salario de: " + salary + money  + newLine + newLine;
+	}
 }
