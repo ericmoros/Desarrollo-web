@@ -139,40 +139,74 @@ WHERE ciudad NOT IN
     FROM empleados);
 
 -- 46. Lista de los clientes que han comprado algún producto que contenga la cadena 'Bike' en el nombre seguida de la lista de los que han comprado algún producto que contenga la cadena 'Casco' en el nombre (cruce de tablas).
-(SELECT *
-FROM clientes
-WHERE id_cliente IN
-  (SELECT id_cliente
-    FROM pedidos
-    WHERE numero_pedido IN 
-      ((SELECT numero_pedido
-        FROM detalles_pedidos
-        WHERE numero_producto IN
-          (SELECT numero_producto
-            FROM productos
-            WHERE nombre LIKE '%FDSA%'))))
-INTERSECT
-SELECT *
-FROM clientes
-WHERE id_cliente IN
-  (SELECT id_cliente
-    FROM pedidos
-    WHERE numero_pedido IN 
-      ((SELECT numero_pedido
-        FROM detalles_pedidos
-        WHERE numero_producto IN
-          (SELECT numero_producto
-            FROM productos
-            WHERE nombre LIKE '%Casco%')))));
-
--- Select * from empleados empl, empleados jefe, departamentos where empl.manager_id= select(jefe.empleado_id where nombre='PACO');
-
+SELECT DISTINCT clientes.*
+FROM clientes, pedidos, detalles_pedidos, productos
+WHERE
+  clientes.id_cliente = pedidos.id_cliente AND
+  pedidos.numero_pedido = detalles_pedidos.numero_pedido AND
+  detalles_pedidos.numero_producto = productos.numero_producto AND
+  (productos.nombre LIKE '%Bike%' OR productos.nombre LIKE '%Casco%');
 
 -- 47. Seleccionar los nombres de los productos que pertenecen a la categoría 'Componentes'.
+SELECT nombre
+FROM productos
+WHERE id_categoria IN
+  (SELECT id_categoria
+  FROM categorias
+  WHERE descripcion LIKE 'Componentes%');
+
 -- 48. Selecciona los productos cuyo precio sea mayor o igual que el de todos los demás.
+SELECT *
+FROM productos
+WHERE precio_venta >=
+  ALL(select precio_venta
+      from productos);
+
 -- 49. Selecciona los productos cuyo precio sea menor que el producto 'Eagle SA-120 Pedales sin clip', ordenados por el precio de venta.
+SELECT *
+FROM productos
+WHERE precio_venta <
+  (SELECT precio_venta
+    FROM productos
+
+    WHERE nombre = 'Eagle SA-120 Pedales sin clip');
+
 -- 50. Modifica la descripción de la categoría 5 a 'Baca para el coche' y luego selecciona todos los productos que no pertenecen a las categorías 'Ruedas' ni 'Baca para el coche'.
+UPDATE categorias
+SET descripcion = 'Baca para el coche'
+WHERE id_categoria = 5;
+
+SELECT *
+FROM productos
+WHERE id_categoria IN
+  (SELECT id_categoria
+    FROM categorias
+    WHERE
+      descripcion != 'Baca para el coche' AND
+      descripcion != 'Ruedas');
+
 -- 51. Seleccionar los productos cuyo precio de venta sea mayor que cualquier producto de la categoría 'Componentes'.
+SELECT *
+FROM productos
+WHERE precio_venta >=
+  ALL(SELECT precio_venta
+      FROM productos
+      WHERE id_categoria =
+        (SELECT id_categoria
+          FROM categorias
+          WHERE descripcion = 'Componentes'));
+
 -- 52. Selecciona los clientes que son de la misma ciudad que el cliente con id 1001, en la lista no tiene que salir el cliente 1001.
+SELECT *
+FROM clientes
+WHERE
+  ciudad =
+  (SELECT ciudad
+    FROM clientes
+    WHERE id_cliente = 1001) AND
+   id_cliente != 1001;
+
 -- 53. Encuentra los productos que tienen el precio de venta mínimo de su categoría.
+
+
 -- 54. Selecciona las categorías que no tienen productos.
