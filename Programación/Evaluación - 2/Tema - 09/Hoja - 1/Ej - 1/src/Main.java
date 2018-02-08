@@ -32,6 +32,38 @@ public class Main {														//main Abajo del todo
 	private static ArrayList<Employee> employeeList = new ArrayList<>();
 	private static ArrayList<Boss> bossList = new ArrayList<>();
 	
+	private static String askString(String ask) {
+		String str;
+		Console.print(ask);
+		inputText = Console.readEnter();
+		str = inputText;
+		return str;
+	}
+	
+	private static Integer askInteger(String ask) {
+		Integer totalRegisters;
+		Console.print(ask);
+		totalRegisters = Console.readInteger();
+		while (totalRegisters == null) {
+			Console.printError(Text.errorInteger);
+			Console.print(ask);
+			totalRegisters = Console.readInteger();
+		}
+		return totalRegisters;
+	}
+	
+	private static Float askFloat(String str) {
+		Float salary;
+		Console.print(str);
+		salary = Console.readFloat();
+		while (salary == null) {
+			Console.printError(Text.errorFloat);
+			Console.print(str);
+			salary = Console.readFloat();
+		}
+		return salary;
+	}
+	
 	private static void registerEmployee() {
 		Employee employee = null;
 		String name = null;
@@ -39,26 +71,11 @@ public class Main {														//main Abajo del todo
 		Integer employeeIndex = null;
 		Integer totalRegisters = null;
 		
-		Console.print(Text.askTotalRegisters);
-		totalRegisters = Console.readInteger();
-		while (totalRegisters == null) {
-			Console.printError(Text.errorInteger);
-			Console.print(Text.askTotalRegisters);
-			totalRegisters = Console.readInteger();
-		}
+		totalRegisters = askInteger(Text.askTotalRegisters);
 		
 		for (Integer actualRegister = 0; actualRegister < totalRegisters; actualRegister++) {
-			Console.print(Text.askName);
-			inputText = Console.readEnter();
-			name = inputText;
-			
-			Console.print(Text.askSalary);
-			salary = Console.readFloat();
-			while (salary == null) {
-				Console.printError(Text.errorFloat);
-				Console.print(Text.askSalary);
-				salary = Console.readFloat();
-			}
+			name = askString(Text.askName);
+			salary = askFloat(Text.askSalary);
 			
 			employee = new Employee(name, salary);
 			employeeList.add(employee);
@@ -68,30 +85,37 @@ public class Main {														//main Abajo del todo
 			Console.print(Text.registeredEmployeeData(employeeIndex, name, salary));
 		}
 	}
+
+	
+	private static void registerEmployee(Employee employee) {
+		String name = employee.getName();
+		Float salary = employee.getSalary();
+		Integer employeeIndex = employeeList.indexOf(employee);
+		employeeList.add(employee);
+		Console.print(Text.registeredEmployeeData(employeeIndex, name, salary));
+	}
 	
 	private static void registerBoss() {
 		Boss boss = null;
+		String name = null;
+		Float salary = null;
 		String degree = null;
 		String office = null;
-		Integer employeeIndex = null;
+		Integer bossIndex = null;
 		Integer totalRegisters = null;
 		
-		registerEmployee();
+		totalRegisters = askInteger(Text.askTotalRegisters);
 		
-		Console.print(Text.askName);
-		inputText = Console.readEnter();
-		name = inputText;
-		
-		Console.print(Text.askName);
-		inputText = Console.readEnter();
-		name = inputText;
-		
-		boss = new Boss(name, salary);
-		employeeList.add(employee);
-		
-		employeeIndex = employeeList.indexOf(employee);
-		
-		Console.print(Text.registeredEmployeeData(employeeIndex, name, salary));
+		for (Integer actualRegister = 0; actualRegister < totalRegisters; actualRegister++) {
+			name = askString(Text.askName);
+			salary = askFloat(Text.askSalary);
+			degree = askString(Text.askDegree);
+			office = askString(Text.askOffice);
+			boss = new Boss(name, salary, degree, office);
+			registerEmployee(boss);
+			bossList.add(boss);
+			bossIndex = bossList.indexOf(boss);
+		}
 	}
 	/*
 	Escribe  un  programa  que  pida  los  datos  de  una  serie  de  empleados  que  no  son  jefes,  tantos 
