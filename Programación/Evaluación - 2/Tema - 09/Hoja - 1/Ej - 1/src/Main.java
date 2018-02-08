@@ -28,41 +28,42 @@ public class Main {														//main Abajo del todo
 		Console.print(Text.newLine);
 	}
 	
-	//PROGRAMA
-	private static ArrayList<Employee> employeeList = new ArrayList<>();
-	private static ArrayList<Boss> bossList = new ArrayList<>();
-	
 	private static String askString(String ask) {
 		String str;
-		Console.print(ask);
+		Console.print(ask, 25);
 		inputText = Console.readEnter();
 		str = inputText;
 		return str;
 	}
 	
 	private static Integer askInteger(String ask) {
-		Integer totalRegisters;
-		Console.print(ask);
-		totalRegisters = Console.readInteger();
-		while (totalRegisters == null) {
+		Integer nInteger;
+		Console.print(ask, 25);
+		nInteger = Console.readInteger();
+		while (nInteger == null) {
 			Console.printError(Text.errorInteger);
 			Console.print(ask);
-			totalRegisters = Console.readInteger();
+			nInteger = Console.readInteger();
 		}
-		return totalRegisters;
+		return nInteger;
 	}
 	
 	private static Float askFloat(String str) {
-		Float salary;
-		Console.print(str);
-		salary = Console.readFloat();
-		while (salary == null) {
+		Float nFloat;
+		Console.print(str, 25);
+		nFloat = Console.readFloat();
+		while (nFloat == null) {
 			Console.printError(Text.errorFloat);
 			Console.print(str);
-			salary = Console.readFloat();
+			nFloat = Console.readFloat();
 		}
-		return salary;
+		return nFloat;
 	}
+	
+	//PROGRAMA
+	private static ArrayList<Employee> employeeList = new ArrayList<>();
+	private static ArrayList<Boss> bossList = new ArrayList<>();
+	
 	
 	private static void registerEmployee() {
 		Employee employee = null;
@@ -115,6 +116,37 @@ public class Main {														//main Abajo del todo
 			registerEmployee(boss);
 			bossList.add(boss);
 			bossIndex = bossList.indexOf(boss);
+			Console.print(Text.registeredBossData(bossIndex, name, salary, degree, office));
+		}
+	}
+	
+	private static void listEmployee() {
+		Integer employeeIndex = null;
+		String name = null;
+		Float salary = null;
+		
+		for (Employee employee: employeeList) {
+			employeeIndex = employeeList.indexOf(employee);
+			name = employee.getName();
+			salary = employee.getSalary();
+			Console.print(Text.employeeData(employeeIndex, name, salary));
+		}
+	}
+	
+	private static void listBoss() {
+		Integer bossIndex = null;
+		String name = null;
+		Float salary = null;
+		String degree = null;
+		String office = null;
+		
+		for (Boss boss: bossList) {
+			bossIndex = bossList.indexOf(boss);
+			name = boss.getName();
+			salary = boss.getSalary();
+			degree = boss.getDegree();
+			office = boss.getOffice();
+			Console.print(Text.bossData(bossIndex, name, salary, degree, office));
 		}
 	}
 	/*
@@ -127,6 +159,10 @@ public class Main {														//main Abajo del todo
 	De los jefes nos interesa: nombre, sueldo, título y nombre del departamento del que es jefe.
 	*/
 	public static void main(String[] args) {
+		bossList.add(new Boss("Dark Vader", 50000.99F, "Fuerza ocura", "Destructor-45"));
+		employeeList.add(new Employee("Kylo ran", 120.1F));
+		employeeList.add(new Employee("R3D3", 1.0F));
+		
 		while (! Check.textChar(inputOption.charAt(0), Text.opt12, true)) {
 			for (int posChar = 0; posChar < inputOption.length(); posChar++) {
 				char actualChar = inputOption.charAt(posChar);
@@ -138,6 +174,14 @@ public class Main {														//main Abajo del todo
 				//REGISTRAR JEFE
 				} else if (Check.textChar(actualChar, Text.opt2, true)) {
 					registerBoss();
+					
+				//LISTAR EMPLEADOS
+				} else if (Check.textChar(actualChar, Text.opt3, true)) {
+					listEmployee();
+					
+				//LISTAR JEFES
+				} else if (Check.textChar(actualChar, Text.opt4, true)) {
+					listBoss();
 				
 				//MOSTRAR MENÚ
 				} else if (Check.textChar(actualChar, Text.opt11, true)) {
@@ -152,5 +196,8 @@ public class Main {														//main Abajo del todo
 			//Introducir opción
 			enterOption();
 		}
+		
+		Console.print(Text.seeYouSoon, 200);
+		Console.printError(Text.endProgram);
 	}
 }
