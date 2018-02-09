@@ -19,6 +19,9 @@ public class Text {
 					  		   + "\n" + "|  Empleado                  |"
 					  		   + "\n" + "|   " + opt1 + "- Registrar             |"
 					  		   + "\n" + "|   " + opt2 + " * como jefe            |"
+					  		   + "\n" + "|   " + opt3 + "- Listar                |"
+					  		   + "\n" + "|  Jefe                      |"
+					  		   + "\n" + "|   " + opt4 + "- Listar                |"
 					  		   + "\n" + "+----------------------------+"
 					  		   + "\n" + "|     " + opt11 + "- Menú  "  + opt12 +"- Cerrar     |"
 					  		   + "\n" + "+----------------------------+";
@@ -40,14 +43,25 @@ public class Text {
 	public static final String askTotalRegisters = "¿Cúantos desea registrar? ";
 	public static final String money = "€";
 	
+	public static final String seeYouSoon = "Nos vemos! :D" + newLine + newLine;
+	public static final String endProgram = "[Fin de programa]" + newLine;
+	
 	public static final String errorInteger = "[ERROR] El dato a de ser un número entero (0)";
 	public static final String errorFloat = "[ERROR] El dato a de ser un número flotante (0.0)";
 	
 	public static String employeeData(Integer IDE, String name, Float salary) {
-		return "IDE: " + IDE + ", nombre: " + name + ", salario: " + salary;
+		return "IDE: " + IDE + ", Nombre: " + name + ", salario: " + salary + newLine;
 	}
 	
 	public static String registeredEmployeeData(Integer IDE, String name, Float salary) {
 		return "Registrado empleado(IDE"+ IDE +") con el nombre: " + name + " y un salario de: " + salary + money  + newLine + newLine;
+	}
+	
+	public static String bossData(Integer IDB, String name, Float salary, String degree, String office) {
+		return "IDB: " + IDB + ", Nombre: " + name + ", salario: " + salary + ", estudios: " + degree + ", departamento: " + office + newLine;
+	}
+	
+	public static String registeredBossData(Integer IDB, String name, Float salary, String degree, String office) {
+		return "Registrado Jefe(IDB"+ IDB +") con el nombre: " + name + ", un salario de: " + salary + money + "esudios en: " + degree + "y en el departamento: " + office + newLine + newLine;
 	}
 }

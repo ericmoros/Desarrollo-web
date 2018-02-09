@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 public class Console {
@@ -8,6 +9,17 @@ public class Console {
 	//print
 	public static void print(String str) {
 		System.out.print(str);
+	}
+	
+	public static void print(String str, Integer msCharDelay) {
+		for (Character strChar: str.toCharArray()) {
+			try {
+				TimeUnit.MILLISECONDS.sleep(msCharDelay);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			System.out.print(strChar);
+		}
 	}
 
 	public static void print(Integer integer) {
@@ -31,15 +43,13 @@ public class Console {
 	
 	//printMenu
 	public static void printMenu() {
-		print(Text.menu);
+		print(Text.menu, 10);
 	}
 
 		
 	//readEnter
 	public static String readEnter() {
-		String str = "";
-		str = keyboard.nextLine();
-		return str;
+		return keyboard.nextLine();
 	}
 	
 
