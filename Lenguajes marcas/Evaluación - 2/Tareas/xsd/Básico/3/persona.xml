@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<persona xmlns="https://w3schools.com"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="persona.xsd">
+  <datos>
+    <nombre>Pepe</nombre>
+    <apellidos>Garcia</apellidos>
+    <dni>25390952</dni>
+  </datos>
+  <comentario>buena gente...</comentario>
+</persona>
