@@ -207,6 +207,15 @@ WHERE
    id_cliente != 1001;
 
 -- 53. Encuentra los productos que tienen el precio de venta mínimo de su categoría.
-
+SELECT * FROM productos
+WHERE precio_venta IN
+  (SELECT MIN(precio_venta)
+    FROM productos
+    GROUP BY id_categoria);
 
 -- 54. Selecciona las categorías que no tienen productos.
+SELECT *
+FROM categorias
+WHERE id_categoria NOT IN
+  (SELECT id_categoria
+    FROM productos);
