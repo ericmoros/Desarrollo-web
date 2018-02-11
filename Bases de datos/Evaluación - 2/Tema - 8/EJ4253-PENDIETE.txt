@@ -5291,7 +5291,15 @@ SELECT SQRT(36) + ABS(-9) "Square root" FROM DUAL;
 
 49)	Muestra todos los empleados cuyo nombre empieza por A, pero debes sustituir la primera letra b que aparezca en esos nombres por v en todos.
 
-50)	Muestra el nombre y la comisión de todos los empleados del departamento de “Marketing” o “Sales”, en caso de que el valor sea nulo de aparecer el texto “SIN COMISIÓN”.
+-- 50 Muestra el nombre y la comisión de todos los empleados del departamento de “Marketing” o “Sales”, en caso de que el valor sea nulo de aparecer el texto “SIN COMISIÓN”.
+SELECT NOMBRE, NUL2(TO_CHAR(COMISION), TO_CHAR(COMISION), 'SIN COMISION')
+FROM EMPLEADOS
+WHERE ID_DEPARTAMENTO =
+	(SELECT ID_PEPARTAMENTO
+	 FROM DEPARTAMENTOS	
+	 WHERE
+		NOMBRE = 'Marketing'
+		NOMBRE = 'Sales');
 
 51)	Para cada empleado muestra nombre, apellidos y la diferencia de tiempo en años que hay entre el comiendo (start_date) y el final (end_date) de cada trabajo que ha realizado (en la tabla job_history).
 
