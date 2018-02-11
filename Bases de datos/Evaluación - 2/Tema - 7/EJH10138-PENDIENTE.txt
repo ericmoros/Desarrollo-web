@@ -30,8 +30,18 @@ SELECT numero_pedido, fecha_envio - fecha_pedido AS "Espera hasta el día de enví
 FROM pedidos;
 
 -- 8)	¿Cuál es el valor de inventario de cada producto? (El valor de inventario – aunque realmente no se hace así - lo consideraremos como el precio de venta de cada producto por el stock que hay en la tienda).
+SELECT numero_producto, precio_venta * stock
+FROM productos;
+
 -- 9)	Mostrar el precio de cada producto reducido en un 5%.
+SELECT numero_producto, precio_venta - precio_venta * 0.05
+FROM productos;
+
 -- 10)	Mostrar la lista de los pedidos que han hecho nuestros clientes en orden descendente de fecha. Hay que ver los pedidos de cada cliente seguidos.
+SELECT *
+FROM pedidos
+ORDER BY ID_cliente, fecha_pedido DESC;
+
 -- 11)	Mostrar la lista de los nombres y direcciones de nuestros proveedores ordenados alfabéticamente por el nombre del proveedor.
 -- 12)	Mostrar el nombre y apellido de los clientes cuyo apellido sea Sanz.
 -- 13)	¿Cuáles son los nombres de los clientes que viven en la provincia de MADRID?
