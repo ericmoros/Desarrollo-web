@@ -6,8 +6,8 @@ public class Check {
 		if (textChar == objetiveChar) {
 			return true;
 		} else if (ignoreCase == true) {
-			String formatedChar = "" + textChar;
-			String formatedObjetiveChar = "" + objetiveChar;
+			String formatedChar = textChar.toString();
+			String formatedObjetiveChar = objetiveChar.toString();
 			if (formatedChar.equalsIgnoreCase(formatedObjetiveChar)) {
 				return true;
 			} else {
