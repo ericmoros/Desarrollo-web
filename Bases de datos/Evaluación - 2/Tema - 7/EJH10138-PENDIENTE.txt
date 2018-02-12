@@ -43,19 +43,44 @@ FROM pedidos
 ORDER BY ID_cliente, fecha_pedido DESC;
 
 -- 11)	Mostrar la lista de los nombres y direcciones de nuestros proveedores ordenados alfabéticamente por el nombre del proveedor.
+SELECT nombre, direccion
+FROM proveedores
+ORDER BY nombre;
+
 -- 12)	Mostrar el nombre y apellido de los clientes cuyo apellido sea Sanz.
--- 13)	¿Cuáles son los nombres de los clientes que viven en la provincia de MADRID?
--- 14)	Mostrar el nombre y apellido de los clientes que (una consulta para cada punto):
 SELECT nombre, apellidos
 FROM clientes
-WHERE id_cliente IN 
-  (SELECT id_cliente
-    FROM pedidos);
-    --WHERE EXTRACT (MONTH FROM factura_pedido));
--- •	viven en la provincia de MADRID 
+WHERE apellidos LIKE '%Sanz%';
+
+-- 13)	¿Cuáles son los nombres de los clientes que viven en la provincia de MADRID?
+SELECT nombre
+FROM clientes
+WHERE provincia LIKE 'MADRID';
+
+-- 14)	Mostrar el nombre y apellido de los clientes que (una consulta para cada punto):
+-- •	viven en la provincia de MADRID
+SELECT nombre, apellidos
+FROM clientes
+WHERE provincia = 'MADRID';
+
 -- •	viven en Belmonte
+SELECT nombre, apellidos
+FROM clientes
+WHERE UPPER(ciudad) = 'BELMONTE';
+
 -- •	tienen como código postal 45915
+SELECT nombre, apellidos
+FROM clientes
+WHERE cod_postal = 45915;
+
 -- •	que hicieron pedidos en Mayo
+SELECT nombre, apellidos
+FROM clientes
+WHERE id_cliente IN
+  (SELECT id_cliente
+    FROM pedidos
+    WHERE EXTRACT(MONTH FROM fecha_pedido) = 5);
+
 -- 15)	¿Hay pedidos en los que la fecha de envío fue puesta accidentalmente anterior a la fecha de pedido?
 SELECT *
 FROM pedidos
@@ -72,32 +97,123 @@ FROM proveedores
 WHERE direccion LIKE '%del%';
 
 -- 18)	Listar el nombre y apellidos de los clientes que viven en Somosierra y cuyo apellido empieza con la letra ‘S’.
+SELECT nombre, apellidos
+FROM clientes
+WHERE
+  UPPER(ciudad) = 'SOMOSIERRA' AND
+  UPPER(apellidos) LIKE 'S%';
+
 -- 19)	Listar el nombre y apellidos de los clientes que viven en Somosierra o en la provincia de ORENSE.
+SELECT nombre, apellidos
+FROM clientes
+WHERE
+  UPPER(ciudad) = 'SOMOSIERRA' OR
+  UPPER(provincia) = 'ORENSE';
 
 -- 20)	Mostrar una lista de los nombres y número de teléfono de los proveedores de las provincias de MADRID y CACERES.
 SELECT nombre, telefono
-FROM proveedores
+FROM clientes
 WHERE
-  provincia = 'MADRID' OR 
-  provincia = 'CACERES';
+  UPPER(provincia) = 'MADRID' OR
+  UPPER(provincia) = 'CACERES';
 
 -- 21)	Mostrar los datos de los pedidos del cliente 1001 en los que las fechas de pedido y envío coincidan.
+SELECT *
+FROM PEDIDOS
+WHERE
+  id_cliente = 1001 AND
+  fecha_pedido = fecha_envio;
+
 -- 22)	Mostrar los datos de los pedidos del cliente 1001 o que cumplan que la fecha de envío es 4 días posterior a la fecha de pedido.
+SELECT *
+FROM PEDIDOS
+WHERE
+  id_cliente = 1001 OR
+  (fecha_envio - fecha_pedido) <= 4;
+
 -- 23)	Mostrar nombre, apellidos, provincia y código postal de los clientes que se apelliden Pelayo en la provincia de CACERES o de los clientes cuyo código postal termine en 9.
+SELECT nombre, apellidos, provincia, cod_postal
+FROM clientes
+WHERE
+  (LOWER(apellidos) = 'pelayo' AND
+   LOWER(provincia) = 'caceres')
+  OR 
+  (cod_postal LIKE '%9');
+
 -- 24)	Mostrar nombre, apellidos, provincia y código postal de los clientes que se apelliden Pelayo y de cualquier otro cliente que viva en la provincia de CACERES o tenga un código postal que termine en 9.
+SELECT nombre, apellidos, provincia, cod_postal
+FROM clientes
+WHERE
+  LOWER(apellidos) = 'pelayo' OR
+  LOWER(provincia) = 'caceres' OR
+  cod_postal LIKE '%9';
+
 -- 25)	Mostrar los datos de los proveedores que tienen su sede en CACERES, ORENSE o MADRID.
+SELECT *
+FROM proveedores
+WHERE 
+  LOWER(ciudad) = 'caceres' OR
+  LOWER(ciudad) = 'orense' OR
+  LOWER(ciudad) = 'madrid';
+
 -- 26)	Listar los clientes cuyo apellido empieza por H.
+SELECT *
+FROM clientes
+WHERE apellidos LIKE 'H%';
+
 -- 27)	Listar los clientes que no viven en Robledo ni en Somosierra.
+SELECT *
+FROM clientes
+WHERE
+  ciudad != 'Somosierra' OR
+  ciudad != 'Robledo';
+
 -- 28)	Mostrar el número de pedido, el id_cliente y la fecha de pedido de todos los pedidos que ha realizado el cliente 1001 ordenado por fecha de pedido.
+SELECT clientes.id_cliente, numero_pedido, fecha_pedido
+FROM clientes, pedidos
+WHERE
+  pedidos.id_cliente = clientes.id_cliente AND
+  pedidos.id_cliente = 1001
+  ORDER BY (fecha_pedido);
+
 -- 29)	Mostrar un listado en orden alfabético de los nombres de productos que empiezan por 'Dog'.
+SELECT nombre
+FROM productos
+WHERE nombre LIKE 'Dog%';
+
 -- 30)	Listar los nombres de todos los proveedores con sede en Batres, Belmonte o Robledo.
+SELECT nombre
+FROM proveedores
+WHERE
+  ciudad = 'Batres' OR
+  ciudad = 'Belmonte' OR
+  ciudad = 'Robledo';
+
 -- 31)	Mostrar en orden alfabético la lista de los nombres de productos cuyo precio de venta sea igual o superior a 125.00 euros.
+SELECT nombre
+FROM productos
+WHERE
+  precio_venta >= 125;
+
 -- 32)	Listar en orden alfabético los nombres de los proveedores que no tienen página web.
 SELECT nombre
 FROM proveedores
-WHERE pag_web IS NULL
-ORDER BY NOMBRE;
+WHERE
+  pag_web IS NULL
+  ORDER BY nombre;
 -- 33)	Intersección: Listar los número de pedidos en los que se han pedido tanto bicicletas  (sabiendo que sus números de producto son 1, 2, 6 y 11) como cascos (sabiendo que sus números de producto son 10, 25 y 26).
+SELECT pedidos.numero_pedido
+FROM pedidos, detalles_pedidos
+WHERE
+  pedidos.numero_pedido = detalles_pedidos.numero_pedido AND
+  (detalles_pedidos.numero_producto = 1 OR
+  detalles_pedidos.numero_producto = 2 OR
+  detalles_pedidos.numero_producto = 6 OR
+  detalles_pedidos.numero_producto = 10 OR
+  detalles_pedidos.numero_producto = 11 OR
+  detalles_pedidos.numero_producto = 25 OR
+  detalles_pedidos.numero_producto = 26);
+
 -- 34)	Diferencia: Listar los número de pedidos que han comprado alguna bicicleta (sabiendo que sus números de producto son 1, 2, 6 y 11)  pero no cascos (sabiendo que sus números de producto son 10, 25 y 26). 
 -- 35)	Unión: Listar los número de pedidos que han comprado alguna bicicleta (sabiendo que sus números de producto son 1, 2, 6 y 11)  o algún casco (sabiendo que sus números de producto son 10, 25 y 26). Hacerlo de dos maneras, haciendo uso de UNION y sin hacer uso de UNION.
 -- 36)	Clientes y empleados que tienen el mismo nombre.
