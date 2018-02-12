@@ -15,6 +15,7 @@ public class Main {														//main Abajo del todo
 		inputText = "";
 	}
 	
+	@SuppressWarnings("unused")
 	private static void inProgress() {
 		Console.print(Text.inProgress);
 	}
@@ -48,6 +49,7 @@ public class Main {														//main Abajo del todo
 		return nInteger;
 	}
 	
+	@SuppressWarnings("unused")
 	private static Float askFloat(String str) {
 		Float nFloat;
 		Console.print(str, 25);
@@ -61,6 +63,8 @@ public class Main {														//main Abajo del todo
 	}
 	
 	//PROGRAMA
+	public static String enterprise = Text.nameEnterprise;
+	public static Float baseSalaryEmployee = 1200F;
 	private static ArrayList<Employee> employeeList = new ArrayList<>();
 	private static ArrayList<Boss> bossList = new ArrayList<>();
 	
@@ -68,7 +72,7 @@ public class Main {														//main Abajo del todo
 	private static void registerEmployee() {
 		Employee employee = null;
 		String name = null;
-		Float salary = null;
+		Integer salaryPercentExtra = null;
 		Integer employeeIndex = null;
 		Integer totalRegisters = null;
 		
@@ -76,14 +80,14 @@ public class Main {														//main Abajo del todo
 		
 		for (Integer actualRegister = 0; actualRegister < totalRegisters; actualRegister++) {
 			name = askString(Text.askName);
-			salary = askFloat(Text.askSalary);
+			salaryPercentExtra = askInteger(Text.askSalaryPercentExtra);
 			
-			employee = new Employee(name, salary);
+			employee = new Employee(name, salaryPercentExtra);
 			employeeList.add(employee);
 			
 			employeeIndex = employeeList.indexOf(employee);
 			
-			Console.print(Text.registeredEmployeeData(employeeIndex, name, salary));
+			Console.print(Text.registeredEmployeeData(employeeIndex, name, employee.getSalary()));
 		}
 	}
 
@@ -99,7 +103,7 @@ public class Main {														//main Abajo del todo
 	private static void registerBoss() {
 		Boss boss = null;
 		String name = null;
-		Float salary = null;
+		Integer salaryPercentExtra = null;
 		String degree = null;
 		String office = null;
 		Integer bossIndex = null;
@@ -109,14 +113,14 @@ public class Main {														//main Abajo del todo
 		
 		for (Integer actualRegister = 0; actualRegister < totalRegisters; actualRegister++) {
 			name = askString(Text.askName);
-			salary = askFloat(Text.askSalary);
+			salaryPercentExtra = askInteger(Text.askSalaryPercentExtra);
 			degree = askString(Text.askDegree);
 			office = askString(Text.askOffice);
-			boss = new Boss(name, salary, degree, office);
+			boss = new Boss(name, salaryPercentExtra, degree, office);
 			registerEmployee(boss);
 			bossList.add(boss);
 			bossIndex = bossList.indexOf(boss);
-			Console.print(Text.registeredBossData(bossIndex, name, salary, degree, office));
+			Console.print(Text.registeredBossData(bossIndex, name, boss.getSalary(), degree, office));
 		}
 	}
 	
@@ -159,9 +163,9 @@ public class Main {														//main Abajo del todo
 	De los jefes nos interesa: nombre, sueldo, título y nombre del departamento del que es jefe.
 	*/
 	public static void main(String[] args) {
-		bossList.add(new Boss("Dark Vader", 50000.99F, "Fuerza ocura", "Destructor-45"));
-		employeeList.add(new Employee("Kylo ran", 120.1F));
-		employeeList.add(new Employee("R3D3", 1.0F));
+		bossList.add(new Boss("Darth Vader", 5000, "Fuerza ocura", "Destructor-45"));
+		employeeList.add(new Employee("Kylo Ren", 2));
+		employeeList.add(new Employee("R3D3", 1));
 		
 		while (! Check.textChar(inputOption.charAt(0), Text.opt12, true)) {
 			for (int posChar = 0; posChar < inputOption.length(); posChar++) {

@@ -1,14 +1,14 @@
 
 public class Employee {
 	private String name;
-	private Float salary;
+	private Float salaryBase = Main.baseSalaryEmployee;
+	private Integer salaryPercentExtra;
 	
-	Employee(String name, Float salary) {
+	Employee(String name, Integer salaryPercentExtra) {
 		this.name = name;
-		this.salary = salary;
+		this.salaryPercentExtra = salaryPercentExtra;
 	}
 
-	//Nombre
 	public String getName() {
 		return name;
 	}
@@ -17,12 +17,28 @@ public class Employee {
 		this.name = name;
 	}
 
-	//Salario
-	public Float getSalary() {
-		return salary;
+	public Float getSalaryBase() {
+		return salaryBase;
 	}
 
-	public void setSalary(Float salary) {
-		this.salary = salary;
+	public void setSalaryBase(Float salaryBase) {
+		this.salaryBase = salaryBase;
+	}
+
+	public void setSalaryBaseGeneral() {
+		this.salaryBase = Main.baseSalaryEmployee;
+	}
+
+	public Integer getSalaryPercentExtra() {
+		return salaryPercentExtra;
+	}
+
+	public void setSalaryPercentExtra(Integer salaryPercentExtra) {
+		this.salaryPercentExtra = salaryPercentExtra;
+	}
+	
+	public Float getSalary() {
+		Float salary = salaryBase + (salaryBase * (salaryPercentExtra / 100));
+		return salary;
 	}
 }

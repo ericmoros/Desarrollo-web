@@ -2,8 +2,8 @@ public class Boss extends Employee {
 	private String degree;
 	private String office;
 	
-	Boss(String name, Float salary, String degree, String office) {
-		super(name, salary);
+	Boss(String name, Integer salaryPercentExtra, String degree, String office) {
+		super(name, salaryPercentExtra);
 		this.degree = degree;
 		this.office = office;
 	}

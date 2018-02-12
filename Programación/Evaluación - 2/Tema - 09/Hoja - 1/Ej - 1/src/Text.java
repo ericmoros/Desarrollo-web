@@ -29,11 +29,12 @@ public class Text {
 	public static final String askIfEmpty    = "(En caso de no introducir un dato se mantendrá el anterior) ";
 	
 	public static final String askName = "Introduce el nombre: ";
+	public static final String askSalaryPercentExtra = "Introduce el porcentage extra a añadir en el sueldo base: ";
 	public static final String askSalary = "Introduce el sueldo: ";
-	
 	public static final String askDegree = "Introduce el título: ";
 	public static final String askOffice = "Introduce el departamento: ";
 	
+	public static final String nameEnterprise = "Eléctrica, SA";
 	
 	public static final String newLine = "\n";
 	public static final String noOpt = "Opción no reconocida";
