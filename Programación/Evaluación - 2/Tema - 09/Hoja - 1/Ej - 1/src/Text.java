@@ -20,8 +20,11 @@ public class Text {
 					  		   + "\n" + "|   " + opt1 + "- Registrar             |"
 					  		   + "\n" + "|   " + opt2 + " * como jefe            |"
 					  		   + "\n" + "|   " + opt3 + "- Listar                |"
+					  		   + "\n" + "|   " + opt6 + "- Modificar sueldo base |"
+					  		   + "\n" + "|   " + opt7 + " * por empleado         |"
 					  		   + "\n" + "|  Jefe                      |"
 					  		   + "\n" + "|   " + opt4 + "- Listar                |"
+					  		   + "\n" + "|   " + opt5 + "- Modificar plus        |"
 					  		   + "\n" + "+----------------------------+"
 					  		   + "\n" + "|     " + opt11 + "- Menú  "  + opt12 +"- Cerrar     |"
 					  		   + "\n" + "+----------------------------+";
@@ -33,6 +36,8 @@ public class Text {
 	public static final String askSalary = "Introduce el sueldo: ";
 	public static final String askDegree = "Introduce el título: ";
 	public static final String askOffice = "Introduce el departamento: ";
+	public static final String askSalaryBaseNew = "Introduce el nuevo salario base";
+	public static final String askUpdateSalaryBaseEmployees = "¿Desea actualizar el salario base de todos los empleados?";
 	
 	public static final String nameEnterprise = "Eléctrica, SA";
 	
@@ -43,12 +48,15 @@ public class Text {
 	public static final String inProgress = "Pendiente";
 	public static final String askTotalRegisters = "¿Cúantos desea registrar? ";
 	public static final String money = "€";
+	public static final String askYes = "S";
+	public static final String askNo = "N";
 	
 	public static final String seeYouSoon = "Nos vemos! :D" + newLine + newLine;
 	public static final String endProgram = "[Fin de programa]" + newLine;
 	
 	public static final String errorInteger = "[ERROR] El dato a de ser un número entero (0)";
 	public static final String errorFloat = "[ERROR] El dato a de ser un número flotante (0.0)";
+	public static final String errorBoolean = "[ERROR] El dato introducido no está contemplado";
 	
 	public static String employeeData(Integer IDE, String name, Float salary) {
 		return "IDE: " + IDE + ", Nombre: " + name + ", salario: " + salary + newLine;

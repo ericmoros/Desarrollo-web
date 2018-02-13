@@ -29,6 +29,18 @@ public class Main {														//main Abajo del todo
 		Console.print(Text.newLine);
 	}
 	
+	private static Boolean askBoolean(String ask) {
+		Boolean bool = null;
+		Console.printError(ask);
+		bool = Console.readBoolean(Text.askYes, Text.askNo);
+		while (bool == null) {
+			Console.printError(Text.errorBoolean);
+			Console.print(ask);
+			bool = Console.readBoolean(Text.askYes, Text.askNo);
+		}
+		return bool;
+	}
+	
 	private static String askString(String ask) {
 		String str;
 		Console.print(ask, 25);
@@ -49,7 +61,6 @@ public class Main {														//main Abajo del todo
 		return nInteger;
 	}
 	
-	@SuppressWarnings("unused")
 	private static Float askFloat(String str) {
 		Float nFloat;
 		Console.print(str, 25);
@@ -153,6 +164,26 @@ public class Main {														//main Abajo del todo
 			Console.print(Text.bossData(bossIndex, name, salary, degree, office));
 		}
 	}
+	
+	private static void modifyBaseGeneral() {
+		Float baseSalaryNew = null;
+		Boolean updateEmployees = null;
+		
+		baseSalaryEmployee.getClass();
+		employeeList.getClass();
+		
+		baseSalaryNew = askFloat(Text.askSalaryBaseNew);
+		updateEmployees = askBoolean(Text.askUpdateSalaryBaseEmployees);
+		
+		//HERE
+		if (updateEmployees) {
+			
+		} else {
+			
+		}
+		
+	}
+
 	/*
 	Escribe  un  programa  que  pida  los  datos  de  una  serie  de  empleados  que  no  son  jefes,  tantos 
 	como  el  usuario  indique.  También  hay  que  pedir  los  datos  de  una  serie  de  jefes  que  son,  al 
@@ -161,9 +192,14 @@ public class Main {														//main Abajo del todo
 	datos, hay que visualizarlos.
 	De los empleados nos interesa: nombre y sueldo.
 	De los jefes nos interesa: nombre, sueldo, título y nombre del departamento del que es jefe.
+	
+	DADO EL SIGUIENTE MENÚ: 
+	1.Modificar el sueldo base de todos los empleados. 
+	2.Modificar el plus de todos los jefes. 
+	3.Visualizar los datos de todos los empleados.
 	*/
 	public static void main(String[] args) {
-		bossList.add(new Boss("Darth Vader", 5000, "Fuerza ocura", "Destructor-45"));
+		bossList.add(new Boss("Darth Vader", 5000, "Fuerza oscura", "Destructor-45"));
 		employeeList.add(new Employee("Kylo Ren", 2));
 		employeeList.add(new Employee("R3D3", 1));
 		
@@ -186,7 +222,20 @@ public class Main {														//main Abajo del todo
 				//LISTAR JEFES
 				} else if (Check.textChar(actualChar, Text.opt4, true)) {
 					listBoss();
+					
+				//MODIFICAR SUELDO BASE EMPLEADOS
+				} else if (Check.textChar(actualChar, Text.opt5, true)) {
+					modifyBaseGeneral();
 				
+				//MODIFICAR PLUS JEFES
+				} else if (Check.textChar(actualChar, Text.opt6, true)) {
+					inProgress();
+					
+				//MODIFICAR SUELDO BASE EMPLEADO
+				} else if (Check.textChar(actualChar, Text.opt6, true)) {
+					inProgress();
+				
+					
 				//MOSTRAR MENÚ
 				} else if (Check.textChar(actualChar, Text.opt11, true)) {
 					showMenu();

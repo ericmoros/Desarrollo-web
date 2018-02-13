@@ -51,14 +51,22 @@ public class Console {
 	public static String readEnter() {
 		return keyboard.nextLine();
 	}
-	
 
-	//readInteger
+	public static Boolean readBoolean(String yes, String no) {
+		String str = keyboard.nextLine();
+		
+		if (str.equalsIgnoreCase(yes)) {
+			return true;
+		} else if (str.equalsIgnoreCase(no)){
+			return false;
+		} else {
+			return null;
+		}
+	}
+	
 	public static Integer readInteger() {
 		Pattern justNums = Pattern.compile("\\d+");
-		String str = null;
-		
-		str = keyboard.nextLine();
+		String str = keyboard.nextLine();
 		
 		if (Check.matchPattern(justNums, str) ) {
 			return Integer.parseInt(str);
@@ -69,9 +77,7 @@ public class Console {
 	
 	public static Float readFloat() {
 		Pattern justNums = Pattern.compile("\\d+\\.\\d+");
-		String str = null;
-		
-		str = keyboard.nextLine();
+		String str = keyboard.nextLine();
 		
 		if (Check.matchPattern(justNums, str) ) {
 			return Float.parseFloat(str);
