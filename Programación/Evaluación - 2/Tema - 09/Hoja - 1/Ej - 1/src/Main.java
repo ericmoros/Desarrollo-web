@@ -32,11 +32,11 @@ public class Main {														//main Abajo del todo
 	private static Boolean askBoolean(String ask) {
 		Boolean bool = null;
 		Console.printError(ask);
-		bool = Console.readBoolean(Text.askYes, Text.askNo);
+		bool = Console.readBoolean(Text.yes, Text.no);
 		while (bool == null) {
 			Console.printError(Text.errorBoolean);
 			Console.print(ask);
-			bool = Console.readBoolean(Text.askYes, Text.askNo);
+			bool = Console.readBoolean(Text.yes, Text.no);
 		}
 		return bool;
 	}
@@ -165,23 +165,27 @@ public class Main {														//main Abajo del todo
 		}
 	}
 	
-	private static void modifyBaseGeneral() {
+	private static void modifySalaryBase() {
+		Float baseSalaryOld = null;
 		Float baseSalaryNew = null;
 		Boolean updateEmployees = null;
 		
-		baseSalaryEmployee.getClass();
-		employeeList.getClass();
+		baseSalaryOld = baseSalaryEmployee;
 		
 		baseSalaryNew = askFloat(Text.askSalaryBaseNew);
 		updateEmployees = askBoolean(Text.askUpdateSalaryBaseEmployees);
+
+		baseSalaryEmployee = baseSalaryNew;
+		Console.print(Text.updatedSalaryBase(baseSalaryOld, baseSalaryNew));
 		
 		//HERE
 		if (updateEmployees) {
+			for (Employee employee: employeeList) {
+				employee.setSalaryBaseGeneral();
+			}
 			
-		} else {
-			
+			Console.print(Text.updatedSalaryBaseEmployees);
 		}
-		
 	}
 
 	/*
@@ -224,15 +228,15 @@ public class Main {														//main Abajo del todo
 					listBoss();
 					
 				//MODIFICAR SUELDO BASE EMPLEADOS
-				} else if (Check.textChar(actualChar, Text.opt5, true)) {
-					modifyBaseGeneral();
+				} else if (Check.textChar(actualChar, Text.opt6, true)) {
+					modifySalaryBase();
 				
 				//MODIFICAR PLUS JEFES
-				} else if (Check.textChar(actualChar, Text.opt6, true)) {
+				} else if (Check.textChar(actualChar, Text.opt7, true)) {
 					inProgress();
 					
 				//MODIFICAR SUELDO BASE EMPLEADO
-				} else if (Check.textChar(actualChar, Text.opt6, true)) {
+				} else if (Check.textChar(actualChar, Text.opt5, true)) {
 					inProgress();
 				
 					

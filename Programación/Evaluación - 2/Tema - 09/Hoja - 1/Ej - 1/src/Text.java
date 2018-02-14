@@ -30,14 +30,18 @@ public class Text {
 					  		   + "\n" + "+----------------------------+";
 	
 	public static final String askIfEmpty    = "(En caso de no introducir un dato se mantendrá el anterior) ";
+	public static final String yes = "S";
+	public static final String no = "N";
 	
 	public static final String askName = "Introduce el nombre: ";
 	public static final String askSalaryPercentExtra = "Introduce el porcentage extra a añadir en el sueldo base: ";
 	public static final String askSalary = "Introduce el sueldo: ";
 	public static final String askDegree = "Introduce el título: ";
 	public static final String askOffice = "Introduce el departamento: ";
-	public static final String askSalaryBaseNew = "Introduce el nuevo salario base";
-	public static final String askUpdateSalaryBaseEmployees = "¿Desea actualizar el salario base de todos los empleados?";
+	public static final String askSalaryBaseNew = "Introduce el nuevo salario base: ";
+	public static final String askUpdateSalaryBaseEmployees = "¿Desea actualizar el salario base de todos los empleados? (" + yes + "/" + no + "): ";
+	
+	public static final String updatedSalaryBaseEmployees = "Salario base de los empleados actualizado";
 	
 	public static final String nameEnterprise = "Eléctrica, SA";
 	
@@ -48,8 +52,6 @@ public class Text {
 	public static final String inProgress = "Pendiente";
 	public static final String askTotalRegisters = "¿Cúantos desea registrar? ";
 	public static final String money = "€";
-	public static final String askYes = "S";
-	public static final String askNo = "N";
 	
 	public static final String seeYouSoon = "Nos vemos! :D" + newLine + newLine;
 	public static final String endProgram = "[Fin de programa]" + newLine;
@@ -72,5 +74,9 @@ public class Text {
 	
 	public static String registeredBossData(Integer IDB, String name, Float salary, String degree, String office) {
 		return "Registrado Jefe(IDB"+ IDB +") con el nombre: " + name + ", un salario de: " + salary + money + "esudios en: " + degree + "y en el departamento: " + office + newLine + newLine;
+	}
+
+	public static String updatedSalaryBase(Float baseSalaryOld, Float baseSalaryNew) {
+		return "Sueldo base actualizado de " + baseSalaryOld + " a " + baseSalaryNew;
 	}
 }
