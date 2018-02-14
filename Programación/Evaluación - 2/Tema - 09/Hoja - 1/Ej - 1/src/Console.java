@@ -43,7 +43,7 @@ public class Console {
 	
 	//printMenu
 	public static void printMenu() {
-		print(Text.menu, 10);
+		print(Text.menu, 5);
 	}
 
 		
