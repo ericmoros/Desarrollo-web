@@ -1,0 +1,73 @@
+-- 42)	Selecciona los datos de los empleados que trabajan en el departamento 80, pero la columna de la comisión tiene que aparecer redondeado a un decimal.
+SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID, SALARY, ROUND(COMMISSION_PCT, 2), MANAGER_ID, DEPARTMENT_ID
+FROM employees
+WHERE department_id = 80;
+
+-- 43)	Crea una consulta que calcule la raíz cuadrada de 49.
+SELECT SQRT(49)
+FROM DUAL;
+
+-- 44)	Crea una consulta que calcule la raíz cuadrada de 36 y le sume el valor absoluto de (-9).
+SELECT SQRT(36) + ABS(-9)
+FROM DUAL;
+
+-- 45)	Muestra el título de los trabajos de los empleados del departamento de “Accounting” pero debe aparecer totalmente en mayúsculas.
+SELECT UPPER(job_title)
+FROM jobs
+WHERE job_id IN
+  (SELECT job_id
+    FROM employees
+    WHERE department_id = 
+      (SELECT department_id
+        FROM departments
+        WHERE department_name = 'Accounting'));
+
+-- 46)	Ahora muestra el nombre y apellidos de todos los empleados en una sola columna, ordenados primero por apellido y luego por nombre y que aparezca todo en minúsculas.
+SELECT LOWER(first_name || ' ' || last_name)
+FROM employees
+ORDER BY last_name, first_name;
+
+-- 47)	Obtén los datos de los empleados cuyo nombre tenga una longitud mayor de 5 caracteres.
+SELECT *
+FROM employees
+WHERE LENGTH(first_name) > 5;
+
+-- 48)	Obtén los datos de los empleados cuyo jefe trabaje en un departamento que tenga un nombre de más de 10 caracteres.
+SELECT *
+FROM employees
+WHERE manager_id IN
+  (SELECT employee_id
+    FROM employees
+    WHERE department_id IN
+    (SELECT department_id
+      FROM departments
+      WHERE LENGTH(department_name) > 10));
+
+-- 49)	Muestra todos los empleados cuyo nombre empieza por A, pero debes sustituir la primera letra b que aparezca en esos nombres por v en todos.
+SELECT REPLACE(first_name, 'b', 'v')
+FROM employees
+WHERE first_name LIKE 'A%';
+
+-- 50 Muestra el nombre y la comisión de todos los empleados del departamento de “Marketing” o “Sales”, en caso de que el valor sea nulo de aparecer el texto “SIN COMISIÓN”.
+SELECT first_name, NVL2(TO_CHAR(commission_pct), TO_CHAR(commission_pct), 'SIN COMISION') AS "Commission"
+FROM employees
+WHERE department_id IN
+	(SELECT department_id
+	 FROM departments
+	 WHERE
+		department_name = 'Marketing' OR
+		department_name = 'Sales');
+
+-- 51)	Para cada empleado muestra nombre, apellidos y la diferencia de tiempo en años que hay entre el comiendo (start_date) y el final (end_date) de cada trabajo que ha realizado (en la tabla job_history).
+SELECT employees.first_name, employees.last_name, end_date - start_date AS "Diferencia de tiempo"
+FROM employees, job_history
+WHERE
+  employees.employee_id = job_history.employee_id;
+
+-- 52)	Para cada empleado muestra su nombre y apellidos y el año en que fue contratado (sólo el año).
+SELECT first_name, last_name, EXTRACT(YEAR FROM hire_date)
+FROM employees;
+
+-- 53)	Ahora muestra las mismas columnas que en la consulta anterior, pero la fecha de contratación (hire_date), debe aparecer en el siguiente formato (‘dd-mm-yyyy’). Hay que utilizar la función TO_CHAR.
+SELECT first_name, last_name, TO_CHAR(hire_date, 'dd-mm-yyyy')
+FROM employees;

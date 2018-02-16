@@ -218,6 +218,35 @@ FROM detalles_pedidos
 WHERE detalles_pedidos.numero_producto IN (10, 25, 26);
 
 -- 35)	Unión: Listar los número de pedidos que han comprado alguna bicicleta (sabiendo que sus números de producto son 1, 2, 6 y 11)  o algún casco (sabiendo que sus números de producto son 10, 25 y 26). Hacerlo de dos maneras, haciendo uso de UNION y sin hacer uso de UNION.
+SELECT DISTINCT numero_pedido
+FROM detalles_pedidos
+WHERE
+  detalles_pedidos.numero_producto IN (1, 2, 6, 11)
+UNION
+SELECT DISTINCT numero_pedido
+FROM detalles_pedidos
+WHERE
+  detalles_pedidos.numero_producto IN (10, 25, 26);
+
+SELECT DISTINCT numero_pedido
+FROM detalles_pedidos
+WHERE
+  detalles_pedidos.numero_producto IN (1, 2, 6, 11) OR
+  detalles_pedidos.numero_producto IN (10, 25, 26);
+
 -- 36)	Clientes y empleados que tienen el mismo nombre.
+SELECT clientes.id_cliente, empleados.id_empleado, clientes.nombre
+FROM clientes, empleados
+WHERE
+  empleados.nombre = clientes.nombre;
+
 -- 37)	Clientes cuyos nombres no coinciden con los de ningún empleado.
+SELECT clientes.id_cliente, clientes.nombre
+FROM clientes, empleados
+WHERE
+  empleados.nombre != clientes.nombre;
+
 -- 38)	Ciudades en las que viven clientes pero ningún empleado.
+SELECT DISTINCT ciudad
+FROM clientes
+WHERE ciudad NOT IN (SELECT ciudad FROM empleados);
