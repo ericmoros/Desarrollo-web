@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.iesluisbraille.es/1ASIR/catalogo_libros"
+           xmlns="http://www.iesluisbraille.es/1ASIR/catalogo_libros"
+           elementFormDefault="qualified">
+  <xs:element name="catalogoLibro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="libro"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="libro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="titulo" type="xs:string"/>
+        <xs:element maxOccurs="unbounded" name="autor" type="xs:string"/>
+        <xs:element ref="fecha"/>
+        <xs:element name="ISBN" type="xs:NMTOKEN"/>
+        <xs:element name="editor" type="xs:NCName"/>
+      </xs:sequence>
+      <xs:attribute name="categoria" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="autobiografia" />
+            <xs:enumeration value="ficcion" />
+            <xs:enumeration value="noficcion" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="enstock" type="xs:boolean"/>
+      <xs:attribute name="revisor"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="fecha">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="mes"/>
+        <xs:element ref="anyo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mes" type="xs:gMonth"/>
+  <xs:element name="anyo" type="xs:gYear"/>
+</xs:schema>
