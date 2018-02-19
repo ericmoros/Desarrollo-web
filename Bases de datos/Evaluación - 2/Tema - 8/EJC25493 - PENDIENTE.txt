@@ -1,0 +1,108 @@
+-- 54)	Obtener el valor absoluto de –20 
+SELECT ABS(-20) "Resultado"
+FROM DUAL;
+
+-- 55)	Obtener el valor absoluto del (SALARIO-10000000) para todas las filas de la tabla EMPLE.
+SELECT ABS(salario - 10000000)
+FROM emple;
+
+-- 56)	Calcula el salario medio de los empleados del departamento 10 de la tabla EMPLE.
+SELECT AVG(salario)
+FROM emple
+WHERE dept_no = 10;
+
+-- 57)	Calcula el número de filas de la tabla EMPLE.
+SELECT COUNT(ROWNUM)
+FROM emple;
+
+-- 58)	Calcula el número de filas de la tabla EMPLE donde la COMISIÓN no es nula.
+SELECT COUNT(ROWNUM)
+FROM emple
+WHERE comision IS NOT NULL;
+
+-- 59)	Calcula el máximo salario de la tabla EMPLE 
+SELECT MAX(salario)
+FROM emple;
+
+-- 60)	Obtener el apellido máximo (alfabéticamente) de la tabla EMPLE 
+SELECT MIN(apellido)
+FROM emple;
+
+-- 61)	Obtener el salario y el apellido del empleado con el último apellido en orden alfabético de la tabla EMPLE.
+SELECT salario, apellido
+FROM emple
+WHERE apellido = 
+  (SELECT MAX(apellido)
+   FROM emple);
+
+-- 62)	Obtener el apellido del empleado que tiene mayor salario 
+SELECT apellido
+FROM emple
+WHERE salario =
+  (SELECT MAX(salario)
+    FROM emple);
+
+-- 63)	Obtener la suma de todos los salarios de la tabla EMPLE
+SELECT SUM(salario)
+FROM emple;
+
+-- 64)	Calcula en número de oficios que hay en la tabla EMPLE.
+SELECT COUNT(oficio)
+FROM emple;
+
+-- 65)	Calcula el número de oficios diferentes que hay en los departamentos 10 y 20 
+SELECT COUNT(DISTINCT(oficio))
+FROM emple;
+
+-- 66)	De la tabla NOTAS_ALUMNOS Obtener por cada alumno la mayor nota y la menor nota de las tres que tienen.
+SELECT GREATEST(nota1, nota2, nota3), LEAST(nota1, nota2, nota3)
+FROM notas_alumnos;
+
+-- 67)	Obtener en una columna llamada CONCATENACIÓN el apellido y el oficio de cada uno de los empleados de la tabla EMPLE, de la siguiente manera: APELLIDO es OFICIO 
+SELECT UPPER(apellido) || ' es ' || UPPER(oficio) "concatenacion"
+FROM emple;
+
+-- 68)	Para cada fila de la tabla NOTAS_ALUMNOS, mostrar en la consulta el nombre del alumno con una longitud de 30 caracteres y rellenando por la izquierda con puntos.
+SELECT LPAD(nombre_alumno, 30, '.')
+FROM notas_alumnos;
+
+-- 69)	Sustituir ‘O’ por ‘A’ en la cadena ‘BLANCO Y NEGRO’.
+SELECT REPLACE('BLANCO Y NEGRO', 'O', 'A')
+FROM DUAL;
+
+-- 70)	Visualizar el apellido y su primera letra para la tabla EMPLE.
+SELECT apellido || ' ' || SUBSTR(apellido, 1, 1)
+FROM emple;
+
+-- 71)	Calcular el número de caracteres de la columna TEMA para todas las filas de la tabla Librería.
+SELECT LENGTH(tema)
+FROM libreria;
+
+-- 72)	Visualiza la fecha del sistema.
+SELECT SYSTIMESTAMP AT TIME ZONE 'utc'
+FROM dual;
+
+-- 73)	Obtener de la tabla EMPLE el último día del mes para cada una de las fechas de alta.
+SELECT EXTRACT(DAY FROM fecha_alt)
+FROM emple;
+
+-- 74)	Calcular vuestra edad a partir de la fecha de nacimiento 
+-- 75)	Obtener que fecha será el próximo Viernes 
+-- 76)	A partir de la tabla EMPLE, obtener la fecha de alta, de manera que aparezca el nombre del mes con todas sus letras, el número del día del mes, y el año 
+-- 77)	Obtener la fecha anterior, de forma que aparezca el nombre del mes con tres letras, el número de día del año, el último dígito del año y los tres últimos dígitos del año 
+-- 78)	Obtener la fecha de hoy con el siguiente formato:   Hoy es nombre_dia, dia_mes  de nombre_mes de año 
+-- 79)	Escribir la sentencia SELECT adecuada para que los números de la columna DATO_ENTRADA, se obtenga los números de la columna DATO_SALIDA.
+-- 80)	Cambiar la cadena ‘01012001’ a tipo DATE.
+-- 81)	Obtener el nombre del mes a partir de la cadena ‘01012001’ 
+-- 82)	Obtener el nombre del día, el nombre del mes, el día y el año en inglés a partir de la cadena ‘12121998’. 
+-- 83)	¿Cuál sería la salida de ejecutar estas funciones?
+-- 84)	A partir de la tabla EMPLE, visualizar cuántos apellidos de los empleados empiezan por la letra ‘A’.
+-- 85)	Dada la tabla EMPLE, obtener el sueldo medio, el número de comisiones no nulas, el máximo sueldo y el mínimo sueldo de los empleados del departamento 30.
+-- 86)	Contar las filas de LIBRERÍA cuyo tema tenga por lo menos, una ‘a’. 
+-- 87)	Visualizar los temas con mayor número de ejemplares de la tabla LIBRERÍA y que tengan, al menos una ‘e’ (pueden ser un tema o varios). 
+-- 88)	Visualizar el número de estantes diferentes que hay en la tabla Librería 
+-- 89)	Visualizar el número de estantes distintos que hay en la tabla LIBRERÍA de aquellos temas que contienen, al menos, una ‘e.
+-- 90)	Dada la tabla LIBRERÍA, visualizar el tema, el último carácter del tema que no sea blanco y el número de caracteres de tema (sin contar los blancos de la derecha) ordenados por tema.
+-- 91)	Convertir la cadena ‘01051998’ a fecha y visualizar su nombre de mes en mayúsculas.
+-- 92)	Visualizar aquellos temas de la tabla LIBRERÍA cuyos ejemplares sean 7 de forma que en la columna tema el valor que muestre sea ‘SEVEN’. El resto de temas que no tengan 7 ejemplares se visualizarán como están, con su nombre.
+-- 93)	A partir de la tabla EMPLE, obtener el apellido de los empleados que lleven más de 19 años trabajando.
