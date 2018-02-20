@@ -86,8 +86,16 @@ FROM dual;
 SELECT EXTRACT(DAY FROM fecha_alt)
 FROM emple;
 
--- 74)	Calcular vuestra edad a partir de la fecha de nacimiento 
--- 75)	Obtener que fecha será el próximo Viernes 
+-- 74)	Calcular vuestra edad a partir de la fecha de nacimiento
+SELECT
+  EXTRACT(YEAR FROM systimestamp at time zone 'utc') - 
+  EXTRACT(YEAR FROM TO_DATE('14-2-1999', 'dd-mm-yyyy')) "Años"
+FROM dual;
+
+-- 75)	Obtener que fecha será el próximo Viernes
+SELECT NEXT_DAY(sysdate, 'viernes') "Viernes"
+FROM DUAL;
+
 -- 76)	A partir de la tabla EMPLE, obtener la fecha de alta, de manera que aparezca el nombre del mes con todas sus letras, el número del día del mes, y el año 
 -- 77)	Obtener la fecha anterior, de forma que aparezca el nombre del mes con tres letras, el número de día del año, el último dígito del año y los tres últimos dígitos del año 
 -- 78)	Obtener la fecha de hoy con el siguiente formato:   Hoy es nombre_dia, dia_mes  de nombre_mes de año 
