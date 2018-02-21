@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="iso-8859-1" ?>
-<facturas xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+<!--<facturas xmlns:xsd="http://www.w3.org/2001/XMLSchema"
           xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
-          xs:schemaLocation="http://www.w3.org/2001/XMLSchema-instance factura.xsd">
+          xs:schemaLocation="http://www.w3.org/2001/XMLSchema-instance factura.xsd">-->
+<facturas xmlns="https://w3schools.com"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="factura.xsd">
   <factura n_fac="999">
     <datos_empresa>
       <nombre>Equipos Digitales S.L.</nombre>
@@ -17,7 +20,7 @@
       <poblacion cod_postal="28043">Madrid</poblacion>
       <provincia>Madrid</provincia>
     </datos_cliente>
-    <datos_factura n_ped="731" iva="16" f_pago= "efectivo" moneda="euro">
+    <datos_factura n_ped="731" iva="16" f_pago="efectivo" moneda="euro">
       <fecha>2005-12-01</fecha>
       <linea>
         <ref>MII93000F/8</ref>
