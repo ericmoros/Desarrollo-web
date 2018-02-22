@@ -1,0 +1,45 @@
+Plato
+	Nombre (String)
+	Precio	(Float)
+	ArrayIngrediente(String)
+
+Menu
+	servidos (static max100)
+	Nombre (String)
+	Plato
+	Plato
+	Bebida (String)
+	Postre (String)
+	visualizarMenu
+		NombreMenu_______(plato + plato)€
+ 		 Primero: nombrePlato
+		     Ingrediente
+		     Ingrediente
+		 Segundo: nombrePlato
+		     Ingrediente
+		     Ingrediente
+ 		________________________
+
+Carta
+	Array(Menu)
+	visualizarCarta
+		visualizarArray(Menu)
+
+Cliente
+	Nombre
+	Apellidos
+	Array(Menu)
+		visualizarArray(Menu)
+	
+
+Comedor
+	mostrarCarta
+		visualizarCata
+	elegirMenu (X)
+		Introduzca el nombre del menu
+		
+	pagarCena
+		mostrar
+		
+	
+
