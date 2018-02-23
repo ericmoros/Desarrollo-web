@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html SYSTEM 'html.dtd'>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="description" content="CSS1"/>
+    <meta name="keywords" content="HTML5, CSS3, CSS1, ONLINE, UPDATES"/>
+    <meta name="author" content="Eric Moros Pérez" />
+    <title>CSS1 - Online updates</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="left">
+          <p>JANUARY 2020</p>
+        </div>
+        <div class="right">
+          <p>!SSUE 1</p>
+        </div>
+      </div>
+      <div class="container">
+        <h1 class="center">ONLINE UPDATES</h1>
+      </div>
+      <div class="container">
+        <p class="center cursive">Official Weekly Newsletter of Mr. Parker's Homeroom Class</p>
+      </div>
+    </header>
+    <div class="main">
+      <div class="img">
+        <img src="img/books.png" alt="books" />
+      </div>
+      <div class="container content">
+        <div class="left sec">
+          <p class="subtitle">THIS ISSUE INCLUDES:</p>
+          <hr/>
+          <h3>WEEKLY CLASS REMINDERS</h3>
+          <h3>HOMEWORK CENTRAL</h3>
+          <h3>WEEKLY CLASS RECEAP</h3>
+          <h3>DISCOVERY FOR THE WEEK</h3>
+        </div>
+        <section class="right sec">
+          <h2>This Week's Challenges</h2>
+          <p class="author">by Susan Williams</p>
+          <article>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit perferendis delectus optio repudiandae explicabo vitae omnis soluta facilis, ad quas numquam nesciunt necessitatibus maiores vel ullam aspernatur ratione, quos commodi!
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit perferendis delectus optio repudiandae explicabo vitae omnis soluta facilis, ad quas numquam nesciunt necessitatibus maiores vel ullam aspernatur ratione, quos commodi!
+            </p>
+          </article>
+        </section>
+      </div>
+    </div>
+    <footer>
+      <p class="center">MR. PARKER'S HOMEROOM CLASS</p>
+    </footer>
+  </body>
+</html>

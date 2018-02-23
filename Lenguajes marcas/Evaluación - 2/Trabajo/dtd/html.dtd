@@ -1,0 +1,32 @@
+<!ELEMENT html (head, body)>
+<!ATTLIST html lang CDATA #REQUIRED>
+<!ELEMENT head (meta+, title, link)>
+<!ELEMENT meta EMPTY>
+<!ATTLIST meta
+  name  CDATA #IMPLIED
+  http-equiv CDATA #IMPLIED
+  content  CDATA #REQUIRED>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT link EMPTY>
+<!ATTLIST link
+  rel CDATA #REQUIRED
+  href CDATA #REQUIRED>
+<!ELEMENT body (header, div, footer)>
+<!ELEMENT header (div+)>
+<!ELEMENT div (img?, p*, h1*, div*, section?, hr?, h3*)>
+<!ATTLIST div class CDATA #REQUIRED>
+<!ELEMENT p (#PCDATA)>
+<!ATTLIST p class CDATA #IMPLIED>
+<!ELEMENT h1 (#PCDATA)>
+<!ATTLIST h1 class CDATA #REQUIRED>
+<!ELEMENT h2 (#PCDATA)>
+<!ELEMENT h3 (#PCDATA)>
+<!ELEMENT img EMPTY>
+<!ATTLIST img
+  src  CDATA #REQUIRED
+  alt  CDATA #REQUIRED>
+<!ELEMENT section (h2, p, article)>
+<!ATTLIST section class CDATA #REQUIRED>
+<!ELEMENT article (p, p)>
+<!ELEMENT hr EMPTY>
+<!ELEMENT footer (p)>
