@@ -162,9 +162,28 @@ FROM (SELECT tema, ejemplares
 WHERE ROWNUM <= 3;
 
 -- 88)	Visualizar el número de estantes diferentes que hay en la tabla Librería
+SELECT COUNT(DISTINCT(estante))
+FROM libreria;
 
 -- 89)	Visualizar el número de estantes distintos que hay en la tabla LIBRERÍA de aquellos temas que contienen, al menos, una ‘e.
+SELECT DISTINCT(estante)
+FROM libreria
+WHERE tema LIKE '%e%';
+
 -- 90)	Dada la tabla LIBRERÍA, visualizar el tema, el último carácter del tema que no sea blanco y el número de caracteres de tema (sin contar los blancos de la derecha) ordenados por tema.
+SELECT tema, SUBSTR(tema, LENGTH(RTRIM(TEMA))) "Ultima letra", LENGTH(RTRIM(tema)) "Longitud"
+FROM libreria
+ORDER BY tema;
+
 -- 91)	Convertir la cadena ‘01051998’ a fecha y visualizar su nombre de mes en mayúsculas.
+SELECT UPPER(TO_CHAR(TO_DATE('01051998', 'ddmmyyyy'), 'Month')) "MES"
+FROM dual;
+
 -- 92)	Visualizar aquellos temas de la tabla LIBRERÍA cuyos ejemplares sean 7 de forma que en la columna tema el valor que muestre sea ‘SEVEN’. El resto de temas que no tengan 7 ejemplares se visualizarán como están, con su nombre.
+SELECT DECODE(ejemplares,7,'SEVEN',tema) "temas"
+FROM libreria;
+
 -- 93)	A partir de la tabla EMPLE, obtener el apellido de los empleados que lleven más de 19 años trabajando.
+SELECT apellido 
+FROM emple
+WHERE EXTRACT(YEAR FROM sysdate) - EXTRACT(YEAR FROM fecha_alt) > 19;
