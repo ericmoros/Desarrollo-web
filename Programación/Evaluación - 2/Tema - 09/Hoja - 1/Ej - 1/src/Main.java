@@ -15,7 +15,6 @@ public class Main {														//main Abajo del todo
 		inputText = "";
 	}
 	
-	@SuppressWarnings("unused")
 	private static void inProgress() {
 		Console.print(Text.inProgress);
 	}
@@ -31,7 +30,7 @@ public class Main {														//main Abajo del todo
 	
 	private static Boolean askBoolean(String ask) {
 		Boolean bool = null;
-		Console.printError(ask);
+		Console.print(ask);
 		bool = Console.readBoolean(Text.yes, Text.no);
 		while (bool == null) {
 			Console.printError(Text.errorBoolean);
@@ -75,7 +74,7 @@ public class Main {														//main Abajo del todo
 	
 	//PROGRAMA
 	public static String enterprise = Text.nameEnterprise;
-	public static Float baseSalaryEmployee = 1200F;
+	public static Float baseSalaryGeneral = 1200F;
 	private static ArrayList<Employee> employeeList = new ArrayList<>();
 	private static ArrayList<Boss> bossList = new ArrayList<>();
 	
@@ -104,16 +103,13 @@ public class Main {														//main Abajo del todo
 
 	
 	private static void registerEmployee(Employee employee) {
-		String name = employee.getName();
-		Float salary = employee.getSalary();
-		Integer employeeIndex = employeeList.indexOf(employee);
 		employeeList.add(employee);
-		Console.print(Text.registeredEmployeeData(employeeIndex, name, salary));
 	}
 	
 	private static void registerBoss() {
 		Boss boss = null;
 		String name = null;
+		Float salaryPlus = null;
 		Integer salaryPercentExtra = null;
 		String degree = null;
 		String office = null;
@@ -124,10 +120,11 @@ public class Main {														//main Abajo del todo
 		
 		for (Integer actualRegister = 0; actualRegister < totalRegisters; actualRegister++) {
 			name = askString(Text.askName);
+			salaryPlus = askFloat(Text.askSalaryPlus);
 			salaryPercentExtra = askInteger(Text.askSalaryPercentExtra);
 			degree = askString(Text.askDegree);
 			office = askString(Text.askOffice);
-			boss = new Boss(name, salaryPercentExtra, degree, office);
+			boss = new Boss(name, salaryPlus, salaryPercentExtra, degree, office);
 			registerEmployee(boss);
 			bossList.add(boss);
 			bossIndex = bossList.indexOf(boss);
@@ -166,17 +163,19 @@ public class Main {														//main Abajo del todo
 	}
 	
 	private static void modifySalaryBase() {
-		Float baseSalaryOld = null;
-		Float baseSalaryNew = null;
+		Float salaryBase = null;
+		Float salaryBaseOld = null;
+		Float salaryBaseNew = null;
 		Boolean updateEmployees = null;
 		
-		baseSalaryOld = baseSalaryEmployee;
+		salaryBaseOld = baseSalaryGeneral;
 		
-		baseSalaryNew = askFloat(Text.askSalaryBaseNew);
+		salaryBaseNew = askFloat(Text.askSalaryBaseNew);
 		updateEmployees = askBoolean(Text.askUpdateSalaryBaseEmployees);
 
-		baseSalaryEmployee = baseSalaryNew;
-		Console.print(Text.updatedSalaryBase(baseSalaryOld, baseSalaryNew));
+		baseSalaryGeneral = salaryBaseNew;
+		salaryBase = baseSalaryGeneral;
+		Console.print(Text.updatedSalaryBase(salaryBaseOld, salaryBase));
 		
 		//HERE
 		if (updateEmployees) {
@@ -188,6 +187,56 @@ public class Main {														//main Abajo del todo
 		}
 	}
 
+	private static void modifySalaryBaseEmployee() {
+		Employee employee = null;
+		Float salaryBase = null;
+		Float salaryBaseOld = null;
+		Float salaryBaseNew = null;
+		Integer ide = null;
+		
+		while (employee == null) {
+			try {
+				ide = askInteger(Text.askIde);
+				employee = employeeList.get(ide);
+			} catch (Exception noEmployee) {
+				Console.printError(Text.errorNoEmployee);
+			}
+		}
+		
+		salaryBaseNew = askFloat(Text.askSalaryBaseNew);
+		salaryBaseOld = employee.getSalaryBase();
+		
+		employee.setSalaryBase(salaryBaseNew);
+		
+		salaryBase = employee.getSalaryBase();
+		Console.print(Text.updatedSalaryBase(salaryBaseOld, salaryBase));
+	}
+	
+	private static void modifyBossPlus() {
+		Boss boss = null;
+		Float salaryPlus = null;
+		Float salaryPlusOld = null;
+		Float salaryPlusNew = null;
+		Integer idb = null;
+		
+		while (boss == null) {
+			try {
+				idb = askInteger(Text.askIdb);
+				boss = bossList.get(idb);
+			} catch (Exception noEmployee) {
+				Console.printError(Text.errorNoEmployee);
+			}
+		}
+		
+
+		salaryPlusNew = askFloat(Text.askSalaryPlusNew);
+		salaryPlusOld = boss.getSalaryPlus();
+		
+		boss.setSalaryPlus(salaryPlusNew);
+		
+		salaryPlus = boss.getSalaryPlus();
+		Console.print(Text.updatedSalaryPlus(salaryPlusOld, salaryPlus));
+	}
 	/*
 	Escribe  un  programa  que  pida  los  datos  de  una  serie  de  empleados  que  no  son  jefes,  tantos 
 	como  el  usuario  indique.  También  hay  que  pedir  los  datos  de  una  serie  de  jefes  que  son,  al 
@@ -203,7 +252,8 @@ public class Main {														//main Abajo del todo
 	3.Visualizar los datos de todos los empleados.
 	*/
 	public static void main(String[] args) {
-		bossList.add(new Boss("Darth Vader", 5000, "Fuerza oscura", "Destructor-45"));
+		bossList.add(new Boss("Darth Vader", 2000F, 5000, "Fuerza oscura", "Destructor-45"));
+		employeeList.add(bossList.get(0));
 		employeeList.add(new Employee("Kylo Ren", 2));
 		employeeList.add(new Employee("R3D3", 1));
 		
@@ -231,13 +281,13 @@ public class Main {														//main Abajo del todo
 				} else if (Check.textChar(actualChar, Text.opt6, true)) {
 					modifySalaryBase();
 				
-				//MODIFICAR PLUS JEFES
-				} else if (Check.textChar(actualChar, Text.opt7, true)) {
-					inProgress();
-					
 				//MODIFICAR SUELDO BASE EMPLEADO
+				} else if (Check.textChar(actualChar, Text.opt7, true)) {
+					modifySalaryBaseEmployee();
+					
+				//MODIFICAR PLUS JEFES
 				} else if (Check.textChar(actualChar, Text.opt5, true)) {
-					inProgress();
+					modifyBossPlus();
 				
 					
 				//MOSTRAR MENÚ

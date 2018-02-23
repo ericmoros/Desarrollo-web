@@ -1,11 +1,17 @@
 
 public class Employee {
 	private String name;
-	private Float salaryBase = Main.baseSalaryEmployee;
-	private Integer salaryPercentExtra;
+	protected Float salaryBase = Main.baseSalaryGeneral;
+	protected Integer salaryPercentExtra;
 	
 	Employee(String name, Integer salaryPercentExtra) {
 		this.name = name;
+		this.salaryPercentExtra = salaryPercentExtra;
+	}
+	
+	Employee(String name, Float salaryBase, Integer salaryPercentExtra) {
+		this.name = name;
+		this.salaryBase = salaryBase;
 		this.salaryPercentExtra = salaryPercentExtra;
 	}
 
@@ -26,7 +32,7 @@ public class Employee {
 	}
 
 	public void setSalaryBaseGeneral() {
-		this.salaryBase = Main.baseSalaryEmployee;
+		this.salaryBase = Main.baseSalaryGeneral;
 	}
 
 	public Integer getSalaryPercentExtra() {

@@ -34,14 +34,18 @@ public class Text {
 	public static final String no = "N";
 	
 	public static final String askName = "Introduce el nombre: ";
-	public static final String askSalaryPercentExtra = "Introduce el porcentage extra a añadir en el sueldo base: ";
 	public static final String askSalary = "Introduce el sueldo: ";
+	public static final String askSalaryPercentExtra = "Introduce el porcentaje extra a añadir en el sueldo base: ";
+	public static final String askSalaryBaseNew = "Introduce el nuevo salario base: ";
+	public static final String askSalaryPlus = "Introduce el plus de salario: ";
+	public static final String askSalaryPlusNew = "Introduce el nuevo plus del salario: ";
 	public static final String askDegree = "Introduce el título: ";
 	public static final String askOffice = "Introduce el departamento: ";
-	public static final String askSalaryBaseNew = "Introduce el nuevo salario base: ";
 	public static final String askUpdateSalaryBaseEmployees = "¿Desea actualizar el salario base de todos los empleados? (" + yes + "/" + no + "): ";
+	public static final String askIde = "Introduce el IDE del empleado: ";
+	public static final String askIdb = "Introduce el IDB del jefe: ";
 	
-	public static final String updatedSalaryBaseEmployees = "Salario base de los empleados actualizado";
+	public static final String updatedSalaryBaseEmployees = "Salario base de los empleados actualizado\n";
 	
 	public static final String nameEnterprise = "Eléctrica, SA";
 	
@@ -59,6 +63,7 @@ public class Text {
 	public static final String errorInteger = "[ERROR] El dato a de ser un número entero (0)";
 	public static final String errorFloat = "[ERROR] El dato a de ser un número flotante (0.0)";
 	public static final String errorBoolean = "[ERROR] El dato introducido no está contemplado";
+	public static final String errorNoEmployee = "[ERROR] El empleado no existe";
 	
 	public static String employeeData(Integer IDE, String name, Float salary) {
 		return "IDE: " + IDE + ", Nombre: " + name + ", salario: " + salary + newLine;
@@ -73,10 +78,14 @@ public class Text {
 	}
 	
 	public static String registeredBossData(Integer IDB, String name, Float salary, String degree, String office) {
-		return "Registrado Jefe(IDB"+ IDB +") con el nombre: " + name + ", un salario de: " + salary + money + "esudios en: " + degree + "y en el departamento: " + office + newLine + newLine;
+		return "Registrado Jefe(IDB"+ IDB +") con el nombre: " + name + ", un salario de: " + salary + money + ", esudios en " + degree + " y en el departamento " + office + newLine + newLine;
 	}
 
 	public static String updatedSalaryBase(Float baseSalaryOld, Float baseSalaryNew) {
-		return "Sueldo base actualizado de " + baseSalaryOld + " a " + baseSalaryNew;
+		return "Sueldo base actualizado de " + baseSalaryOld + " a " + baseSalaryNew + newLine;
+	}
+
+	public static String updatedSalaryPlus(Float salaryPlusOld, Float salaryPlus) {
+		return "Plus del salario actualizado de " + salaryPlusOld + " a " + salaryPlus + money + newLine;
 	}
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<catalogoLibro xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+      xs:noNamespaceSchemaLocation="catalogolibro.xsd">
+  <libro categoria="autobiografia" enstock="true">
+    <titulo>Las lechuffgas del poder</titulo>
+    <autor>Lechffugo el mago</autor>
+    <fecha>
+      <mes>13</mes>
+      <anyo>15398</anyo>
+    </fecha>
+    <ISBN>1234578fdsa9X</ISBN>
+    <editor>Tutanfdkamon</editor>
+  </libro>
+  <libro categoria="noficcion" enstock="false">
+    <titulo>Las lechugas del poder</titulo>
+    <autor>Lfechugfo el mago</autor>
+    <fecha>
+      <anyo>159f8</anyo>
+    </fecha>
+    <ISBN>12345f789X</ISBN>
+    <editor>Tutanfkamon</editor>
+  </libro>
+  <libro categoria="ficcion" revisor="">
+    <titulo>Las lechugas del pdoder</titulo>
+    <autor>Lechuffgo el mago</autor>
+    <autor>Lechfffugo el mrago</autor>
+    <fecha>
+      <mes>12</mes>
+      <anyo>1334598</anyo>
+    </fecha>
+    <ISBN>12345ff789X</ISBN>
+    <editor>Tutankamsson</editor>
+  </libro>
+</catalogoLibro>
