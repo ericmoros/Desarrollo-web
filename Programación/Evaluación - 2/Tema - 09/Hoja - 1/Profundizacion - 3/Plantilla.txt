@@ -20,10 +20,6 @@ Menu
 		     Ingrediente
  		________________________
 
-Carta
-	Array(Menu)
-	visualizarCarta
-		visualizarArray(Menu)
 
 Cliente
 	Nombre
