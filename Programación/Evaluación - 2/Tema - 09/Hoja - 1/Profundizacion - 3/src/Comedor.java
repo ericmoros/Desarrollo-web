@@ -1,3 +1,4 @@
+import java.util.Calendar;
 import java.util.concurrent.TimeUnit;
 
 import utilidades.Leer;
@@ -15,8 +16,56 @@ public class Comedor {
 		
 		//PROGRAMA
 		Client client = new Client();
-		
-		Menu menu = new Menu("Lunes", new Dish[] {
+		Menu[] menu =  {
+			new Menu("" + Calendar.DAY_OF_WEEK, new Dish[] {
+				new Dish("Pasta rellena", 5F, new String[]{
+						"1 calabacín",
+						"1 berenjena",
+						"1 puerro",
+						"1 pimiento rojo",
+						"1 pimiento verde",
+						"1 cebolla",
+						"1 tomate",
+						"1 manzana reineta",
+						"Una pizca de sal",
+						"2 cucharadas de azúcar",
+						"2 cucharadas de aceite de oliva virgen extra"}),
+				new Dish("Pasta rellena", 5F, new String[]{
+						"1 calabacín",
+						"1 berenjena",
+						"1 puerro",
+						"1 pimiento rojo",
+						"1 pimiento verde",
+						"1 cebolla",
+						"1 tomate",
+						"1 manzana reineta",
+						"Una pizca de sal",
+						"2 cucharadas de azúcar",
+						"2 cucharadas de aceite de oliva virgen extra"}),
+				new Dish("Pasta rellena", 5F, new String[]{
+						"1 calabacín",
+						"1 berenjena",
+						"1 puerro",
+						"1 pimiento rojo",
+						"1 pimiento verde",
+						"1 cebolla",
+						"1 tomate",
+						"1 manzana reineta",
+						"Una pizca de sal",
+						"2 cucharadas de azúcar",
+						"2 cucharadas de aceite de oliva virgen extra"}),
+				new Dish("Pasta rellena", 5F, new String[]{
+						"1 calabacín",
+						"1 berenjena",
+						"1 puerro",
+						"1 pimiento rojo",
+						"1 pimiento verde",
+						"1 cebolla",
+						"1 tomate",
+						"1 manzana reineta",
+						"Una pizca de sal",
+						"2 cucharadas de azúcar",
+						"2 cucharadas de aceite de oliva virgen extra"}),
 				new Dish("Pasta rellena", 5F, new String[]{
 						"1 calabacín",
 						"1 berenjena",
@@ -39,7 +88,8 @@ public class Comedor {
 						"Aceite de oliva virgen extra", 
 						"Sal"})
 				}
-		);
+			)
+		};
 		
 		while (! exitProgram) {
 			while (optionBuffer.length() != 0) {
@@ -47,10 +97,15 @@ public class Comedor {
 				
 				switch (option) {
 					case '0':
-						optionBuffer += welcome(inputText, optionBuffer, client);
+						welcome(client);
+						optionBuffer += nextOption(inputText, optionBuffer, "¿Desea ver el menú?", "1");
 						break;
 					case '1':
-						Leer.mostrarEnPantalla(menu.showByConsole());
+						showMenu(menu);
+						optionBuffer += nextOption(inputText, optionBuffer, "¿Quiere que le tome nota ahora?", "2");
+						break;
+					case '2':
+						inProgress();
 						break;
 						
 					//Referentes al menú
@@ -74,14 +129,23 @@ public class Comedor {
 		endProgram();
 	}
 
-	private static String welcome(String inputText, String optionBuffer, Client client) {
+	private static void showMenu(Menu[] menu) {
+		for (int actualMenu = 0; actualMenu < menu.length; actualMenu++) {							
+			Leer.mostrarEnPantalla(menu[actualMenu].showByConsole());
+		}
+	}
+
+	private static void welcome(Client client) {
 		Leer.mostrarEnPantalla("Bienvenido...");
 		
 		client.setName(Leer.pedirCadena("\tNombre: "));
 		client.setSurnames(Leer.pedirCadena("\tApellidos: "));
 		
 		Leer.mostrarEnPantalla("Bienvenido señor/a " + client.getSurnames() + ".");
-		inputText = Leer.pedirCadena("¿Le gustaría ver la carta? (s/any)");
+	}
+
+	private static String nextOption(String inputText, String optionBuffer, String ask, String nextOption) {
+		inputText = Leer.pedirCadena(ask + " (s/any)");
 		
 		if (inputText.equalsIgnoreCase("s")) {
 			optionBuffer = "1";

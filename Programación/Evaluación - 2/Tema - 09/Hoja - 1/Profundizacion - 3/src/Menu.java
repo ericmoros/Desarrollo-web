@@ -33,7 +33,7 @@ public class Menu {
 	
 	
 	public String showByConsole() {
-		String menu = "\n" + name + "_________________________________________(" + (dishList[0].getPrice() + dishList[1].getPrice()) + "€)";
+		String menu = "\n" + name + "_________________________________________(" + (dishList[0].getPrice() + dishList[1].getPrice()) + "€)_";
 		
 		for (int actualDish = 0; actualDish < dishList.length; actualDish++) {
 			menu += "\n" + "  " + (actualDish + 1) + ": " + dishList[actualDish].getName();
@@ -42,7 +42,7 @@ public class Menu {
 			}
 		}
 		
-		menu += "\n" + "____________________________________________________"
+		menu += "\n" + "_____________________________________________________"
 			  + "\n";
 		
 		return menu;
