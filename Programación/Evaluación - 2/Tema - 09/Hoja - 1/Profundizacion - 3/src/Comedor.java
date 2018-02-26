@@ -4,25 +4,53 @@ import utilidades.Leer;
 
 public class Comedor {
 	public static void main(String[] args) {
+		//MENU
 		final char optionMenu = '?';
 		final char optionExit = 'x';
 		
 		String inputText = null;
-		String optionBuffer = "?";
+		String optionBuffer = "0";
 		Boolean exitProgram = false;
 		Character option = null;
 		
+		//PROGRAMA
+		Client client = new Client();
 		
-		Leer.mostrarEnPantalla("Bienvenido");
+		Menu menu = new Menu("Lunes", new Dish[] {
+				new Dish("Pasta rellena", 5F, new String[]{
+						"1 calabacín",
+						"1 berenjena",
+						"1 puerro",
+						"1 pimiento rojo",
+						"1 pimiento verde",
+						"1 cebolla",
+						"1 tomate",
+						"1 manzana reineta",
+						"Una pizca de sal",
+						"2 cucharadas de azúcar",
+						"2 cucharadas de aceite de oliva virgen extra"}),
+				new Dish("Filete de ternera a la plancha", 5F, new String[]{
+						"4 chuletones de ternera", 
+						"4 patatas medianas", 
+						"1 cebolla", 
+						"1 pimiento verde italiano", 
+						"4 pimientos hermosos rojos para asar", 
+						"2 tomates hermosos para asar", 
+						"Aceite de oliva virgen extra", 
+						"Sal"})
+				}
+		);
 		
-		
-		while (exitProgram != true) {
+		while (! exitProgram) {
 			while (optionBuffer.length() != 0) {
 				option = getBufferOption(optionBuffer);
 				
 				switch (option) {
+					case '0':
+						optionBuffer += welcome(inputText, optionBuffer, client);
+						break;
 					case '1':
-						inProgress();
+						Leer.mostrarEnPantalla(menu.showByConsole());
 						break;
 						
 					//Referentes al menú
@@ -44,6 +72,23 @@ public class Comedor {
 		}
 		
 		endProgram();
+	}
+
+	private static String welcome(String inputText, String optionBuffer, Client client) {
+		Leer.mostrarEnPantalla("Bienvenido...");
+		
+		client.setName(Leer.pedirCadena("\tNombre: "));
+		client.setSurnames(Leer.pedirCadena("\tApellidos: "));
+		
+		Leer.mostrarEnPantalla("Bienvenido señor/a " + client.getSurnames() + ".");
+		inputText = Leer.pedirCadena("¿Le gustaría ver la carta? (s/any)");
+		
+		if (inputText.equalsIgnoreCase("s")) {
+			optionBuffer = "1";
+		} else {
+			optionBuffer = "?";
+		}
+		return optionBuffer;
 	}
 
 	private static char getBufferOption(String optionBuffer) {
