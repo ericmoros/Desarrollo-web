@@ -1,0 +1,29 @@
+<!ELEMENT resultado (totalCount, start, rows, result)>
+<!ELEMENT totalCount (#PCDATA)>
+<!ELEMENT start (#PCDATA)>
+<!ELEMENT rows (#PCDATA)>
+<!ELEMENT result (antena+)>
+<!ELEMENT antena (hojaPgou, numAntenaPlano, numAntenaPi?, id, numero, calle, idOperadora, pubDate?, codEmplazamiento?, coordenadaSin?, lastUpdated?, relimplantacion, description, geometry, icon)>
+<!ELEMENT hojaPgou (#PCDATA)>
+<!ELEMENT numAntenaPlano (#PCDATA)>
+<!ELEMENT numAntenaPi (#PCDATA)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT numero (#PCDATA)>
+<!ELEMENT calle (#PCDATA)>
+<!ELEMENT idOperadora (operadora_antena)>
+<!ELEMENT operadora_antena (id, title, descripcion, pubDate)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT descripcion (#PCDATA)>
+<!ELEMENT pubDate (#PCDATA)>
+<!ELEMENT codEmplazamiento (#PCDATA)>
+<!ELEMENT coordenadaSin (#PCDATA)>
+<!ELEMENT lastUpdated (#PCDATA)>
+<!ELEMENT relimplantacion (implantacion-antena)>
+<!ELEMENT implantacion-antena (id, numExp, tipoPleno, lastUpdated)>
+<!ELEMENT numExp (#PCDATA)>
+<!ELEMENT tipoPleno (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT geometry (type, coordinates)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT coordinates (#PCDATA)>
+<!ELEMENT icon (#PCDATA)>

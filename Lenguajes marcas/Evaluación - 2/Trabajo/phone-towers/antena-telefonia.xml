@@ -1,0 +1,1566 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resultado SYSTEM "antena-telefonia.dtd">
+<resultado>
+  <totalCount>231</totalCount>
+  <start>0</start>
+  <rows>50</rows>
+  <result>
+    <antena>
+      <hojaPgou>K-16</hojaPgou>
+      <numAntenaPlano>44</numAntenaPlano>
+      <numAntenaPi>66</numAntenaPi>
+      <id>316</id>
+      <numero>9</numero>
+      <calle>Madre Genoveva Torres Morales</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>4</id>
+          <title>Vodafone</title>
+          <descripcion>Vodafone</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2011-05-23T22:00:00Z</lastUpdated>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>66</id>
+          <numExp>866848/2005</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Vodafone</li><li>Dirección: Madre Genoveva Torres Morales 9</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>675912.15,4612280.72</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Vodafone.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>M-24</hojaPgou>
+      <numAntenaPlano>115</numAntenaPlano>
+      <id>392</id>
+      <numero>nº80. C1-12-34-35-36</numero>
+      <calle>Azufre</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>4</id>
+          <title>Vodafone</title>
+          <descripcion>Vodafone</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <pubDate>2013-01-20T23:00:00Z</pubDate>
+      <codEmplazamiento>0196ZX_AT_Z_PLG_RECICLADO</codEmplazamiento>
+      <coordenadaSin>     00º 50¿40¿ W       41º 34¿4¿ N</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>112</id>
+          <numExp>456226/2010</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+          <lastUpdated>2012-04-10T22:00:00Z</lastUpdated>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Vodafone</li><li>Dirección: Azufre nº80. C1-12-34-35-36</li><li>Fecha de Aprobación: 26-03-2012</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>679734.28,4604113.67</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Vodafone.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>M-12</hojaPgou>
+      <numAntenaPlano>2</numAntenaPlano>
+      <id>394</id>
+      <numero>18-20 </numero>
+      <calle>Avda, Santa Isabel</calle>
+      <observaciones>Finalizar sin sanción en exp. 1350074/2009 el 21/01/2010</observaciones>
+      <idOperadora>
+        <operadora_antena>
+          <id>5</id>
+          <title>Xfera</title>
+          <descripcion>Xfera</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2014-07-01T22:00:00Z</lastUpdated>
+      <pubDate>2015-10-28T23:00:00Z</pubDate>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>113</id>
+          <numExp>962956/2007</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Xfera</li><li>Dirección: Avda, Santa Isabel 18-20 </li><li>Fecha de Aprobación: 29-05-2009</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>679978.29,4615576.01</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Xfera.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-15</hojaPgou>
+      <numAntenaPlano>4</numAntenaPlano>
+      <id>396</id>
+      <numero>13</numero>
+      <calle>Cesar Augusto (Hotel Melia)</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>5</id>
+          <title>Xfera</title>
+          <descripcion>Xfera</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2011-06-08T22:00:00Z</lastUpdated>
+      <pubDate>2013-01-20T23:00:00Z</pubDate>
+      <codEmplazamiento>1B2Z0038</codEmplazamiento>
+      <coordenadaSin>00º53¿04,50"W 41º39¿10,70"N</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>421</id>
+          <numExp>856851/2010</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+          <lastUpdated>2012-04-10T22:00:00Z</lastUpdated>
+          <pubDate>2011-04-13T22:00:00Z</pubDate>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Xfera</li><li>Dirección: Cesar Augusto (Hotel Melia) 13</li><li>Fecha de Aprobación: 26-03-2012</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>676155.2,4613490.31</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Xfera.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>47</hojaPgou>
+      <numAntenaPlano>6</numAntenaPlano>
+      <id>398</id>
+      <numero> parcela-1, 105 </numero>
+      <calle>Carretera de Madrid</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>5</id>
+          <title>Xfera</title>
+          <descripcion>Xfera</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2014-07-01T22:00:00Z</lastUpdated>
+      <pubDate>2015-10-28T23:00:00Z</pubDate>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>113</id>
+          <numExp>962956/2007</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Xfera</li><li>Dirección: Carretera de Madrid  parcela-1, 105 </li><li>Fecha de Aprobación: 29-05-2009</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>676170.73,4615122.14</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Xfera.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-14</hojaPgou>
+      <numAntenaPlano>7</numAntenaPlano>
+      <id>399</id>
+      <numero> nº 100</numero>
+      <calle>Conde Aranda</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>5</id>
+          <title>Xfera</title>
+          <descripcion>Xfera</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <pubDate>2013-01-20T23:00:00Z</pubDate>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>113</id>
+          <numExp>962956/2007</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Xfera</li><li>Dirección: Conde Aranda  nº 100</li><li>Fecha de Aprobación: 29-05-2009</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>675797.3,4613910.46</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Xfera.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-15</hojaPgou>
+      <numAntenaPlano>8</numAntenaPlano>
+      <id>400</id>
+      <numero>17</numero>
+      <calle>Gran Vía</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>5</id>
+          <title>Xfera</title>
+          <descripcion>Xfera</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2015-08-31T22:00:00Z</lastUpdated>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>113</id>
+          <numExp>962956/2007</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Xfera</li><li>Dirección: Gran Vía 17</li><li>Fecha de Aprobación: 29-05-2009</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>675989.18,4612822.15</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Xfera.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>H-16</hojaPgou>
+      <numAntenaPlano>9</numAntenaPlano>
+      <id>401</id>
+      <numero>10</numero>
+      <calle>Las Pléyades</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>5</id>
+          <title>Xfera</title>
+          <descripcion>Xfera</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>114</id>
+          <numExp>1250833/2006</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+        <implantacion-antena>
+          <id>113</id>
+          <numExp>962956/2007</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Xfera</li><li>Dirección: Las Pléyades 10</li><li>Fecha de Aprobación: 29-05-2009</li><li>Fecha de Aprobación: 29-05-2009</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>672142.24,4612000.91</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Xfera.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>M-12</hojaPgou>
+      <numAntenaPlano>11</numAntenaPlano>
+      <id>403</id>
+      <numero> n º 32</numero>
+      <calle>Santo Domingo, Isabel de</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>5</id>
+          <title>Xfera</title>
+          <descripcion>Xfera</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2011-11-29T23:00:00Z</lastUpdated>
+      <pubDate>2013-01-20T23:00:00Z</pubDate>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>113</id>
+          <numExp>962956/2007</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Xfera</li><li>Dirección: Santo Domingo, Isabel de  n º 32</li><li>Fecha de Aprobación: 29-05-2009</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>672682.62,4613463.28</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Xfera.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>J-16</hojaPgou>
+      <numAntenaPlano>104</numAntenaPlano>
+      <id>380</id>
+      <numero>13</numero>
+      <calle>Domingo Miral</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>4</id>
+          <title>Vodafone</title>
+          <descripcion>Vodafone</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <pubDate>2013-01-20T23:00:00Z</pubDate>
+      <codEmplazamiento>0367ZX_AT_DOMINGO_MIRAL</codEmplazamiento>
+      <coordenadaSin>  00º 54 01 W    41º 38 29 N</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>100</id>
+          <numExp>639753/2009</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+          <lastUpdated>2010-11-03T23:00:00Z</lastUpdated>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Vodafone</li><li>Dirección: Domingo Miral 13</li><li>Fecha de Aprobación: 29-10-2010</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>674879.56,4612172.2</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Vodafone.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>H-13</hojaPgou>
+      <numAntenaPlano>107</numAntenaPlano>
+      <id>384</id>
+      <calle>Centro Empresarial San Lamberto, carretera del Aeropuerto</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>4</id>
+          <title>Vodafone</title>
+          <descripcion>Vodafone</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2010-11-16T23:00:00Z</lastUpdated>
+      <pubDate>2013-01-20T23:00:00Z</pubDate>
+      <codEmplazamiento>0364ZX_AT_Z_EDIFICIO_SANLAMBERTO</codEmplazamiento>
+      <coordenadaSin> 00º 56 02,00 W 41º 39 53,25 N</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>103</id>
+          <numExp>1047235/2009</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+          <lastUpdated>2011-12-04T23:00:00Z</lastUpdated>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Vodafone</li><li>Dirección: Centro Empresarial San Lamberto, carretera del Aeropuerto </li><li>Fecha de Aprobación: 30-11-2011</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>672017.74,4614703.05</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Vodafone.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>L-12</hojaPgou>
+      <numAntenaPlano>108</numAntenaPlano>
+      <id>385</id>
+      <numero>24, ( Pol.Ind.Molino del Pilar)</numero>
+      <calle>Rudolf Diesel</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>4</id>
+          <title>Vodafone</title>
+          <descripcion>Vodafone</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2011-04-12T22:00:00Z</lastUpdated>
+      <pubDate>2015-02-25T23:00:00Z</pubDate>
+      <codEmplazamiento>0380ZX_AT_Z_RUDOLF_DIESEL</codEmplazamiento>
+      <coordenadaSin>  00º 51 48 W     41º 40 43,07 N</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>105</id>
+          <numExp>1145333/2009</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+          <lastUpdated>2013-07-15T22:00:00Z</lastUpdated>
+        </implantacion-antena>
+        <implantacion-antena>
+          <id>104</id>
+          <numExp>1280491/2009</numExp>
+          <tipoPleno>Pleno desistimiento</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Vodafone</li><li>Dirección: Rudolf Diesel 24, ( Pol.Ind.Molino del Pilar)</li><li>Fecha de Aprobación: 26-11-2010</li><li>Fecha de Aprobación: 05-02-2010</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>677854.17,4616382.94</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Vodafone.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>E-16</hojaPgou>
+      <numAntenaPlano>109</numAntenaPlano>
+      <id>386</id>
+      <numero>s/n</numero>
+      <calle>Avda. Diagonal PLA-ZA (Hotel Diagonal Plaza)</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>4</id>
+          <title>Vodafone</title>
+          <descripcion>Vodafone</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <pubDate>2013-01-08T23:00:00Z</pubDate>
+      <codEmplazamiento>0194ZX_AT_Z_PLAZA_CENTRO</codEmplazamiento>
+      <coordenadaSin>00º 59 30,00 W  41º 38 37,00 N</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>106</id>
+          <numExp>1205314/2009</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+          <lastUpdated>2010-11-30T23:00:00Z</lastUpdated>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Vodafone</li><li>Dirección: Avda. Diagonal PLA-ZA (Hotel Diagonal Plaza) s/n</li><li>Fecha de Aprobación: 26-11-2010</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>667261.93,4612237.54</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Vodafone.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-18</hojaPgou>
+      <numAntenaPlano>111</numAntenaPlano>
+      <id>388</id>
+      <numero>1</numero>
+      <calle>Paseo  Duque de Alba</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>4</id>
+          <title>Vodafone</title>
+          <descripcion>Vodafone</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2012-03-14T23:00:00Z</lastUpdated>
+      <pubDate>2013-01-20T23:00:00Z</pubDate>
+      <codEmplazamiento>EMO4086_CEM_Z_PINARES_VENECIA</codEmplazamiento>
+      <coordenadaSin>00º 53¿ 19.2¿¿ W  41º 37¿ 28.0¿¿ N</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>108</id>
+          <numExp>1406671/2009</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+          <lastUpdated>2012-01-03T23:00:00Z</lastUpdated>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Vodafone</li><li>Dirección: Paseo  Duque de Alba 1</li><li>Fecha de Aprobación: 23-12-2011</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>675892.75,4610314.42</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Vodafone.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-16</hojaPgou>
+      <numAntenaPlano>112</numAntenaPlano>
+      <id>389</id>
+      <numero>14</numero>
+      <calle>Paseo de Colón</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>4</id>
+          <title>Vodafone</title>
+          <descripcion>Vodafone</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <pubDate>2013-01-20T23:00:00Z</pubDate>
+      <codEmplazamiento>0394ZX_AT_Z_SANJUAN_DIOS</codEmplazamiento>
+      <coordenadaSin>00º ¿53¿ 12,21¿ W  41º 38¿ 07,89¿ N</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>109</id>
+          <numExp>43049/2010</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+          <lastUpdated>2012-02-01T23:00:00Z</lastUpdated>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Vodafone</li><li>Dirección: Paseo de Colón 14</li><li>Fecha de Aprobación: 27-01-2012</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>676024.35,4611548.7</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Vodafone.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>N-23</hojaPgou>
+      <numAntenaPlano>114</numAntenaPlano>
+      <id>391</id>
+      <numero>8</numero>
+      <calle>Ajedrea</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>4</id>
+          <title>Vodafone</title>
+          <descripcion>Vodafone</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2012-05-10T22:00:00Z</lastUpdated>
+      <pubDate>2013-06-05T22:00:00Z</pubDate>
+      <codEmplazamiento>0195ZX_AT_Z_EMPRESARIUM</codEmplazamiento>
+      <coordenadaSin>00º 49¿43,91"W41º34¿29,03"N</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>111</id>
+          <numExp>78521/2010</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+          <lastUpdated>2012-12-27T23:00:00Z</lastUpdated>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Vodafone</li><li>Dirección: Ajedrea 8</li><li>Fecha de Aprobación: 21-12-2012</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>681014.07,4604918.23</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Vodafone.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-14</hojaPgou>
+      <numAntenaPlano>1</numAntenaPlano>
+      <numAntenaPi>82</numAntenaPi>
+      <id>1</id>
+      <numero>41-43</numero>
+      <calle>Aben Aire</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2011-01-12T23:00:00Z</lastUpdated>
+      <pubDate>2013-01-17T23:00:00Z</pubDate>
+      <codEmplazamiento>ARAR0348</codEmplazamiento>
+      <coordenadaSin>00W5256.23  41N3931.00</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Aben Aire 41-43</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>J-15</hojaPgou>
+      <numAntenaPlano>3</numAntenaPlano>
+      <numAntenaPi>34</numAntenaPi>
+      <id>3</id>
+      <numero>32</numero>
+      <calle>Alcañiz</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2011-04-05T22:00:00Z</lastUpdated>
+      <pubDate>2013-01-17T23:00:00Z</pubDate>
+      <codEmplazamiento>ARAR0029D</codEmplazamiento>
+      <coordenadaSin>00W5422.18 41N3856.56</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Alcañiz 32</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-17</hojaPgou>
+      <numAntenaPlano>4</numAntenaPlano>
+      <numAntenaPi>32</numAntenaPi>
+      <id>4</id>
+      <numero>22-24</numero>
+      <calle>Alicante</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2011-04-05T22:00:00Z</lastUpdated>
+      <pubDate>2013-01-17T23:00:00Z</pubDate>
+      <codEmplazamiento>ARAR0026E</codEmplazamiento>
+      <coordenadaSin>00W5308.24  41N3757.89</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Alicante 22-24</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>676125.53,4611238.37</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-14</hojaPgou>
+      <numAntenaPlano>8</numAntenaPlano>
+      <numAntenaPi>65</numAntenaPi>
+      <id>8</id>
+      <numero>25</numero>
+      <calle>Avda, Cesaraugusto</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <codEmplazamiento>ARAR0302</codEmplazamiento>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Avda, Cesaraugusto 25</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-15</hojaPgou>
+      <numAntenaPlano>12</numAntenaPlano>
+      <numAntenaPi>20</numAntenaPi>
+      <id>12</id>
+      <numero>37-43</numero>
+      <calle>Avda, Goya</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <codEmplazamiento>ARAR0014A</codEmplazamiento>
+      <coordenadaSin>00W5318.60 41N3839.70</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Avda, Goya 37-43</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>J-14</hojaPgou>
+      <numAntenaPlano>14</numAntenaPlano>
+      <numAntenaPi>66</numAntenaPi>
+      <id>14</id>
+      <numero>6</numero>
+      <calle>Avda, Navarra</calle>
+      <observaciones>Parar 5/05/04</observaciones>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <codEmplazamiento>ARAR0305C</codEmplazamiento>
+      <coordenadaSin>00W5400.89 41N3921.74</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Avda, Navarra 6</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-16</hojaPgou>
+      <numAntenaPlano>15</numAntenaPlano>
+      <numAntenaPi>30</numAntenaPi>
+      <id>15</id>
+      <numero>206-208</numero>
+      <calle>Avda, San José</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2011-04-05T22:00:00Z</lastUpdated>
+      <pubDate>2013-01-17T23:00:00Z</pubDate>
+      <codEmplazamiento>ARAR0024</codEmplazamiento>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Avda, San José 206-208</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>M-12</hojaPgou>
+      <numAntenaPlano>16</numAntenaPlano>
+      <numAntenaPi>77</numAntenaPi>
+      <id>16</id>
+      <numero>20</numero>
+      <calle>Avda, Santa Isabel</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2011-02-13T23:00:00Z</lastUpdated>
+      <codEmplazamiento>ARAR0339E</codEmplazamiento>
+      <coordenadaSin>00W5017.45 41N4015.26</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Avda, Santa Isabel 20</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>679996.06,4615556.72</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>L-15</hojaPgou>
+      <numAntenaPlano>18</numAntenaPlano>
+      <numAntenaPi>93</numAntenaPi>
+      <id>18</id>
+      <numero>4</numero>
+      <calle>Batalla de Pavía</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2012-05-20T22:00:00Z</lastUpdated>
+      <pubDate>2013-01-17T23:00:00Z</pubDate>
+      <codEmplazamiento>ARAR0368</codEmplazamiento>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Batalla de Pavía 4</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>I-14</hojaPgou>
+      <numAntenaPlano>19</numAntenaPlano>
+      <numAntenaPi>52</numAntenaPi>
+      <id>19</id>
+      <numero>13</numero>
+      <calle>Biarritz</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2011-04-05T22:00:00Z</lastUpdated>
+      <pubDate>2013-01-17T23:00:00Z</pubDate>
+      <codEmplazamiento>ARAR0050</codEmplazamiento>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Biarritz 13</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>L-16</hojaPgou>
+      <numAntenaPlano>23</numAntenaPlano>
+      <numAntenaPi>28</numAntenaPi>
+      <id>23</id>
+      <numero>68-70</numero>
+      <calle>Camino Cabaldos</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2011-04-05T22:00:00Z</lastUpdated>
+      <pubDate>2013-01-17T23:00:00Z</pubDate>
+      <codEmplazamiento>ARAR0022</codEmplazamiento>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Camino Cabaldos 68-70</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>H-14</hojaPgou>
+      <numAntenaPlano>26</numAntenaPlano>
+      <numAntenaPi>50</numAntenaPi>
+      <id>26</id>
+      <numero>47</numero>
+      <calle>Camino del Pilón</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2011-01-12T23:00:00Z</lastUpdated>
+      <pubDate>2013-01-17T23:00:00Z</pubDate>
+      <codEmplazamiento>ARAR0047</codEmplazamiento>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Camino del Pilón 47</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-12</hojaPgou>
+      <numAntenaPlano>37</numAntenaPlano>
+      <numAntenaPi>84</numAntenaPi>
+      <id>37</id>
+      <numero>19-23</numero>
+      <calle>Cineasta Adolfo Aznar</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <codEmplazamiento>ARAR0351</codEmplazamiento>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Cineasta Adolfo Aznar 19-23</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>J-15</hojaPgou>
+      <numAntenaPlano>39</numAntenaPlano>
+      <numAntenaPi>19</numAntenaPi>
+      <id>39</id>
+      <numero>40</numero>
+      <calle>Corona de Aragón</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2013-01-21T23:00:00Z</lastUpdated>
+      <pubDate>2013-01-17T23:00:00Z</pubDate>
+      <codEmplazamiento>ARAR0013</codEmplazamiento>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Corona de Aragón 40</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-15</hojaPgou>
+      <numAntenaPlano>42</numAntenaPlano>
+      <numAntenaPi>17</numAntenaPi>
+      <id>42</id>
+      <numero>87</numero>
+      <calle>Coso</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>1</id>
+          <title>Orange</title>
+          <descripcion>
+            Compuesta por varias (Amena,Retevisión, France Telecom...)
+            C/ Garcilaso, 80 08027 Barcelona
+          </descripcion>
+          <lastUpdated>2011-11-09T23:00:00Z</lastUpdated>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <codEmplazamiento>ARAR0007O</codEmplazamiento>
+      <coordenadaSin>00W5234.94 41N3908.05</coordenadaSin>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>1</id>
+          <numExp>660609/2001</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Orange</li><li>Dirección: Coso 87</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Orange.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-14</hojaPgou>
+      <numAntenaPlano>53</numAntenaPlano>
+      <id>166</id>
+      <numero>14-16</numero>
+      <calle>Coso </calle>
+      <observaciones>Ej. Subs. 748967/10</observaciones>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <pubDate>2015-02-25T23:00:00Z</pubDate>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>15</id>
+          <numExp>212210/2007</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+          <lastUpdated>2012-12-27T23:00:00Z</lastUpdated>
+          <observaciones>
+            25-2-10 Pleno deniega incorporación
+
+            Sentencia P.O. 205/2010 se incorpora (exptes 1031020/2010 y 916821/2010)
+          </observaciones>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Coso  14-16</li><li>Fecha de Aprobación: 21-12-2012</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>676328.65,4613702.43</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-15</hojaPgou>
+      <numAntenaPlano>55</numAntenaPlano>
+      <numAntenaPi>60</numAntenaPi>
+      <id>168</id>
+      <numero>56</numero>
+      <calle>Coso </calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Coso  56</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>676633.74,4613474.01</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-15</hojaPgou>
+      <numAntenaPlano>56</numAntenaPlano>
+      <numAntenaPi>59</numAntenaPi>
+      <id>169</id>
+      <numero>98</numero>
+      <calle>Coso</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Coso 98</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>676866.03,4613381.2</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-14</hojaPgou>
+      <numAntenaPlano>57</numAntenaPlano>
+      <numAntenaPi>25</numAntenaPi>
+      <id>170</id>
+      <numero>42</numero>
+      <calle>Don Jaime I </calle>
+      <observaciones>Se requiere adecuación de la altura de la antena al proyecto de la licencia concedida</observaciones>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Don Jaime I  42</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>676865.98,4613788.92</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>J-15</hojaPgou>
+      <numAntenaPlano>58</numAntenaPlano>
+      <numAntenaPi>16</numAntenaPi>
+      <id>171</id>
+      <numero>4</numero>
+      <calle>Duquesa Villahermosa </calle>
+      <observaciones>Parar 3/08/04</observaciones>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Duquesa Villahermosa  4</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>675002.13,4613247.26</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>I-17</hojaPgou>
+      <numAntenaPlano>62</numAntenaPlano>
+      <id>175</id>
+      <numero>151</numero>
+      <calle>Gómez Laguna AUTOTAXI</calle>
+      <observaciones>AUTOTAXI</observaciones>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2015-08-27T22:00:00Z</lastUpdated>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>17</id>
+          <numExp>842477/2007</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Gómez Laguna AUTOTAXI 151</li><li>Fecha de Aprobación: 28-03-2008</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>I-16</hojaPgou>
+      <numAntenaPlano>63</numAntenaPlano>
+      <numAntenaPi>64</numAntenaPi>
+      <id>176</id>
+      <numero>25</numero>
+      <calle>Gómez Laguna </calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Gómez Laguna  25</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>L-13</hojaPgou>
+      <numAntenaPlano>65</numAntenaPlano>
+      <numAntenaPi>13</numAntenaPi>
+      <id>178</id>
+      <numero>10</numero>
+      <calle>Jaime Ferran </calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Jaime Ferran  10</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>678104.23,4615103.3</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>J-15</hojaPgou>
+      <numAntenaPlano>66</numAntenaPlano>
+      <numAntenaPi>12</numAntenaPi>
+      <id>179</id>
+      <numero>27</numero>
+      <calle>José Anselmo Clave </calle>
+      <observaciones>Rec Rep Desestimado (1338485/2008)</observaciones>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: José Anselmo Clave  27</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>675528.55,4613378.17</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>J-14</hojaPgou>
+      <numAntenaPlano>67</numAntenaPlano>
+      <numAntenaPi>68</numAntenaPi>
+      <id>180</id>
+      <numero>1</numero>
+      <calle>Juan XXIII </calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Juan XXIII  1</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>674953.38,4613808.73</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-15</hojaPgou>
+      <numAntenaPlano>69</numAntenaPlano>
+      <id>182</id>
+      <numero>21</numero>
+      <calle>Leon XIII </calle>
+      <observaciones>Ej. Subs. 266048/2009</observaciones>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2012-06-05T22:00:00Z</lastUpdated>
+      <pubDate>2013-01-17T23:00:00Z</pubDate>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>18</id>
+          <numExp>1038835/2007</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+          <lastUpdated>2011-11-01T23:00:00Z</lastUpdated>
+          <observaciones>
+            28-5-10 se declara concluso
+            23-7-10 en expdte 943130/2010 se estima recurso de reposición
+          </observaciones>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Leon XIII  21</li><li>Fecha de Aprobación: 25-10-2011</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>676424.1,4612789.56</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>K-14</hojaPgou>
+      <numAntenaPlano>71</numAntenaPlano>
+      <numAntenaPi>78</numAntenaPi>
+      <id>184</id>
+      <numero> 2 (edif,AIDA)</numero>
+      <calle>Madre Rafols</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Madre Rafols  2 (edif,AIDA)</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>676057.97,4613567.49</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>H-12</hojaPgou>
+      <numAntenaPlano>74</numAntenaPlano>
+      <id>187</id>
+      <numero>- Pg 194 129</numero>
+      <calle>Marconchel </calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Marconchel  - Pg 194 129</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>672614.71,4615697.62</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>J-12</hojaPgou>
+      <numAntenaPlano>75</numAntenaPlano>
+      <numAntenaPi>23</numAntenaPi>
+      <id>188</id>
+      <numero>s/n</numero>
+      <calle>Maria Zambrano (Hipercor)</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Maria Zambrano (Hipercor) s/n</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>675743.06,4615739.98</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>L-16</hojaPgou>
+      <numAntenaPlano>77</numAntenaPlano>
+      <numAntenaPi>10</numAntenaPi>
+      <id>190</id>
+      <numero>204</numero>
+      <calle>Miguel Servet </calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Miguel Servet  204</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>677958.59,4611942.11</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>L-15</hojaPgou>
+      <numAntenaPlano>78</numAntenaPlano>
+      <numAntenaPi>48</numAntenaPi>
+      <id>191</id>
+      <numero>27</numero>
+      <calle>Miguel Servet </calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Miguel Servet  27</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>677264.4,4612953.51</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>L-15</hojaPgou>
+      <numAntenaPlano>79</numAntenaPlano>
+      <numAntenaPi>31</numAntenaPi>
+      <id>192</id>
+      <numero>92</numero>
+      <calle>Miguel Servet </calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Miguel Servet  92</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>677492.06,4612633.2</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>L-12</hojaPgou>
+      <numAntenaPlano>80</numAntenaPlano>
+      <id>193</id>
+      <numero>41</numero>
+      <calle>Camino de los Molinos</calle>
+      <observaciones>En la pagina del ministerio aparece con el numero 42 (no el 41)</observaciones>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <lastUpdated>2010-08-11T22:00:00Z</lastUpdated>
+      <pubDate>2013-01-17T23:00:00Z</pubDate>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>19</id>
+          <numExp>1202450/2007</numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Camino de los Molinos 41</li><li>Fecha de Aprobación: 26-03-2010</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>677428.89,4616097.64</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+    <antena>
+      <hojaPgou>L-15</hojaPgou>
+      <numAntenaPlano>81</numAntenaPlano>
+      <numAntenaPi>21</numAntenaPi>
+      <id>194</id>
+      <numero>1</numero>
+      <calle>Monasterio de Siresa</calle>
+      <idOperadora>
+        <operadora_antena>
+          <id>2</id>
+          <title>Telefonica</title>
+          <descripcion>Telefónica</descripcion>
+          <pubDate>2009-08-30T22:00:00Z</pubDate>
+        </operadora_antena>
+      </idOperadora>
+      <relimplantacion>
+        <implantacion-antena>
+          <id>5</id>
+          <numExp>662674/2001 </numExp>
+          <tipoPleno>Pleno inclusión</tipoPleno>
+        </implantacion-antena>
+      </relimplantacion>
+      <description><![CDATA[<ul><li>Operadora: Telefonica</li><li>Dirección: Monasterio de Siresa 1</li><li>Fecha de Aprobación: 27-07-2006</li></ul>]]></description>
+      <geometry>
+        <type>Point</type>
+        <coordinates>678157.7,4613019.14</coordinates>
+      </geometry>
+      <icon>https://www.zaragoza.es/cont/paginas/img/antenas/Telefonica.gif</icon>
+    </antena>
+  </result>
+</resultado>
