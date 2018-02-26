@@ -1,2 +1,37 @@
 -- 94)	Visualiza el salario medio de cada departamento junto con el número de departamento.
 SELECT dept_no, AVG(salario) FROM emple GROUP BY dept_no;
+
+-- 95)	A partir de la tabla EMPLE visualizar el número de vendedores del departamento ‘VENTAS’.
+SELECT COUNT(*), dept_no
+from emple
+where dept_no = (SELECT dept_no
+    FROM depart
+    WHERE UPPER(dnombre) = 'VENTAS')
+    group by dept_no;
+
+-- 96)	Partiendo de la tabla EMPLE, visualizar por cada oficio de los empleados del departamento ‘VENTAS’ la suma de salarios.
+SELECT oficio, SUM(salario) "Suma del sario"
+FROM emple
+WHERE dept_no = (SELECT dept_no
+    FROM depart
+    WHERE UPPER(dnombre) = 'VENTAS')
+GROUP BY oficio;
+
+-- 97)	Seleccionar aquellos apellidos de la tabla EMPLE cuyo salario sea igual a la media de su salario en su departamento.
+SELECT apellido
+FROM emple
+WHERE salario IN
+  (SELECT AVG(salario)
+  FROM emple
+  GROUP BY dept_no);
+
+-- 98)	Visualiza el número de empleados que tiene cada departamento.
+SELECT COUNT(*), dept_no
+FROM emple
+GROUP BY dept_no;
+
+-- 99)	Visualiza el número de empleados de cada departamento cuyo oficio sea ‘EMPLEADO’.
+-- 100)	Visualiza el número de departamento del departamento que tenga más empleados.
+-- 101)	Buscar los departamentos que tienen más de dos personas trabajando en la misma profesión.
+-- 102)	Dada la tabla LIBRERÍA visualizar por cada estante la suma de los ejemplares.
+-- 103)	Visualizar el estante con más ejemplares de la tabla LIBRERÍA.
