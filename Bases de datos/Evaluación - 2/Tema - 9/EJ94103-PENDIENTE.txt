@@ -56,4 +56,15 @@ WHERE oficio IN
 GROUP BY dept_no;
 
 -- 102)	Dada la tabla LIBRERÍA visualizar por cada estante la suma de los ejemplares.
+SELECT estante, COUNT(ejemplares)
+FROM libreria
+GROUP BY estante;
+
 -- 103)	Visualizar el estante con más ejemplares de la tabla LIBRERÍA.
+SELECT estante
+FROM libreria
+GROUP BY estante
+HAVING COUNT(*) =
+  (SELECT MAX(COUNT(*))
+   FROM libreria
+   GROUP BY estante);
