@@ -31,7 +31,29 @@ FROM emple
 GROUP BY dept_no;
 
 -- 99)	Visualiza el número de empleados de cada departamento cuyo oficio sea ‘EMPLEADO’.
+SELECT COUNT(*) "Cantidad de empleados", dept_no "Departamento"
+FROM emple
+WHERE UPPER(oficio) LIKE 'EMPLEADO'
+GROUP BY dept_no;
+
 -- 100)	Visualiza el número de departamento del departamento que tenga más empleados.
+SELECT dept_no, COUNT(*)
+FROM emple
+GROUP BY dept_no
+HAVING COUNT(*) =
+  (SELECT MAX(COUNT(*))
+    FROM emple
+    GROUP BY dept_no);
+
 -- 101)	Buscar los departamentos que tienen más de dos personas trabajando en la misma profesión.
+SELECT dept_no
+FROM emple
+WHERE oficio IN
+  (SELECT oficio
+    FROM emple
+    GROUP BY oficio
+    HAVING COUNT(*) > 2)
+GROUP BY dept_no;
+
 -- 102)	Dada la tabla LIBRERÍA visualizar por cada estante la suma de los ejemplares.
 -- 103)	Visualizar el estante con más ejemplares de la tabla LIBRERÍA.
