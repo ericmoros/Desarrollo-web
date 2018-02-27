@@ -1,0 +1,12 @@
+CREATE USER usuario IDENTIFIED BY contraseña
+DEFAULT TABLESPACE USERS 
+TEMPORARY TABLESPACE TEMP;
+
+grant connect to usuario;
+grant resource to usuario;
+
+grant CREATE MATERIALIZED VIEW to usuario;
+grant CREATE VIEW to usuario;
+
+grant CREATE PUBLIC SYNONYM to usuario;
+grant CREATE ROLE to usuario;
