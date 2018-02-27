@@ -1,0 +1,5 @@
+sudo mkfs /dev/sdb1
+sudo
+mkfs.xfs /dev/sdb5
+sudo
+mkfs.fat /dev/sdb6

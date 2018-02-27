@@ -1,0 +1,5 @@
+while
+read LINEA
+do
+echo "Leido $LINEA"
+done < $1
