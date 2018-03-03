@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mensaje xmlns="https://w3schools.com"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="ejercicio05.xsd">
+  <email respuesta="si">
+    <cabecera>
+      <emisor>eric@sunnydale.es</emisor>
+      <receptor>lector@localhost.local</receptor>
+      <fecha>2018-03-01</fecha>
+    </cabecera>
+    <asunto>Examen</asunto>
+    <texto>
+      Creo que habría que actualizar el plugin del Sublime
+      <saludo>
+        Un saludo:
+                Eric
+      </saludo>
+    </texto>
+  </email>
+  <!--<carta respuesta="no">
+    <encabezado>
+      <emisor>eric@sunnydale.es</emisor>
+      <receptor>lector@localhost.local</receptor>
+      <fecha>2018-03-01</fecha>
+    </encabezado>
+    <texto>
+      Creo que habría que actualizar el plugin del Sublime
+      <saludo>
+        Un saludo:
+                Eric
+      </saludo>
+    </texto>
+  </carta>-->
+</mensaje>

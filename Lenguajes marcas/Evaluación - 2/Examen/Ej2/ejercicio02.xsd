@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://w3schools.com"
+           xmlns="https://w3schools.com"
+           elementFormDefault="qualified">
+  <xs:element name="fecha" type="xs:date" />
+  <xs:element name="estadio">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="espectadores" default="0">
+            <xs:simpleType>
+              <xs:restriction base="xs:integer" >
+                <xs:maxExclusive value="90000" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="local" type="xs:string" />
+  <xs:element name="visitante" type="xs:string" />
+  <xs:element name="resultado">
+    <xs:complexType>
+      <xs:attribute name="local" use="required" />
+      <xs:attribute name="visitante" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="aplazado"/>
+  <xs:element name="partido">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="fecha" />
+        <xs:element ref="estadio" />
+        <xs:element ref="local" />
+        <xs:element ref="visitante" />
+        <xs:choice>
+          <xs:element ref="resultado" minOccurs="0" />
+          <xs:element ref="aplazado" minOccurs="0"/>
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="numero" type="xs:integer" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="jornada">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="partido" minOccurs="1" maxOccurs="3" />
+      </xs:sequence>
+      <xs:attribute name="numero" type="xs:integer" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="temporada">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="jornada" minOccurs="1" maxOccurs="5" />
+      </xs:sequence>
+      <xs:attribute name="anio">
+        <xs:simpleType>
+          <xs:restriction base="xs:integer">
+            <xs:maxExclusive value="80000" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="temporadas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="temporada" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

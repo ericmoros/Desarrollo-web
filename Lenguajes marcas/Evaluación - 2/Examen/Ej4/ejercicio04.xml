@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mensaje SYSTEM "ejercicio04.dtd">
+<mensaje>
+  <email respuesta="si">
+    <cabecera>
+      <emisor>eric@sunnydale.es</emisor>
+      <receptor>lector@localhost.local</receptor>
+      <fecha>2018-03-01</fecha>
+    </cabecera>
+    <asunto>Examen</asunto>
+    <texto>
+      Creo que habría que actualizar el VisualStudio
+      <saludo>
+        Un saludo:
+              Eric
+      </saludo>
+    </texto>
+  </email>
+</mensaje>

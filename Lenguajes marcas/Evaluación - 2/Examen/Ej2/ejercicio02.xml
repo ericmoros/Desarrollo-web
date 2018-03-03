@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<temporadas xmlns="https://w3schools.com"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="ejercicio02.xsd">
+  <temporada anio="2000">
+    <jornada numero="1">
+      <partido numero="1">
+        <fecha>2000-02-02</fecha>
+        <estadio espectadores="49000">Lansdowne Road</estadio>
+        <local>Irlanda</local>
+        <visitante>Inglaterra</visitante>
+        <resultado local="17" visitante="6" />
+      </partido>
+      <partido numero="2">
+        <fecha>2000-02-03</fecha>
+        <estadio>El parque de los principes</estadio>
+        <local>Francia</local>
+        <visitante>Gales</visitante>
+        <aplazado/>
+      </partido>
+      <!-- Añadido -->
+      <partido numero="3">
+        <fecha>2000-02-03</fecha>
+        <estadio>El parque de los principes</estadio>
+        <local>Francia</local>
+        <visitante>Gales</visitante>
+        <aplazado/>
+      </partido>
+    </jornada>
+    <jornada numero="2">
+      <partido numero="1">
+        <fecha>2000-02-02</fecha>
+        <estadio espectadores="49000">Lansdowne Road</estadio>
+        <local>Irlanda</local>
+        <visitante>Inglaterra</visitante>
+        <resultado local="17" visitante="6" />
+      </partido>
+      <partido numero="2">
+        <fecha>2000-02-03</fecha>
+        <estadio>El parque de los principes</estadio>
+        <local>Francia</local>
+        <visitante>Gales</visitante>
+        <aplazado/>
+      </partido>
+      <partido numero="3">
+        <fecha>2000-02-03</fecha>
+        <estadio>El parque de los principes</estadio>
+        <local>Francia</local>
+        <visitante>Gales</visitante>
+        <aplazado/>
+      </partido>
+    </jornada>
+    <jornada numero="3">
+      <partido numero="1">
+        <fecha>2000-02-02</fecha>
+        <estadio espectadores="49000">Lansdowne Road</estadio>
+        <local>Irlanda</local>
+        <visitante>Inglaterra</visitante>
+        <resultado local="17" visitante="6" />
+      </partido>
+      <partido numero="2">
+        <fecha>2000-02-03</fecha>
+        <estadio>El parque de los principes</estadio>
+        <local>Francia</local>
+        <visitante>Gales</visitante>
+        <aplazado/>
+      </partido>
+      <partido numero="3">
+        <fecha>2000-02-03</fecha>
+        <estadio>El parque de los principes</estadio>
+        <local>Francia</local>
+        <visitante>Gales</visitante>
+        <aplazado/>
+      </partido>
+    </jornada>
+    <jornada numero="4">
+      <partido numero="1">
+        <fecha>2000-02-02</fecha>
+        <estadio espectadores="49000">Lansdowne Road</estadio>
+        <local>Irlanda</local>
+        <visitante>Inglaterra</visitante>
+        <resultado local="17" visitante="6" />
+      </partido>
+      <partido numero="2">
+        <fecha>2000-02-03</fecha>
+        <estadio>El parque de los principes</estadio>
+        <local>Francia</local>
+        <visitante>Gales</visitante>
+        <aplazado/>
+      </partido>
+      <partido numero="3">
+        <fecha>2000-02-03</fecha>
+        <estadio>El parque de los principes</estadio>
+        <local>Francia</local>
+        <visitante>Gales</visitante>
+        <aplazado/>
+      </partido>
+    </jornada>
+    <jornada numero="5">
+      <partido numero="1">
+        <fecha>2000-02-02</fecha>
+        <estadio espectadores="49000">Lansdowne Road</estadio>
+        <local>Irlanda</local>
+        <visitante>Inglaterra</visitante>
+        <resultado local="17" visitante="6" />
+      </partido>
+      <partido numero="2">
+        <fecha>2000-02-03</fecha>
+        <estadio>El parque de los principes</estadio>
+        <local>Francia</local>
+        <visitante>Gales</visitante>
+        <aplazado/>
+      </partido>
+      <partido numero="3">
+        <fecha>2000-02-03</fecha>
+        <estadio>El parque de los principes</estadio>
+        <local>Francia</local>
+        <visitante>Gales</visitante>
+        <aplazado/>
+      </partido>
+      <!-- PARA QUE LA VALIDACION SEA CORRECTA -->
+    </jornada>
+  </temporada>
+</temporadas>

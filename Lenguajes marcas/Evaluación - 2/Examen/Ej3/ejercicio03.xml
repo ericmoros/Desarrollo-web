@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<libro xmlns="https://w3schools.com"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="ejercicio03.xsd" isbn="abcde">
+  <titulo>Mi libro</titulo>
+  <autor>Eric Moros Pérez</autor>
+  <personaje>
+    <nombre>Smith</nombre>
+    <desde>1999-01-02</desde>
+    <calificacion>Bueno</calificacion>
+  </personaje>
+  <personaje>
+    <nombre>Víctor</nombre>
+    <amigo>Eric</amigo>
+    <desde>2011-01-01</desde>
+    <calificacion>El mejor</calificacion>
+  </personaje>
+</libro>
