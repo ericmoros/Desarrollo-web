@@ -1,14 +1,13 @@
 public class Client {
 	private String name;
 	private String surnames;
-	private Menu[] order;
+	private Menu menu;
 	
 	public Client() {}
-	public Client(String name, String surnames, Menu[] order) {
-		super();
+	public Client(String name, String surnames, Menu menu) {
 		this.name = name;
 		this.surnames = surnames;
-		this.order = order;
+		this.menu = menu;
 	}
 
 	public String getName() {
@@ -25,10 +24,10 @@ public class Client {
 		this.surnames = surnames;
 	}
 
-	public Menu[] getOrder() {
-		return order;
+	public Menu getMenu() {
+		return menu;
 	}
-	public void setOrder(Menu[] order) {
-		this.order = order;
+	public void setMenu(Menu menu2) {
+		this.menu = menu2;
 	}
 }

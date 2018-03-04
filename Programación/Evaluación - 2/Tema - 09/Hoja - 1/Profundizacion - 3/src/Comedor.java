@@ -16,8 +16,8 @@ public class Comedor {
 		
 		//PROGRAMA
 		Client client = new Client();
-		Menu[] menu =  {
-			new Menu("" + Calendar.DAY_OF_WEEK, new Dish[] {
+		Menu menu =
+			new Menu("" + (Calendar.DAY_OF_WEEK), new Dish[] {
 				new Dish("Pasta rellena", 5F, new String[]{
 						"1 calabacín",
 						"1 berenjena",
@@ -89,7 +89,7 @@ public class Comedor {
 						"Sal"})
 				}
 			)
-		};
+		;
 		
 		while (! exitProgram) {
 			while (optionBuffer.length() != 0) {
@@ -105,7 +105,19 @@ public class Comedor {
 						optionBuffer += nextOption(inputText, optionBuffer, "¿Quiere que le tome nota ahora?", "2");
 						break;
 					case '2':
+						//selectMenu
 						inProgress();
+						client.setMenu(new Menu());
+						
+						
+						inputText = "" + Leer.pedirEntero("¿Qué le gustaría tomar de primero?");
+						client.getMenu().addDish(menu.getDish(Integer.parseInt(inputText) - 1));
+						
+						inputText = "" + Leer.pedirCadena("¿Y de segundo?");
+						client.getMenu().addDish(menu.getDish(Integer.parseInt(inputText) - 1));
+						
+						showMenu(client.getMenu());
+						
 						break;
 						
 					//Referentes al menú
@@ -129,10 +141,8 @@ public class Comedor {
 		endProgram();
 	}
 
-	private static void showMenu(Menu[] menu) {
-		for (int actualMenu = 0; actualMenu < menu.length; actualMenu++) {							
-			Leer.mostrarEnPantalla(menu[actualMenu].showByConsole());
-		}
+	private static void showMenu(Menu menu) {		
+		Leer.mostrarEnPantalla(menu.showByConsole());
 	}
 
 	private static void welcome(Client client) {
@@ -148,7 +158,7 @@ public class Comedor {
 		inputText = Leer.pedirCadena(ask + " (s/any)");
 		
 		if (inputText.equalsIgnoreCase("s")) {
-			optionBuffer = "1";
+			optionBuffer = nextOption;
 		} else {
 			optionBuffer = "?";
 		}
