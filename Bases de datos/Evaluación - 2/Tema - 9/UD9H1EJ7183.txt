@@ -42,7 +42,23 @@ WHERE
 GROUP BY productos.id_categoria;
 
 -- 78)	Muestra la descripción de las categorías que tengan más de 5 productos en venta.En los ejercicios que siguen se supone que no se va a hacer descuento a los clientes.
+SELECT categorias.descripcion
+FROM productos, categorias
+WHERE productos.id_categoria = categorias.id_categoria
+GROUP BY categorias.descripcion
+HAVING COUNT(*) > 5;
+
 -- 79)	Muestra nombre, apellidos e identificador de los clientes que tendrán que pagar más de 14000 € en productos de la categoría 1.
+SELECT clientes.nombre, apellidos, clientes.id_cliente
+FROM clientes, pedidos, detalles_pedidos, productos
+WHERE
+  pedidos.id_cliente = clientes.id_cliente AND
+  detalles_pedidos.numero_pedido = pedidos.numero_pedido AND
+  detalles_pedidos.numero_producto = productos.numero_producto AND
+  productos.id_categoria = 1
+GROUP BY clientes.nombre, apellidos, clientes.id_cliente
+HAVING SUM(precio * cantidad) > 14000;
+
 -- 80)	Muestra, para cada empleado, cuánto dinero ha hecho en pedidos.
 -- 81)	Muestra cuánto recaudarán en pedidos los empleados 701,702 y 703.
 -- 82)	Ahora muestra los 3 empleados que más dinero van a recaudar en pedidos. Debe aparecer el identificador del empleado, el nombre y el dinero recaudado
