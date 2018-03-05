@@ -60,6 +60,31 @@ GROUP BY clientes.nombre, apellidos, clientes.id_cliente
 HAVING SUM(precio * cantidad) > 14000;
 
 -- 80)	Muestra, para cada empleado, cuánto dinero ha hecho en pedidos.
+SELECT id_empleado, SUM(precio_total)
+FROM pedidos
+GROUP BY id_empleado; 
+
 -- 81)	Muestra cuánto recaudarán en pedidos los empleados 701,702 y 703.
+SELECT id_empleado, SUM(precio_total)
+FROM pedidos
+WHERE
+  id_empleado = 701 OR
+  id_empleado = 702 OR
+  id_empleado = 703
+GROUP BY id_empleado;
+
 -- 82)	Ahora muestra los 3 empleados que más dinero van a recaudar en pedidos. Debe aparecer el identificador del empleado, el nombre y el dinero recaudado
+SELECT *
+FROM (SELECT id_empleado, SUM(precio_total) "total_ventas"
+      FROM pedidos
+      GROUP BY id_empleado
+      ORDER BY SUM(precio_total) DESC) top_ventas
+WHERE ROWNUM <= 3;
+
 -- 83)	Busca el proveedor o proveedores que menos días de envío tengan para algún producto. Debes mostrar el nombre del proveedor junto con el nombre del producto que tiene menos días de envío.
+SELECT proveedores.nombre, productos.nombre, dias_envio
+FROM proveedores, productos, productos_proveedores
+WHERE
+  productos_proveedores.numero_producto = productos.numero_producto AND
+  productos_proveedores.ID_PROV = proveedores.id_prov AND
+  dias_envio = (SELECT MIN(dias_envio) "min_dias_envio" FROM productos_proveedores);
