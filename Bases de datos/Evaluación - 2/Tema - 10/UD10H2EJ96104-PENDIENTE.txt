@@ -1,0 +1,32 @@
+-- 96)	Hacer un descuento del 2% en los pedidos que se han enviado con una demora superior a 30 días desde la fecha del pedido.
+-- 	Hay que modificar el precio en cada línea de detalles_pedidos y luego, a partir de detalles_pedidos recalcular el precio_total del pedido
+-- 97)	Aplicar un 5% de descuento a todos los pedidos de los clientes que hicieron una compra superior a 20000 € en el mes de octubre de 2007.
+-- 	Hay que modificar el precio en cada línea de detalles_pedidos y luego, a partir de detalles_pedidos recalcular el precio_total del pedido
+-- 98)	Hacer que el precio de venta de todos los productos de la categoría 2 sea al menos un 45% superior al precio del proveedor que tenga el precio más barato para dicho producto.  Redondear los precios sin decimales.
+-- 99)	Poner como precio de venta de los productos de la categoría 'Accesorios' el máximo precio al por mayor que nos pongan los proveedores para ese producto más un 35%.
+-- 100)	Añadir una nueva empleada con los siguientes datos: Susana Maroto, Pinares 16, Villamanta, MADRID, 28610, código de área 425 y número de teléfono 555-7825.
+-- 101)	Hemos contratado al cliente David Sanz. Añade una fila a la tabla EMPLEADOS con todos los datos de David Sanz que están en la tabla Clientes. El id_empleado ha de ser el siguiente al mayor valor de id_empleado que hay en la tabla.
+-- 102)	Insertar un nuevo producto en la tabla de PRODUCTOS con los siguientes valores:
+-- 	• El numero_producto ha de ser el siguiente al mayor valor de numero_producto que hay en la tabla.
+-- 	• nombre: Super Mega Spinner  
+-- 	• precio_venta: 895
+-- 	• id_categoria: el valor que tenga en la tabla CATEGORIAS la categoria 'Bicicletas'
+-- 
+-- 103)	Insertar un nuevo cliente con los siguientes datos:
+-- 	• El id_cliente ha de ser el siguiente al mayor valor de id_cliente que hay en la tabla.
+-- 	• María Baquero
+-- 	• Cantarranas 17
+-- 	• Braojos
+-- 	• MADRID
+-- 	• 28737
+-- 	• área 425
+-- 	• teléfono: 555-9876
+-- 104)	Insertar un nuevo proveedor llamado 'Super Mega Bicicletas'. El id_prov ha de ser el siguiente al mayor valor de id_prov que hay en la tabla. El resto de los datos son:
+-- 	• calle Principal 12
+-- 	• Castroviejo
+-- 	• LA RIOJA
+-- 	• 26637
+-- 	• TELF: (941) 555-6543
+-- 	• FAX: (941) 555-6542
+-- 	• pag_web:http://www.supermegabicicletas.com
+-- 	• email: ventas@supermegabicicletas.com

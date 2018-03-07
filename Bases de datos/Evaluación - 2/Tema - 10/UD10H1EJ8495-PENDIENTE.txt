@@ -1,0 +1,15 @@
+-- 84)	Calcula el precio total de los pedidos de nuestros clientes.
+-- 85)	Comprueba si la precisión de los campos numéricos de las tablas PEDIDOS, PEDIDOS_HISTORICO, DETALLES_ PEDIDOS y DETALLES_ PEDIDOS_HISTORICO coincide. Si no es así modifícalas para que haya coincidencia.
+-- 86)	Nuestra empresa es líder del mercado y puede permitirse hacer lo que le apetezca. Por eso ha decidido que aplicará con efecto retroactivo las últimas subidas de precio. 
+-- Para eso los datos que hasta ahora teníamos en la tabla PEDIDOS los guardaremos  en la tabla PEDIDOS_HISTORICO. Y lo mismo haremos con DETALLES_ PEDIDOS y DETALLES_ PEDIDOS_HISTORICO. Confirmarlo lo más tarde posible.
+-- 87)	Incrementa el precio de venta de todos los productos en un 10%. El departamento de ventas quiere deshacer los cambios lo antes posible.
+-- 88)	Tenemos que subir un 4% los precios de los productos de la categoría 'Ropa' y deshacer los cambios lo más tarde posible.
+-- 	a) Mostrar un listado con los nombres de los productos, el precio actual y el precio que tendrán después de la subida.
+-- 	b) Actualizar los precios de venta de dichos productos subiéndolos un 4%.
+-- 89)	Incrementar un 5% los precios de los productos de la categoría 'Ropa', a continuación actualiza los precios en DETALLES_PEDIDOS para que se correspondan con los que hay en la tabla productos y por último actualiza en la tabla PEDIDOS el precio total de cada pedido de acuerdo a los nuevos precios de los productos. Confirmarlo lo más tarde posible. 
+-- 90)	 A partir de la tabla pedidos crea la tabla SALDOS_PENDIENTES con los mismos campos que la tabla pedidos y en el campo PRECIO_TOTAL el valor de la diferencia entre el PRECIO_TOTAL actualizado y el PRECIO_TOTAL antes de la actualización (éste último se encuentra en la tabla PEDIDOS_HISTORICO).
+-- 91)	 Ejecuta la sentencia rollback. ¿Qué pasa? ¿Por qué?
+-- 92)	 Mostrar el nombre del proveedor y el promedio por proveedor del número de días que se tarda en realizar el envío de los productos. Hay que mostrar aquellos cuyo promedio sea mayor que el promedio de todos los proveedores.
+-- 93)	Hacer una consulta que muestre el nombre del producto y  el total vendido de aquellos productos que superan el promedio de ventas de su categoría.
+-- 94)	Listar por cada cliente y fecha de pedido el nombre completo y el coste total del pedido si éste supera los 1000 euros. El coste del pedido hay que calcularlo a partir de la tabla DETALLES_PEDIDOS.
+-- 95)	¿Cuántos pedidos hay de un sólo producto?
