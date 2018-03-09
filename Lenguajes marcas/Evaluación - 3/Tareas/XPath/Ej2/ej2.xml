@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ies>
+  <modulos>
+    <modulo id="0228">
+      <nombre>Aplicaciones web</nombre>
+      <curso>2</curso>
+      <horasSemanales>4</horasSemanales>
+      <ciclo>SMR</ciclo>
+    </modulo>
+    <modulo id="0489">
+      <nombre>Programación multimedia y dispositivos móviles</nombre>
+      <curso>2</curso>
+      <horasSemanales>5</horasSemanales>
+      <ciclo>DAM</ciclo>
+    </modulo>
+    <modulo id="0373">
+      <nombre>Lenguajes de marcas y sistemas de gestión de información</nombre>
+      <curso>1</curso>
+      <horasSemanales>3</horasSemanales>
+      <ciclo>DAM</ciclo>
+      <ciclo>DAW</ciclo>
+    </modulo>
+    <modulo id="0376">
+      <nombre>Diseño de interfaces WEB</nombre>
+      <curso>2</curso>
+      <horasSemanales>6</horasSemanales>
+      <ciclo>DAW</ciclo>
+    </modulo>
+  </modulos>
+</ies>

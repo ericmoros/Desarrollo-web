@@ -1,0 +1,28 @@
+11- Nombre del Instituto:
+/ies/nombre/text()
+
+12- Página web del Instituto:
+/ies/web/text()
+
+13- Nombre de los Ciclos Formativos:
+//ciclo/nombre/text()
+
+14- Siglas por las que se conocen los Ciclos Formativos:
+//ciclo/@id
+
+15- Años en los que se publicaron los decretos de título de los Ciclos Formativos:
+//decretoTitulo/@año
+
+16- Ciclos Formativos de Grado Medio (se trata de obtener el elemento <ciclo> completo): Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.)
+//ciclo[grado="Medio"]
+//grado[.="Medio"]/..
+
+17- Nombre de los Ciclos Formativos de Grado Superior: Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
+//ciclo[grado="Superior"]/nombre/text()
+//grado[.="Superior"]/../nombre/text()
+
+18- Nombre de los Ciclos Formativos anteriores a 2010: Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
+//ciclo[decretoTitulo/@año<2010]/nombre/text()
+
+
+19- Nombre de los Ciclos Formativos de 2008 o 2010: Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
