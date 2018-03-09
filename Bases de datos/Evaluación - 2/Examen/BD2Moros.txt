@@ -1,0 +1,105 @@
+-- 1) Crea una tabla...
+CREATE TABLE CAMPAÑAS_PUBLICITARIAS (
+	id_campubli int primary key,
+	titulo varchar2(75),
+  id_categoria int default 0,
+  descuento_adicional number(6,2) default 0
+);
+
+-- 2) Nombre de los empleados que NO has Atendido a Samuel Abadia. Hay que utilizar exclusivamente subconsultas.
+SELECT nombre
+FROM empleados
+WHERE id_empleado NOT IN
+  (SELECT id_empleado
+   FROM pedidos
+   WHERE id_cliente =
+      (SELECT id_cliente
+        FROM clientes
+        WHERE nombre = 'Samuel' AND apellidos = 'Abadia'));
+
+-- 3) Nombre y ciudad de los clientes que NO han comprado productos de la categoría 'Bicicletas'
+SELECT nombre, ciudad
+FROM clientes
+WHERE nombre NOT IN 
+  (SELECT clientes.nombre
+    FROM clientes, categorias, pedidos, detalles_pedidos, productos
+    WHERE
+      pedidos.numero_pedido = detalles_pedidos.numero_pedido AND
+      pedidos.id_cliente = clientes.id_cliente AND
+      detalles_pedidos.numero_producto = productos.numero_producto AND
+      categorias.id_categoria = productos.id_categoria AND
+      categorias.descripcion = 'Bicicletas'
+    GROUP BY clientes.nombre);
+
+-- 4) Identificador de los empleados, su nombre e importe obtenido por cada empleado de las ventas de productos de la categoría Accesorios y de los productos cuyo nombre es "StaDry Cycling culote
+SELECT pedidos.id_empleado, empleados.nombre, SUM(precio * cantidad) "Importe"
+FROM empleados, pedidos, detalles_pedidos, productos, categorias
+WHERE
+  empleados.id_empleado = pedidos.id_empleado AND
+  pedidos.numero_pedido = detalles_pedidos.numero_pedido AND
+  productos.numero_producto = detalles_pedidos.numero_producto AND
+  productos.id_categoria = categorias.id_categoria AND
+  (categorias.descripcion = 'Accesorios' OR
+  productos.nombre = 'StaDry Cycling culote')
+GROUP BY pedidos.id_empleado, empleados.nombre, categorias.descripcion;
+
+-- 5) Identificador de empleado, su nombre e importe obtenido por el/los empleado/s que más pedidos ha/n realizado
+SELECT *
+FROM 
+(SELECT pedidos.id_empleado, empleados.nombre, COUNT(*) "pedidos_realizados", SUM(precio * cantidad) "importe"
+  FROM empleados, pedidos, detalles_pedidos
+  WHERE
+    pedidos.id_empleado = empleados.id_empleado AND
+    pedidos.numero_pedido = detalles_pedidos.numero_pedido
+  GROUP BY pedidos.id_empleado, empleados.nombre
+  ORDER BY COUNT(*) DESC) empleados_pedidos
+WHERE ROWNUM <= 1;
+
+-- 6) Obtener el nombre de los empleados y código postal de los clientes a los que hayan vendido en algún pedido, productos con precio por unidad comprendido entre 500 y 1900€
+SELECT empleados.nombre, clientes.cod_postal, precio
+FROM empleados, clientes, pedidos, detalles_pedidos
+WHERE
+  empleados.id_empleado = pedidos.id_empleado AND
+  clientes.id_cliente = pedidos.id_cliente AND
+  pedidos.numero_pedido = detalles_pedidos.numero_pedido
+GROUP BY empleados.nombre, clientes.cod_postal, numero_producto, precio
+HAVING precio > 500 AND precio < 1900;
+
+-- 7) Obtener todos los datos de los 10 pedidos más recientes hechos por clientes de las provincias de  CACERES ó MADRID cuyo nombre empieza por 'A'
+SELECT *
+FROM
+  (SELECT pedidos.numero_pedido, numero_producto, precio, cantidad, fecha_pedido, fecha_envio, pedidos.id_cliente, id_empleado, precio_total
+  FROM detalles_pedidos, clientes, pedidos
+  WHERE
+    pedidos.numero_pedido = detalles_pedidos.numero_pedido AND
+    pedidos.id_cliente = clientes.id_cliente AND
+    (provincia = 'CACERES' OR provincia = 'MADRID') AND
+    clientes.nombre LIKE 'A%'
+    ORDER BY fecha_pedido DESC) pdt
+WHERE ROWNUM <= 10;
+
+-- 8) Obtener el identificador, nombre del empleado y número de clientes atendidos por el/los empleado/s que menos clientes distintos ha/n tenido
+SELECT pedidos.id_empleado, empleados.nombre, COUNT(*) "Clientes antendidos"
+FROM empleados, clientes, pedidos
+WHERE
+  empleados.id_empleado = pedidos.id_empleado AND
+  clientes.id_cliente = pedidos.id_cliente
+GROUP BY pedidos.id_empleado, empleados.nombre
+HAVING COUNT(*) = (SELECT MIN(COUNT(*)) FROM pedidos GROUP BY pedidos.id_empleado);
+
+-- 9) Historifica los pedidos cuya fecha de envío sea anterior a "1.1.2008" (cópialos en las tablas correspondienes con nombre HISTÓRICO y bórralos de las tablas originales)
+INSERT INTO pedidos_historico
+  (SELECT *
+    FROM pedidos
+    WHERE fecha_envio < TO_DATE('1.1.2008','dd.mm.yyyy'));
+
+-- DESHABILITO LAS RESTRICCIONES MIRAR IMG1 AL 3 DE LA CARPETA RESTRICCIONES
+
+DELETE
+FROM pedidos
+WHERE fecha_envio < TO_DATE('1.1.2008','dd.mm.yyyy');
+
+-- RE-HABILITO LAS RESTRICCIONES MIRAR IMG4 AL 6 DE LA CARPETA RESTRICCIONES
+
+
+
