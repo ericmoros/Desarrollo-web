@@ -23,6 +23,8 @@
 
 18- Nombre de los Ciclos Formativos anteriores a 2010: Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
 //ciclo[decretoTitulo/@año<2010]/nombre/text()
-
+//decretoTitulo[@año<2010]/../nombre/text()
 
 19- Nombre de los Ciclos Formativos de 2008 o 2010: Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
+//ciclo[decretoTitulo/@año = 2008 or decretoTitulo/@año = 2010]/nombre/text()
+//ciclo/decretoTitulo[@año = 2008 or @año = 2010]/../nombre/text()

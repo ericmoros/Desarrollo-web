@@ -1,16 +1,21 @@
 21- Nombre de los módulos que se imparten en el Instituto:
-
+//modulo/nombre/text()
 
 22- Nombre de los módulos del ciclo DAW: Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
-
+//modulo[ciclo = "DAW"]/nombre/text()
 
 23- Nombre de los módulos que se imparten en el segundo curso de cualquier ciclo: Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
-
+//modulo[curso = 2]/nombre/text()
+//modulo/curso[. = 2]/../nombre/text()
 
 24- Nombre de los módulos de menos de 5 horas semanales: Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
-
+//modulo[horasSemanales < 5]/nombre/text()
+//modulo/horasSemanales[. < 5]/../nombre/text()
 
 25- Nombre de los módulos que se imparten en el primer curso de DAW: Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
-
+//modulo[ciclo = "DAW" and curso = 1]/nombre/text()
+//modulo/ciclo[. = "DAW"]/../curso[. = 1]/../nombre/text()
 
 26- Horas semanales de los módulos de más de 3 horas semanales: Nota: Resuelve este ejercicio de dos formas distintas, en un único paso de búsqueda y en dos pasos de búsqueda.
+//modulo[horasSemanales > 3]/horasSemanales/text()
+//modulo/horasSemanales[. > 3]/text()
