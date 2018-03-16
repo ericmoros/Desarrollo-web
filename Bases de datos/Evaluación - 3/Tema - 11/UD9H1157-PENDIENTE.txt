@@ -42,18 +42,109 @@ DELETE FROM EJ4
   WHERE dnombre = 'nuevo20';
 
 -- 5.	Crear una vista llamada pagos a partir de las filas de la tabla EMPLE, cuyo departamento sea el 10. Las columnas de la vista se llamarán NOMBRE, SAL_MES. SAL_AN y DEPT_NO. El NOMBRE es la columna APELLIDO, al que aplicamos la función INITCAP(), SAL_MES es el SALARIO, SAL_AN es el salario*12. Modificar individualmente cada columna y ver qué ocurre.
+CREATE OR REPLACE VIEW pagos
+  AS
+    SELECT INITCAP(apellido) AS Nombre, salario AS SAL_MES, (salario * 12) AS SAL_AN, DEPT_NO
+    FROM emple
+    WHERE dept_no = 10;
+        
+UPDATE pagos SET SAL_AN = 1000 WHERE Nombre = 'Rey';
+
 -- 6.	Crear la vista VMEDIA a partir de las tablas EMPLE y DEPART. La vista contendrá por cada departamento el número de departamento, el nombre, la media de salario y el máximo salario. Visualizar su contenido y tratar de borrar filas, insertar y modificar.
+CREATE VIEW vmedia
+AS
+  SELECT dept_no, dnombre, AVG(salario) "Media salario", MAX(salario) "Max salario"
+  FROM emple NATURAL JOIN depart
+  GROUP BY dept_no, dnombre;
+  
+DELETE FROM vmedia
+  WHERE dnombre = 'nuevo20';
+
+INSERT INTO vmedia VALUES (40, 'leguchino', 20, 30);
+
+UPDATE vmedia SET dnombre = 'nuevo21'
+  WHERE dnombre = 'nuevo20';
+
 -- 7.	Crear el sinónimo DEPARTAMENTOS asociado a la tabla DEPART.
+CREATE PUBLIC SYNONYM departamentos FOR depart;
+
 -- 8.	Crear un sinónimo llamado Conser asociado a la vista creada antes (vmedia). Hacer consultas utilizando este sinónimo.
+CREATE PUBLIC SYNONYM Conser FOR vmedia;
+
+SELECT *
+FROM vmedia
+
 -- 9.	Conectarse como usuario SYSTEM a la base de datos de Oracle y crear un usuario llamado “administrador” autentificado por la base de datos con contraseña admin. Indicar como "tablespace" por defecto USERS y como "tablespace" temporal TEMP; asignar una cuota de 500K en el "tablespace" USERS. Consulta después la vista all_users e indica la información que aparece sobre él.
--- 10.	Abrir una nueva conexión en sql developer e intentar conectarse como usuario “administrador”, ¿qué sucede?, ¿por qué?
+CREATE USER administrador IDENTIFIED BY admin
+DEFAULT TABLESPACE USERS 
+TEMPORARY TABLESPACE TEMP
+QUOTA 500K ON USERS;
+
+SELECT *
+FROM all_users
+WHERE username = 'ADMINISTRADOR';
+
+ -- USERNAME, USER_ID, CREATED
+
+-- 10.	Abrir una nueva conexión en sql developer e intentar conectarse como usuario  --“administrador”, ¿qué sucede?, ¿por qué?
+ -- Estado: Fallo:Fallo de la prueba: ORA-01017: invalid username/password; logon denied
+ -- Tienes que dar permiso de acceso al usuario a la base de datos
+
 -- 11.	Averiguar qué privilegios de sistema, roles y privilegios sobre objetos tiene concedidos el usuario “administrador” consultando las vistas dba_role_privs, dba_tab_privs, dba_sys_privs (busca en Internet qué contienen cada una de estas vistas).
+SELECT *
+FROM dba_role_privs NATURAL JOIN dba_tab_privs NATURAL JOIN dba_sys_privs;
+
+  -- dba_role_privs
+ -- GRANTEE		Name of the user or role receiving the grant
+ -- GRANTED_ROLE	Granted role name
+ -- ADMIN_OPTION	Indicates whether the grant was with the ADMIN OPTION (YES) or not (NO)
+ -- DEFAULT_ROLE	Indicates whether the role is designated as a DEFAULT ROLE for the user (YES) or not (NO)
+
+  -- dba_tab_privs
+ -- GRANTEE		Name of the user or role receiving the grant
+ -- OWNER		Granted role name
+ -- TABLE_NAME		Indicates whether the grant was with the ADMIN OPTION (YES) or not (NO)
+ -- GRANTOR		Indicates whether the role is designated as a DEFAULT ROLE for the user (YES) or not (NO)
+
+  -- dba_sys_privs
+ -- GRANTEE		Grantee name, user, or role receiving the grant
+ -- USERNAME		Name of the current user
+ -- PRIVILEGE		System privilege
+ -- ADMIN_OPTION	Grant was with the ADMIN option
+
 -- 12.	Otorgar el privilegio “CREATE SESSION” al usuario “administrador” e intentar de nuevo la conexión sqlplus o sqldeveloper.
+GRANT CREATE SESSION TO Administrador;
+ -- Se ha conectado!
+
 -- 13.	Modifica la contraseña del usuario administrador por admi y vuelve a acceder a Oracle con el usuario administrador. Comprueba que se ha modificado la contraseña.
+ALTER USER Administrador IDENTIFIED BY "admi";
+ -- funciona
+
 -- 14.	Modifica el usuario administrador de forma que su cuenta esté bloqueada. Accede de nuevo con este usuario y comprueba que efectivamente no puede acceder a su cuenta.
+ALTER USER Administrador ACCOUNT LOCK;
+ -- Funciona
+
 -- 15.	Conectarse como usuario “administrador” y crear un usuario llamado “prueba00” que tenga como "tablespace" por defecto USERS y como "tablespace" temporal TEMP; asignar una cuota de 500K en el "tablespace" USERS. ¿Es posible hacerlo?
+ALTER USER Administrador ACCOUNT UNLOCK;
+
+CREATE USER prueba00 IDENTIFIED BY prueba00
+DEFAULT TABLESPACE USERS 
+TEMPORARY TABLESPACE TEMP;
+ -- No tengo permisos para crearlo
+
 -- 16.	Conectado como usuario SYSTEM, otorgar el privilegio “create user” al usuario “administrador” y repetir el ejercicio anterior.
+GRANT CREATE USER TO Administrador;
+
+CREATE USER prueba00 IDENTIFIED BY prueba00
+DEFAULT TABLESPACE USERS 
+TEMPORARY TABLESPACE TEMP;
+ -- Funciona
+
 -- 17.	Crea un nuevo usuario prueba1 con clave prueba1 y tablespace users. Concédele el privilegio de connectarse a la BD. Trata de crear una tabla ¿Has podido? ¿Por qué? Concédele el privilegio CREATE TABLE y trata de crear de nuevo la tabla ¿Has podido?
+CREATE USER prueba1 IDENTIFIED BY prueba1
+DEFAULT TABLESPACE USERS;
+GRANT CREATE SESSION TO prueba1;
+
 -- 18.	Asígnale una cuota de 500 K al usuario prueba1.
 -- 19.	Como usuario prueba1, modifica su propia contraseña a pru1. ¿Puede modificar el propio usuario prueba1 su espacio de tablas por defecto? ¿Qué privilegio necesita? Asígnale dicho privilegio desde el usuario System y comprueba que ahora el usuario prueba1 puede modificarse a sí mismo su espacio de tabla o su cuota, por ejemplo.
 -- 20.	Como usuario administrador crea un nuevo usuario llamado ora1 con contraseña ora1 cuota 500k y espacios users y temp. Este nuevo usuario deberá poder conectarse a la BD y crear tablas. Crea una tabla para el usuario ora1¿Puedes insertar datos o manipular la tabla ? ¿Puedes crear procedimientos, triggers,… ? Indica qué privilegios necesitarías.
