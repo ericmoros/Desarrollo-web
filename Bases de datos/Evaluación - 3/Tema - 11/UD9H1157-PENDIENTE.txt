@@ -141,18 +141,95 @@ TEMPORARY TABLESPACE TEMP;
  -- Funciona
 
 -- 17.	Crea un nuevo usuario prueba1 con clave prueba1 y tablespace users. Concédele el privilegio de connectarse a la BD. Trata de crear una tabla ¿Has podido? ¿Por qué? Concédele el privilegio CREATE TABLE y trata de crear de nuevo la tabla ¿Has podido?
+ -- System
 CREATE USER prueba1 IDENTIFIED BY prueba1
 DEFAULT TABLESPACE USERS;
 GRANT CREATE SESSION TO prueba1;
 
+ -- prueba1
+CREATE TABLE prueba1(
+  id_test INTEGER PRIMARY KEY
+);
+   -- No tengo permisos para crearla
+
 -- 18.	Asígnale una cuota de 500 K al usuario prueba1.
+ALTER USER prueba1 QUOTA 500K ON USERS;
+
 -- 19.	Como usuario prueba1, modifica su propia contraseña a pru1. ¿Puede modificar el propio usuario prueba1 su espacio de tablas por defecto? ¿Qué privilegio necesita? Asígnale dicho privilegio desde el usuario System y comprueba que ahora el usuario prueba1 puede modificarse a sí mismo su espacio de tabla o su cuota, por ejemplo.
+ -- prueba1
+ALTER USER prueba1 IDENTIFIED BY pru1;
+ALTER USER prueba1 DEFAULT TABLESPACE USERS;
+   -- No tiene permiso para cambiar el tablespace
+
+ -- System
+GRANT ALTER USER TO prueba1;
+GRANT ALTER TABLESPACE TO prueba1;
+
+ -- prueba1
+ALTER USER prueba1 DEFAULT TABLESPACE USERS;
+
 -- 20.	Como usuario administrador crea un nuevo usuario llamado ora1 con contraseña ora1 cuota 500k y espacios users y temp. Este nuevo usuario deberá poder conectarse a la BD y crear tablas. Crea una tabla para el usuario ora1¿Puedes insertar datos o manipular la tabla ? ¿Puedes crear procedimientos, triggers,… ? Indica qué privilegios necesitarías.
+  -- System
+CREATE USER ora1 IDENTIFIED BY ora1
+DEFAULT TABLESPACE USERS
+TEMPORARY TABLESPACE TEMP
+QUOTA 500K ON USERS;
+GRANT CREATE SESSION TO ora1;
+GRANT CREATE TABLE TO ORA1;
+
+  -- ora1
+CREATE TABLE ora1(
+  id_test INTEGER PRIMARY KEY
+);
+
+INSERT INTO ORA1 ID_TEST VALUES(1);
+INSERT INTO ORA1 ID_TEST VALUES(2);
+DELETE ora1 WHERE id_test = 1;
+UPDATE ora1 SET id_test = 1
+  WHERE id_test = 2;
+ALTER TABLE ora1 ADD CONSTRAINT ora1_test_MIN1_MAX2 CHECK(id_test >= 1 AND id_test <= 2);
+
 -- 21.	Como usuario administrador borra el usuario ora1. Indica los pasos que has tenido que realizar para poder hacerlo.
+ -- System
+GRANT DROP USER to administrador;
+
+ -- administrador
+DROP USER ora1 CASCADE;
+
 -- 22.	Averiguar qué usuarios de la base de datos tienen asignado el privilegio “create user” de forma directa, ¿qué vista debe ser consultada? ¿Qué significa la opción ADMIN OPTION?
+SELECT *
+FROM dba_sys_privs
+WHERE privilege = 'CREATE USER';
+  -- La admin option sirve para saber si tienen la capacidad de ejecutar el grant del permiso
+
 -- 23.	Hacer lo mismo para el privilegio “create session”.
+SELECT *
+FROM dba_sys_privs
+WHERE privilege = 'CREATE SESSION';
+
 -- 24.	En caso de que esté bloqueado, desbloquea el usuario hr de la base de datos y ponle como contraseña hr. Consulta las tablas de las que dispone este usuario.
+  -- System
+ALTER USER hr ACCOUNT UNLOCK;
+ALTER USER hr IDENTIFIED BY hr;
+
+  -- hr
+select table_name from user_tables;
+
 -- 25.	Concede permisos al usuario oracle4 para ejecutar consultas sobre la tabla employees del usuario hr (Crea previamente el usuario oracle4 con clave a 500k y tablespace users y temp, concédele privilegios para conectarse y crear tablas, crea una tabla en el usuario oracle4) Nota: previamente concede definitivamente al administrador el rol dba.
+  -- System
+REATE USER oracle4 IDENTIFIED BY oracle4
+DEFAULT TABLESPACE USERS
+TEMPORARY TABLESPACE TEMP
+QUOTA 500K ON USERS;
+GRANT CREATE SESSION TO oracle4;
+GRANT CREATE TABLE TO oracle4;
+GRANT DBA TO administrador;
+
+  -- oracle4
+CREATE TABLE test1(
+  id_test INTEGER PRIMARY KEY
+);
+
 -- 26.	Consulta los datos de la tabla employees (habiéndote conectado como usuario oracle4). Crear la tabla empleados a partir de la consulta anterior.
 -- 27.	Consulta los datos de la tabla countries de hr ¿Has podido? ¿Por qué?
 -- 28.	Concede permisos a oracle4 para insertar registros en la tabla countries de hr
