@@ -27,8 +27,8 @@ public class Menu {
 	/**
 	 * @param served
 	 */
-	public static void setServed(Integer served) {
-		Menu.served = served;
+	public static void upServed() {
+		Menu.served += 1; //Revisar..
 	}
 	
 	/**

@@ -106,18 +106,11 @@ public class Comedor {
 						break;
 					case '2':
 						//selectMenu
+						askClientMenu(client, menu);
+						optionBuffer += nextOption(inputText, optionBuffer,  "La cuenta señor/a " + client.getSurnames(),  "3");//Pagar
+						break;
+					case '3':
 						inProgress();
-						client.setMenu(new Menu());
-						
-						
-						inputText = "" + Leer.pedirEntero("¿Qué le gustaría tomar de primero?");
-						client.getMenu().addDish(menu.getDish(Integer.parseInt(inputText) - 1));
-						
-						inputText = "" + Leer.pedirCadena("¿Y de segundo?");
-						client.getMenu().addDish(menu.getDish(Integer.parseInt(inputText) - 1));
-						
-						showMenu(client.getMenu());
-						
 						break;
 						
 					//Referentes al menú
@@ -139,6 +132,28 @@ public class Comedor {
 		}
 		
 		endProgram();
+	}
+
+	private static void askClientMenu(Client client, Menu menu) {
+		String inputText;
+		client.setMenu(new Menu());
+		
+		
+		inputText = "" + Leer.pedirEntero("¿Qué le gustaría tomar de primero?");
+		Dish tmpDish =  menu.getDish(Integer.parseInt(inputText) - 1);
+		
+		if (tmpDish != null) {
+			client.getMenu().addDish(tmpDish);
+		}
+		
+		inputText = "" + Leer.pedirCadena("¿Y de segundo?");
+		tmpDish =  menu.getDish(Integer.parseInt(inputText) - 1);
+		if (tmpDish != null) {
+			client.getMenu().addDish(tmpDish);
+		}
+
+		showMenu(client.getMenu());
+		Menu.upServed();
 	}
 
 	private static void showMenu(Menu menu) {		
