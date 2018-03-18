@@ -1,0 +1,72 @@
+-- 1) Crea una tabla relacionada con el esquema que has cargado denominada CAMPAÑAS_PUBLICITARIAS, la cual tendrá un identificador (clave) numérico sin decimales, un título, el identificador de la categoría de producto, y un valor descuento_adicional de tipo numérico con dos decimales. Existirá un regla que chequee que el campo descuento_adicional es un valor entre 0 y 1.
+CREATE TABLE CAMPAÑAS_PUBLICITARIAS (
+ ID_CAP INT PRIMARY KEY,
+ TITULO VARCHAR(25),
+ ID_CATEGORIA NUMBER,
+ DESCUENTO_ADICIONAL NUMBER(3,2) DEFAULT 0,
+ CONSTRAINT ID_CATEGORIA_FK FOREIGN KEY (id_categoria) REFERENCES CATEGORIAS(id_categoria),
+ CONSTRAINT DESCUENTO_ADICIONAL_MIN0_MAX1 CHECK(DESCUENTO_ADICIONAL < 1 AND DESCUENTO_ADICIONAL > 0)
+);
+
+-- 2) Nombre de los empleados que NO han Atendido a Samuel Abadia. Hay que utilizar exclusivamente subconsultas.
+SELECT nombre
+FROM empleados
+WHERE id_empleado NOT IN
+  (SELECT id_empleado
+    FROM pedidos
+    WHERE pedidos.id_cliente =
+      (SELECT id_cliente
+        FROM clientes
+        WHERE nombre = 'Samuel' AND apellidos = 'Abadia'));
+
+-- 3) Nombre y ciudad de los clientes que no han comprado productos de la categoría ' Bicicletas'.
+SELECT nombre, ciudad
+FROM clientes
+WHERE id_cliente NOT IN
+  (SELECT id_cliente
+  FROM pedidos
+  INNER JOIN detalles_pedidos
+    ON pedidos.numero_pedido = detalles_pedidos.numero_pedido
+  INNER JOIN productos
+    ON productos.numero_producto = detalles_pedidos.numero_producto
+  INNER JOIN categorias
+    ON productos.id_categoria = categorias.id_categoria
+  WHERE categorias.descripcion = 'Bicicletas');
+
+-- 4) Identificador de los empleados, su nombre e importe obtenido por cada empleado de las ventas de productos de la categoría Accesorios y de los productos cuyo nombre es “StaDry Cycling culote”.
+SELECT pedidos.id_empleado, empleados.nombre, SUM(cantidad * precio) AS importe
+FROM empleados
+INNER JOIN pedidos
+  ON empleados.id_empleado = pedidos.id_empleado
+INNER JOIN detalles_pedidos
+  ON pedidos.numero_pedido = detalles_pedidos.numero_pedido
+INNER JOIN productos
+  ON productos.numero_producto = detalles_pedidos.numero_producto
+INNER JOIN categorias
+  ON productos.id_categoria = categorias.id_categoria
+WHERE
+  categorias.descripcion = 'Accesorios'
+  OR productos.nombre = 'StaDry Cycling culote'
+GROUP BY pedidos.id_empleado, empleados.nombre;
+
+-- 5) Identificador de empleado, nombre e importe obtenido por el/los empleado/s que más pedidos ha/n realizado
+ -- a
+SELECT pedidos.id_empleado, empleados.nombre, SUM(precio_total) AS importe
+FROM pedidos
+INNER JOIN empleados
+  ON pedidos.id_empleado = empleados.id_empleado
+GROUP BY pedidos.id_empleado, empleados.nombre
+HAVING COUNT(*) = (SELECT MAX(COUNT(*)) FROM pedidos GROUP BY id_empleado);
+ -- b
+SELECT pedidos.id_empleado, empleados.nombre, SUM(cantidad * precio) AS importe
+FROM empleados
+INNER JOIN pedidos
+  ON empleados.id_empleado = pedidos.id_empleado
+INNER JOIN detalles_pedidos
+  ON detalles_pedidos.numero_pedido = pedidos.numero_pedido
+WHERE pedidos.id_empleado IN
+(SELECT id_empleado
+  FROM pedidos
+  GROUP BY id_empleado
+  HAVING COUNT(*) = (SELECT MAX(COUNT(*)) FROM pedidos GROUP BY id_empleado))
+GROUP BY pedidos.id_empleado, empleados.nombre
