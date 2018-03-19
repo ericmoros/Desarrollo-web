@@ -217,30 +217,71 @@ select table_name from user_tables;
 
 -- 25.	Concede permisos al usuario oracle4 para ejecutar consultas sobre la tabla employees del usuario hr (Crea previamente el usuario oracle4 con clave a 500k y tablespace users y temp, concédele privilegios para conectarse y crear tablas, crea una tabla en el usuario oracle4) Nota: previamente concede definitivamente al administrador el rol dba.
   -- System
-REATE USER oracle4 IDENTIFIED BY oracle4
+CREATE USER oracle4 IDENTIFIED BY oracle4
 DEFAULT TABLESPACE USERS
 TEMPORARY TABLESPACE TEMP
 QUOTA 500K ON USERS;
 GRANT CREATE SESSION TO oracle4;
 GRANT CREATE TABLE TO oracle4;
 GRANT DBA TO administrador;
-
+ALTER USER oracle4 QUOTA 1M ON USERS; -- Si no no podía crear la tabla
   -- oracle4
 CREATE TABLE test1(
   id_test INTEGER PRIMARY KEY
 );
 
 -- 26.	Consulta los datos de la tabla employees (habiéndote conectado como usuario oracle4). Crear la tabla empleados a partir de la consulta anterior.
+  -- Administrador
+GRANT SELECT on hr.employees TO oracle4;
+
+  -- oracle4
+SELECT * FROM hr.employees;
+
 -- 27.	Consulta los datos de la tabla countries de hr ¿Has podido? ¿Por qué?
+  -- oracle4
+SELECT * FROM hr.countries;
+
 -- 28.	Concede permisos a oracle4 para insertar registros en la tabla countries de hr
+  -- administrador
+GRANT INSERT on hr.countries TO oracle4;
+  -- oracle4
+INSERT INTO "HR"."COUNTRIES" (COUNTRY_ID, COUNTRY_NAME, REGION_ID) VALUES ('O4', 'Test', 4);
+
 -- 29.	Inserta el país España con código ES de Europa en la tabla countries como usuario oracle4
+INSERT INTO "HR"."COUNTRIES" (COUNTRY_ID, COUNTRY_NAME, REGION_ID) VALUES ('ES', 'España', 1);
+
 -- 30.	Trata de borrar como usuario oracle4 la fila que has insertado
+DELETE HR.countries WHERE country_id = 'ES';
+  -- No tiene permisos
+
 -- 31.	Crea la tabla país como copia de countries desde el usuario HR.
+CREATE TABLE pais
+  AS
+    SELECT * FROM countries;
+
 -- 32.	Concede al usuario oracle4 permisos para borrar tablas de cualquier usuario. Borra desde el usuario oracle4 la tabla país del usuario hr.
+DROP TABLE hr.pais;
+
 -- 33.	Oracle4 concede a todos los usuarios (actuales y futuros) cualquier tipo de privilegio sobre la tabla que ha creado en el ejercicio 25.
+GRANT ALL PRIVILEGES ON oracle4.test1 TO PUBLIC;
+
 -- 34.	Crea en oracle4 una segunda tabla2 con 3 campos (campo1, campo2 y campo3) concede al usuario hr permisos para modificar solo la columna campo2. Trata ahora de modificar como usuario hr dos columnas de esa tabla, ¿permite hacerlo?
+  -- administrador
+GRANT UPDATE (campo2) on oracle4.tabla2 TO hr;
+
+  -- hr
+UPDATE oracle4.tabla2 SET campo2 = 2;
+    -- funciona
+UPDATE oracle4.tabla2 SET campo1 = 1;
+    -- no funciona
+
 -- 35.	Comprueba que desde oracle 4 puedes borrar la tabla countries.
+DROP TABLE hr.countries;
+  -- no la borra pero porque hay una clave foranea
+
 -- 36.	Concede permisos al usuario oracle4 para que a su vez pueda crear usuarios así como darles cualquier privilegio.
+
+
 -- 37.	Conéctate como usuario oracle4 y crea el usuario oracle4a con contraseña oracle4a espacio de tablas usuario y sin límite de cuota. Asígnale permisos de ejecución de consultas sobre la tabla jobs del usuario hr. Concede ahora privilegio de modificación sobre la columna coutry_name de la tabla countries a todos los usuarios
 -- 38.	Comprueba desde el usuario hr qué permisos ha concedido sobre sus tablas a los demás usuarios. Comprueba desde el usuario oracle4 qué permisos ha recibido sobre las tablas de otros usuarios (usa la vista user_tab_privs).
 -- 39.	Consulta los privilegios de sistema asignados a oracle4a ( usa la vista dba_sys_privs).
