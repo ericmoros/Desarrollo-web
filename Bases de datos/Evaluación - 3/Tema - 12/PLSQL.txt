@@ -1,0 +1,20 @@
+
+DECLARE
+  v_dpto_numdepart depart.dept_no%TYPE;
+  v_dpto_dnombredepart depart.dnombre%TYPE;
+  v_dpto_locdepart depart.loc%TYPE;
+  v_num_empleados  NUMBER(2);
+BEGIN
+  UPDATE emple SET dept_no = 20
+    WHERE dept_no = 99;
+  v_num_empleados := SQL%ROWCOUNT ;
+  SELECT * INTO v_dpto_numdepart, v_dpto_dnombredepart, v_dpto_locdepart FROM depart
+    WHERE dept_no = 40;
+    DBMS_OUTPUT.PUT_LINE( v_num_empleados || ' empleados ubicados en PROVISIONAL') ;
+EXCEPTION
+  WHEN TOO_MANY_ROWS THEN
+    DBMS_OUTPUT.PUT_LINE('Muchas lineas');
+  WHEN OTHERS THEN
+    ROLLBACK;
+    RAISE_APPLICATION_ERROR(-20000, 'Error en la aplicación');
+END;
