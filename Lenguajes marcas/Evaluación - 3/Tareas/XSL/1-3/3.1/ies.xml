@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+  <h1>Ciclos formativos del IES IES Santiago Hernández</h1>
+  <p>
+    Página web: <a href="http://www.iessantiagohernandez.com/">http://www.iessantiagohernandez.com/</a>
+  </p>
+  <ul>
+    <li>
+      DAM<br />Desarrollo de Aplicaciones Multiplataforma ciclo formativo de Superior creado en 2010
+    </li>
+  </ul>
+  <ul>
+    <li>
+      DAW<br />Desarrollo de Aplicaciones Web ciclo formativo de Superior creado en 2010
+    </li>
+  </ul>
+  <ul>
+    <li>
+      SMR<br />Sistemas Microinformáticos y Redes ciclo formativo de Medio creado en 2008
+    </li>
+  </ul>
+</html>
