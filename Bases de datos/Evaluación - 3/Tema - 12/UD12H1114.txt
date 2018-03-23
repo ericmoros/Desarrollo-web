@@ -1,0 +1,40 @@
+-- 1.	Escribir un bloque PL/SQL que escriba el texto ‘Hola’
+SET SERVEROUTPUT ON
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('Hola');
+END;
+
+-- 2.	Escribir un procedimiento que reciba dos números y visualice su suma.
+DECLARE
+  num1 INTEGER;
+  num2 INTEGER;
+  sum1 INTEGER;
+BEGIN
+  num1 := &INPUT1;
+  num2 := &INPUT2;
+  sum1 := (num1 + num2);
+  DBMS_OUTPUT.PUT_LINE('La suma de ' || num1 || ' y ' || num2 || ' da: ' || sum1);
+END;
+
+-- 3.	Codificar un procedimiento que reciba una cadena y la visualice al revés.
+CREATE OR REPLACE PROCEDURE str_reverse (cadena VARCHAR)
+IS
+  anedac VARCHAR(9999);
+BEGIN
+  SELECT REVERSE(cadena) INTO anedac FROM DUAL;
+  DBMS_OUTPUT.PUT_LINE('Esta es tu cadena al revés');
+  DBMS_OUTPUT.PUT_LINE(anedac);
+END;
+
+EXEC str_reverse('hola');
+
+-- 4.	Escribir una función que reciba una fecha y devuelva el año, en número, correspondiente a esa fecha.
+DECLARE
+  fecha DATE;
+  anyo INTEGER;
+BEGIN
+  fecha := sysdate;
+  anyo := EXTRACT(YEAR FROM fecha);
+  DBMS_OUTPUT.PUT_LINE('Año actual: ' || anyo);
+END;
+
