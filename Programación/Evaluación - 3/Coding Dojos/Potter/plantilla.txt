@@ -1,8 +1,0 @@
-2 libros = 5% descuento
-3 libros = 10% descuento
-4 libros = 20% descuento
-5 libros = 25% descuento
-(Diferentes para aplicar descuento)
-copia 8€
-
-https://github.com/nestorsalceda/potter-kata-java
