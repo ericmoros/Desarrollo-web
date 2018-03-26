@@ -29,9 +29,12 @@ public class Main {
 
 		ListLenght = (int) (Math.random() * (15 - 1) + 1);
 		
+		System.out.println("Generando " + ListLenght + " números aleatorios...");
 		for (Integer actualNum = 0; actualNum < ListLenght; actualNum++) {
 			numList.add((int) (Math.random() * (8000 - 1000 + 1) + 1000));
 		}
+		
+		System.out.println(numList + "\n");
 		
 		for (Integer num: numList) {
 			objHashSet.add(num);
@@ -39,22 +42,33 @@ public class Main {
 			objTreeSet.add(num);
 		}
 		
-		System.out.println("\nLinkedHashSet");
+		
+		System.out.println("Valores de obj LinkedHashSet");
 		for (Integer num: objHashSet) {
-			System.out.println(num);
+			System.out.print(num + " ");
 		}
+		System.out.println("\n");
 		
-		System.out.println("\nLinkedHashSet");
+		System.out.println("Valores de obj LinkedHashSet");
 		for (Integer num: objLinkedHashSet) {
-			System.out.println(num);
+			System.out.print(num + " ");
 		}
+		System.out.println("\n");
 		
-		System.out.println("\nTreeSet");
+		System.out.println("Valores de obj TreeSet");
 		for (Integer num: objTreeSet) {
-			System.out.println(num);
+			System.out.print(num + " ");
 		}
+		System.out.println("\n");
 		
 		
+		System.out.print("\t\t\t\t  ");
+		for (Integer num: numList) {
+			System.out.printf("%-6d",numList.indexOf(num) );
+		}
+		System.out.println("\nValores de objHashSet:\t\t" + objHashSet);
+		System.out.println("Valores de objLinkedHashSet:\t" + objLinkedHashSet);
+		System.out.println("Valores de objTreeSet:\t\t" + objTreeSet);
 	}
 
 }
