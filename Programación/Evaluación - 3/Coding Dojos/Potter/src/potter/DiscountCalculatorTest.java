@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
  * Pruebas unitarias de la clase DiscountCalculator
  * 
  * @author Eric Moros Pérez, Luis Gargallo Alarcos
- *
  */
 class DiscountCalculatorTest {
 

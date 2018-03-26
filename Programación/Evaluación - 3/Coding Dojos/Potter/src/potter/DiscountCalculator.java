@@ -5,7 +5,6 @@ package potter;
 
 /**
  * @author Eric Moros Pérez, Luis Gargallo Alarcos
- *
  */
 public class DiscountCalculator {
 	/**
