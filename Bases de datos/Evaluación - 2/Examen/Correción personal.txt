@@ -70,3 +70,70 @@ WHERE pedidos.id_empleado IN
   GROUP BY id_empleado
   HAVING COUNT(*) = (SELECT MAX(COUNT(*)) FROM pedidos GROUP BY id_empleado))
 GROUP BY pedidos.id_empleado, empleados.nombre
+
+-- 6) Obtener el nombre de los empleados y código postal de los clientes a los que hayan vendido en algún pedido, productos con precio por unidad comprendido entre 500 y 1900 €. 
+SELECT DISTINCT empleados.nombre, clientes.cod_postal
+  FROM empleados
+  INNER JOIN pedidos
+    ON pedidos.id_empleado = empleados.id_empleado
+  INNER JOIN clientes
+    ON pedidos.id_cliente = clientes.id_cliente
+  INNER JOIN detalles_pedidos
+    ON pedidos.numero_pedido = detalles_pedidos.numero_pedido
+    
+      WHERE detalles_pedidos.precio BETWEEN 500 AND 1900;
+
+--7) Obtener todos los datos de los 10 pedidos más recientes hechos por clientes de las provincias de CACERES ó MADRID cuyo nombre empieza por 'A'.
+SELECT *
+  FROM (
+    SELECT pedidos.*
+      FROM pedidos
+      INNER JOIN clientes
+        ON pedidos.id_cliente = clientes.id_cliente
+          
+          WHERE nombre LIKE 'A%'
+            AND (
+              LOWER(provincia) = 'caceres'
+              OR LOWER(provincia) = 'madrid'
+            )
+          ORDER BY fecha_pedido DESC
+  )
+    WHERE rownum <= 10
+;
+
+-- 8) Obtener el identificador, nombre del empleado y número de clientes atendidos por el/los empleado/s que menos clientes distintos ha/n atendido.
+Select id_empleado, nombre, count(*)
+  from
+    (
+      Select distinct pedidos.id_empleado, empleados.nombre, id_cliente
+        From pedidos
+        Inner Join empleados
+          On pedidos.id_empleado = empleados.id_empleado
+    ) TD
+  Group By id_empleado, nombre
+  Having count(*) = (SELECT MIN(COUNT(*)) FROM (Select distinct id_empleado, id_cliente From pedidos) group by id_empleado)
+;
+
+
+-- 9) 
+INSERT INTO pedidos_historico
+SELECT *
+  FROM pedidos
+    WHERE fecha_envio < to_date('01-01-2008', 'dd-mm-yyyy');
+
+INSERT INTO detalles_pedidos_historico
+SELECT *
+  FROM detalles_pedidos
+    WHERE numero_pedido IN
+      (SELECT numero_pedido
+        FROM pedidos
+          WHERE fecha_envio < to_date('01-01-2008', 'dd-mm-yyyy'));
+
+DELETE detalles_pedidos
+  WHERE numero_pedido IN
+    (SELECT numero_pedido
+      FROM pedidos
+        WHERE fecha_envio < to_date('01-01-2008', 'dd-mm-yyyy'));
+        
+DELETE PEDIDOS
+  WHERE fecha_envio < to_date('01-01-2008', 'dd-mm-yyyy');
