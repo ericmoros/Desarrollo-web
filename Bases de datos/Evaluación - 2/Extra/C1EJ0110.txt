@@ -1,0 +1,106 @@
+-- 1) Número de pedidos e importe de los mismos que se han realizado en cada año y mes (fecha_pedido) ordenado por fecha.
+SELECT numero_pedido, fecha_pedido, precio_total
+  FROM pedidos
+  
+    ORDER BY fecha_pedido;
+
+-- 2) Clientes que han sido atendidos por empleados para los que ambos tienen el mismo código de área.
+SELECT clientes.*
+  FROM clientes
+  INNER JOIN pedidos
+    ON pedidos.id_cliente = clientes.id_cliente
+  INNER JOIN empleados
+    ON pedidos.id_empleado = empleados.id_empleado
+
+      WHERE clientes.codigo_area = empleados.codigo_area;
+
+-- 3) Producto/s del/los que se tiene/n menor stock;
+SELECT productos.*  
+  FROM productos
+    
+    WHERE stock = (SELECT MIN(stock) FROM productos);
+
+-- 4) Clientes que viven en el mismo código postal que los proveedores a los que han comprado sus productos.
+SELECT DISTINCT clientes.*
+  FROM clientes
+  INNER JOIN pedidos 
+    ON clientes.id_cliente = pedidos.id_cliente
+  INNER JOIN detalles_pedidos
+    ON pedidos.numero_pedido = detalles_pedidos.numero_pedido
+  INNER JOIN productos_proveedores
+    ON detalles_pedidos.numero_producto = productos_proveedores.numero_producto
+  INNER JOIN  proveedores
+    ON productos_proveedores.id_prov = proveedores.id_prov
+    
+      WHERE clientes.cod_postal = proveedores.cod_postal;
+
+-- 5) Sacar el día de mayor importe de ventas incluyendo el importe.
+SELECT fecha_pedido, (SUM(precio_total)) AS importe -- (EXTRACT(DAY FROM fecha_pedido)) AS dia
+  FROM pedidos
+  
+    GROUP BY fecha_pedido
+    HAVING SUM(precio_total) = (SELECT MAX(SUM(precio_total)) FROM pedidos GROUP BY fecha_pedido);
+
+-- 6) Sacar los tres empleados que mayores ventas hayan realizado en el año 2007.
+SELECT *
+  FROM (
+    SELECT pedidos.id_empleado, nombre, apellidos, direccion, ciudad, provincia, cod_postal, codigo_area, telefono
+      FROM empleados
+      INNER JOIN pedidos
+        ON pedidos.id_empleado = empleados.id_empleado
+          
+          WHERE EXTRACT(YEAR FROM pedidos.fecha_pedido) = 2007
+          GROUP BY pedidos.id_empleado, nombre, apellidos, direccion, ciudad, provincia, cod_postal, codigo_area, telefono
+          ORDER BY SUM(precio_total) DESC
+  ) td
+  
+    WHERE ROWNUM <= 3;
+
+-- 7) Productos que no se han vendido en 2008.
+SELECT *
+FROM productos
+WHERE numero_producto NOT IN (
+SELECT detalles_pedidos.numero_producto
+  FROM detalles_pedidos
+  INNER JOIN pedidos
+    ON detalles_pedidos.numero_pedido = pedidos.numero_pedido
+    
+      WHERE EXTRACT(YEAR FROM pedidos.fecha_pedido) = 2008
+);
+
+-- 8) Muestra los productos con los precios que tienen actualmente y un nuevo precio calculado de la siguiente forma. Los de categoría 6 y 7 un incremento del 3%, los de categoría 3 y 4 una disminución del 5%, los de categoría 2 y 5 igual y el resto un incremento del 10%.
+-- opt1  
+SELECT numero_PRODUCTO, precio_venta, (precio_venta * 1.03) AS precio_final
+  FROM PRODUCTOS
+  
+    WHERE ID_CATEGORIA IN (6, 7);
+UNION
+SELECT numero_PRODUCTO, precio_venta, (precio_venta * 0.95) AS precio_final
+  FROM PRODUCTOS
+  
+    WHERE ID_CATEGORIA IN (2, 3, 4, 5);
+UNION
+SELECT numero_PRODUCTO, precio_venta, (precio_venta * 1.1) AS precio_final
+  FROM PRODUCTOS
+  
+    WHERE ID_CATEGORIA NOT IN (2, 3, 4, 5, 6, 7);
+    
+-- opt2
+SELECT NUMERO_PRODUCTO, PRECIO_VENTA, (CASE WHEN ID_CATEGORIA IN (6, 7) THEN PRECIO_VENTA * 1.03
+                                            WHEN ID_CATEGORIA IN (2, 3, 4, 5) THEN (precio_venta * 0.95)
+                                            ELSE (PRECIO_VENTA * 1.1)
+                                       END) AS PRECIO_FINAL
+  FROM PRODUCTOS;
+
+-- 9) Actualiza los precios de los artículos con los precios anteriores. ( si la consulta anterior no la has conseguido, realiza una a una las actualizaciones con los criterios anteriores para cada categoría)
+UPDATE PRODUCTOS SET precio_venta = (CASE WHEN ID_CATEGORIA IN (6, 7) THEN PRECIO_VENTA * 1.03
+                                            WHEN ID_CATEGORIA IN (2, 3, 4, 5) THEN (precio_venta * 0.95)
+                                            ELSE (PRECIO_VENTA * 1.1)
+                                       END);
+
+-- 10) Calcula los nuevos precios para los detalles de pedidos y pedidos con los precios de productos nuevos para los pedidos que se han realizado en el año 2008.
+UPDATE detalles_pedidos SET precio = (SELECT precio_venta FROM productos WHERE productos.numero_producto = detalles_pedidos.numero_producto)  
+   WHERE DETALLES_PEDIDOS.NUMERO_PEDIDO IN (SELECT NUMERO_PEDIDO FROM PEDIDOS WHERE EXTRACT(YEAR FROM FECHA_PEDIDO) = 2008);
+    
+update pedidos set precio_total = (select sum(precio * cantidad) from detalles_pedidos where pedidos.numero_pedido = detalles_pedidos.numero_pedido)
+  WHERE EXTRACT(YEAR FROM FECHA_PEDIDO) = 2008;
