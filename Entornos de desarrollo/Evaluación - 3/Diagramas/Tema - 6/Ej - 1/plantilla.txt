@@ -1,0 +1,171 @@
+ACTORES
+ - Organizador
+	* Congresos (id_congreso, siglas, anyo, idioma, ciudad, )
+		Ver
+		Añadir
+		Eliminar
+		Editar
+	
+		> Sesiones (id_sesion, fecha, hora, )
+			Ver
+			Añadir
+			Eliminar
+			Editar
+
+			_ Ponencias (id_ponencia, título, puntos)
+				Ver
+				Añadir
+				Eliminar
+				Editar
+
+				< autores (id_autor, nombre, e-mail)
+					Ver
+					Añadir
+					Eliminar
+					Editar
+			_ <inscripcion> clientes (id_cliente, nombre, apellidos, e-mail)
+				Ver
+				Añadir
+				Eliminar
+				Editar		
+
+		> inscripciones (id_inscripcion, nombre, precio)
+			Ver
+			Añadir
+			Eliminar
+			Editar
+
+		> clientes (id_cliente, nombre, apellidos, e-mail)
+			Ver
+			Añadir
+			Eliminar
+			Editar
+		
+		> hoteles (id_hotel)
+			Ver
+			Añadir
+			Eliminar
+			Editar
+
+			_ clientes (id_cliente, nombre, apellidos, e-mail)
+				Ver
+				Añadir
+				Eliminar
+				Editar
+
+		> Ponencias (id_ponencia, título, puntos)
+				Ver
+				Añadir
+				Eliminar
+				Editar
+
+ - Clientes
+	* Congresos (id_congreso, siglas, anyo, idioma, ciudad, )
+		Ver
+	
+		> Sesiones (id_sesion, fecha, hora, )
+			Ver
+
+			_ Ponencias (id_ponencia, título, puntos)
+				Ver
+
+				< autores (id_autor, nombre, e-mail)
+					Ver
+
+			_ <inscripcion> clientes (id_cliente, nombre, apellidos, e-mail)
+				solicitar
+
+		> inscripciones (id_inscripcion, nombre, precio)
+			Ver
+			Comprar
+		
+		> hoteles (id_hotel)
+			Ver
+			alquilar habitacion
+
+
+		> Ponencias (id_ponencia, título, puntos)
+			Ver
+
+
+
+TABLAS DE DATOS
+ - Congresos
+	id_congreso	PK
+	siglas
+	anyo
+	idioma
+	ciudad
+
+ - Sesiones 
+	id_sesion	PK
+	fecha
+	hora
+
+ - Ponencias
+	id_ponencia	PK
+	título
+	puntos
+
+ - autores 
+	id_autor	PK
+	nombre
+	e-mail
+
+ - inscripciones
+	id_inscripcion	PK
+
+ - hoteles
+	id_hotel	PK
+	
+
+
+TABLAS DE RELACION
+
+Congresos
+ - Congresos_Sesiones
+	id_congreso
+	id_sesion
+
+ - Congresos_Inscripciones
+	id_congreso
+	id_inscripcion
+
+ - Congresos_clientes
+	id_congreso
+	id_cliente
+
+
+Sesiones
+ - Sesiones_Ponencias
+	id_sesion
+	id_ponencia
+
+ - Sesiones_Inscripciones
+	id_sesion
+	id_inscripcion
+
+ - Sesiones_Clientes
+	id_sesion
+	id_cliente
+
+
+Hoteles
+ - Hoteles_Clientes
+	id_hotel
+	id_cliente
+
+
+Ponencias
+ - Ponencias_Autores
+	id_ponencia
+	id_autor
+
+
+Clientes
+ - Clientes_Inscripciones
+	id_cliente
+	id_inscripcion
+
+
+
