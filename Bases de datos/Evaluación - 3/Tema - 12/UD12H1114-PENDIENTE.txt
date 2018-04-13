@@ -1,0 +1,97 @@
+SET SERVEROUTPUT ON
+-- 1.	Escribir un bloque PL/SQL que escriba el texto ‘Hola’
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('Hola');
+END;
+
+-- 2.	Escribir un procedimiento que reciba dos números y visualice su suma.
+DECLARE
+  num1 INTEGER;
+  num2 INTEGER;
+  sum1 INTEGER;
+BEGIN
+  num1 := &INPUT1;
+  num2 := &INPUT2;
+  sum1 := (num1 + num2);
+  DBMS_OUTPUT.PUT_LINE('La suma de ' || num1 || ' y ' || num2 || ' da: ' || sum1);
+END;
+
+-- 3.	Codificar un procedimiento que reciba una cadena y la visualice al revés.
+CREATE OR REPLACE PROCEDURE str_reverse (cadena VARCHAR)
+IS
+  anedac VARCHAR(9999);
+BEGIN
+  SELECT REVERSE(cadena) INTO anedac FROM DUAL;
+  DBMS_OUTPUT.PUT_LINE('Esta es tu cadena al revés');
+  DBMS_OUTPUT.PUT_LINE(anedac);
+END;
+
+EXEC str_reverse('hola');
+
+-- 4.	Escribir una función que reciba una fecha y devuelva el año, en número, correspondiente a esa fecha.
+CREATE OR REPLACE FUNCTION actualyear(fecha DATE) RETURN INTEGER
+IS
+  anyo INTEGER;
+begin
+  anyo := extract(year from FECHA);
+  return anyo;
+end;
+/
+
+-- 5.	Escribir un bloque PL/SQL que haga uso de la función anterior.
+DECLARE
+  anyo integer;
+begin
+  anyo := actualyear(TO_DATE('0207','mm/yy'));
+  DBMS_OUTPUT.PUT_LINE(anyo);
+END;
+
+-- 6.	Dado el siguiente procedimiento
+--create or replace procedure CREAR_DEPART (
+   --P_NUM_DEPT DEPART.DEPT_NO%type,
+   --P_DNOMBRE DEPART.DNOMBRE%type default 'PROVISIONAL',
+   --P_LOC DEPART.LOC%type default 'PROVISIONAL')
+--is
+--begin
+   --insert into DEPART
+   --values (P_NUM_DEPT, P_DNOMBRE, P_LOC);
+--end CREAR_DEPART;
+--/
+
+-- Indicar cuáles de las siguientes llamadas son correctas y cuáles incorrectas, en este último caso escribir la llamada correcta usando la notación posicional (en los casos que se pueda):
+-- error    1º. crear_depart;
+-- correcto 2º. CREAR_DEPART(50);
+-- error    3º. crear_depart('COMPRAS');
+-- correcto 4º. CREAR_DEPART(50,'COMPRAS');
+-- error    5º. CREAR_DEPART('COMPRAS', 50);
+-- error    6º. crear_depart('COMPRAS', 'VALENCIA');
+-- correcto 7º. CREAR_DEPART(50, 'COMPRAS', 'VALENCIA');
+-- error    8º. crear_depart('COMPRAS', 50, 'VALENCIA');
+-- error    9º. CREAR_DEPART('VALENCIA', ‘COMPRAS’);
+-- error    10º. CREAR_DEPART('VALENCIA', 50);
+
+-- 7. Desarrollar una función que devuelva el número de años completos que hay entre dos fechas que se pasan como argumentos.
+CREATE OR REPLACE
+  FUNCTION get_date_difference(
+      date1 DATE,
+      date2 DATE) RETURN INTEGER
+  IS
+    date_difference INTEGER;
+  BEGIN
+    date_difference := floor((date1 - date2) / 365);
+    RETURN date_difference;
+  END;
+/
+
+-- 8.	Escribir una función que, haciendo uso de la función anterior devuelva los trienios que hay entre dos fechas. (Un trienio son tres años completos).
+
+
+
+
+
+
+
+
+
+
+
