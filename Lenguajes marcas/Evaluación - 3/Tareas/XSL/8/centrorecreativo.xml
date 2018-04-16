@@ -1,0 +1,25 @@
+<CentroRecreativo>
+        <Miembro nivel="basica">
+                <Nombre>Jose </Nombre>
+                <Telefono tipo="casa">5555-1234</Telefono>
+                <Telefono tipo="trabajo">5555-4321</Telefono>
+                <Casilla>8700</Casilla>
+        </Miembro>
+        <Miembro nivel="premier">
+                <Nombre>David</Nombre>
+                <Telefono tipo="casa">3838-1234</Telefono>
+                <Telefono tipo="trabajo">3838-4321</Telefono>
+                <Casilla>5600</Casilla>
+        </Miembro>
+        <Miembro nivel="premier">
+                <Nombre>Rogelio</Nombre>
+                <Telefono tipo="casa">8888-1234</Telefono>
+                <Telefono tipo="trabajo">8888-4321</Telefono>
+                <Casilla>4000</Casilla>
+        </Miembro>
+        <Miembro nivel="basica">
+                <Nombre>David</Nombre>
+                <Telefono tipo="casa">9999-5678</Telefono>
+                <Casilla>7200</Casilla>
+        </Miembro>
+</CentroRecreativo>
