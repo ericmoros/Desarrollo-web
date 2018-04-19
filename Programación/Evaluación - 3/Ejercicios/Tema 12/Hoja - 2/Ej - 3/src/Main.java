@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -44,7 +45,7 @@ public class Main {
 		ArrayList<Student> students = new ArrayList<>();
 		
 		students = generateStudents(NAMES, SURNAMES, TOTALPEOPLE, TOTALEXAMS, MAXPOINTS, MINPOINTS);
-		consolePrintStudents(students);
+		consolePrintStudents(students, TOTALEXAMS);
 		
 		
 	}
@@ -100,29 +101,95 @@ public class Main {
 	}
 	
 	/**
-	 * @param people
+	 * @param students
 	 * 
 	 * Imprime por consola las personas.
+	 * @param TOTALEXAMS 
 	 */
-	private static void consolePrintStudents(ArrayList<Student> people) {
+	private static void consolePrintStudents(ArrayList<Student> students, Integer TOTALEXAMS) {
+		DecimalFormat format = new DecimalFormat("00.00");
+		ArrayList<Integer> markColumnsFormat = new ArrayList<>();
+		String formatColumns = "";
+		
+		Integer nameMaxLenght = 0;
+		Integer surnameMaxLenght = 0;
+		ArrayList<Integer> marksFormatedMaxLength = new ArrayList<>(Collections.nCopies(TOTALEXAMS, 0));
+		
+		String str1;
+		String str2;
 		String name;
 		String surname;
+		
 		ArrayList<Float> marks;
+		String markFormated;
+		Float mark;
+		Integer markFormatedLenght;
+		
 		String marksStr = "";
 		
+		Integer nameLength = 0;
+		Integer surnameLength = 0;
+		
 		Leer.mostrarEnPantalla("Personas");
-		System.out.printf("%-10s%-12s%9s\n", "Nombre", "Apellido", "Nota");
-		for (Student person : people) {
-			name = person.getName();
-			surname = person.getSurname();
-			marks = person.getMarks();
+//		for (Integer markPos = 0; markPos < TOTALEXAMS; markPos++) {
+//			
+//		}
+		
+		for (Student student : students) {
+			name = student.getName();
+			surname = student.getSurname();
+			marks = student.getMarks();
 			marksStr = "";
 			
-			for (Float mark : marks) {
-				marksStr += "\t" + mark;
+			nameLength = name.length();
+			surnameLength = surname.length();
+			
+			if (nameMaxLenght < nameLength) {
+				nameMaxLenght = nameLength;
 			}
 			
-			System.out.printf("%-10s%-12s%" + marksStr.length() +"s\n", name, surname, marksStr);
+			if (surnameMaxLenght < surnameLength) {
+				surnameMaxLenght = surnameLength;
+			}
+			
+			for (Integer markPos = 0; markPos < TOTALEXAMS; markPos++) {
+				mark = marks.get(markPos);
+				markFormated = format.format(mark);
+				markFormatedLenght = markFormated.length();
+				
+				
+				if (marksFormatedMaxLength.get(markPos) < markFormatedLenght) {
+					marksFormatedMaxLength.set(markPos, markFormatedLenght);
+				}
+			}
+			
 		}
+		
+		formatColumns = "%-" + nameLength + "s%-" + surnameLength + "s%";
+		for (Integer markFormatedMaxLength: marksFormatedMaxLength) {
+			formatColumns += markFormatedMaxLength + 's';
+		}
+		formatColumns += "\n";
+		System.out.printf(formatColumns, "Nombre", "Apellido", "Nota");
+		
+		for (Student student : students) {
+			
+		}
+		
+		
+//			for (Float mark : marks) {
+//				if (surnameMaxLenght < surnameLenght) {
+//					surnameMaxLenght = surnameLenght;
+//				}	
+//			}
+//				
+//			
+//			
+//			for (Float mark : marks) {
+//				markFormated = format.format(mark);
+//				marksStr += "\t" + markFormated;
+//			}
+		
+		//System.out.printf("%-10s%-12s%" + marksStr.length() +"s\n", name, surname, marksStr);
 	}
 }
