@@ -133,7 +133,86 @@ CREATE OR REPLACE
   END;
 
 -- 11.	Implementar un procedimiento que reciba un importe y visualice el desglose del cambio en unidades monetarias de 1 cent., 2 cents., 5 cents., 10 cents., 20 cents., 50 cents., 1€, 2€, 5€, 10€, 20€, 50€ en orden inverso al que aparecen aquí enumeradas.
+CREATE OR REPLACE
+PROCEDURE cambios(
+    importe FLOAT )
+IS
+  tmp_importe FLOAT;
+  coins STRING(9999);
+BEGIN
+  tmp_importe       := importe;
+  coins             := '';
+  WHILE tmp_importe <> 0
+  LOOP
+    CASE
+    WHEN tmp_importe >= 50 THEN
+      tmp_importe    := tmp_importe - 50;
+      coins          := coins || '50';
+    WHEN tmp_importe >= 20 THEN
+      tmp_importe    := tmp_importe - 20;
+      coins          := coins || '20';
+    WHEN tmp_importe >= 10 THEN
+      tmp_importe    := tmp_importe - 10;
+      coins          := coins || '10';
+    WHEN tmp_importe >= 5 THEN
+      tmp_importe    := tmp_importe - 5;
+      coins          := coins || '5';
+    WHEN tmp_importe >= 2 THEN
+      tmp_importe    := tmp_importe - 2;
+      coins          := coins || '2';
+    WHEN tmp_importe >= 1 THEN
+      tmp_importe    := tmp_importe - 1;
+      coins          := coins || '1';
+    WHEN tmp_importe >= 0.50 THEN
+      tmp_importe    := tmp_importe - 0.50;
+      coins          := coins || '0.50';
+    WHEN tmp_importe >= 0.20 THEN
+      tmp_importe    := tmp_importe - 0.20;
+      coins          := coins || '0.20';
+    WHEN tmp_importe >= 0.10 THEN
+      tmp_importe    := tmp_importe - 0.10;
+      coins          := coins || '0.10';
+    WHEN tmp_importe >= 0.05 THEN
+      tmp_importe    := tmp_importe - 0.05;
+      coins          := coins || '0.05';
+    WHEN tmp_importe >= 0.02 THEN
+      tmp_importe    := tmp_importe - 0.02;
+      coins          := coins || '0.02';
+    WHEN tmp_importe >= 0.01 THEN
+      tmp_importe    := tmp_importe - 0.01;
+      coins          := coins || '0.01';
+    ELSE
+      coins := 'Esto no son euros, lo siento...';
+      EXIT;
+    END CASE;
+    IF tmp_importe <> 0 THEN
+      coins        := coins || ', ';
+    END IF;
+  END LOOP;
+  DBMS_OUTPUT.PUT_LINE(coins);
+END;
+/
+
 -- 12.	Codificar un procedimiento que permita borrar un empleado cuyo número se pasará en la llamada.
+CREATE OR REPLACE
+PROCEDURE borrar_empleado_por_id(
+    id_empleado emple.emp_no%TYPE)
+IS
+  id_emple emple.emp_no%TYPE;
+BEGIN
+  SELECT emp_no INTO id_emple FROM emple WHERE emp_no = id_empleado;
+  DELETE FROM emple WHERE emp_no = id_emple;
+  dbms_output.put_line('Empleado del ID: ' || id_emple || ' borrado');
+  
+EXCEPTION
+WHEN NO_DATA_FOUND THEN
+  dbms_output.put_line('El ID: ' || id_empleado || ' no existe');
+END;
+/
+BEGIN
+  borrar_empleado_por_id(7934);
+END;
+
 -- 13.	Escribir un procedimiento que modifique la localidad de un departamento. El procedimiento recibirá como parámetros el número del departamento y la localidad nueva.
 -- 14.	Visualizar todos los procedimientos y funciones del usuario almacenados en la base de datos y su situación (valid o invalid).
 
