@@ -1,0 +1,87 @@
+-- 1. Desarrollar un procedimiento que visualice el apellido del cliente y la fecha de pedido de todos los pedidos ordenados por apellido.
+CREATE OR REPLACE
+PROCEDURE pedido_cliente
+IS
+  CURSOR pedido_apellido_fecha
+  IS
+    SELECT pedidos.numero_pedido,
+      clientes.apellidos,
+      pedidos.fecha_pedido
+    FROM pedidos
+    INNER JOIN clientes
+    ON pedidos.id_cliente = clientes.id_cliente
+    ORDER BY clientes.apellidos;
+  id_pedido pedidos.numero_pedido%TYPE;
+  apellido clientes.apellidos%TYPE;
+  fecha pedidos.fecha_pedido%TYPE;
+BEGIN
+  OPEN pedido_apellido_fecha;
+  LOOP
+    FETCH pedido_apellido_fecha INTO id_pedido, apellido, fecha;
+    dbms_output.put_line(chr(9)|| id_pedido || chr(9) || apellido || chr(9) || fecha);
+    EXIT WHEN pedido_apellido_fecha%NOTFOUND;
+  END LOOP;
+  CLOSE pedido_apellido_fecha;
+END;
+/
+
+-- 2. Codificar un procedimiento que muestre la descripción de cada categoría y el número de productos que tiene.
+
+-- 3. Escribir un procedimiento que reciba una cadena y visualice el apellido y el identificador de empleado de todos los empleados cuyo apellido contenga la cadena especificada. Al finalizar visualizar el número de empleados mostrados.
+
+-- 4. Escribir un programa que visualice el apellido y el total gastado de los cinco clientes que más han gastado.
+
+-- 5. Codificar un programa que visualice los dos productos que menos se han vendido de cada categoría.
+
+-- 6. Escribir un programa que muestre en formato similar a las rupturas de control los siguientes datos:
+	-- a. Para cada producto: nombre y precio_venta.
+	-- b. Para cada categoría: número de productos y valor de los productos en stock de esa categoría.
+	-- c. Al final del listado: número total de productos y valor de todos los productos en stock.
+
+-- 7. Desarrollar un procedimiento que permita insertar nuevas categorías según las siguientes especificaciones:
+
+	-- - Se pasará al procedimiento la descripción de la categoría.
+	-- - El procedimiento insertará la fila nueva asignando como número de categoría la decena siguiente al número mayor de la tabla.
+	-- - Se incluirá la gestión de posibles errores.
+
+-- 8. Escribir un procedimiento que reciba todos los datos de un nuevo producto y procese la transacción de alta, gestionando posibles errores.
+
+-- 9. Codificar un procedimiento que reciba como parámetros un número de categoría, un importe y un porcentaje, y que suba el precio a todos los productos de la categoría indicada en la llamada. La subida será el porcentaje o el importe que se indica en la llamada (el que sea más beneficioso para la empresa en cada caso).
+
+-- 10. Realizar un procedimiento que suba el precio_venta a todos los productos de la categoría indicada en la llamada (dos parámetros: id_categoria y aumento en tanto por ciento).
+-- 11. Modificar el procedimiento anterior utilizando ROWID.
+
+-- 12. Escribir un procedimiento que suba el precio de todos los productos cuyo precio_venta sea menor que el precio medio de su categoría. La subida será del 50 por 100 de la diferencia entre el precio_venta del producto y la media de su categoría. Se deberá hacer que la transacción no se quede a medias, y se gestionarán los posibles errores.
+
+-- 13. Diseñar una aplicación que simule un listado de los ingresos obtenidos de los pedidos de nuestros clientes según las siguientes especificaciones:
+
+	-- - El listado tendrá el siguiente formato:
+	-- *********************************************************
+	-- Datos del pedido:……..(1) Cliente:…(2) Empleado que atendió:…….(3) Fecha: ………..(4)
+	-- Nombre de producto: ………..(5)   unidades pedidas: ………..(6) precio por unidad: …….(7)
+	-- Número de líneas del pedido :…………..(8)
+	-- Importe total del pedido:…………..(9)
+	-- ---------------
+	-- Datos del pedido:……..(1) Cliente:…(2) Empleado que atendió:…….(3) Fecha: ………..(4)
+	-- Nombre de producto: ………..(5)   unidades pedidas: ………..(6) precio por unidad: …….(7)
+	-- Número de líneas del pedido :…………..(8)
+	-- Importe total del pedido:…………..(9)
+	-- ---------------
+	-- Importe total de todos los pedidos del cliente:…………..(10)
+
+	-- -  -  -
+
+	-- Importe total de todos los pedidos:…………..(11)
+	-- *********************************************************
+
+	-- Donde:
+	-- - 1,2, 3 y 4 corresponden a número de pedido, apellidos del cliente, apellidos del empleado y fecha del pedido.
+	-- - 5, 6 y 7 son el nombre de producto, unidades pedidas y precio por unidad aplicado a cada línea del pedido.
+	-- - 8 es el número de líneas que tiene el pedido.
+	-- - 9 es el importe total del pedido.
+	-- - 10 es el importe total de los pedidos del cliente.
+	-- - 11 es el importe total de todos los pedidos.
+
+	-- El listado irá ordenado por apellidos del cliente.
+
+-- 14. Crear la tabla T_INGRESOS con las columnas: número de pedido, apellidos del cliente, apellidos del empleado que le atendió, fecha del pedido e importe total del pedido. Modificar la aplicación anterior para que, en lugar de realizar el listado directamente en pantalla, guarde los datos en la tabla. Se controlarán todas las posibles incidencias que puedan ocurrir durante el proceso
