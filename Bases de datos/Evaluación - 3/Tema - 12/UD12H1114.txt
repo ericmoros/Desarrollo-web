@@ -209,16 +209,29 @@ WHEN NO_DATA_FOUND THEN
   dbms_output.put_line('El ID: ' || id_empleado || ' no existe');
 END;
 /
-BEGIN
-  borrar_empleado_por_id(7934);
-END;
 
 -- 13.	Escribir un procedimiento que modifique la localidad de un departamento. El procedimiento recibirá como parámetros el número del departamento y la localidad nueva.
+CREATE OR REPLACE
+PROCEDURE loc_depart(
+    param_numero_departamento depart.dept_no%TYPE,
+    param_localidad_nueva depart.loc%TYPE)
+IS
+  numero_departamento depart.dept_no%TYPE;
+  localidad depart.loc%TYPE;
+BEGIN
+  SELECT dept_no INTO numero_departamento FROM depart WHERE dept_no = param_numero_departamento;
+  SELECT loc INTO localidad FROM depart WHERE dept_no = param_numero_departamento;
+  
+  UPDATE depart SET loc = param_localidad_nueva WHERE dept_no = numero_departamento;
+  dbms_output.put_line('Localizacion actualizada de '|| localidad ||' a: ' || param_localidad_nueva);
+  NULL;
+EXCEPTION
+WHEN NO_DATA_FOUND THEN
+  dbms_output.put_line('El ID: ' || param_numero_departamento || ' no existe');
+END;
+/
+
 -- 14.	Visualizar todos los procedimientos y funciones del usuario almacenados en la base de datos y su situación (valid o invalid).
-
-
-
-
-
-
-
+SELECT object_name, status
+  FROM user_objects
+    WHERE object_type = 'FUNCTION' OR object_type = 'PROCEDURE';
