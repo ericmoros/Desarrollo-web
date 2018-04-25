@@ -42,7 +42,7 @@ public class Main {
 		final String[] SURNAMES = { "Marshall", "Blankenship", "Sheppard", "Morse", "Calderon", "Palmer", "Nolan",
 				"Silva", "Moore", "Martin" };
 		final Integer TOTALPEOPLE = 50;
-		final Integer TOTALEXAMS = 10;
+		final Integer TOTALEXAMS = 3;
 		final Integer MAXPOINTS = 100;
 		final Integer MINPOINTS = 0;
 		ArrayList<Student> students = new ArrayList<>();
@@ -106,15 +106,13 @@ public class Main {
 
 	/**
 	 * @param students
+	 * @param TOTALEXAMS
 	 * 
 	 *            Imprime por consola las personas.
-	 * @param TOTALEXAMS
 	 */
 	private static void consolePrintStudents(ArrayList<Student> students, Integer TOTALEXAMS) {
 		DecimalFormat format = new DecimalFormat("00.00");
-		ArrayList<Integer> markColumnsFormat = new ArrayList<>();
 		String formatColumns = "";
-		String markColumn = "";
 		String columnName = "Nombre";
 		String columnSurname = "Apellido";
 		String columnMark = "Nota ";
@@ -126,8 +124,6 @@ public class Main {
 		ArrayList<Integer> marksFormatedMaxLength = new ArrayList<>(Collections.nCopies(TOTALEXAMS, 0));
 		Integer result = 0;
 
-		String str1;
-		String str2;
 		String name;
 		String surname;
 
@@ -135,8 +131,6 @@ public class Main {
 		String markFormated;
 		Float mark;
 		Integer markFormatedLenght;
-
-		String marksStr = "";
 
 		Integer nameLength = 0;
 		Integer surnameLength = 0;
@@ -147,7 +141,6 @@ public class Main {
 			name = student.getName();
 			surname = student.getSurname();
 			marks = student.getMarks();
-			marksStr = "";
 
 			nameLength = name.length() + 1;
 			surnameLength = surname.length() + 1;
@@ -189,7 +182,6 @@ public class Main {
 			System.out.printf(formatColumns, tmpcm);
 		}
 		System.out.println();
-		
 
 		//
 		for (Student student : students) {
@@ -197,8 +189,7 @@ public class Main {
 			name = student.getName();
 			surname = student.getSurname();
 			marks = student.getMarks();
-			marksStr = "";
-			
+
 			System.out.printf(formatColumns, name, surname);
 
 			for (Integer markPos = 0; markPos < TOTALEXAMS; markPos++) {
@@ -207,38 +198,9 @@ public class Main {
 				result = marksFormatedMaxLength.get(markPos) + 1;
 				formatColumns = "%-" + result.toString() + 's';
 				System.out.printf(formatColumns, markFormated);
-				
+
 			}
 			System.out.println();
-
-			// System.out.printf(formatColumns, "Nombre", "Apellido", markColumns);
-			// formatColumns = "";
-			//
-			// for (Integer columnPos = 1; columnPos <= TOTALEXAMS; columnPos++) {
-			// markColumn = "Nota" + columnPos;
-			// System.out.printf();
-			// }
-			//
-
-			// for (Student student : students) {
-			//
-			// }
-
-			// for (Float mark : marks) {
-			// if (surnameMaxLenght < surnameLenght) {
-			// surnameMaxLenght = surnameLenght;
-			// }
-			// }
-			//
-			//
-			//
-			// for (Float mark : marks) {
-			// markFormated = format.format(mark);
-			// marksStr += "\t" + markFormated;
-			// }
-
-			// System.out.printf("%-10s%-12s%" + marksStr.length() +"s\n", name, surname,
-			// marksStr);
 		}
 	}
 }
