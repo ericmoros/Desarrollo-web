@@ -26,8 +26,37 @@ END;
 /
 
 -- 2. Codificar un procedimiento que muestre la descripción de cada categoría y el número de productos que tiene.
+CREATE OR REPLACE
+PROCEDURE mostrar_descripcion
+IS
+  CURSOR catDescripcion_totalProductos
+  IS
+    SELECT categorias.descripcion, SUM(productos.stock) AS total_productos
+    FROM categorias
+    INNER JOIN productos
+    ON categorias.id_categoria = productos.id_categoria
+    GROUP BY categorias.descripcion;
+BEGIN
+  FOR cdtp IN catDescripcion_totalProductos
+  LOOP
+    dbms_output.put_line(chr(9)|| cdtp.descripcion || chr(9) || cdtp.total_productos);
+  END LOOP;
+END;
+/
 
 -- 3. Escribir un procedimiento que reciba una cadena y visualice el apellido y el identificador de empleado de todos los empleados cuyo apellido contenga la cadena especificada. Al finalizar visualizar el número de empleados mostrados.
+CREATE OR REPLACE
+PROCEDURE buscar_emple(
+    str STRING)
+IS
+  CURSOR emple_found
+  IS
+    SELECT id_empleado, apellidos
+    FROM empleados
+    WHERE LOWER(apellidos) LIKE ('%' || LOWER(str) || '%');
+BEGIN
+  NULL;
+END;
 
 -- 4. Escribir un programa que visualice el apellido y el total gastado de los cinco clientes que más han gastado.
 
