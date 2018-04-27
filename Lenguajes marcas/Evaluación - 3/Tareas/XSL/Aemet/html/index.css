@@ -9,6 +9,8 @@
     min-height: 100px;
     padding: 20px;
     padding-top: 1px;
+    float: left;
+    margin: 10px;
 }
 .info-min-1 {
     width: 30%;
