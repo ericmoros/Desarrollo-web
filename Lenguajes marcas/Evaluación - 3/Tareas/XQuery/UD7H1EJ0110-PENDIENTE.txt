@@ -1,0 +1,40 @@
+1.	Mostrar los títulos de los libros con la etiqueta "titulo".
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\UD7H1EJ0110.xml")/bookstore/book
+return $book/title
+
+2.	Mostrar los libros cuyo precio sea menor o igual a 30 incluyendo la condición en la cláusula "where".
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\UD7H1EJ0110.xml")/bookstore/book
+where $book/price <= 30
+return $book
+
+3.	Mostrar los libros cuyo precio sea menor o igual a 30 incluyendo la condición en la ruta del XPath.
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\UD7H1EJ0110.xml")/bookstore/book[price <= 30]
+return $book
+
+4.	Mostrar sólo el título de los libros cuyo precio sea menor o igual a 30.
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\UD7H1EJ0110.xml")/bookstore/book[price <= 30]
+return $book/title
+
+5.	Mostrar sólo el título sin atributos de los libros cuyo precio sea menor o igual a 30
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\UD7H1EJ0110.xml")/bookstore/book[price <= 30]
+return $book/title/text()
+
+6.	Mostrar el título y el autor de los libros del año 2005, y etiquetar cada uno de ellos con "lib2005".
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\UD7H1EJ0110.xml")/bookstore/book
+where $book/year = 2005
+return <lib2005>Titulo: {$book/title/text()}, autor: {$book/author/text()}</lib2005>
+
+7.	Mostrar los años de publicación, primero con "for" y luego con "let" para comprobar la diferencia entre ellos. Etiquetar la salida con "publicacion".
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\UD7H1EJ0110.xml")/bookstore/book
+return <publicacion>{$book/year}</publicacion>
+
+let $book := doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\UD7H1EJ0110.xml")/bookstore/book
+return <publicacion>{$book/year}</publicacion>
+
+8.	Mostrar los libros ordenados primero por "category" y luego por "title" en una sola consulta.
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\UD7H1EJ0110.xml")/bookstore/book
+order by $book/@category, $book/title
+return $book
+
+9.	Mostrar el título del libro, su precio y su precio con el IVA incluido, cada uno con su propia etiqueta. Ordénalos por precio con IVA.
+10.	Mostrar los títulos en una tabla de HTML.
