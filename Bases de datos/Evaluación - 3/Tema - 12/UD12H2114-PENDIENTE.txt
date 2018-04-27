@@ -47,20 +47,69 @@ END;
 -- 3. Escribir un procedimiento que reciba una cadena y visualice el apellido y el identificador de empleado de todos los empleados cuyo apellido contenga la cadena especificada. Al finalizar visualizar el número de empleados mostrados.
 CREATE OR REPLACE
 PROCEDURE buscar_emple(
-    str STRING)
+    str empleados.apellidos%TYPE)
 IS
-  CURSOR emple_found
+  CURSOR emples_found
   IS
     SELECT id_empleado, apellidos
     FROM empleados
     WHERE LOWER(apellidos) LIKE ('%' || LOWER(str) || '%');
 BEGIN
-  NULL;
+  FOR emple IN emples_found
+  LOOP
+    dbms_output.put_LINE(chr(9)|| emple.id_empleado || chr(9) || emple.apellidos);
+  END LOOP;
 END;
-
+/
 -- 4. Escribir un programa que visualice el apellido y el total gastado de los cinco clientes que más han gastado.
+CREATE OR REPLACE
+PROCEDURE clientes_max_gastos
+IS
+  CURSOR ccmgg
+  IS
+    SELECT *
+      FROM (
+        SELECT clientes.apellidos, SUM(pedidos.precio_total) AS gastos
+          FROM CLIENTES
+          INNER JOIN pedidos
+            ON clientes.id_cliente = pedidos.id_cliente
+            
+              GROUP BY clientes.id_cliente, clientes.apellidos
+              ORDER BY SUM(pedidos.precio_total) DESC
+      )
+      WHERE ROWNUM <= 5;
+BEGIN
+  FOR cmgg IN ccmgg
+    LOOP
+      dbms_output.put_line(chr(9) || cmgg.apellidos || chr(9) || cmgg.gastos);
+    END LOOP;
+END;
+/
 
 -- 5. Codificar un programa que visualice los dos productos que menos se han vendido de cada categoría.
+CREATE OR REPLACE
+PROCEDURE productos_min_ventas
+IS
+  CURSOR ppmvv
+  IS
+    SELECT *
+      FROM (
+        SELECT productos.nombre
+          FROM productos
+          INNER JOIN detalles_pedidos
+            ON productos.numero_producto = detalles_pedidos.numero_producto
+            
+              GROUP BY productos.nombre
+              ORDER BY COUNT(*)
+      )
+      WHERE ROWNUM <= 2;
+BEGIN
+  FOR pmvv IN ppmvv
+    LOOP
+      dbms_output.put_line(chr(9) || pmvv.nombre);
+    END LOOP;
+END;
+/
 
 -- 6. Escribir un programa que muestre en formato similar a las rupturas de control los siguientes datos:
 	-- a. Para cada producto: nombre y precio_venta.
