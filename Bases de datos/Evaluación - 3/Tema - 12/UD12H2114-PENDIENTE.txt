@@ -115,6 +115,46 @@ END;
 	-- a. Para cada producto: nombre y precio_venta.
 	-- b. Para cada categoría: número de productos y valor de los productos en stock de esa categoría.
 	-- c. Al final del listado: número total de productos y valor de todos los productos en stock.
+HERE
+-- 6. Escribir un programa que muestre en formato similar a las rupturas de control los siguientes datos:
+
+-- a. Para cada producto:
+-- producto_categoria_precio
+-- numero_producto, nombre, id_categoria, precio_venta
+
+-- b. Para cada categoría: número de productos y valor de los productos en stock de esa categoría.
+-- categorias_productos_precio
+-- id_categoria, total_productos, valor
+
+-- c. Al final del listado: número total de productos y valor de todos los productos en stock.
+-- total_produtos_valor
+-- total_productos, valor
+
+CREATE OR REPLACE
+PROCEDURE rupturas
+IS
+  CURSOR producto_categoria_precio
+  IS
+    SELECT numero_producto, nombre, id_categoria, precio_venta, stock
+      FROM productos;
+  total_productos INTEGER;
+  valor FLOAT;
+BEGIN
+  dbms_output.put_line('NOMBRE, PRECIO_VENTA');
+  FOR pcp IN producto_categoria_precio
+  LOOP
+    dbms_output.put_line(pcp.nombre || ' ' || pcp.precio_venta);
+  END LOOP;
+  
+  dbms_output.put_line('CATEGORIAS, PRODUCTOS_DIFERENTES, VALOR_STOCK');
+  FOR pcp IN producto_categoria_precio
+  LOOP
+    
+  END LOOP;
+END;
+/
+
+EXECUTE rupturas;
 
 -- 7. Desarrollar un procedimiento que permita insertar nuevas categorías según las siguientes especificaciones:
 
