@@ -36,8 +36,8 @@
         </h1>
         <div id="data">
           <xsl:for-each select="root/prediccion/dia">
-            <xsl:variable name="day">
-              <xsl:copy-of select="."/>
+            <xsl:variable name="day" select=".">
+              <!--<xsl:value-of select="."/>-->
             </xsl:variable>
             <xsl:variable name="periodos">
               <array>
@@ -72,9 +72,27 @@
                       <xsl:value-of select="$hour"/>
                     </h3>
                     <p class="sky">
-                      <xsl:value-of select="$day/prob_precipitacion"/>
+                      <xsl:value-of select="$day/estado_cielo[@periodo = $hour]/@descripcion"/>
                     </p>
-                    <p class="prep">Humedad: 50%</p>
+                    <p class="prep">Humedad: <xsl:value-of select="$day/humedad_relativa/dato[@hora = substring($hour, 1, 2)]"/>%</p>
+                    <!--<p class="prep">
+                      Humedad: <xsl:value-of
+                      select="$day/humedad_relativa/dato[@hora =
+                        if(24 != substring($hour, 1, 2)) then
+                          substring($hour, 1, 2)
+                        else
+                          24]"/>%
+                    </p>
+                    <p class="prep">
+                      Humedad: <xsl:value-of
+                      select="$day/humedad_relativa/dato
+                        if(@hora = substring($hour, 1, 2)) then
+                          .
+                        else if (@hora = '24') then
+                          .
+                        else
+                          'null'"/>%
+                    </p>-->
                   </div>
                   <div class="info-min-2">
                     <p class="temperature">35ºC</p>
