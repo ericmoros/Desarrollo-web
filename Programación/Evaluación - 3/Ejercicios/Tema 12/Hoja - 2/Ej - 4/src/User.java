@@ -1,13 +1,18 @@
-import java.util.Comparator;
-
 /**
  * @author Eric Moros Pérez
  *
  */
 public class User implements Comparable<User> {
-	String nickname;
-	String password;
+	private String nickname;
+	private String password;
+	private Boolean session = false;
 	
+	public Boolean getSession() {
+		return session;
+	}
+	public void setSession(Boolean session) {
+		this.session = session;
+	}
 	public String getNickname() {
 		return nickname;
 	}

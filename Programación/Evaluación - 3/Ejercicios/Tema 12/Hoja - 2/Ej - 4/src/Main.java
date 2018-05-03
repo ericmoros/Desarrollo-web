@@ -1,8 +1,6 @@
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
 import java.util.TreeMap;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Eric Moros Pérez
@@ -41,17 +39,29 @@ public class Main {
 			for (Character option : options.toCharArray()) {
 				switch (option) {
 					case '1':
-						Leer.mostrarEnPantalla("_ Menu __________________\n"
+						Leer.mostrarEnPantalla("_ Menu ___________________________\n"
 											 + " 1 - Mostrar menu\n"
-											 + " 2 - Registrar usuario/s \n"
-											 + " 2 - Modificar contraseña \n"
-											 + "_________________________\n");
+											 + " 2 - Registrar usuario/s\n"
+											 + " 3 - Dar de baja usuario/s\n"
+											 + " 4 - Modificar contraseña\n"
+											 + " 5 - Imprimir usuarios contraseñas \n"
+											 + " 6 - Iniciar sesión\n"
+											 + "__________________________________\n");
 						break;
 					case '2':
 						signupUsers(usrPassList);
 						break;
 					case '3':
+						dropUsers(usrPassList);
+						break;
+					case '4':
 						modifyUserPassword(usrPassList);
+						break;
+					case '5':
+						showUsersPasswords(usrPassList);
+						break;
+					case '6':
+						login(usrPassList);
 						break;
 					case '0':
 						exit = true;
@@ -64,14 +74,109 @@ public class Main {
 			
 			if (exit) break;
 
-			options = Leer.pedirCadena("Introduce una de las opciones");
+			options = Leer.pedirCadena("Introduce una o varias opciones");
 			
+		}
+		
+		Leer.mostrarEnPantalla("Nos vemooos! :D");
+		try {
+			TimeUnit.MILLISECONDS.sleep(750);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		System.err.println("{Fin de programa}");
+	}
+
+	/**
+	 * @param usrPassList
+	 * 
+	 * Iniciar sesión
+	 */
+	private static void login(TreeMap<User, String> usrPassList) {
+		String name;
+		String password;
+		Integer moveNumber;
+		
+		System.err.println("\n[Iniciar sesión]");
+		
+		name = Leer.pedirCadena("Introduce el nombre del usuario");
+		password = Leer.pedirCadena("Introduce la contraseña");
+		moveNumber = Leer.pedirEntero("Introduce el nivel de seguridad");
+		password = encryptPass(password, moveNumber);
+		
+		for (User user: usrPassList.keySet()) {
+			if (user.getNickname().equals(name)) {
+				if (password.equals(usrPassList.get(user))) user.setSession(true);
+				break;
+			}
+		}
+	}
+
+	/**
+	 * @param usrPassList
+	 * 
+	 * Borrar usuario
+	 */
+	private static void dropUsers(TreeMap<User, String> usrPassList) {
+		User user = null;
+		String name;
+		String nameToDelete = "";
+		ArrayList<String> deleteName = new ArrayList<>();
+		
+		System.err.println("\n[Dar usuario de baja]");
+		
+		name = Leer.pedirCadena("Introduce el nombre del usuario");
+		
+		for (Integer charPos = 0; charPos < name.length(); charPos++) {
+			if(name.charAt(charPos) != ' ') {
+				nameToDelete += name.charAt(charPos);
+			}else if(name.charAt(charPos) == ' ') {
+				deleteName.add(nameToDelete);
+				nameToDelete = "";
+			}
+		}
+		if(name.charAt(name.length()-1)!=' ') {
+			deleteName.add(nameToDelete);
+		}
+		
+		for (String string: deleteName) {
+			for (User tmpUser: usrPassList.keySet()) {
+				if (tmpUser.getNickname().equals(string)) {
+					user = tmpUser;
+					if (user != null) usrPassList.remove(user);
+					break;
+				}
+			}
+		}
+	}
+
+	/**
+	 * @param usrPassList
+	 * 
+	 * Mostrar los datos almacenados de los usuarios
+	 */
+	private static void showUsersPasswords(TreeMap<User, String> usrPassList) {
+		String name;
+		String password;
+		Boolean session;
+		String str;
+		
+		System.err.println("\n[Usuarios]");
+		
+		for (User user : usrPassList.keySet()) {
+			name = user.getNickname();
+			password = usrPassList.get(user);
+			session = user.getSession();
+			str = "Nombre: " + name + ", " + "contraseña: " + password;
+			if (session) str += " [Conectado]";
+			Leer.mostrarEnPantalla(str);
 		}
 	}
 
 	/**
 	 * @param usrPassList 
 	 * 
+	 * Modificar la contraseña de un usuario
 	 */
 	private static void modifyUserPassword(TreeMap<User, String> usrPassList) {
 		User user = null;
@@ -79,7 +184,9 @@ public class Main {
 		String password;
 		Integer security;
 		String encryptedPass;
-		Leer.mostrarEnPantalla("[Modificar contraseña]");
+		
+		System.err.println("\n[Modificar contraseña]");
+		
 		name = Leer.pedirCadena("Nombre del usuario");
 		
 		for (User tmpUser : usrPassList.keySet()) {
@@ -101,25 +208,38 @@ public class Main {
 		
 	}
 
+	/**
+	 * @param usrPassList
+	 * 
+	 * Registrar listas de usuarios
+	 */
 	private static void signupUsers(TreeMap<User, String> usrPassList) {
 		ArrayList<User> users = new ArrayList<>();
+		
+		System.err.println("\n[Registrar usuario/s]");
+		
 		users = createUsers();
-		signup(usrPassList, users);
-		printUsers(usrPassList);
+		
+		for (User user : users) {		
+			usrPassList.put(user, user.getPassword());
+		}
 	}
 
+	/**
+	 * @return ArrayList<User>
+	 * 
+	 * Crear listas de usuarios
+	 */
 	private static ArrayList<User> createUsers() {
 		ArrayList<User> users = new ArrayList<>();
 		String exit = "0";
-		User user = new User();
+		User user;
 		String nickname = "";
 		String password = "";
-		String encryptedPass = "";
 		Integer moveNumber = 0;
-		
-		Leer.mostrarEnPantalla("[Registrar usuario/s]");
 
 		while (true) {
+			user = new User();
 			Leer.mostrarEnPantalla("(0 para salir)");
 			nickname = Leer.pedirCadena("Nombre de usuario:");
 			if (nickname.equals(exit)) break;
@@ -128,31 +248,21 @@ public class Main {
 			moveNumber = Leer.pedirEntero("Seguridad de encriptado");
 			if (moveNumber == Integer.parseInt(exit)) break;
 			// String passwordConfirm;
-			encryptedPass = encryptPass(password, moveNumber);
+			password = encryptPass(password, moveNumber);
 			user.setNickname(nickname);
-			user.setPassword(encryptedPass);
+			user.setPassword(password);
 			users.add(user);
 		}
 		return users;
 	}
-
-	private static void printUsers(TreeMap<User, String> usrPassList) {
-		String nickname;
-		String password;
-		for (User usr : usrPassList.keySet()) {
-			nickname = usr.getNickname();
-			password = usrPassList.get(usr);
-			
-			Leer.mostrarEnPantalla("Usuario: " + nickname + " Encriptada: " + password);
-		}
-	}
-
-	private static void signup(TreeMap<User, String> usrPassList, ArrayList<User> users) {
-		for (User user : users) {		
-			usrPassList.put(user, user.getPassword());
-		}
-	}
 	
+	/**
+	 * @param password
+	 * @param moveNumber
+	 * @return encryptedPass
+	 * 
+	 * Modifica los caracteres de la cadena introducida en funcion del número que se introduzca
+	 */
 	public static String encryptPass(String password, Integer moveNumber) {
 		Character charPass;
 		String encryptedPass = "";
@@ -163,5 +273,4 @@ public class Main {
 		
 		return encryptedPass;
 	}
-	
 }
