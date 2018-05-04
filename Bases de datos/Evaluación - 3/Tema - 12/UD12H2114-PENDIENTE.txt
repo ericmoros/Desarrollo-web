@@ -115,30 +115,21 @@ END;
 	-- a. Para cada producto: nombre y precio_venta.
 	-- b. Para cada categoría: número de productos y valor de los productos en stock de esa categoría.
 	-- c. Al final del listado: número total de productos y valor de todos los productos en stock.
-HERE
--- 6. Escribir un programa que muestre en formato similar a las rupturas de control los siguientes datos:
-
--- a. Para cada producto:
--- producto_categoria_precio
--- numero_producto, nombre, id_categoria, precio_venta
-
--- b. Para cada categoría: número de productos y valor de los productos en stock de esa categoría.
--- categorias_productos_precio
--- id_categoria, total_productos, valor
-
--- c. Al final del listado: número total de productos y valor de todos los productos en stock.
--- total_produtos_valor
--- total_productos, valor
-
 CREATE OR REPLACE
 PROCEDURE rupturas
 IS
   CURSOR producto_categoria_precio
   IS
-    SELECT numero_producto, nombre, id_categoria, precio_venta, stock
-      FROM productos;
-  total_productos INTEGER;
-  valor FLOAT;
+    SELECT numero_producto,
+      nombre,
+      id_categoria,
+      precio_venta,
+      stock
+    FROM productos
+    ORDER BY id_categoria;
+  id_categoria productos.id_categoria%TYPE := 1;
+  total_productos INTEGER := 0;
+  valor FLOAT             := 0;
 BEGIN
   dbms_output.put_line('NOMBRE, PRECIO_VENTA');
   FOR pcp IN producto_categoria_precio
@@ -146,15 +137,32 @@ BEGIN
     dbms_output.put_line(pcp.nombre || ' ' || pcp.precio_venta);
   END LOOP;
   
-  dbms_output.put_line('CATEGORIAS, PRODUCTOS_DIFERENTES, VALOR_STOCK');
+  dbms_output.put_line('CATEGORIAS, PRODUCTOS, VALOR_STOCK');
   FOR pcp IN producto_categoria_precio
   LOOP
-    
+    IF id_categoria = pcp.id_categoria THEN
+      total_productos := total_productos + 1;
+      valor := valor + pcp.precio_venta * pcp.stock;
+    ELSE
+      dbms_output.put_line(id_categoria || ' ' || total_productos || ' ' || valor);
+      id_categoria := pcp.id_categoria;
+      total_productos := 1;
+      valor := pcp.precio_venta * pcp.stock;
+    END IF;
   END LOOP;
+  dbms_output.put_line(id_categoria || ' ' || total_productos || ' ' || valor);
+  
+  dbms_output.put_line('total_produtos valor');
+  total_productos := 0;
+  valor := 0;
+  FOR pcp IN producto_categoria_precio
+  LOOP
+    total_productos := total_productos + 1;
+    valor := valor + pcp.precio_venta * pcp.stock;
+  END LOOP;
+  dbms_output.put_line(total_productos || ' ' || valor);
 END;
 /
-
-EXECUTE rupturas;
 
 -- 7. Desarrollar un procedimiento que permita insertar nuevas categorías según las siguientes especificaciones:
 
