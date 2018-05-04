@@ -1,0 +1,51 @@
+1. Mostrar cuántos libros hay, y etiquetarlo con "total".
+let $book := doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\H2\UD7H2EJ0113.xml")/bookstore/book
+return <total>{count($book)}</total>
+
+2. Mostrar los títulos de los libros y al final una etiqueta con el número total de libros.
+let $book := doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\H2\UD7H2EJ0113.xml")/bookstore/book
+return ($book/title, <total>{count($book)}</total>)
+
+3. Mostrar el precio mínimo y máximo de los libros.
+let $book := doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\H2\UD7H2EJ0113.xml")/bookstore/book
+return (<min>{min($book/price)}</min>, <max>{max($book/price)}</max>)
+
+4. Mostrar la suma total de los precios de los libros con la etiqueta "total".
+let $book := doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\H2\UD7H2EJ0113.xml")/bookstore/book
+return <sum>{sum($book/price)}</sum>
+
+5. Mostrar cada uno de los precios de los libros, y al final una nueva etiqueta con la suma de los precios.
+let $book := doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\H2\UD7H2EJ0113.xml")/bookstore/book
+return ($book/price, <sum>{sum($book/price)}</sum>)
+
+6. Mostrar el título y el número de autores que tiene cada título en etiquetas diferentes.
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\H2\UD7H2EJ0113.xml")/bookstore/book
+return
+<book>
+  {$book/title}
+  <authors>{count($book/author)}</authors>
+</book>
+
+7. Mostrar en la misma etiqueta el título y entre paréntesis el número de autores que tiene ese título.
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\H2\UD7H2EJ0113.xml")/bookstore/book
+return
+<book>
+  <title>{$book/title/text()} ({count($book/author)})</title>
+</book>
+
+8. Mostrar los libros escritos en años que terminen en "3".
+
+
+9. Mostrar los libros cuya categoría empiece por "C".
+
+
+10. Mostrar los libros que tengan una "X" mayúscula o minúscula en el título.
+
+
+11. Mostrar el título y el número de caracteres que tiene cada título, cada uno con su propia etiqueta.
+
+
+12. Mostrar todos los años en los que se ha publicado un libro eliminando los repetidos. Etiquétalos con "año".
+
+
+13. Mostrar todos los autores eliminando los que se repiten y ordenados por el número de caracteres que tiene cada autor.

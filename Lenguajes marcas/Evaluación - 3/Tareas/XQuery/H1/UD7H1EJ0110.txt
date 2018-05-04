@@ -37,4 +37,39 @@ order by $book/@category, $book/title
 return $book
 
 9.	Mostrar el título del libro, su precio y su precio con el IVA incluido, cada uno con su propia etiqueta. Ordénalos por precio con IVA.
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\UD7H1EJ0110.xml")/bookstore/book
+order by $book/price * 1.12
+return
+<book>
+  <title>{$book/title/text()}</title>
+  <price>{$book/price/text()}</price>
+  <price-iva>{$book/price * 1.12}</price-iva>
+</book> 
+
 10.	Mostrar los títulos en una tabla de HTML.
+<html lang="es">
+  <head>
+    <META http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Ej - 10</title>
+    <meta author="Eric Moros Pérez"/>
+  </head>
+  <body>
+    <table class="info-table" id="19:00">
+      <tbody>
+        <tr>
+          <th>Titulos</th>
+        </tr>
+        {
+          for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\UD7H1EJ0110.xml")/bookstore/book
+          return
+          <tr>
+            <td>{$book/title/text()}</td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </body>
+</html>
