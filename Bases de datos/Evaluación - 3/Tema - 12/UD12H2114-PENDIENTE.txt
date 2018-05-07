@@ -165,12 +165,65 @@ END;
 /
 
 -- 7. Desarrollar un procedimiento que permita insertar nuevas categorías según las siguientes especificaciones:
-
 	-- - Se pasará al procedimiento la descripción de la categoría.
 	-- - El procedimiento insertará la fila nueva asignando como número de categoría la decena siguiente al número mayor de la tabla.
 	-- - Se incluirá la gestión de posibles errores.
+-- 7. Desarrollar un procedimiento que permita insertar nuevas categorías según las siguientes especificaciones:
+-- - Se pasará al procedimiento la descripción de la categoría.
+-- - El procedimiento insertará la fila nueva asignando como número de categoría la decena siguiente al número mayor de la tabla.
+-- - Se incluirá la gestión de posibles errores.
+CREATE OR REPLACE
+PROCEDURE insertar_categoria(
+    str_categoria STRING)
+IS
+  id_categoria categorias.id_categoria%TYPE;
+  ex_descripcion EXCEPTION;
+BEGIN
+  SELECT id_categoria INTO id_categoria
+    FROM categorias
+      WHERE descripcion LIKE str_categoria ;
+      
+  dbms_output.put_line('La descripción: (' || id_categoria || ')' || str_categoria || ' ya existe');
+  
+EXCEPTION
+  WHEN no_data_found THEN
+    SELECT MAX(id_categoria) INTO id_categoria FROM categorias;
+    id_categoria := id_categoria - id_categoria mod 10 + 10;
+    INSERT INTO categorias VALUES (id_categoria, str_categoria);
+    dbms_output.put_line('Insertada descripción: (' || id_categoria || ')' || str_categoria);
+END;
+/
+EXECUTE insertar_categoria('accesorios');
 
 -- 8. Escribir un procedimiento que reciba todos los datos de un nuevo producto y procese la transacción de alta, gestionando posibles errores.
+-- 8. Escribir un procedimiento que reciba todos los datos de un nuevo producto
+--    y procese la transacción de alta, gestionando posibles errores.
+CREATE OR REPLACE
+PROCEDURE alta_producto(
+    ap_NOMBRE          VARCHAR2,
+    ap_DESCRIPCION     VARCHAR2,
+    ap_PRECIO_VENTA    NUMBER,
+    ap_STOCK           NUMBER,
+    ap_ID_CATEGORIA    NUMBER)
+IS
+  ap_NUMERO_PRODUCTO NUMBER;
+  
+  tmp_NOMBRE          VARCHAR2;
+  tmp_DESCRIPCION     VARCHAR2;
+  tmp_PRECIO_VENTA    NUMBER;
+  tmp_STOCK           NUMBER;
+  tmp_ID_CATEGORIA    NUMBER;
+BEGIN
+  SELECT NOMBRE INTO tmp_NOMBRE FROM productos WHERE productos.tmp_NOMBRE LIKE tmp_NOMBRE;
+  dbms_output.put_line(tmp_NOMBRE);
+  SELECT id_categoria INTO tmp_id_categoria FROM categorias WHERE categorias.id_categoria = ap_id_categoria;
+  dbms_output.put_line(tmp_id_categoria);
+EXCEPTION
+  WHEN no_data_found THEN
+    dbms_output.put_line('La categoría con ID: ' || ap_id_categoria || ' no existe');
+END;
+/
+EXECUTE alta_producto('LECHUGADORA', 'Corta lechguas', 20.5, 2, 100);
 
 -- 9. Codificar un procedimiento que reciba como parámetros un número de categoría, un importe y un porcentaje, y que suba el precio a todos los productos de la categoría indicada en la llamada. La subida será el porcentaje o el importe que se indica en la llamada (el que sea más beneficioso para la empresa en cada caso).
 
