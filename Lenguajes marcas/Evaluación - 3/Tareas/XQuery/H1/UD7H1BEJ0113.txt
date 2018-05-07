@@ -34,18 +34,26 @@ return
 </book>
 
 8. Mostrar los libros escritos en años que terminen en "3".
-
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\H2\UD7H2EJ0113.xml")/bookstore/book
+return $book[year/ends-with(text(),'3')]
 
 9. Mostrar los libros cuya categoría empiece por "C".
-
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\H2\UD7H2EJ0113.xml")/bookstore/book
+return $book[starts-with(@category,'C')]
 
 10. Mostrar los libros que tengan una "X" mayúscula o minúscula en el título.
-
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\H2\UD7H2EJ0113.xml")/bookstore/book
+return $book[title/contains(lower-case(text()),'x')]
 
 11. Mostrar el título y el número de caracteres que tiene cada título, cada uno con su propia etiqueta.
-
+for $book in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\H2\UD7H2EJ0113.xml")/bookstore/book
+return <book>{$book/title}<length>{$book/title/string-length()}</length></book>
 
 12. Mostrar todos los años en los que se ha publicado un libro eliminando los repetidos. Etiquétalos con "año".
-
+for $year in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\H2\UD7H2EJ0113.xml")/distinct-values(/bookstore/book/year)
+return <año>{$year}</año>
 
 13. Mostrar todos los autores eliminando los que se repiten y ordenados por el número de caracteres que tiene cada autor.
+for $author in doc("C:\Users\Eric Moros Pérez\Documents\Desarrollo-web\Lenguajes marcas\Evaluación - 3\Tareas\XQuery\H2\UD7H2EJ0113.xml")/distinct-values(/bookstore/book/author)
+order by string-length($author)
+return <autor>{$author}</autor>
