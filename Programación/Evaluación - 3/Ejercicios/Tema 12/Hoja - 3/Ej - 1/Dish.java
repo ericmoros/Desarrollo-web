@@ -24,11 +24,14 @@ public class Dish {
 	}
 	public void setIngredients(ArrayList<String> ingredients) {
 		this.ingredients = ingredients;
+		this.price = ingredients.size() * 0.25F;
 	}
 	public Float getPrice() {
 		return price;
 	}
-	public void setPrice() {
-		this.price += ingredients.size() * 1.5F;
+	
+	@Override
+	public String toString() {
+		return "" + name + ", " + ingredients + ", " + price + " || ";
 	}
 }
