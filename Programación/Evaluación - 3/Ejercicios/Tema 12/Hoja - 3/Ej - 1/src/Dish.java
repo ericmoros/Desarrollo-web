@@ -5,7 +5,7 @@ import java.util.ArrayList;
  */
 
 /**
- * @author Eric Moros Pérez
+ * @author Eric Moros PÃ©rez
  *
  */
 public class Dish {
@@ -24,7 +24,7 @@ public class Dish {
 	}
 	public void setIngredients(ArrayList<String> ingredients) {
 		this.ingredients = ingredients;
-		this.price = ingredients.size() * 0.25F;
+		this.price = ingredients.size() * 0.5F;
 	}
 	public Float getPrice() {
 		return price;
@@ -32,6 +32,6 @@ public class Dish {
 	
 	@Override
 	public String toString() {
-		return "" + name + ", " + ingredients + ", " + price + " || ";
+		return "" + name + ", " + ingredients + ", " + price + "\n";
 	}
 }
