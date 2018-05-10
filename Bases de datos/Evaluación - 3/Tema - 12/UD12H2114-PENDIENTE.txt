@@ -227,7 +227,47 @@ EXECUTE alta_producto('LECHUGADORA', 'Corta lechguas', 20.5, 2, 100);
 
 -- 9. Codificar un procedimiento que reciba como parámetros un número de categoría, un importe y un porcentaje, y que suba el precio a todos los productos de la categoría indicada en la llamada. La subida será el porcentaje o el importe que se indica en la llamada (el que sea más beneficioso para la empresa en cada caso).
 
--- 10. Realizar un procedimiento que suba el precio_venta a todos los productos de la categoría indicada en la llamada (dos parámetros: id_categoria y aumento en tanto por ciento).
+
+-- 10.  Realizar un procedimiento que suba el precio_venta a todos los productos
+--      de la categoría indicada en la llamada (dos parámetros: id_categoria y aumento
+--      en tanto por ciento).
+CREATE OR REPLACE
+PROCEDURE subir_precio(
+    p_id_categoria categorias.id_categoria%TYPE,
+    p_porcentaje_aumento INTEGER)
+IS
+  tmp_categoria categorias.id_categoria%TYPE;
+  to_low_value EXCEPTION;
+BEGIN
+  --CATEGORIAS
+  SELECT id_categoria
+  INTO tmp_categoria
+    FROM categorias
+      WHERE id_categoria = p_id_categoria;
+  
+  --PRODUCTOS
+  SELECT id_categoria
+  INTO tmp_categoria
+    FROM productos
+      WHERE id_categoria = p_id_categoria
+      AND ROWNUM = 1;
+  
+  IF p_porcentaje_aumento < 1 THEN
+    RAISE to_low_value;
+  END IF;
+  
+  UPDATE productos SET precio_venta = precio_venta * (1 + p_porcentaje_aumento / 100)
+    WHERE id_categoria = p_id_categoria;
+    
+  dbms_output.put_line('Precios de la categoría ' || p_id_categoria || ' aumentados un ' || p_porcentaje_aumento || '% en la tabla PRODUCTOS');
+EXCEPTION
+  WHEN no_data_found THEN
+    dbms_output.put_line('La categoría: ' || p_id_categoria || ' no existe');
+  WHEN to_low_value THEN
+    dbms_output.put_line('El valor mínimo del porcentaje es 1. Porcentaje introducido: ' || p_porcentaje_aumento || ' (ID:' || p_id_categoria || ')');
+END;
+/
+
 -- 11. Modificar el procedimiento anterior utilizando ROWID.
 
 -- 12. Escribir un procedimiento que suba el precio de todos los productos cuyo precio_venta sea menor que el precio medio de su categoría. La subida será del 50 por 100 de la diferencia entre el precio_venta del producto y la media de su categoría. Se deberá hacer que la transacción no se quede a medias, y se gestionarán los posibles errores.
