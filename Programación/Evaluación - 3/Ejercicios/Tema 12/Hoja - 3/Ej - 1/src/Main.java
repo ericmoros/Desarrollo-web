@@ -22,6 +22,7 @@ public class Main {
 		Boolean exit = false;
 
 		while (true) {
+			loadDishes(dishes1, dishes2);
 			for (Character option : options.toCharArray()) {
 				switch (option) {
 					case '1':
@@ -34,37 +35,16 @@ public class Main {
 											 + "__________________________________\n");
 						break;
 					case '2':
-						String str = "";
-						ArrayList<String> ingredients;
-
-						loadDishes(dishes1, dishes2);
-
-						System.out.println("[Platos]");
-						System.out.println("+----------+");
-						System.out.println("| Primeros |");
-						System.out.println("+----------+");
-						for (Dish dish : dishes1) {
-							System.out.println(dish.getName());
-							System.out.println("\t"+ dish.getIngredients());
-						}
-						
-						System.out.println("+----------+");
-						System.out.println("| Segundos |");
-						System.out.println("+----------+");
-						for (Dish dish : dishes2) {
-							System.out.println(dish.getName());
-							System.out.println("\t"+ dish.getIngredients());
-						}
-
+						showDishes(dishes1, dishes2);
 						break;
 					case '3':
-						//dropUsers(usrPassList);
+						showMenu(menus);
 						break;
 					case '4':
 						//modifyUserPassword(usrPassList);
 						break;
 					case '5':
-						//showUsersPasswords(usrPassList);
+						menus = generateMenus(totalMenus, dishes1, dishes2);
 						break;
 					case '6':
 						//login(usrPassList);
@@ -91,6 +71,26 @@ public class Main {
 			e.printStackTrace();
 		}
 		System.err.println("{Fin de programa}");
+	}
+
+	private static void showDishes(ArrayList<Dish> dishes1, ArrayList<Dish> dishes2) {
+		System.out.println("[Platos]");
+						System.out.println("+----------+");
+						System.out.println("| Primeros |");
+						System.out.println("+----------+");
+						printDish(dishes1);
+						
+						System.out.println("+----------+");
+						System.out.println("| Segundos |");
+						System.out.println("+----------+");
+						printDish(dishes2);
+	}
+
+	private static void printDish(ArrayList<Dish> dishes) {
+		for (Dish dish : dishes) {
+			System.out.println(dish.getName());
+			System.out.println("\t"+ dish.getIngredients());
+		}
 	}
 
 	public static void loadDishes(ArrayList<Dish> dishes, ArrayList<Dish> dishes2) {
@@ -178,5 +178,14 @@ public class Main {
 		BufferedReader bufferReader = new BufferedReader(streamReader);
 		bufferReader.lines().forEach(line -> destinyArray.add(line));
 		return destinyArray;
+	}
+
+	private static void showMenu(ArrayList<ArrayList<Dish>> menus) {
+		Integer menuCount = 1;
+		for (ArrayList<Dish> menu : menus) {
+			System.out.println("Menu" + menuCount);
+			printDish(menu);
+			menuCount++;
+		}
 	}
 }

@@ -16,7 +16,7 @@ import java.util.regex.PatternSyntaxException;
 public class Leer {
 	
 	/**
-	 * Método para imprimir mensaje que se repetía
+	 * Mï¿½todo para imprimir mensaje que se repetï¿½a
 	 */
 	static public void mostrarEnPantalla(String mensage){
 		System.out.println(mensage);
@@ -46,7 +46,7 @@ public class Leer {
 
 	/**
 	 * @param texto - Referencia al contenido del dato solicitado
-	 * @param regex - expresión regular a aplicar. Si es null no aplica ninguna
+	 * @param regex - expresiï¿½n regular a aplicar. Si es null no aplica ninguna
 	 * @return dato - cadena introducida por teclado
 	 */
 	static public String pedirCadena(final String texto, String regex) {
@@ -70,7 +70,7 @@ public class Leer {
 				mostrarEnPantalla("Vuelve a introducir el dato, por favor. ");
 				error = true;
 			} catch (PatternSyntaxException e){
-				mostrarEnPantalla("La expresión regular no es correcta.");
+				mostrarEnPantalla("La expresiï¿½n regular no es correcta.");
 				System.exit(0);
 			}
 		}
@@ -103,7 +103,7 @@ public class Leer {
 
 	/**
 	 * @param texto - Referencia al contenido del dato solicitado
-	 * @param regex - expresión regular a aplicar. Si es null se aplica un entero genérico
+	 * @param regex - expresiï¿½n regular a aplicar. Si es null se aplica un entero genï¿½rico
 	 * @return dato - Entero tecleado
 	 */
 	static public Integer pedirEntero(final String texto, String regex) {
@@ -133,7 +133,7 @@ public class Leer {
 				mostrarEnPantalla("El dato introducido no es entero.");
 				error=true;
 			} catch (PatternSyntaxException e){
-				mostrarEnPantalla("La expresión regular no es correcta.");
+				mostrarEnPantalla("La expresiï¿½n regular no es correcta.");
 				System.exit(0);
 			}
 		}
@@ -166,7 +166,7 @@ public class Leer {
 
 	/**
 	 * @param texto - Referencia al contenido del dato solicitado
-	 * @param regex - expresión regular a aplicar. Si es null se aplica un double genérico
+	 * @param regex - expresiï¿½n regular a aplicar. Si es null se aplica un double genï¿½rico
 	 * @return dato - Double tecleado
 	 */
 	static public Double pedirDouble(final String texto, String regex) {
@@ -196,7 +196,7 @@ public class Leer {
 				mostrarEnPantalla("El dato introducido no es decimal.");
 				error=true;
 			} catch (PatternSyntaxException e){
-				mostrarEnPantalla("La expresión regular no es correcta.");
+				mostrarEnPantalla("La expresiï¿½n regular no es correcta.");
 				System.exit(0);
 			}
 		}
@@ -229,7 +229,7 @@ public class Leer {
 
 	/**
 	 * @param texto - Referencia al contenido del dato solicitado
-	 * @param regex - expresión regular a aplicar. Si es null se aplica un float genérico
+	 * @param regex - expresiï¿½n regular a aplicar. Si es null se aplica un float genï¿½rico
 	 * @return dato - Float tecleado
 	 */
 	static public Float pedirFloat(final String texto, String regex) {
@@ -259,7 +259,7 @@ public class Leer {
 				mostrarEnPantalla("El dato introducido no es decimal.");
 				error=true;
 			} catch (PatternSyntaxException e){
-				mostrarEnPantalla("La expresión regular no es correcta.");
+				mostrarEnPantalla("La expresiï¿½n regular no es correcta.");
 				System.exit(0);
 			}
 		}
