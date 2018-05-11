@@ -1,0 +1,45 @@
+-- 1.	Escribe un trigger que permita auditar las operaciones de inserción o borrado de datos que se realicen en la tabla CATEGORÍAS según las siguientes especificaciones:
+-- 	a.	Primero se deberá crear la tabla AUDITACATEGORIAS con las columnas fecha, id_categoria, tipo_operacion. 
+-- 	b.	Cuando se produzca cualquier manipulación, se insertará una fila en dicha tabla que contendrá (en la columna correspondiente):
+-- 	Fecha y hora, Id de la categoría, la operación de actualización: INSERCIÓN O BORRADO.
+CREATE OR REPLACE TRIGGER auditar_categorias AFTER
+  INSERT OR DELETE ON categorias FOR EACH ROW
+DECLARE
+  ac_exists all_objects.object_id%TYPE;
+BEGIN
+  SELECT object_id INTO ac_exists
+    FROM all_objects
+      WHERE object_type IN ('TABLE')
+      AND object_name    = 'AUDITACATEGORIAS';
+      
+  IF inserting THEN
+    INSERT INTO auditacategorias VALUES (SYSDATE, :new.id_categoria, 'INSERT','');
+  ELSIF deleting THEN
+    INSERT INTO auditacategorias VALUES (SYSDATE, :old.id_categoria, 'DELETE','');
+  END IF;
+EXCEPTION
+  WHEN no_data_found THEN
+    dbms_output.put_line('La tabla "AUDITACATEGORIAS" no existe');
+    
+END auditar_categorias;
+/
+
+-- 2.	Añadir la columna datos a la tabla AUDITACATEGORIAS, para que se pueda insertar texto.
+-- 	Escribir un trigger que permita auditar las modificaciones en la tabla CATEGORIAS, según las siguientes especificaciones:
+-- 	•	Cuando se produzca cualquier manipulación, se insertará una fila en dicha tabla que contendrá (en la columna correspondiente):
+-- 	Fecha y hora, Id de la categoría, la operación de actualización MODIFICACIÓN, y el valor anterior y nuevo de cada columna modificada (esto último se insertará en la columna datos).
+
+
+-- 3.	Añade las siguientes columnas a la tabla CLIENTES: fecha_modificacion de tipo date, tipo_modificación (inserción, actualización o borrado) y modificado_por de tipo texto.
+-- 	Realiza un programa que cree una secuencia llamada seq_id_cliente que empiece por el número siguiente al identificador más alto de la tabla CLIENTES y que vaya aumentando de 1 en 1.
+-- 	Crea ahora un trigger de modo que, cada vez que se realice una inserción en la tabla CLIENTES se inserten en los campos fecha_modificación, tipo_modificación y modificado_por: la fecha en que se ha realizado la inserción, el tipo de modificación que es (INSERCIÓN) y el usuario de la base de datos que ha realizado dicha inserción, respectivamente, y como identificador del cliente se va a insertar el siguiente valor de la secuencia creada anteriormente.
+
+
+-- 4.	Modifica el trigger del ejercicio anterior para que haga lo siguiente:
+-- 	a.	Cada  vez que se inserta una fila en la tabla CLIENTES haga lo mismo que en el ejercicio anterior.
+-- 	b.	Cada vez que se modifica una fila de la tabla CLIENTES inserte la fecha de modificación, tipo de modificación (ACTUALIZACIÓN) y la persona que lo ha modificado en las columnas respectivas.
+-- 	¡TENER EN CUENTA QUE EL IDENTIFICADOR DEL CLIENTE SOLO SE DEBE CAMBIAR CUANDO SE HACE UNA INSERCIÓN EN LA TABLA!
+
+
+-- 5.	Ejecuta el script poblaciones.txt que creará una nueva tabla POBLACIONES que contendrá poblaciones con códigos postales.
+-- 	Ahora crea un trigger que no permita insertar clientes nuevos en la base de datos cuyo código postal no se encuentre en la tabla POBLACIONES.
