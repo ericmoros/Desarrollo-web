@@ -9,7 +9,7 @@
             "name": "Debug (Launch)-Main",
             "request": "launch",
             "cwd": "${workspaceFolder}",
-            "console": "integratedTerminal",
+            "console": "externalTerminal",
             "stopOnEntry": false,
             "mainClass": "Main",
             "args": ""

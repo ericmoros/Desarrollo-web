@@ -6,9 +6,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Random;
-import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
@@ -19,11 +17,13 @@ public class Main {
 		Integer totalMenus = 3;
 
 		String options = "1";
+		Character option;
 		Boolean exit = false;
 
 		while (true) {
 			loadDishes(dishes1, dishes2);
-			for (Character option : options.toCharArray()) {
+			for (Integer optionPos = 0; optionPos < options.length(); optionPos++) {
+				option = options.charAt(optionPos);
 				switch (option) {
 					case '1':
 						Leer.mostrarEnPantalla("_ Menu ________________(0-Salir)__\n"
@@ -41,19 +41,16 @@ public class Main {
 						showMenu(menus);
 						break;
 					case '4':
-						//modifyUserPassword(usrPassList);
+						addDishes(dishes1, dishes2);
 						break;
 					case '5':
 						menus = generateMenus(totalMenus, dishes1, dishes2);
-						break;
-					case '6':
-						//login(usrPassList);
 						break;
 					case '0':
 						exit = true;
 						break;
 					default:
-						options += '1';
+						options += noOption(option, "1");
 				}
 
 			}
@@ -64,6 +61,32 @@ public class Main {
 			
 		}
 		
+		selfdestruction();
+	}
+	
+	//MENU
+	private static void noOption(Character option) {
+		System.err.println("La opción: '" + option + "' no existe");
+		try {
+			TimeUnit.MILLISECONDS.sleep(750);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static String noOption(Character option, String optionNew) {
+		noOption(option);
+		if (optionNew.length() == 1) Leer.mostrarEnPantalla("Añadida la opción '" + optionNew + "' a la cola de trabajo");
+		else Leer.mostrarEnPantalla("Añadida/s la/s opción/es \"" + optionNew + "\" a la cola de trabajo");
+		try {
+			TimeUnit.MILLISECONDS.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		return optionNew;
+	}
+
+	private static void selfdestruction() {
 		Leer.mostrarEnPantalla("Nos vemooos! :D");
 		try {
 			TimeUnit.MILLISECONDS.sleep(750);
@@ -71,6 +94,10 @@ public class Main {
 			e.printStackTrace();
 		}
 		System.err.println("{Fin de programa}");
+	}
+	
+	//PROGRAMA
+	private static void addDishes(ArrayList<Dish> dishes1, ArrayList<Dish> dishes2) {
 	}
 
 	private static void showDishes(ArrayList<Dish> dishes1, ArrayList<Dish> dishes2) {
@@ -101,18 +128,12 @@ public class Main {
 		dataRows = getFileLines("data/dishes.dat");
 		dataLists = getCSVStyle(dataRows, ";");
 		tmpDishes = getDishesFromLists(dataLists);
-		for (Dish dish : tmpDishes) {
-			dishes.add(dish);
-		}
-
-		tmpDishes.clear();
+		dishes.addAll(tmpDishes);
 
 		dataRows = getFileLines("data/dishes2.dat");
 		dataLists = getCSVStyle(dataRows, ";");
 		tmpDishes = getDishesFromLists(dataLists);
-		for (Dish dish : tmpDishes) {
-			dishes2.add(dish);
-		}
+		dishes2.addAll(tmpDishes);
 	}
 
 	private static ArrayList<ArrayList<Dish>> generateMenus(Integer totalMenus, ArrayList<Dish> dishes, ArrayList<Dish> dishes2) {
