@@ -1,0 +1,5 @@
+﻿Nombre; Ciudad; Pabellon; Aforo; Ligas; Copas
+Basket Zaragoza 2002; Zaragoza; Principe Felipe; 12.000; 0; 2
+F.C. Barcelona; Barcelona; Palau Blaugrana; 7.585; 18; 20
+Real Madrid; Madrid; Palacio de los deportes; 15.000; 33; 27
+Estudiantes; Madrid; Palacio de los deportes; 15.000; 0;3

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<socios-futbol>
+  <equipo nombre="Real Madrid" socios="61.000" />
+  <equipo nombre="F.C. Barcelona" socios="85.000" />
+  <equipo nombre="Atletico de Madrid" socios="54.000" />
+  <equipo nombre="Real Zaragoza" socios="21.000" />
+</socios-futbol>

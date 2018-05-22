@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<baloncesto>
+  <equipo>
+    <nombre>Basket Zaragoza 2002</nombre>
+    <ciudad>Zaragoza</ciudad>
+    <pabellon>Principe Felipe</pabellon>
+    <aforo>12.000</aforo>
+    <ligas>0</ligas>
+    <copas>2</copas>
+  </equipo>
+  <equipo>
+    <nombre>F.C. Barcelona</nombre>
+    <ciudad>Barcelona</ciudad>
+    <pabellon>Palau Blaugrana</pabellon>
+    <aforo>7.585</aforo>
+    <ligas>18</ligas>
+    <copas>20</copas>
+  </equipo>
+  <equipo>
+    <nombre>Real Madrid</nombre>
+    <ciudad>Madrid</ciudad>
+    <pabellon>Palacio de los deportes</pabellon>
+    <aforo>15.000</aforo>
+    <ligas>33</ligas>
+    <copas>27</copas>
+  </equipo>
+  <equipo>
+    <nombre>Estudiantes</nombre>
+    <ciudad>Madrid</ciudad>
+    <pabellon>Palacio de los deportes</pabellon>
+    <aforo>15.000</aforo>
+    <ligas>0</ligas>
+    <copas>3</copas>
+  </equipo>
+</baloncesto>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<socios-futbol>
+  <equipo>
+    <nombre>Real Madrid</nombre>
+    <ligas>33</ligas>
+  </equipo>
+  <equipo>
+    <nombre>F.C. Barcelona</nombre>
+    <ligas>24</ligas>
+  </equipo>
+  <equipo>
+    <nombre>Atletico de Madrid</nombre>
+    <ligas>10</ligas>
+  </equipo>
+</socios-futbol>

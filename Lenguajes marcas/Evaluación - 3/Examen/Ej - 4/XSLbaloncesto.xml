@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<baloncesto>
+  <equipo>
+    <nombre>F.C. Barcelona</nombre>
+    <ligas>18</ligas>
+  </equipo>
+  <equipo>
+    <nombre>Real Madrid</nombre>
+    <ligas>33</ligas>
+  </equipo>
+</baloncesto>

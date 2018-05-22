@@ -1,0 +1,68 @@
+<informaticos_ilustres>
+<informatico>
+  <nombre>Robert Noyce</nombre>
+  <trabajo_con>Solo</trabajo_con>
+  <merito>Inventor del microchip. Cofundador de INTEL</merito>
+  <añoHito>1959</añoHito>
+</informatico>
+<informatico>
+  <nombre>Ada Augusta Byron</nombre>
+  <trabajo_con>Charles Babagge</trabajo_con>
+  <merito>La primera programadora de computadoras de la historia al escribir varios programas para la Máquina Analítica</merito>
+  <añoHito>1841</añoHito>
+</informatico>
+<informatico>
+  <nombre>Herman Hollerith</nombre>
+  <trabajo_con>Solo</trabajo_con>
+  <merito>El primer informático al construir la máquina de tarjetas perforadas de tabulación para el procesamiento de datos</merito>
+  <añoHito>1884</añoHito>
+</informatico>
+<informatico>
+  <nombre>Jack Kilby</nombre>
+  <trabajo_con>Solo</trabajo_con>
+  <merito>Inventor del microchip. Y de la calculadora de bolsillo. Y de la impresora térmica. Premio Nobel de Física en el 2000</merito>
+  <añoHito>1958</añoHito>
+</informatico>
+<informatico>
+  <nombre>Brendan Eich</nombre>
+  <trabajo_con>Solo</trabajo_con>
+  <merito>Inventor del lenguaje Javascript</merito>
+  <añoHito>1995</añoHito>
+</informatico>
+<informatico>
+  <nombre>Larry Roberts</nombre>
+  <trabajo_con>Vinton Cerf, Robert Kahn</trabajo_con>
+  <merito>Padre de Internet al ser el principal arquitecto de ARPAnet, precursora de Internet</merito>
+  <añoHito>1969</añoHito>
+</informatico>
+<informatico>
+  <nombre>Tim Berners-Lee</nombre>
+  <trabajo_con>Robert Cailliau</trabajo_con>
+  <merito>Padre de la Web por crear el protocolo HTTP y el lenguaje HTML. Creó el W3C</merito>
+  <añoHito>1991</añoHito>
+</informatico>
+<informatico>
+  <nombre>Vinton Cerf</nombre>
+  <trabajo_con>Robert Kahn</trabajo_con>
+  <merito>Padre de Internet por diseñar la familia de protocolos TCP/IP</merito>
+  <añoHito>1972</añoHito>
+</informatico>
+<informatico>
+  <nombre>Charles Babagge</nombre>
+  <trabajo_con>Solo</trabajo_con>
+  <merito>Padre de la computación. Diseño Máquina Analítica, considerada como la primera computadora de propósito general</merito>
+  <añoHito>1835</añoHito>
+</informatico>
+<informatico>
+  <nombre>Robert Kahn</nombre>
+  <trabajo_con>Vinton Cerf</trabajo_con>
+  <merito>Padre de Internet por diseñar la familia de protocolos TCP/IP</merito>
+  <añoHito>1972</añoHito>
+</informatico>
+<informatico>
+  <nombre>Robert Cailliau</nombre>
+  <trabajo_con>Tim Berners-Lee</trabajo_con>
+  <merito>Creador de la Web por colaborar al escribir el sistema hipertexto</merito>
+  <añoHito>1991</añoHito>
+</informatico>
+</informaticos_ilustres>

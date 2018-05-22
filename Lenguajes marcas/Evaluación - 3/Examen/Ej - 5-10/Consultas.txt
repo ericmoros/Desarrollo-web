@@ -1,0 +1,72 @@
+5- (0.25 puntos) Obtener el nombre de todos los informáticos ilustres.
+for $informatico in informaticos_ilustres/informatico
+return $informatico/nombre
+
+6- (0.25 puntos) Obtener el nombre de los informáticos ilustres cuyo nombre acabe por la letra "e".
+for $informatico in informaticos_ilustres/informatico
+return $informatico/nombre[ends-with(., 'e')]
+
+7- (0.5  puntos) Encontrar aquellos informáticos ilustres cuyo trabajo esté relacionado con el origen de "Internet".
+for $informatico in informaticos_ilustres/informatico
+return $informatico[contains(merito, "Internet")]
+
+8- (0.5  puntos) Obtener el nombre de los informáticos ilustres que trabajaron en el siglo XIX sin colaboración de nadie.
+for $informatico in informaticos_ilustres/informatico
+return $informatico[añoHito >= 1800 and añoHito < 1900 and trabajo_con='Solo']
+
+9- (1.25 puntos) Realiza una conversión de formato XML del fichero informaticos_ilustres.xml de forma que los datos de cada informático ilustre se muestren como los valores de atributos de un único nodo elemento. Además debe aparecer sólo aquello que realizaron su trabajo en el siglo XIX junto con un nuevo elemento con la cantidad de estos.
+let $informaticos := informaticos_ilustres/informatico[añoHito >= 1800 and añoHito < 1900 and trabajo_con='Solo']
+return
+<informaticos_ilustres_sxix>
+{
+for $informatico in informaticos_ilustres/informatico
+where  $informatico[añoHito >= 1800 and añoHito < 1900 and trabajo_con='Solo']
+return
+  <informatico
+    nombre="{$informatico/nombre}"
+    trabajo_con="{$informatico/trabajo_con}"
+    merito="{$informatico/merito}"
+    añoHito="{$informatico/añoHito}"
+  >
+  </informatico>
+}
+<numero_informaticos>{count($informaticos)}</numero_informaticos>
+</informaticos_ilustres_sxix>
+
+10-(1.25 puntos) Realiza una conversión del formato XML del fichero informaticos_ilustres.xml, para conseguir una transformación a HTML mostrando una tabla en la que los datos de cada informático ilustre aparezca en una de sus filas. Estas debe aparecer ordenadas según año de hito.
+<html lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Ej - 10</title>
+    <meta author="Eric Moros Pérez"/>
+    <link rel="stylesheet" href="html.css"/>
+  </head>
+  <body>
+    <table>
+      <caption>Informáticos ilustres</caption>
+      <tbody>
+        <tr>
+          <th>nombre</th>
+          <th>colaborador</th>
+          <th>merito</th>
+          <th>año del hito</th>
+        </tr>
+        {
+        for $informatico in informaticos_ilustres/informatico
+        order by $informatico/añoHito
+        return
+        <tr>
+          <td>{$informatico/nombre/text()}</td>
+          <td>{$informatico/trabajo_con/text()}</td>
+          <td>{$informatico/merito/text()}</td>
+          <td>{$informatico/añoHito/text()}</td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </body>
+</html>

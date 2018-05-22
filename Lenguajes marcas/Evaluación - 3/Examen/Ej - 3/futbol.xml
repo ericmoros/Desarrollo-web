@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<futbol>
+  <equipo>
+    <nombre>Real Madrid</nombre>
+    <fundacion>1902</fundacion>
+    <ciudad>Madrid</ciudad>
+    <socios>61.000</socios>
+    <ligas>33</ligas>
+    <copas>19</copas>
+  </equipo>
+  <equipo>
+    <nombre>F.C. Barcelona</nombre>
+    <fundacion>1899</fundacion>
+    <ciudad>Barcelona</ciudad>
+    <socios>85.000</socios>
+    <ligas>24</ligas>
+    <copas>30</copas>
+  </equipo>
+  <equipo>
+    <nombre>Atletico de Madrid</nombre>
+    <fundacion>1903</fundacion>
+    <ciudad>Madrid</ciudad>
+    <socios>54.000</socios>
+    <ligas>10</ligas>
+    <copas>10</copas>
+  </equipo>
+  <equipo>
+    <nombre>Real Zaragoza</nombre>
+    <fundacion>1932</fundacion>
+    <ciudad>Zaragoza</ciudad>
+    <socios>21.000</socios>
+    <ligas>0</ligas>
+    <copas>6</copas>
+  </equipo>
+</futbol>
