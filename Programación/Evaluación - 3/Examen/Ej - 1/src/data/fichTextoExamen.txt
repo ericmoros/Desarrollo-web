@@ -1,0 +1,9 @@
+1;Beatriz;Zapater;Radiodiagnostico;2
+1;Pilar;Sanz;Diseño Grafico;2
+2;Fernando;Gonzalez;jefe de taller;1500
+1;Juan;Gomez;Informatica;2
+2;Pedro;Tornos;Analista;2000
+2;Patricia;Lopez;Gerente;2500
+1;Ana;Zapater;Radiodiagnostico;1
+2;Luis;Suarez;Administrativo;900
+2;Elena;Suarez;Administrativo;950

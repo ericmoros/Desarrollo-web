@@ -1,0 +1,421 @@
+-- 1) Crea una función que devuelva cuántos pedidos ha realizado un cliente en un año (el cliente y el año se pasarán como parámetros). Crea un procedimiento anónimo para probar la función
+CREATE OR REPLACE FUNCTION devolver_pedidos_cliente(p_id_cliente clientes.id_cliente%TYPE) RETURN INTEGER
+IS
+  total_pedidos INTEGER;
+  tmp_cliente clientes.id_cliente%TYPE;
+BEGIN
+  SELECT count(*) AS total_pedidos INTO total_pedidos
+    FROM pedidos
+      WHERE id_cliente = p_id_cliente
+      GROUP BY id_cliente;
+      
+  RETURN total_pedidos;
+EXCEPTION
+  WHEN no_data_found THEN
+    dbms_output.put_line('El cliente con ID: ' || p_id_cliente || ' no está en la tabla de pedidos.');
+    RETURN NULL;
+END;
+/
+-- COMPROBACIÓN
+DECLARE
+  v_result INTEGER;
+BEGIN
+  v_result := devolver_pedidos_cliente(101);
+  dbms_output.put_line(v_result);
+END;
+	--Salida de Script...
+	--FUNCTION DEVOLVER_PEDIDOS_CLIENTE compilado
+	--bloque anónimo terminado
+	--El cliente con ID: 101 no está en la tabla de pedidos.
+	--
+	--33
+	-- Fin salida scripts
+
+-- 2) Diseña un procedimiento almacenado que reciba como parámetro un año. El procedimiento deberá mostrar el total de ventas por mes según el modelo presentado:
+	-- mes: 1 ***** ventas del mes: 936516.5
+	-- mes: 2 ***** ventas del mes: 770941.16
+CREATE OR REPLACE PROCEDURE ventas_mes_anyo(p_anyo INTEGER)
+IS
+  CURSOR c_pedidos
+    IS  
+      SELECT EXTRACT(MONTH FROM fecha_pedido) AS mes, SUM(precio_total) AS ventas
+        FROM pedidos
+          WHERE EXTRACT(YEAR FROM fecha_pedido) = p_anyo
+          GROUP BY EXTRACT(MONTH FROM fecha_pedido)
+          ORDER BY EXTRACT(MONTH FROM fecha_pedido);
+  tmp_anyo INTEGER;
+BEGIN
+  SELECT EXTRACT(YEAR FROM fecha_pedido) INTO tmp_anyo
+    FROM pedidos
+      WHERE EXTRACT(YEAR FROM fecha_pedido) = p_anyo
+      AND ROWNUM = 1;
+
+  FOR c_p_row IN c_pedidos
+  LOOP
+    dbms_output.put_line('mes: ' || c_p_row.mes || ' ***** ventas del mes: ' || c_p_row.ventas);
+  END LOOP;
+EXCEPTION
+  WHEN no_data_found THEN
+    dbms_output.put_line('En la tabla PEDIDOS no hay pedidos del año ' || p_anyo);
+  NULL;
+END;
+/
+-- COMPROBACIÓN
+EXECUTE ventas_mes_anyo(2007);
+	--Salida de Script...
+	--PROCEDURE VENTAS_MES_ANYO compilado
+	--bloque anónimo terminado
+	--En la tabla PEDIDOS no hay pedidos del año 200007
+	--
+	--bloque anónimo terminado
+	--mes: 9 ***** ventas del mes: 820475,89
+	--mes: 10 ***** ventas del mes: 726899,77
+	--mes: 11 ***** ventas del mes: 783765,65
+	--mes: 12 ***** ventas del mes: 618910,4
+	--Fin salida scripts
+
+-- 3) Escribir un procedimiento que reciba todos los datos de un nuevo pedido y procese la transacción de alta (inserción), gestionando posibles errores.
+CREATE OR REPLACE PROCEDURE alta_pedido(
+    p_NUMERO_PEDIDO NUMBER,
+    p_FECHA_PEDIDO  DATE,
+    p_FECHA_ENVIO   DATE,
+    p_ID_CLIENTE    NUMBER,
+    p_ID_EMPLEADO   NUMBER,
+    p_PRECIO_TOTAL  NUMBER
+)
+IS
+  --VARIABLES DE COMPROBACIÓN
+    tmp_NUMERO_PEDIDO NUMBER;
+    tmp_ID_CLIENTE    NUMBER;
+    tmp_ID_EMPLEADO   NUMBER;
+    
+  -- VARIABLES DE EXCEPCIÓN
+    ex_encontrado_NUMERO_PEDIDO   EXCEPTION;
+    ex_mayor_que_FECHA_ENVIO      EXCEPTION;
+    --ex_no_encontrado_ID_CLIENTE   EXCEPTION;
+    --ex_no_encontrado_ID_EMPLEADO  EXCEPTION;
+BEGIN
+  SELECT numero_pedido INTO tmp_NUMERO_PEDIDO
+    FROM pedidos
+      WHERE numero_pedido = p_NUMERO_PEDIDO
+      AND ROWNUM = 1;
+  RAISE ex_encontrado_NUMERO_PEDIDO;
+EXCEPTION
+  WHEN no_data_found THEN
+   --1_________________
+    BEGIN
+      IF p_FECHA_PEDIDO > p_FECHA_ENVIO THEN
+        RAISE ex_mayor_que_FECHA_ENVIO;
+      END IF;
+      
+      SELECT id_cliente INTO tmp_ID_CLIENTE
+        FROM clientes
+          WHERE id_cliente = p_ID_CLIENTE;
+      --2_________________
+      BEGIN
+        SELECT id_empleado INTO tmp_ID_EMPLEADO
+          FROM empleados
+            WHERE id_empleado = p_ID_EMPLEADO;
+            
+        INSERT INTO pedidos VALUES(p_NUMERO_PEDIDO, p_FECHA_PEDIDO, p_FECHA_ENVIO, p_ID_CLIENTE, p_ID_EMPLEADO, p_PRECIO_TOTAL);
+      EXCEPTION
+        --ex_no_encontrado_ID_EMPLEADO
+        WHEN no_data_found THEN
+          dbms_output.put_line('El empleado con ID: ' || p_ID_EMPLEADO || ' no existe en la tabla EMPLEADOS');
+      END;
+      --__________________
+    EXCEPTION
+      WHEN ex_mayor_que_FECHA_ENVIO THEN
+        dbms_output.put_line('La fecha de pedido(' || p_FECHA_PEDIDO || ') es mayor que la fecha de envio(' || p_FECHA_ENVIO || ')');
+      
+      --ex_no_encontrado_ID_CLIENTE
+      WHEN no_data_found THEN
+        dbms_output.put_line('El cliente con ID: ' || p_ID_CLIENTE || ' no existe en la tabla CLIENTES');
+    END;
+   --__________________
+   
+  WHEN ex_encontrado_NUMERO_PEDIDO THEN
+    dbms_output.put_line('Ya existe el pedido con ID: ' || p_NUMERO_PEDIDO || ' en la tabla PEDIDOS');
+END;
+/
+-- COMPROBACIÓN (SI EL PEDIDO 945 YA EXISTE ANTES DE REALIZAR LAS PRUEBAS DARÁ SIEMPRE LA EXCEPCIÓN ex_encontrado_NUMERO_PEDIDO, modificar a una no existente en tal caso)
+  -- ex_encontrado_NUMERO_PEDIDO
+    EXECUTE alta_pedido(700, TO_DATE('17-05-2018', 'dd-mm-yyyy'), TO_DATE('18-05-2018', 'dd-mm-yyyy'), 1011, 701, 1000);
+  -- ex_mayor_que_FECHA_ENVIO
+    EXECUTE alta_pedido(945, TO_DATE('18-05-2018', 'dd-mm-yyyy'), TO_DATE('17-05-2018', 'dd-mm-yyyy'), 1011, 701, 1000);
+  -- ex_no_encontrado_ID_CLIENTE
+    EXECUTE alta_pedido(945, TO_DATE('17-05-2018', 'dd-mm-yyyy'), TO_DATE('18-05-2018', 'dd-mm-yyyy'), 1, 701, 1000);
+  -- ex_no_encontrado_ID_EMPLEADO
+    EXECUTE alta_pedido(945, TO_DATE('17-05-2018', 'dd-mm-yyyy'), TO_DATE('18-05-2018', 'dd-mm-yyyy'), 1011, 700, 1000);
+  -- FUNCIONAL
+    EXECUTE alta_pedido(945, TO_DATE('17-05-2018', 'dd-mm-yyyy'), TO_DATE('18-05-2018', 'dd-mm-yyyy'), 1011, 701, 1000);
+
+	--Salida de Script...
+	--PROCEDURE ALTA_PEDIDO compilado
+	--bloque anónimo terminado
+	--Ya existe el pedido con ID: 700 en la tabla PEDIDOS
+	--
+	--bloque anónimo terminado
+	--La fecha de pedido(2018-05-18) es mayor que la fecha de envio(2018-05-17)
+	--
+	--bloque anónimo terminado
+	--El cliente con ID: 1 no existe en la tabla CLIENTES
+	--
+	--bloque anónimo terminado
+	--El empleado con ID: 700 no existe en la tabla EMPLEADOS
+	--
+	--bloque anónimo terminado
+	--Fin salida scripts
+
+-- 4) Crea un procedimiento que mediante ruptura de control muestre para cada artículo quienes son los proveedores que los suministran contando cuantos proveedores son los que lo suministran. Los artículos irán ordenados por código de artículo y los proveedores por precio_por_mayor, ambos ascendentemente:
+CREATE OR REPLACE PROCEDURE mostrar_articulos_proveedores
+IS
+  CURSOR c_proveedores_articulo
+    IS
+      SELECT productos_proveedores.numero_producto AS numero_producto,
+       productos.nombre                            AS nombre_producto,
+       productos_proveedores.id_prov               AS id_prov,
+       proveedores.nombre                          AS nombre_prov,
+       precio_por_mayor                          --AS precio_por_mayor
+        FROM productos_proveedores
+        INNER JOIN productos
+          ON productos_proveedores.numero_producto = productos.numero_producto
+        INNER JOIN proveedores
+          ON productos_proveedores.id_prov = proveedores.id_prov
+            ORDER BY numero_producto, precio_por_mayor DESC;
+  anterior_numero_producto productos.numero_producto%TYPE;
+  total_proveedores INTEGER;
+BEGIN
+  anterior_numero_producto := -1;
+  dbms_output.put_line('** LISTADO DE PROVEEDORES POR ARTÍCULO **');
+  FOR c_p_a_row IN c_proveedores_articulo LOOP
+    IF anterior_numero_producto != c_p_a_row.numero_producto THEN
+      IF anterior_numero_producto != -1 THEN
+        dbms_output.put_line(' Número de proveedores ' || total_proveedores);
+      END IF; -- Ya se que es cutre pero hay prisa
+      dbms_output.put_line('Artículo ' || c_p_a_row.numero_producto || ' ' || c_p_a_row.nombre_producto);
+      anterior_numero_producto := c_p_a_row.numero_producto;
+      total_proveedores := 0;
+    END IF;
+    
+    dbms_output.put_line('        ' || c_p_a_row.id_prov || ' ' || c_p_a_row.nombre_prov || ' ' || c_p_a_row.precio_por_mayor);
+    total_proveedores := total_proveedores + 1;
+  END LOOP;
+  dbms_output.put_line(' Número de proveedores ' || total_proveedores);
+END;
+/
+
+EXECUTE mostrar_articulos_proveedores;
+
+	--Salida de Script...
+        --PROCEDURE MOSTRAR_ARTICULOS_PROVEEDORES compilado
+        --bloque anónimo terminado
+        --** LISTADO DE PROVEEDORES POR ARTÍCULO **
+        --Artículo 1 Trek 9000 Mountain Bike
+        --        9 Lone Star Bike Supply 854,22
+        --        4 ProFormance 804
+        -- Número de proveedores 2
+        --Artículo 2 Eagle FS-3 Mountain Bike
+        --        9 Lone Star Bike Supply 1477,81
+        --        6 Big Sky Mountain Bikes 1269
+        -- Número de proveedores 2
+        --Artículo 3 Dog Ear Cyclecomputer
+        --        9 Lone Star Bike Supply 57,27
+        --        7 Dog Ear 54,19
+        -- Número de proveedores 2
+        --Artículo 4 Victoria Pro All Weather Llantas
+        --        6 Big Sky Mountain Bikes 44,22
+        --        9 Lone Star Bike Supply 41,62
+        -- Número de proveedores 2
+        --Artículo 5 Dog Ear Helmet Mount Espejos
+        --        9 Lone Star Bike Supply 5,87
+        --        7 Dog Ear 5,38
+        -- Número de proveedores 2
+        --Artículo 6 Viscount Mountain Bike
+        --        9 Lone Star Bike Supply 448,73
+        --        2 Viscount 403,22
+        -- Número de proveedores 2
+        --Artículo 7 Viscount C-500 Wireless Bike Computer
+        --        2 Viscount 31,12
+        -- Número de proveedores 1
+        --Artículo 8 Kryptonite Advanced 2000 U-Lock
+        --        8 Sun Sports Suppliers 39,32
+        --        9 Lone Star Bike Supply 37,88
+        -- Número de proveedores 2
+        --Artículo 9 Nikoma Lok-Tight U-Lock
+        --        3 Nikoma of America 21,53
+        -- Número de proveedores 1
+        --Artículo 10 Viscount Microshell Casco
+        --        2 Viscount 22,86
+        -- Número de proveedores 1
+        --Artículo 11 GT RTS-2 Mountain Bike
+        --        9 Lone Star Bike Supply 1178,65
+        --        3 Nikoma of America 1076,62
+        -- Número de proveedores 2
+        --Artículo 12 Shinoman 105 SC Frenos
+        --        6 Big Sky Mountain Bikes 15,44
+        --        9 Lone Star Bike Supply 15,02
+        --        1 Shinoman, Incorporated 14,51
+        -- Número de proveedores 3
+        --Artículo 13 Shinoman Dura-Ace Auriculares
+        --        6 Big Sky Mountain Bikes 43,99
+        --        9 Lone Star Bike Supply 43,77
+        --        1 Shinoman, Incorporated 41,68
+        -- Número de proveedores 3
+        --Artículo 14 Eagle SA-120 Pedales sin clip
+        --        9 Lone Star Bike Supply 101,22
+        --        6 Big Sky Mountain Bikes 98,66
+        -- Número de proveedores 2
+        --Artículo 15 ProFormance clip para pedal 2G
+        --        9 Lone Star Bike Supply 3,88
+        --        6 Big Sky Mountain Bikes 3,79
+        --        4 ProFormance 3,34
+        -- Número de proveedores 3
+        --Artículo 16 ProFormance ATB Pedal todo-terreno
+        --        9 Lone Star Bike Supply 19,33
+        --        6 Big Sky Mountain Bikes 19,33
+        --        4 ProFormance 18,76
+        -- Número de proveedores 3
+        --Artículo 17 Shinoman Deluxe TX-30 Pedal
+        --        9 Lone Star Bike Supply 28,55
+        --        6 Big Sky Mountain Bikes 28,55
+        --        1 Shinoman, Incorporated 27,79
+        -- Número de proveedores 3
+        --Artículo 18 Viscount CardioSport Sport Watch
+        --        2 Viscount 113,66
+        -- Número de proveedores 1
+        --Artículo 19 Viscount Tru-Beat pulsometro
+        --        2 Viscount 29,84
+        -- Número de proveedores 1
+        --Artículo 20 Dog Ear Monster guantes
+        --        9 Lone Star Bike Supply 11,54
+        --        7 Dog Ear 10,84
+        -- Número de proveedores 2
+        --Artículo 21 Dog Ear Aero-Flow Hinchador
+        --        9 Lone Star Bike Supply 41,5
+        --        7 Dog Ear 39,74
+        -- Número de proveedores 2
+        --Artículo 22 Pro-Sport 'Dillo Gafas de sol
+        --        10 Armadillo Brand 63,55
+        -- Número de proveedores 1
+        --Artículo 23 Ultra-Pro Rain maillot
+        --        6 Big Sky Mountain Bikes 69,54
+        --        9 Lone Star Bike Supply 64,39
+        -- Número de proveedores 2
+        --Artículo 24 StaDry Cycling culote
+        --        6 Big Sky Mountain Bikes 55,91
+        --        7 Dog Ear 53,88
+        --        9 Lone Star Bike Supply 52,27
+        -- Número de proveedores 3
+        --Artículo 25 King Cobra Casco
+        --        9 Lone Star Bike Supply 105,29
+        --        10 Armadillo Brand 101,58
+        -- Número de proveedores 2
+        --Artículo 26 Glide-O-Matic Cycling Casco
+        --        3 Nikoma of America 81,56
+        --        6 Big Sky Mountain Bikes 79,88
+        -- Número de proveedores 2
+        --Artículo 27 X-Pro All Weather Llantas
+        --        6 Big Sky Mountain Bikes 16,88
+        --        9 Lone Star Bike Supply 15,88
+        --        3 Nikoma of America 15,66
+        -- Número de proveedores 3
+        --Artículo 28 Turbo Twin Llantas
+        --        6 Big Sky Mountain Bikes 20,56
+        --        9 Lone Star Bike Supply 19,04
+        --        3 Nikoma of America 18,92
+        -- Número de proveedores 3
+        --Artículo 29 Ultra-2K Competition Llanta
+        --        6 Big Sky Mountain Bikes 24,44
+        --        9 Lone Star Bike Supply 23,99
+        --        5 Kona, Incorporated 23,38
+        -- Número de proveedores 3
+        --Artículo 30 Clear Shade 85-T Gafas
+        --        9 Lone Star Bike Supply 35,32
+        --        8 Sun Sports Suppliers 33,3
+        --        10 Armadillo Brand 32,87
+        -- Número de proveedores 3
+        --Artículo 31 True Grip Competition Guantes
+        --        9 Lone Star Bike Supply 16,93
+        --        10 Armadillo Brand 16,9
+        --        8 Sun Sports Suppliers 16,28
+        --        7 Dog Ear 15,85
+        -- Número de proveedores 4
+        --Artículo 32 Kool-Breeze Rocket Top Jersey
+        --        6 Big Sky Mountain Bikes 24,77
+        --        7 Dog Ear 24,12
+        --        8 Sun Sports Suppliers 23,68
+        -- Número de proveedores 3
+        --Artículo 33 Wonder Wool Cycle Calcetines
+        --        6 Big Sky Mountain Bikes 15,23
+        --        8 Sun Sports Suppliers 14,06
+        -- Número de proveedores 2
+        --Artículo 34 TransPort Bicycle Parrilla
+        --        9 Lone Star Bike Supply 23,86
+        --        10 Armadillo Brand 19,32
+        --        6 Big Sky Mountain Bikes 19,04
+        -- Número de proveedores 3
+        --Artículo 35 HP Deluxe Alforjas
+        --        9 Lone Star Bike Supply 28,22
+        --        6 Big Sky Mountain Bikes 27,49
+        -- Número de proveedores 2
+        --Artículo 36 Cosmic Elite Road Warrior Ruedas
+        --        6 Big Sky Mountain Bikes 122,88
+        --        9 Lone Star Bike Supply 122,78
+        --        7 Dog Ear 119,21
+        -- Número de proveedores 3
+        --Artículo 37 AeroFlo ATB Ruedas
+        --        6 Big Sky Mountain Bikes 125,99
+        --        9 Lone Star Bike Supply 124,89
+        --        2 Viscount 120,02
+        -- Número de proveedores 3
+        --Artículo 38 Cycle-Doc Pro Repair Stand
+        --        9 Lone Star Bike Supply 136,98
+        --        10 Armadillo Brand 128,65
+        -- Número de proveedores 2
+        --Artículo 39 Road Warrior soporte para maletero
+        --        6 Big Sky Mountain Bikes 137,55
+        --        7 Dog Ear 126,44
+        -- Número de proveedores 2
+        --Artículo 40 Ultimate Export 2G baca para bibileta
+        --        6 Big Sky Mountain Bikes 154,87
+        --        9 Lone Star Bike Supply 136,35
+        -- Número de proveedores 2
+	--Fin salida scripts
+
+-- 5) Crea un Trigger que cada vez que se actualice la columna precio_total en la tabla pedidos, se inserte una fila en la tabla auditoria en la que se graben el número de pedido, el precio antiguo y el precio nuevo con este formato. (usa el procedimiento facilitado cambia_precio)
+	--Pedido: 314 ** Precio total antiguo: 314.12 ** Precio total nuevo: 318.25
+
+CREATE OR REPLACE TRIGGER actualizar_auditoria AFTER
+  UPDATE ON pedidos FOR EACH ROW
+    BEGIN
+      IF updating THEN
+        INSERT INTO auditoria VALUES('Pedido: ' || :OLD.numero_pedido || ' ** Precio total antiguo: ' || :OLD.precio_total || ' ** Precio total nuevo: ' || :NEW.precio_total);
+      END IF;
+    END;
+/
+
+EXECUTE cambia_precio(802, 1000);
+
+	--Salida de Script...
+	--TRIGGER ACTUALIZAR_AUDITORIA compilado
+	--bloque anónimo terminado
+	-- ** Precio cambiado para el pedido **  802
+	--Fin salida scripts
+
+-- 6) Crear un Trigger sobre la tabla DETALLES_PEDIDOS de forma al insertar una línea de esa tabla actualice el precio total de ese pedido en la tabla PEDIDOS. (usa el procedimiento facilitado gestiona_linea)
+CREATE OR REPLACE TRIGGER actualizar_total_pedidos BEFORE
+  INSERT ON detalles_pedidos FOR EACH ROW
+    BEGIN
+      UPDATE pedidos SET precio_total = (SELECT SUM(precio * cantidad) FROM detalles_pedidos where :NEW.numero_pedido = detalles_pedidos.numero_pedido)
+        WHERE pedidos.numero_pedido = :NEW.numero_pedido;
+    END;
+/
+
+EXECUTE gestiona_linea(386, 13, 1901, 2);
+	--Salida de Script...
+	--TRIGGER ACTUALIZAR_TOTAL_PEDIDOS compilado
+	--bloque anónimo terminado
+	-- ** Registro insertado **  386
+	--Fin salida scripts
+

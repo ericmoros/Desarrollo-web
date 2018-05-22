@@ -1,0 +1,24 @@
+CREATE OR REPLACE VIEW ID_CLIENTE_NOMBRE
+  AS
+    SELECT id_cliente, nombre
+      FROM clientes;
+      
+CREATE OR REPLACE TRIGGER modificar_nombre_cliente INSTEAD OF
+  UPDATE ON id_cliente_nombre FOR EACH ROW
+    BEGIN
+      IF updating THEN
+        UPDATE clientes SET id_cliente = :NEW.id_cliente
+          WHERE id_cliente = :OLD.id_cliente;
+        UPDATE clientes SET nombre = :NEW.nombre
+          WHERE id_cliente = :OLD.id_cliente;
+      END IF;
+      dbms.
+    END;
+/
+
+UPDATE id_cliente_nombre SET nombre = 'Susana' -- Lechugino
+  WHERE id_cliente = 1001;
+  
+--DROP VIEW id_cliente_nombre;
+--DROP TRIGGER modificar_nombre_cliente;
+--ROLLBACK;
