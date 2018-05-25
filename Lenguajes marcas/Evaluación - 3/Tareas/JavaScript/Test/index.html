@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Test</title>
+    </head>
+    <body>
+        <form id="test" name="myForm" action="#" onsubmit="return getFormData('myForm', 'fname')" method="post">
+            <label for="name">Nombre: </label>
+            <input id="fname" type="text" name="fname"><!-- onkeydown="write('result', test(document.getElementById('fname').value))"> -->
+            <input type="submit" value="Submit">
+        </form>
+        <!-- <p onclick="alert(test(getFormData('myForm', 'fname')))">Hola</p> -->
+        <p onclick="write('result', test(getFormData('myForm', 'fname')))">Hola</p>
+        <div>
+            <p id="result">Resultado: </p>
+        </div>
+        <script>
+            function getFormData(formName, field) {
+                return document.forms[formName][field].value;
+            }
+            function test(name) {
+                var obj = {
+                    text1: 'Hola',
+                    text2: ' ',
+                    text3: 'Mundo'
+                }
+                var array = [obj.text1 + obj.text2 + obj.text3, ' soy ' + name];
+                return array;
+            }
+            function write(id, str) {
+                var textnode = document.createTextNode(str);
+                document.getElementById(id).appendChild(node);
+            }
+        </script>
+    </body>
+</html>
