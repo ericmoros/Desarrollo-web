@@ -14,30 +14,17 @@
 
         links = document.getElementsByTagName("a");
         attributes = new Map();
-
-        //attributes = [];
         
         //Número de enlaces de la página
-        console.info(links.length);
+        console.info(" - Número de enlaces de la página: " + links.length);
         
         // Direccion del penultimo enlace
         posLink = (links.length - 1) - 1;
-        console.info(posLink)
+        console.info(" - Direccion del penultimo enlace: " + posLink);
 
         // Numero de enlaces que apuntan a http://prueba
-        console.info("Enlaces...")
-        // for (const keyL in links) {
-        //     for (const keyA in links[keyL]) {
-        //         console.info(links[keyL].attributes[keyA]);
-        //     }
-        // }
-
         for (const link of links) {
-            console.info(link);
             for (const attribute of link.attributes) {
-                // if (attributes.indexOf(attribute.value) === -1) {
-                //     attributes.push();
-                // }
                 key = attribute.value;
                 value = attributes.get(key);
                 if (value != undefined) {
@@ -48,11 +35,7 @@
                 }
             }
         }
-        // console.info(attributes.toString());
-        for (const key of attributes.keys()) {
-            console.info("Enlace: " + key + ", total: " + attributes.get(key));
-        }
-        
+        console.info(" - Numero de enlaces que apuntan a 'http://prueba': " + attributes.get("http://prueba"));
 
     }
     </script>
