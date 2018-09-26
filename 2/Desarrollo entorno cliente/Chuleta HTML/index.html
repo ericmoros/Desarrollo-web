@@ -37,33 +37,82 @@
                 </nav>
             </aside>
             <main class="col">
-                <section id="sec-thing-1">
-                    <h3>Cosa 1</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas aperiam qui dicta temporibus quam
-                        debitis cumque earum dolore fuga, nihil quasi, adipisci, optio eum hic quaerat officia aliquam
-                        vero tempore?
-                    </p>
-                    <code>
-                        &lt;p&gt;Sample text here...&lt;/p&gt;
-                        &lt;p&gt;And another line of sample text here...&lt;/p&gt;
-                    </code>
+                <section id="sec-1" class="mt-4">
+                    <h2>Elemento raíz</h2>
+                    <section id="sec-1-1">
+                        <h3><code>&lt;!doctype html&gt;</code></h3>
+                        <p>
+                            Define que el documento esta bajo el estandar de HTML 5
+                        </p>
+                    </section>
+                    <section id="sec-1-2">
+                        <h3><code>&lt;html&gt;</code></h3>
+                        <p>
+                            Representa la raíz de un documento HTML o XHTML. Todos los demás elementos deben ser
+                            descendientes de este elemento.
+                        </p>
+                    </section>
                 </section>
-                <section id="sec-thing-2">
-                    <h3>Cosa 2</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas aperiam qui dicta temporibus quam
-                        debitis cumque earum dolore fuga, nihil quasi, adipisci, optio eum hic quaerat officia aliquam
-                        vero tempore?
-                    </p>
+                <section id="sec-2" class="mt-5">
+                    <h2>Metadatos del documento</h2>
+                    <section id="sec-2-1">
+                        <h3><code>&lt;head&gt;</code></h3>
+                        <p>
+                            Representa una colección de metadatos acerca del documento, incluyendo enlaces a, o
+                            definiciones
+                            de, scripts y hojas de estilo.
+                        </p>
+                    </section>
+                    <section id="sec-2-2">
+                        <h3><code>&lt;title&gt;</code></h3>
+                        <p>
+                            Define el título del documento, el cual se muestra en la barra de título del navegador o en
+                            las
+                            pestañas de página. Solamente puede contener texto y cualquier otra etiqueta contenida no
+                            será
+                            interpretada.
+                        </p>
+                    </section>
+                    <section id="sec-2-3">
+                        <h3><code>&lt;base&gt;</code></h3>
+                        <p>
+                            Define la URL base para las URLs relativas en la página.
+                        </p>
+                    </section>
+                    <section id="sec-2-4">
+                        <h3><code>&lt;link&gt;</code></h3>
+                        <p>
+                            Usada para enlazar JavaScript y CSS externos con el documento HTML actual.
+                        </p>
+                    </section>
+                    <section id="sec-2-5">
+                        <h3><code>&lt;meta&gt;</code></h3>
+                        <p>
+                            Define los metadatos que no pueden ser definidos usando otro elemento HTML.
+                        </p>
+                    </section>
+                    <section id="sec-2-6">
+                        <h3><code>&lt;style&gt;</code></h3>
+                        <p>
+                            Etiqueta de estilo usada para escribir CSS en línea.
+                        </p>
+                    </section>
                 </section>
-                <section id="sec-thing-3">
-                    <h3>Cosa 3</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas aperiam qui dicta temporibus quam
-                        debitis cumque earum dolore fuga, nihil quasi, adipisci, optio eum hic quaerat officia aliquam
-                        vero tempore?
-                    </p>
+                <section id="sec-3" class="mt-5">
+                    <h2>Scripting</h2>
+                    <section id="sec-3-1">
+                        <h3><code>&lt;script&gt;</code></h3>
+                        <p>
+                            Define ya sea un script interno o un enlace hacia un script externo. El lenguaje de
+                            programación es JavaScript
+                        </p>
+                    </section>
+                    <section id="sec-3-2">
+                        <h3><code>&lt;noscript&gt;</code></h3>
+                        <p>
+                            Define un contenido alternativo a mostrar cuando el navegador no soporta scripting.
+                        </p>
+                    </section>
                 </section>
             </main>
         </div>
