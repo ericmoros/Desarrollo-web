@@ -1,0 +1,301 @@
+COMANDOS CLAVE EN LINUX:
+
+#####################################################
+COMANDOS DE AYUDA	
+#####################################################
+Las paginas del man
+man
+
+Mostrar la p?gina man de un comando
+man comando
+
+
+#####################################################
+COMANDOS RELACIONADOS CON ARCHIVOS Y DIRECTORIOS	
+#####################################################
+
+
+Mostrar contenido de un archivo
+---------------------------------------------------------------
+cat archivo
+
+Mostrar p?gina por pagina (tecla Espaciadora avanza una p?gina, tecla Enter avanza una l?nea)
+---------------------------------------------------------------
+cat archivo | more
+
+
+Mostrar l?nea por l?nea (flecha hacia arriba <=> flecha hacia abajo)
+---------------------------------------------------------------
+
+
+
+Mostrar las 5 ?ltimas l?neas de un archivo
+---------------------------------------------------------------
+tail -n 5
+
+
+
+Mostrar las 5 primeras l?neas de un archivo
+---------------------------------------------------------------
+head -n 5
+
+
+
+Listar los archivos de un directorio
+---------------------------------------------------------------
+ls directorio
+
+
+Listar recursivamente
+---------------------------------------------------------------
+ls -r directorio
+
+
+Listar los archivos ocultos
+---------------------------------------------------------------
+
+ls -a
+
+Crear un archivo vacio
+---------------------------------------------------------------
+touch archivo
+
+
+Crear un directorio
+---------------------------------------------------------------
+mkdir directorio
+
+
+Crear un directorio con sus sub-directorios
+---------------------------------------------------------------
+mkdir -p directorio/sub-directorio
+
+
+Redireccionar:
+---------------------------------------------------------------
+
+A un archivo
+echo "texto redireccionado" > archivo
+
+
+A un archivo pero a?adiendolo luego
+echo "texto redireccionado" >> archivo
+
+
+Copiar un archivo
+---------------------------------------------------------------
+cp archivo archivo-copia
+
+
+Copiar un conjunto de archivos
+---------------------------------------------------------------
+cp * directorio-destino/
+
+
+Copiar un directorio
+---------------------------------------------------------------
+cp directorio directorio-destino/
+
+
+Mover un archivo
+---------------------------------------------------------------
+mv archivo directorio-destino/
+
+
+Mover un directorio
+---------------------------------------------------------------
+mv directorio directorio-destino/
+
+
+Renombrar un archivo
+---------------------------------------------------------------
+mv archivo archivo-re_nombrado
+
+
+Comparar 2 archivos
+---------------------------------------------------------------
+cat archivo-a archivo-b
+
+
+Ordenar en orden alfab?tico
+---------------------------------------------------------------
+cat archivo | sort
+
+
+Empaquetar una carpeta/directorio en tar
+---------------------------------------------------------------
+tar -czvf empaquetado.tar.gz directorio
+
+Desempaquetar una carpeta/directorio tar
+---------------------------------------------------------------
+tar -xzvf archivo.tar.gz
+
+
+Listar el contenido de un archivo tar
+---------------------------------------------------------------
+tar tzf archivo.tar
+
+
+Comprimir un archivo (sin copia de seguridad del original) gz
+---------------------------------------------------------------
+/////////
+
+
+Comprimir un archivo (con copia de seguridad del original) gz
+---------------------------------------------------------------
+tar -czvf empaquetado.tar.gz directorio
+
+
+Descomprimir un archivo gz
+---------------------------------------------------------------
+tar -xzvf archivo.tar.gz
+
+
+Descomprimir y desempaquetar un archivo tar.gz
+---------------------------------------------------------------
+tar -xzvf archivo.tar.gz
+
+
+Descomprimir y desempaquetar un archivo tar.bz2
+---------------------------------------------------------------
+tar -xzvf archivo.tar.gz
+
+
+Buscar un archivo
+---------------------------------------------------------------
+find -f -name archivo
+
+
+
+Un patron en un archivo
+---------------------------------------------------------------
+cat archivo | grep ??tron
+
+
+Localizar un comando
+---------------------------------------------------------------
+find -f -name archivo
+
+
+Buscar los archivos ejecutables
+---------------------------------------------------------------
+
+find -f -permission x
+
+Buscar el nombre del archivo que sera ejecutado al llamado de comando
+---------------------------------------------------------------
+no entiendo el enunciado
+
+
+
+
+#####################################################
+COMANDOS DEL SISTEMA	y DE USUARIOS
+#####################################################
+N?cleo
+---------------------------------------------------------------
+kernel
+
+Sistema operativo
+---------------------------------------------------------------
+lsb_release -a
+
+
+Estado de los procesos
+---------------------------------------------------------------
+top
+
+
+A?adir un usuario
+---------------------------------------------------------------
+adduser usuario
+
+Eliminar un usuario
+---------------------------------------------------------------
+deluser usuario
+
+A?adir un grupo
+---------------------------------------------------------------
+addgroup
+
+Eliminar un grupo
+---------------------------------------------------------------
+delgroup
+
+Cambiar el propietario de un directorio
+---------------------------------------------------------------
+chown nuevo-propietario directorio
+
+Cambiar nuestra contrase?a
+---------------------------------------------------------------
+passwd usuario
+
+Cambiar la contrase?a de un usuario
+---------------------------------------------------------------
+passwd usuario
+
+Mostrar el grupo a los que pertenece un usuario
+---------------------------------------------------------------
+cat /etc/group | grep usuario
+
+?Qui?n est? conectado?
+---------------------------------------------------------------
+top
+
+?Qui?n soy yo?
+---------------------------------------------------------------
+mira el shell
+
+?D?nde estoy?
+---------------------------------------------------------------
+pwd
+
+
+#####################################################
+COMANDOS DE RED	
+#####################################################
+
+
+Informacion del hardware
+
+Tests y medidas
+---------------------------------------------------------------
+
+
+Hacer ping a una direcci?n IP
+---------------------------------------------------------------
+
+
+
+
+Configuraci?n
+
+Configurar una direcci?n
+---------------------------------------------------------------
+
+
+
+Agregar una puerta de enlace predeterminada
+---------------------------------------------------------------
+
+
+
+Conexion remota
+
+ssh
+---------------------------------------------------------------
+
+
+
+telnet
+---------------------------------------------------------------
+
+
+
+scp
+---------------------------------------------------------------
+
+
+otros
+---------------------------------------------------------------
+
