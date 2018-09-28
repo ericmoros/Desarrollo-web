@@ -121,8 +121,8 @@
                 <code>
                     <?php
                     $num = 0;
-                    $max = 100;
-                    $primes = array(1, 2);
+                    $max = 99999;
+                    $primes = array();
                     for ($i=1; $i <= $max; $i++) { 
                         $prime = true;
                         for ($j=2; $j < $i; $j++) { 
