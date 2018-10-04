@@ -23,12 +23,13 @@
                 usarla en lugar de la anterior, son complementarias is_numeric($variable)  Nos indica si el valor de
                 la variable es numérico
             </p>
-            <form action="/ejercicios/3/3" method="get">
-                <label for="name">Número</label>
-                <input type="text" name="num">
-                <input type="submit">
-            </form>
+
             <code>
+                <form action="/ejercicios/3/3" method="get">
+                    <label for="name">Número</label>
+                    <input type="text" name="num">
+                    <input type="submit">
+                </form>
                 <?php
                 $variable = $_GET["num"];
                 if (!is_null($variable) && is_numeric($variable)) {
@@ -61,8 +62,69 @@
                 entre ESO, BACHILLER, CICLO FORMATIVO, GRADO UNIVERSITARIO (select)
             </p>
             <code>
+                <form action="/ejercicios/3/3" method="get">
+                    <label for="name">Nombre</label>
+                    <input type="text" name="name" id="form-2-name"><br/>
+                    <label for="sur-name">Apellidos</label>
+                    <input type="text" name="sur-name" id="form-2-sur-name"><br/>
+                    <label for="address">Dirección</label>
+                    <input type="text" name="address" id="form-2-address"><br/>
+                    <label for="date">Fecha</label>
+                    <input type="date" name="date" id="form-2-date"><br/>
+                    <label for="age">Edad</label>
+                    <input type="number" name="age" id="form-2-age"><br/>
+                    <fieldset>
+                        <legend>Languages</legend>
+                        <div>
+                            <input type="checkbox" name="languages" id="form-2-languages-es" value="es">
+                            <label for="languages">Español</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="languages" id="form-2-languages-en" value="en">
+                            <label for="languages">Inglés</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="languages" id="form-2-languages-fr" value="fr">
+                            <label for="languages">Francés</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" name="languages" id="form-2-languages-it" value="it">
+                            <label for="languages">Italiano</label>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Sexo</legend>
+                        <div>
+                            <input type="radio" id="form-2-sex-man" name="sex" value="man" checked />
+                            <label for="form-2-sex-man">Hombre</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="form-2-sex-women" name="sex" value="women" />
+                            <label for="form-2-sex-women">Mujer</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="form-2-sex-other" name="sex" value="other" />
+                            <label for="form-2-sex-other">Otros</label>
+                        </div>
+                    </fieldset>
+                    <label for="e-mail">Correo electrónico</label>
+                    <input type="email" name="e-mail" id="form-2-e-mail"><br/>
+                    <label for="grades">Estudios</label>
+                    <select name="grades">
+                        <option value="null" selected disabled hidden>Haz clic para seleccionar</option>
+                        <option id="form-2-grades-eso" value="eso">ESO</option>
+                        <option id="form-2-grades-bac" value="bac">Bachiller</option>
+                        <option id="form-2-grades-cif" value="cif">Ciclo formativo</option>
+                        <option id="form-2-grades-gru" value="gru">Grado universitario</option>
+                    </select><br/>
+                    <input type="submit">
+                </form>
                 <?php
-
+                    name
+                    sur-name
+                    address
+                    date
+                    age
                 ?>
             </code>
         </section>
@@ -75,8 +137,20 @@
                 0 en todos los valores.
             </p>
             <code>
+                <form action="/ejercicios/3/3" method="get">
+                    <label for="name">Número</label>
+                    <input type="text" name="num">
+                    <input type="submit">
+                </form>
                 <?php
-
+                    $num = $_GET["num"];
+                    $base = 10;
+                    $bin = base_convert ($num, $base, 2);
+                    $oct = base_convert ($num, $base, 8);
+                    $hex = base_convert ($num , $base, 16);
+                    echo ("<p>Binario: " . $bin . "</p>");
+                    echo ("<p>Octal: " . $oct . "</p>");
+                    echo ("<p>Hexadecimal: " . $hex . "</p>");
                 ?>
             </code>
         </section>
