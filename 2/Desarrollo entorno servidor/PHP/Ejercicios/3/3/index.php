@@ -76,20 +76,20 @@
                     <fieldset>
                         <legend>Languages</legend>
                         <div>
-                            <input type="checkbox" name="languages" id="form-2-languages-es" value="es">
-                            <label for="languages">Español</label>
+                            <input type="checkbox" name="languages[]" id="form-2-languages[]-es" value="es">
+                            <label for="languages[]">Español</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="languages" id="form-2-languages-en" value="en">
-                            <label for="languages">Inglés</label>
+                            <input type="checkbox" name="languages[]" id="form-2-languages[]-en" value="en">
+                            <label for="languages[]">Inglés</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="languages" id="form-2-languages-fr" value="fr">
-                            <label for="languages">Francés</label>
+                            <input type="checkbox" name="languages[]" id="form-2-languages[]-fr" value="fr">
+                            <label for="languages[]">Francés</label>
                         </div>
                         <div>
-                            <input type="checkbox" name="languages" id="form-2-languages-it" value="it">
-                            <label for="languages">Italiano</label>
+                            <input type="checkbox" name="languages[]" id="form-2-languages[]-it" value="it">
+                            <label for="languages[]">Italiano</label>
                         </div>
                     </fieldset>
                     <fieldset>
@@ -110,21 +110,43 @@
                     <label for="e-mail">Correo electrónico</label>
                     <input type="email" name="e-mail" id="form-2-e-mail"><br/>
                     <label for="grades">Estudios</label>
-                    <select name="grades">
+                    <select name="grades[]">
                         <option value="null" selected disabled hidden>Haz clic para seleccionar</option>
-                        <option id="form-2-grades-eso" value="eso">ESO</option>
-                        <option id="form-2-grades-bac" value="bac">Bachiller</option>
-                        <option id="form-2-grades-cif" value="cif">Ciclo formativo</option>
-                        <option id="form-2-grades-gru" value="gru">Grado universitario</option>
+                        <option id="form-2-grades[]-eso" value="eso">ESO</option>
+                        <option id="form-2-grades[]-bac" value="bac">Bachiller</option>
+                        <option id="form-2-grades[]-cif" value="cif">Ciclo formativo</option>
+                        <option id="form-2-grades[]-gru" value="gru">Grado universitario</option>
                     </select><br/>
                     <input type="submit">
                 </form>
                 <?php
-                    name
-                    sur-name
-                    address
-                    date
-                    age
+                    $name = $_GET["name"];
+                    $surName = $_GET["sur-name"];
+                    $address = $_GET["address"];
+                    $date = $_GET["date"];
+                    $age = $_GET["age"];
+                    $languages = $_GET["languages"];
+                    $sex = $_GET["sex"];
+                    $eMail = $_GET["e-mail"];
+                    $grades = $_GET["grades"];
+
+                    function toString ($array) {
+                        $str = "";
+                        foreach ($array as $key => $value) {
+                            $str = $str . $value . ", ";
+                        }
+                        return $str;
+                    }
+
+                    if ($name) echo ("<p>Nombre: " .  $name . "</p>");
+                    if ($surName) echo ("<p>Apellido: " .  $surName . "</p>");
+                    if ($address) echo ("<p>Dirección: " .  $address . "</p>");
+                    if ($date) echo ("<p>Fecha: " .  $date . "</p>");
+                    if ($age) echo ("<p>Años: " .  $age . "</p>");
+                    if ($languages) echo ("<p>Lenguajes: " . toString($languages)  . "</p>");
+                    if ($sex) echo ("<p>Sexo: " .  $sex . "</p>");
+                    if ($eMail) echo ("<p>Correo electrónico: " .  $eMail . "</p>");
+                    if ($grades) echo ("<p>Estudios: " .  toString($grades) . "</p>");
                 ?>
             </code>
         </section>
@@ -162,8 +184,36 @@
                 no coincidan se mostrará junto con el formulario un mensaje de error
             </p>
             <code>
+                <form action="/ejercicios/3/3" method="get">
+                    <label for="username">Nombre</label>
+                    <input type="text" name="username" id="form-3-username"><br/>
+                    <label for="password">Apellidos</label>
+                    <input type="text" name="password" id="form-3-password"><br/>
+                    <input type="submit">
+                </form>
                 <?php
+                    class User {
+                        // Atts
+                        public $username;
+                        public $password;
+                        public $status = false;
 
+                        // Methods
+                        function login() {
+                            $status = true;
+                        }
+                    }
+                    
+                    $userA = new User();
+                    $userA["username"] = "eric";
+                    $userA["password"] = "1234";
+                    $userB = new User();
+
+                    $users = [$userA, $userB];
+                    $username = $_GET["username"];
+                    $password = $_GET["password"];
+
+                    
                 ?>
             </code>
         </section>
