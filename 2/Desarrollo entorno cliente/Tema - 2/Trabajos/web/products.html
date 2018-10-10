@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Shop - Products</title>
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/site.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Shop</a>
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+                aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i id="cart" class="fab fa-opencart"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main role="main" layout:fragment="main">
+        <div class="container">
+            <h2>Products</h2>
+            <button type="button" class="btn btn-outline-secondary edit" data-toggle="modal" data-target="#editProduct">
+                Add new Product
+            </button>
+            <!-- table -->
+            <table class="table table-hover table-sm table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Stock</th>
+                        <th scope="col">Total price</th>
+                        <th scope="col" colspan="4">Description</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr id="tr-product.id">
+                        <td class="td-id"></td>
+                        <td class="td-name"></td>
+                        <td class="td-price" style="display: none;"></td>
+                        <td class="td-priceEur"></td>
+                        <td class="td-stock"></td>
+                        <td class="td-totalPrice" style="display: none;"></td>
+                        <td class="td-totalPriceEur"></td>
+                        <td class="td-description"></td>
+                        <td>
+                            <button id="product.id" type="button" class="btn btn-outline-secondary edit" data-toggle="modal"
+                                data-target="#editProduct">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <form action="#" method="GET">
+                                <button class="btn btn-outline-secondary" type="submit">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="#" method="get">
+                                <button class="btn btn-outline-secondary" type="submit">
+                                    <i class="fas fa-cart-plus" type="submit"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Modal -->
+            <div class="modal fade" id="editProduct" tabindex="-1" role="dialog" aria-labelledby="editProductLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="edit-title"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="products.html" method="GET">
+                                <div class="form-group" style="display: none;">
+                                    <label for="id">Id</label>
+                                    <input id="edit-id" type="text" class="form-control" name="id" id="modal-id" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input id="edit-name" type="text" class="form-control" name="name" id="modal-name" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Price</label>
+                                    <input id="edit-price" type="text" class="form-control" name="price" id="modal-price" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="stock">Stock</label>
+                                    <input id="edit-stock" type="text" class="form-control" name="stock" id="modal-stock" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <input id="edit-description" type="text" class="form-control" name="description" id="modal-description" />
+                                </div>
+                                <button type="submit" class="btn btn-primary">Confirm</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="container fixed-bottom">
+        <p>© Shop 2018</p>
+    </footer>
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/popper.js/umd/popper.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="lib/font-awesome/js/all.min.js"></script>
+    <script src="js/site.js"></script>
+</body>
+
+</html>

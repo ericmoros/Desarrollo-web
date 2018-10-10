@@ -1,0 +1,29 @@
+body {
+    margin-top: 56px;
+    margin-bottom: 100px;
+}
+
+main>.container {
+    padding-top: 25px;
+}
+
+i#cart {
+    width: 100%;
+    color: #cccecf;
+}
+
+td,
+tbody th {
+    vertical-align: middle !important;
+}
+
+/* nav */
+.navbar-default .navbar-nav > li.dropdown:hover > a, 
+.navbar-default .navbar-nav > li.dropdown:hover > a:hover,
+.navbar-default .navbar-nav > li.dropdown:hover > a:focus {
+    background-color: rgb(231, 231, 231);
+    color: rgb(85, 85, 85);
+}
+li.dropdown:hover > .dropdown-menu {
+    display: block;
+}
