@@ -5,7 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ejercicio 3</title>
+    <title>Ejercicio 3.3</title>
+    <?php
+        $a=$_GET["a"];
+        $b=$_GET["b"];
+        $c=$_GET["c"];
+        $d=$_GET["d"];
+    ?>
+
+    <style>
+        .ej5-div1 {
+            width: <?php echo(($d + $c) . 'px') ?>;
+            height: <?php echo($a . 'px') ?>;
+            background-color: red;
+        }
+
+        .ej5-div2 {
+            width: <?php echo($d . 'px') ?>;
+            height: <?php echo($b . 'px') ?>;
+            background-color: blue;
+            display: inline-block;
+            float: left;
+        }
+
+        .ej5-div3 {
+            width: <?php echo($c . 'px') ?>;
+            height: <?php echo($b . 'px') ?>;
+            background-color: green;
+            display: inline-block;
+            float: left;
+        }
+
+        .spacer {
+            margin-top: 200px;
+            margin-bottom: 200px;
+        }
+    </style>
 </head>
 
 <body>
@@ -204,14 +239,14 @@
                         }
                     }
                     
-                    $userA = new User();
-                    $userA["username"] = "eric";
-                    $userA["password"] = "1234";
-                    $userB = new User();
+                    // $userA = new User();
+                    // $userA["username"] = "eric";
+                    // $userA["password"] = "1234";
+                    // $userB = new User();
 
-                    $users = [$userA, $userB];
-                    $username = $_GET["username"];
-                    $password = $_GET["password"];
+                    // $users = [$userA, $userB];
+                    // $username = $_GET["username"];
+                    // $password = $_GET["password"];
 
                     
                 ?>
@@ -231,11 +266,48 @@
                 menú &lt;div style=width:D&gt; Zona de menú&lt;/div&gt;
             </p>
             <code>
-                <?php
-
-                ?>
+                <form action="/ejercicios/3/3" method="get">
+                    <label for="3-form-a">A</label>
+                    <input id="3-form-a" name="a" type="number">
+                    <label for="3-form-b">B</label>
+                    <input id="3-form-b" name="b" type="number">
+                    <label for="3-form-c">C</label>
+                    <input id="3-form-c" name="c" type="number">
+                    <label for="3-form-d">D</label>
+                    <input id="3-form-d" name="d" type="number">
+                    <input type="submit" value="Enviar">
+                </form>
+                <div class="ej5-div1"></div>
+                <div class="ej5-div2"></div>
+                <div class="ej5-div3"></div>
             </code>
         </section>
+        <section>
+            <h2>6</h2>
+            <p>
+                Juego de adivinar números. Haz un programa que genere un número aleatorio entre 0 y 1024. Después
+                deberás de intentar adivinarlo, para ello el programa te informará de si el número que aportas es
+                menor, mayor o si lo has acertado. Tendrás 10 intentos. En cualquier momento podrás reiniciar el juego
+                mientras estás jugando. Deberás tener tres ficheros: - Index.html que te generará la información -
+                jugar.php que es el juego - fin.php cuando termine la partida mostrará la información del juego
+                realizado
+            </p>
+
+            <p>
+                Requisito1: La pantalla de inicio a) Crear la pantalla de bienvenida con la explicación del juego b)
+                Con una opción que me lleve a un fichero llamado jugar.php c) El fichero de momento solo muestra un
+                mensaje Requisito 2: Generamos un número aleatorio a) Solo lo generamos si venimos de index.php b)
+                Tenemos un botón de jugar c) Si apretamos el botón de jugar volvemos a cargar jugar.php, pero sin
+                generar el número aleatorio de nuevo d) Podemos probar visualizando el número Requisito 3: solicitamos
+                un número al usuario Requisito 4: Controlamos las jugadas Requisito 5: informamos si es mayor o menor
+                el número Requisito 6: podemos reiniciar el juego Requisito 7: Volver al inicio Requisito 8: Controlar
+                el final Requisito 9: Ventana de fin Requisito 10: Volver a iniciar la partida desde el final
+            </p>
+            <code>
+                <a href="6">Ir al ejercicio 6</a>
+            </code>
+        </section>
+        <div class="spacer"></div>
     </main>
 </body>
 
