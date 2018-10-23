@@ -38,6 +38,7 @@ function pedirUsuario(usuario) {
     usuario.altura = NaN;
     while (isNaN(usuario.altura)) {
         usuario.altura = prompt("Altura");
+        usuario.altura = usuario.altura.replace(',', '.');
         usuario.altura = parseFloat(usuario.altura);
     }
 
