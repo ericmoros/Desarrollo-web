@@ -3,7 +3,7 @@
 $dir_path = "files/";
 $file_path = $target_dir . basename($_FILES["input-file"]["name"]);
 move_uploaded_file($_FILES["input-file"]["tmp_name"], $dir_path . $_FILES["input-file"]["name"]);
-$files = [1, 2];
+$files = array_diff(scandir($dir_path), array('.', '..'));
 ?>  
 <html lang="en">
 
@@ -70,14 +70,18 @@ $files = [1, 2];
                         <div id="accordion">
                             <!-- from -->
                             <?php
+                                $value_id += 0;
                                 foreach ($files as $key => $value) {
+                                $value_id += 1;
+                                $value_trim = strtolower($value);
+                                preg_replace('/\s+/', '', $value_trim)
                             ?>
                             <div class="card">
-                                <div class="card-header" id="headingOne">
+                                <div class="card-header" id="heading-<?php echo($value_id)?>">
                                     <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                            aria-expanded="true" aria-controls="collapseOne">
-                                            File 1
+                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapse-<?php echo($value_id)?>"
+                                            aria-expanded="true" aria-controls="collapse-<?php echo($value_id)?>">
+                                            <?php echo($value);?>
                                         </button>
                                         <button class="btn btn-outline-info float-right">
                                             <i class="fas fa-file-download"></i>
@@ -87,7 +91,7 @@ $files = [1, 2];
                                         </button>
                                     </h5>
                                 </div>
-                                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                                <div id="collapse-<?php echo($value_id)?>" class="collapse" aria-labelledby="heading-<?php echo($value_id)?>" data-parent="#accordion">
                                     <div class="card-body">
                                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis pariatur
                                         incidunt necessitatibus id nemo alias sint soluta saepe cupiditate.
