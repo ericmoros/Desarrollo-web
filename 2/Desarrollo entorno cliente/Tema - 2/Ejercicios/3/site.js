@@ -4,7 +4,7 @@ var formPhone = null;
 var formButtonAdd = null;
 var formPhoneError = null;
 
-window.onload = function() {
+window.onload = function () {
   getElements();
   listenEvents();
   paintPhones();
@@ -12,7 +12,7 @@ window.onload = function() {
 };
 
 function listenEvents() {
-  formButtonAdd.addEventListener("click", function() {
+  formButtonAdd.addEventListener("click", function () {
     console.info("[Form button add clicked]");
     addPhone();
     paintPhones();
@@ -20,12 +20,28 @@ function listenEvents() {
   console.info("[Events listening]");
 }
 
+function checkPattern(str) {
+  console.info("[Checking phone pattern]");
+  var pattern = /^[0-9]{9}$/;
+  var check = false;
+  if (pattern.test(str)) check = true;
+  console.info(check);
+  return check;
+}
+
+function checkExists(str) {
+  console.info("[Checking if phone don't exists]");
+  check = true;
+  if (phones.some(p => p.number == str)) check = false;
+  console.info(check);
+  return check;
+}
+
 function validatePhone(str) {
   console.info("[Validating phone]");
   var validation = false;
-  var pattern = /^[0-9]{9}$/;
 
-  if (pattern.test(str)) {
+  if (checkPattern(str) && checkExists(str)) {
     validation = true;
     unPaintFormPhoneError();
   } else {
