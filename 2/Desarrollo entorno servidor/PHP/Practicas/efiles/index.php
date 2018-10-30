@@ -4,6 +4,27 @@ $dir_path = "files/";
 $file_path = $target_dir . basename($_FILES["input-file"]["name"]);
 move_uploaded_file($_FILES["input-file"]["tmp_name"], $dir_path . $_FILES["input-file"]["name"]);
 $files = array_diff(scandir($dir_path), array('.', '..'));
+file_put_contents("/practicas/efiles/files/Captura%20de%20pantalla%20(3).png", fopen("http://eric-server/practicas/efiles/1", 'r'));
+function downloadFile($file_name)
+{
+    $path = "/practicas/efiles/files/" . $file_name;
+    $newfname = $path;
+    $file = fopen ($file_name, 'rb');
+    if ($file) {
+        $newf = fopen ($newfname, 'wb');
+        if ($newf) {
+            while(!feof($file)) {
+                fwrite($newf, fread($file, 1024 * 8), 1024 * 8);
+            }
+        }
+    }
+    if ($file) {
+        fclose($file);
+    }
+    if ($newf) {
+        fclose($newf);
+    }
+}
 ?>  
 <html lang="en">
 
@@ -83,9 +104,9 @@ $files = array_diff(scandir($dir_path), array('.', '..'));
                                             aria-expanded="true" aria-controls="collapse-<?php echo($value_id)?>">
                                             <?php echo($value);?>
                                         </button>
-                                        <button class="btn btn-outline-info float-right">
+                                        <a class="btn btn-outline-info float-right" href="<?php echo($value_id)?>">
                                             <i class="fas fa-file-download"></i>
-                                        </button>
+                                        </a>
                                         <button class="btn btn-outline-info float-right  mr-5">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
