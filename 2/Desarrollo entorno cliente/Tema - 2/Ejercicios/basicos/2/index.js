@@ -5,7 +5,7 @@ var usuarioEdadElement = null;
 window.onload = function () {
     getElements();
     pedirUsuario(usuario);
-    pintarUsuario(usuario);
+    paintElements(usuario);
     console.log("Página lista!");
 };
 
@@ -15,25 +15,6 @@ function getElements() {
     usuarioEdadElement = document.getElementById("usuario-edad");
     console.info(usuarioNombreElement);
     console.info(usuarioEdadElement);
-}
-
-function pedirBooleano(str) {
-    var respuesta = null;
-    str = str.toLowerCase();
-
-    switch (str) {
-        case "si":
-            respuesta = true;
-            break;
-        case "no":
-            respuesta = false;
-            break;
-    }
-
-    console.log(`[pedirBooleano]`);
-    console.log(respuesta);
-
-    return respuesta;
 }
 
 function pedirUsuario(usuario) {
@@ -49,7 +30,7 @@ function pedirUsuario(usuario) {
     console.log(usuario);
 }
 
-function pintarUsuario(usuario) {
+function paintElements(usuario) {
     usuarioNombreElement.innerText = usuario.nombre;
     usuarioEdadElement.innerText = usuario.edad;
 
