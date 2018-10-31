@@ -1,23 +1,23 @@
-var usuario = new Object();
-var usuarioNombreElement = null;
-var usuarioEdadElement = null;
+var user = new Object();
+var userNameElement = null;
+var userAgeElement = null;
 
 window.onload = function () {
     getElements();
-    pedirUsuario(usuario);
-    paintElements(usuario);
+    askUser(user);
+    paintElements(user);
     console.log("Página lista!");
 };
 
 function getElements() {
     console.log("[Getting elements]");
-    usuarioNombreElement = document.getElementById("usuario-nombre");
-    usuarioEdadElement = document.getElementById("usuario-edad");
-    console.info(usuarioNombreElement);
-    console.info(usuarioEdadElement);
+    userNameElement = document.getElementById("usuario-nombre");
+    userAgeElement = document.getElementById("usuario-edad");
+    console.info(userNameElement);
+    console.info(userAgeElement);
 }
 
-function pedirUsuario(usuario) {
+function askUser(usuario) {
     usuario.nombre = prompt("Nombre");
     
     usuario.edad = NaN;
@@ -31,8 +31,8 @@ function pedirUsuario(usuario) {
 }
 
 function paintElements(usuario) {
-    usuarioNombreElement.innerText = usuario.nombre;
-    usuarioEdadElement.innerText = usuario.edad;
+    userNameElement.innerText = usuario.nombre;
+    userAgeElement.innerText = usuario.edad;
 
     console.log(`[pintaUsuario]`);
     console.log(usuario);
