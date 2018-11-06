@@ -1,32 +1,29 @@
-<!DOCTYPE html>
 <?php
 $dir_path = "files/";
 $file_path = $target_dir . basename($_FILES["input-file"]["name"]);
 move_uploaded_file($_FILES["input-file"]["tmp_name"], $dir_path . $_FILES["input-file"]["name"]);
 $files = array_diff(scandir($dir_path), array('.', '..'));
-file_put_contents("/practicas/efiles/files/Captura%20de%20pantalla%20(3).png", fopen("http://eric-server/practicas/efiles/1", 'r'));
-function downloadFile($file_name)
+$file_name = $_GET["filename"];
+
+if ($file_name) {
+    download($file_name);
+}
+
+function download($file_name)
 {
-    $path = "/practicas/efiles/files/" . $file_name;
-    $newfname = $path;
-    $file = fopen ($file_name, 'rb');
-    if ($file) {
-        $newf = fopen ($newfname, 'wb');
-        if ($newf) {
-            while(!feof($file)) {
-                fwrite($newf, fread($file, 1024 * 8), 1024 * 8);
-            }
-        }
-    }
-    if ($file) {
-        fclose($file);
-    }
-    if ($newf) {
-        fclose($newf);
-    }
+    $file = $dir_path . $file_name;
+    header("Expires: 0");
+    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+    header("Cache-Control: no-store, no-cache, must-revalidate");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");  header("Content-type: application/file");
+    header('Content-length: '.filesize($file));
+    header('Content-disposition: attachment; filename='.basename($file));
+    readfile($file);
+    exit;
 }
 ?>  
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -40,7 +37,7 @@ function downloadFile($file_name)
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="#">
             <i class="far fa-file-alt"></i>
             EFiles
@@ -66,21 +63,21 @@ function downloadFile($file_name)
         <div class="container mt-5">
             <section>
                 <div class="row">
-                    <div class="col">
-                        <h2 class="m-auto">All Files <?php echo($file_path);?></h2>
+                    <div class="col-md-3">
+                        <h2 class="m-auto">All Files</h2>
                     </div>
-                    <div class="col">
+                    <div class="col-md">
                         <form method="post" enctype="multipart/form-data">
                             <div class="form-row">
                                 <div class="col">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" id="input-file" name="input-file" required>
-                                        <label class="custom-file-label" for="input-file">Choose file...</label>
-                                        <div class="invalid-feedback">Example invalid custom file feedback</div>
+                                        <input type="file" class="m-auto custom-file-input" id="input-file" name="input-file" required>
+                                        <label id="input-file-label" class="m-auto custom-file-label" for="input-file">Choose file...</label>
+                                        <div class="m-auto invalid-feedback">Example invalid custom file feedback</div>
                                     </div>
                                 </div>
-                                <div class="col-4">
-                                    <button class="btn btn-primary float-right" type="submit">Upload</button>
+                                <div class="col-sm-4">
+                                    <button class="btn btn-primary btn-block" type="submit">Upload</button>
                                 </div>
                             </div>
                         </form>
@@ -104,7 +101,7 @@ function downloadFile($file_name)
                                             aria-expanded="true" aria-controls="collapse-<?php echo($value_id)?>">
                                             <?php echo($value);?>
                                         </button>
-                                        <a class="btn btn-outline-info float-right" href="<?php echo($value_id)?>">
+                                        <a class="btn btn-outline-info float-right" href='/practicas/efiles?filename="<?php echo($value)?>"'>
                                             <i class="fas fa-file-download"></i>
                                         </a>
                                         <button class="btn btn-outline-info float-right  mr-5">
@@ -129,7 +126,7 @@ function downloadFile($file_name)
                     </div>
             </section>
         </div>
-        <div style="margin-top: 100px;"></div>
+        <!-- <div style="margin-top: 100px;"></div> -->
     </main>
     <footer>
         <hr>
@@ -141,6 +138,7 @@ function downloadFile($file_name)
     <script src="lib/popper.js/popper.min.js"></script>
     <script src="lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="lib/fontawesome/js/all.min.js"></script>
+    <script src="js/site.js"></script>
 </body>
 
 </html>
