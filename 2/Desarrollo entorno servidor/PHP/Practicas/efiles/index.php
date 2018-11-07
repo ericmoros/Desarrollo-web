@@ -1,29 +1,32 @@
 <?php
 $dir_path = "files/";
-$file_path = $target_dir . basename($_FILES["input-file"]["name"]);
-move_uploaded_file($_FILES["input-file"]["tmp_name"], $dir_path . $_FILES["input-file"]["name"]);
+$file_path = $dir_path . basename($_FILES["input-file"]["name"]);
 $files = array_diff(scandir($dir_path), array('.', '..'));
-$file_name = $_GET["filename"];
 
-if ($file_name) {
+if ($_FILES["input-file"]["error"] == 0) {
+    move_uploaded_file($_FILES["input-file"]["tmp_name"], $file_path);
+}
+
+if (isset($_GET["filename"])) {
+    $file_name = $_GET["filename"];
     download($file_name);
 }
 
 function download($file_name)
 {
     $file = $dir_path . $file_name;
-    header("Expires: 0");
-    header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-    header("Cache-Control: no-store, no-cache, must-revalidate");
-    header("Cache-Control: post-check=0, pre-check=0", false);
-    header("Pragma: no-cache");  header("Content-type: application/file");
-    header('Content-length: '.filesize($file));
-    header('Content-disposition: attachment; filename='.basename($file));
+    header('Content-Description: File Transfer');
+    header('Content-Type: MIME');
+    header('Content-Disposition: attachment; filename="'.basename($file).'"');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    header('Content-Length: ' . filesize($file));
     readfile($file);
-    exit;
+    exit;   
 }
 ?>  
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -67,10 +70,11 @@ function download($file_name)
                         <h2 class="m-auto">All Files</h2>
                     </div>
                     <div class="col-md">
-                        <form method="post" enctype="multipart/form-data">
+                        <form method="post" enctype="multipart/form-data" max>
                             <div class="form-row">
                                 <div class="col">
                                     <div class="custom-file">
+                                        <input type="hidden" name="MAX_FILE_SIZE" value="2097152">
                                         <input type="file" class="m-auto custom-file-input" id="input-file" name="input-file" required>
                                         <label id="input-file-label" class="m-auto custom-file-label" for="input-file">Choose file...</label>
                                         <div class="m-auto invalid-feedback">Example invalid custom file feedback</div>
@@ -88,7 +92,7 @@ function download($file_name)
                         <div id="accordion">
                             <!-- from -->
                             <?php
-                                $value_id += 0;
+                                $value_id = 0;
                                 foreach ($files as $key => $value) {
                                 $value_id += 1;
                                 $value_trim = strtolower($value);
@@ -126,7 +130,6 @@ function download($file_name)
                     </div>
             </section>
         </div>
-        <!-- <div style="margin-top: 100px;"></div> -->
     </main>
     <footer>
         <hr>
