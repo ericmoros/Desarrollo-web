@@ -11,6 +11,7 @@
     $passwords = ['test1234', '12345678'];
     $file_separator = '|';
     
+    is_dir($dir) ?: mkdir($dir);
     $file_upload_name = upload_file($dir);
     $file_remove_name = remove_file($dir);
     $files = get_files($dir);
