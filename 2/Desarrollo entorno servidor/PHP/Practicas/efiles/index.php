@@ -1,7 +1,8 @@
 <?php
 $dir_path = "files/";
 $file_path = $dir_path . basename($_FILES["input-file"]["name"]);
-$files = array_diff(scandir($dir_path), array('.', '..'));
+$
+ = array_diff(scandir($dir_path), array('.', '..'));
 
 if ($_FILES["input-file"]["error"] == 0) {
     move_uploaded_file($_FILES["input-file"]["tmp_name"], $file_path);

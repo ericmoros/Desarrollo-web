@@ -1,0 +1,15 @@
+#f0, #up-file-form-cancel {
+    display: none;
+}
+
+#up-file-warn {
+    display: disabled;
+}
+
+#up-file-progress {
+    width: 500px;
+}
+
+#up-file-progress[value="0"] {
+    display: none;
+}
