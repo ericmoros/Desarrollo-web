@@ -5,23 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Básico 1</title>
+    <title>Hoja 3 - Ejercicio 1</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-    <h1>Básico 1</h1>
-    <section id="check1">
-        <h2>La cuarta componente es mayor o no que la tercera</h2>
-    </section>
-    <section id="check2">
-        <h2>Realizar un OR entre la primera y la tercera componente</h2>
-    </section>
-    <section id="check3">
-        <h2>Realizar un AND entre la primera y la tercera componente</h2>
-    </section>
-    <section id="check4">
-        <h2>Sumar, restar, multiplicar, dividir y calcular el módulo entre la segunda y la sexta componente</h2>
-    </section>
+    <header>
+        <h1>Ejercicio 1</h1>
+    </header>
+    <main>
+        <section id="check1">
+            <h2>El quinto componente es <span class="bigger display-none">mayor</span><span class="lesser display-none">menor</span>
+                que el cuarto</h2>
+        </section>
+        <section id="check2">
+            <h2>Con OR el primero y el tercero da: <span id="c2result"></span></h2>
+        </section>
+        <section id="check3">
+            <h2>con AND el primero y el tercero da: <span id="c3result"></span></h2>
+        </section>
+        <section id="check4">
+            <h2>Operaciones con el 2 y 6 componente</h2>
+            <p>Sumar: <span id="c4sum"></span></p>
+            <p>Restar: <span id="c4sub"></span></p>
+            <p>Multiplicar: <span id="c4mul"></span></p>
+            <p>Dividir: <span id="c4div"></span></p>
+            <p>Módulo: <span id="c4mod"></span></p>
+        </section>
+    </main>
+    <footer>
+        <p>Developed by: Eric Moros Pérez</p>
+    </footer>
     <script src="index.js"></script>
 </body>
 

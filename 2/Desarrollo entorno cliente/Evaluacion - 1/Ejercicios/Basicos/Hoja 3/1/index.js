@@ -1,53 +1,23 @@
-class Element {
-    constructor(name, element, value) {
-        this.name = name;
-        this.element = element;
-        this.value = value;
-    }
-
-    find() {
-        console.log("[Element:find]");
-        this.element = document.getElementById(this.name);
-        console.log(this.element);
-        
-    }
-
-    paint() {
-        console.log("[Element:paint]");
-        this.element.innerHTML = this.value;
-        console.log(this.element);
-    }
-
-    overPaint() {
-        console.log("[Element:overPaint]");
-        this.element.innerHTML += this.value;
-        console.log(this.element);
-    }
-}
-
-var e = [
-    new Element("check1"),
-    new Element("check2"),
-    new Element("check3"),
-    new Element("check4")
+const components = [
+    true, //0
+    5, //1
+    false, //2
+    "hola", //3
+    "adios", //4
+    2  //5
 ];
+const inline = 'inline';
+const none = 'none';
 
 window.onload = function () {
-    getElements();
-    paintElements();
+    check1.getElementsByClassName(components[4] > components[3] ? 'bigger': 'lesser')[0].style.display = inline;
+    c2result.innerHTML = components[0] || components[2] ? 'true' : 'false';
+    c3result.innerHTML = components[0] && components[2] ? 'true' : 'false';
+    c4sum.innerHTML = components[1] + components[5];
+    c4sub.innerHTML = components[1] - components[5];
+    c4mul.innerHTML = components[1] * components[5];
+    c4div.innerHTML = components[1] / components[5];
+    c4mod.innerHTML = components[1] % components[5];
     console.log("[pageReady]");
 };
 
-function getElements() {
-    console.log("[getElements]");
-    e.forEach(element => {
-        element.find();
-    });
-}
-
-function paintElements() {  
-    console.log(`[paintElements]`);
-    e.forEach(element => {
-        element.overPaint();
-    });
-}
