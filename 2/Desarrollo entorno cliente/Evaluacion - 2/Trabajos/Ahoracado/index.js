@@ -1,12 +1,25 @@
-const gameCursor = '|';
+var game = {
+    status: false,
+    images: {
+        dir: 'resources/img/',
+        label: 'you-',
+        extension: '.gif',
+        size: 8
+    },
+    dic: [],
+    word: ''
+};
 
-const youDir = 'resources/img/'
-const youLabel = 'you-'
-const youExtension = '.gif';
-const youSize = 8;
+var user = {
+    fails: 0,
+    cursor: {
+        char: '|',
+        elementPos: null
+    },
+    score: 0
+};
 
-var youFail = 0;
-var youCursor = false;
+
 window.onload = function () {
     listenEvents();
     startGame();
@@ -26,18 +39,49 @@ function listenEvents() {
             setCursor(this);
         })
     });
+    document.addEventListener('keypress', (event) => {
+        const keyName = event.key;
+        console.log('document {keypress}', keyName);
+
+    });
+}
+
+function readTextFile(file) {
+    let text = null;
+    let rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function () {
+        if (rawFile.readyState === 4 && rawFile.status === 200 || rawFile.status == 0)
+            text = rawFile.responseText;
+    }
+    rawFile.send(null);
+    return text;
+}
+
+function loadDic(path) {
+    let dic = [];
+    let text = readTextFile(path);
+    if (!text) {
+        alert('IF YOU DIDN\'T PLAYED THIS GAME OVER A SERVER THE DICTIONARY WILL NOT LOAD AND WILL USE AN INTERNALS ONE')
+        text = 'javascript hola sol colleja pechuga pollo lechuga';
+    }
+    text.split('\n').forEach(word => {
+        dic.push(word);
+    });
+    return dic;
 }
 
 function startGame() {
-    
+    game.dic = loadDic('resources/data/spanish.dic');
+
 }
 
 function fail() {
     console.log('[fail]');
     let rFail = true;
-    if (youFail < youSize) {
-        youFail++;
-        let youPath = `${youDir}${youLabel}${youFail}${youExtension}`;
+    if (user.fails < game.images.size) {
+        user.fails++;
+        let youPath = `${game.imgs.dir}${game.imgs.label}${user.fails}${game.imgs.extension}`;
         you.src = youPath;
     } else {
         rFail = false;
@@ -46,14 +90,15 @@ function fail() {
 }
 
 function setCursor(e) {
-    console.log('[setCursor]', e);
-    executeAsync(function() {
-        while (youCursor) {
-            setTimeout(function () {
-                
-            }, 500);
-        }
-    });
+    console.log('[setCursor:DEVELOPMENT]', e);
+    // youCursor = true;
+    // Concurrent.Thread.create(function() {
+    //     while (youCursor) {
+    //         setTimeout(function () {
+    e.innerHTML = game.cursor;
+    // }, 500);
+    //     }
+    // })
 }
 
 function gameOver(status) {
