@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio 5</title>
+
+	<style type="text/css">
+		body {
+			font-family: arial, helvetica;
+		}
+
+		#info {
+			width: 160px;
+			border: thin solid silver;
+			padding: .5em;
+			position: fixed;
+		}
+
+		#info h1 {
+			margin: 0;
+		}
+	</style>
+
+
+</head>
+
+<body>
+	<div id="info">
+		<h1 id="pos">Haz clic</h1>
+	</div>
+	<script type="text/javascript">
+		document.onclick = function (e) {
+			var x;
+			var y;
+			var str;
+
+			if (e.clientX < window.innerWidth / 2) {
+				x = 'Izquierda';
+			} else {
+				x = 'Derecha';
+			}
+
+			if (e.clientY < window.innerHeight / 2) {
+				y = 'Arriba';
+			} else {
+				y = 'Abajo';
+			}
+
+			str = `${x} ${y}`;
+
+			pos.innerHTML = str;
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+    <style>
+        #coords {
+            position: absolute;
+            border: green solid 1px;
+        }
+        #coords > * {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="coords">
+        <p>Mouse coords</p>
+        <ul>
+            <li>x: <span id="x"></span></li>
+            <li>y: <span id="y"></span></li>
+        </ul>
+    </div>
+    <script>
+        document.onmousemove = function (e) {
+            coords.style.left = e.clientX + 'px';
+            coords.style.top = e.clientY + 'px';
+            x.innerHTML = e.clientX;
+            y.innerHTML = e.clientY;
+        }
+    </script>
+</body>
+
+</html>
