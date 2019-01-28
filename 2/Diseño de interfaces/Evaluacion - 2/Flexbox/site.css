@@ -1,0 +1,150 @@
+body {
+    margin: 0px;
+    background-color: black;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.wrapper {
+    display: flex;
+}
+
+.wrapper-v {
+    display: flex;
+    flex-direction: column; 
+}
+
+.window-space-1 {
+    height: calc(100vh - 73px);
+    background-color: gray;
+}
+
+.window-explorer {
+    flex: 15%;
+    min-width: 235px;
+    background-color: #121212;
+    overflow-y: scroll;
+}
+
+* {
+    /* firefox */
+    scrollbar-color: #535353 #121212; 
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background: #121212; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #535353; 
+    height: 200px;
+}
+
+
+.window-space-2 {
+    flex: 85%;
+    background-color: #181818;
+}
+
+.window-space-3 {
+    flex: 80%;
+    overflow-y: hidden;
+}
+
+
+.window-player {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 73px;
+    background-color: #232323;
+}
+
+h2 {
+    vertical-align: middle;
+    color: white;
+    margin-left: 25px;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    color: #a0a0a0;
+    margin-bottom: 15px;
+    padding-left: 25px;
+}
+li > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.active {
+    border-left: 5px #1ed760 solid;
+    padding-left: 20px;
+    color: white;
+}
+
+.window-songs {
+    flex: 60%;
+    overflow-y: scroll;
+}
+
+.window-songs table {
+    width: calc(100% - 50px);
+    margin: 25px;
+}
+
+.window-songs thead th {
+    color: #a0a0a0;
+    font-weight: normal;
+    text-align: left;
+}
+.window-songs tbody td {
+    color: white;
+}
+
+.window-friends {
+    flex: 20%;
+    background-color: #121212;
+    overflow-y: scroll;
+}
+
+.window-friends .friend-block {
+    margin: 25px;
+    color: #a0a0a0;
+}
+
+.window-friends .friend-block .friend {
+    color: white;
+}
+
+.window-adds {
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    flex: 20%;
+    background-color: #181818;
+}
+
+.window-songs > h2 {
+    border-bottom:  solid 2px #282828;
+    margin: 0px;
+    padding: 25px;
+}
+
+.window-adds > img {
+    margin: auto;
+}
+
+hr {
+    margin-left: 25px;
+    margin-right: 25px;
+    border: 0px;
+    border-top: solid #282828 2px;
+}
