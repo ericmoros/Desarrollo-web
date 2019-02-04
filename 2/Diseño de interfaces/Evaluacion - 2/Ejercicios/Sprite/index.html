@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Insert title here</title>
+  <style>
+    #skyline {
+      width: 400px;
+      height: 200px;
+      background: url(sprite1.jpg);
+      margin: 10px auto;
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: 100px 75px 90px 135px;
+      list-style: none;
+    }
+
+    #skyline a {
+      display: block;
+      height: 100%;
+    }
+
+    #panel1b a:hover {
+      background: transparent 0px -200px url(sprite1.jpg);
+    }
+
+    #panel2b a:hover {
+      background: transparent -100px -200px url(sprite1.jpg);
+    }
+
+    #panel3b a:hover {
+      background: transparent -175px -200px url(sprite1.jpg);
+    }
+
+    #panel4b a:hover {
+      background: transparent -265px -200px url(sprite1.jpg);
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="skyline">
+    <li id="panel1b"><a href="#1"></a></li>
+    <li id="panel2b"><a href="#2"></a></li>
+    <li id="panel3b"><a href="#3"></a></li>
+    <li id="panel4b"><a href="#4"></a></li>
+  </ul>
+</body>
+
+</html>
