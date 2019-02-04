@@ -2,20 +2,30 @@
 
 $session = session_start();
 
-if ($session) {
-    if(!isset($_SESSION['lang'])) {
-        $_SESSION['lang'] = 'en';
-        echo('<p>lang has been set to: ' . $_SESSION['lang'] . '</p>');
-    }
-    if(!isset($_SESSION['visibility'])) {
-        $_SESSION['visibility'] = 'yes';
-        echo('<p>visibility has been set to: ' . $_SESSION['visibility'] . '</p>');
-    }
-    if(!isset($_SESSION['timeZone'])) {
-        $_SESSION['timeZone'] = 'utc';
-        echo('<p>timeZone has been set to: ' . $_SESSION['timeZone'] . '</p>');
-    }
+if (!$session) {
+    throw new Exception("Error starting session", 1);
 }
+
+// av
+if(!isset($_SESSION['av_langs'])) $_SESSION['av_langs'] = ['en', 'es'];
+if(!isset($_SESSION['av_visibilities'])) $_SESSION['av_visibilities'] = ['public', 'private'];
+if(!isset($_SESSION['av_timeZones'])) $_SESSION['av_timeZones'] = [ 'GTM-2', 'GTM-1', 'GTM', 'GTM+1', 'GTM+2' ];
+
+// User
+if(!isset($_SESSION['lang'])) {
+    $_SESSION['lang'] = $_SESSION['av_langs'][0];
+    echo('<p>lang has been set to: ' . $_SESSION['lang'] . '</p>');
+}
+if(!isset($_SESSION['visibility'])) {
+    $_SESSION['visibility'] = $_SESSION['av_visibilities'][0];
+    echo('<p>visibility has been set to: ' . $_SESSION['visibility'] . '</p>');
+}
+if(!isset($_SESSION['timeZone'])) {
+    $_SESSION['timeZone'] = $_SESSION['av_timeZones'][0];
+    echo('<p>timeZone has been set to: ' . $_SESSION['timeZone'] . '</p>');
+}
+
+
 
 ?>
 
@@ -30,9 +40,9 @@ if ($session) {
 <body>
     <nav>
         <a href="">Home</a> |
-        <a href="conf">Config</a> |
-        <a href="ex1">Example page 1</a> |
-        <a href="ex2">Another example page</a>
+        <a href="conf.php">Config</a> |
+        <a href="ex1.php">Example page 1</a> |
+        <a href="ex2.php">Another example page</a>
     </nav>
     <header>
         <h1>Sesiones con php</h1>
@@ -61,6 +71,11 @@ if ($session) {
                 lang: '<?php echo($_SESSION['lang'])?>',
                 visibility: '<?php echo($_SESSION['visibility'])?>',
                 timeZone: '<?php echo($_SESSION['timeZone'])?>'
+            },
+            av: {
+                langs: <?php echo(json_encode($_SESSION['av_langs']))?>,
+                visibilities: <?php echo(json_encode($_SESSION['av_visibilities']))?>,
+                timeZones: <?php echo(json_encode($_SESSION['av_timeZones']))?>
             }
         }
         if (server.debug) console.log(server);
