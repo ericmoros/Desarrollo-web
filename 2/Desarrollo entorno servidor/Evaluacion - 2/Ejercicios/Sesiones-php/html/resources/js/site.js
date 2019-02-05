@@ -9,14 +9,62 @@ function loadConf() {
     // lang.innerHTML = server.session.lang;
     // visibility.innerHTML = server.session.visibility;
     // timeZone.innerHTML = server.session.timeZone;
-    for (let i = 0; i < server.av.langs.length; i++) {
-        const lang = server.av.langs[i];
-        let option = document.createElement('option');
-        option.value = i;
-        option.innerHTML = option;
-        avLang.appendChild(option);
+    const selects = [
+        {
+            select: avLang,
+            options: server.av.langs,
+            optSelected: server.session.lang
+        },
+        {
+            select: avVisibility,
+            options: server.av.visibilities,
+            optSelected: server.session.visibility
+        },
+        {
+            select: avTimeZone,
+            options: server.av.timeZones,
+            optSelected: server.session.timeZone
+        }
+    ];
+
+    function loadOption(loadableOption) {
+        const select = loadableOption.select;
+        const options = loadableOption.options;
+        const optSelected = loadableOption.optSelected;
+        if (select != null && options != null && optSelected != null) {
+            for (let i = 0; i < options.length; i++) {
+                const lang = options[i];
+                let option = document.createElement('option');
+                option.value = i;
+                option.innerHTML = lang;
+                select.append(option);
+            }
+            let selectedOpt = [...select.children].filter(opt => opt.innerText == optSelected);
+            selectedOpt.selected = true;
+        } else {
+            console.error(`Error loading: ${loadableOption}`);
+        }
     }
-    console.log('loadConf done');    
+
+    function loadOptions() {
+        selects.forEach(select => {
+            loadOption(select);
+        });
+    }
+
+    function listenChangeOption() {
+        
+    }
+
+    function listenEvents() {
+        listenChangeOption();
+    }
+
+    loadOptions();
+    listenEvents();
+
+    console.log('loadConf done');
+
 }
 
 function load() {

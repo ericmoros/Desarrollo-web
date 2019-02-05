@@ -1,4 +1,11 @@
 <?php
+
+$session = session_start();
+
+if (!$session) {
+    throw new Exception("Error starting session", 1);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -7,6 +14,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Sesión-php - Config</title>
+    <link rel="stylesheet" href="resources/css/site.css">
 </head>
 
 <body>
@@ -22,11 +30,14 @@
     </header>
     <main>
         <div class="session-info">
-            <form action="">
+            <form class="inline-form" action="" method="POST">
+                <label for="avLang">Lang</label>
                 <select name="lang" id="avLang">
                 </select>
+                <label for="avVisibility">visibility</label>
                 <select name="visibility" id="avVisibility">
                 </select>
+                <label for="avTimeZone">Time zone</label>
                 <select name="timeZone" id="avTimeZone">
                 </select>
             </form>

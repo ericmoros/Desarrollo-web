@@ -35,6 +35,7 @@ if(!isset($_SESSION['timeZone'])) {
 <head>
     <meta charset="UTF-8">
     <title>Sesión-php</title>
+    <link rel="stylesheet" href="resources/css/site.css">
 </head>
 
 <body>
