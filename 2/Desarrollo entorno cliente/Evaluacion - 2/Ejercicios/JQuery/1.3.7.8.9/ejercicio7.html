@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio 7</title>
+	<style>
+		img {
+			display: block;
+			width: 200px;
+		}
+	</style>
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+	<button>Pulsa aquí</button>
+	<img src="img/logo.png" alt="Logotipo CPIFP Los Enlaces" />
+	<script>
+		$('button').on('click', () => {
+			const img = $('img');
+			if (img.css('display') == 'none') {
+				img.show("slide", { direction: "left" }, 1000);
+			} else {
+				img.fadeOut(1000);
+			}
+		});
+	</script>
+</body>
+
+</html>

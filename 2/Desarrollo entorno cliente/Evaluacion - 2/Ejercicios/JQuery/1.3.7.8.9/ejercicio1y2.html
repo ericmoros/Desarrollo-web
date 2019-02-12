@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ejercicio 1 - jQuery</title>
+	<style>
+		button {
+			padding: 12px;
+		}
+	</style>
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+	<p> Este es nuestro primer ejercicio de jQuery. Al pulsar el botón debemos esconder el párrafo.<br />
+		¡No te olvides de enlazar la librería de jQuery para poder utilizar jQuery!
+	</p>
+	<button>Pulsa aquí</button>
+	<script>
+		$('button').on('click', () => {
+			$('p').first().toggle();
+		});
+	</script>
+</body>
+
+</html>
