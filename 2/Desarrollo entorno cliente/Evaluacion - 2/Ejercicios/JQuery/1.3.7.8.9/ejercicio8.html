@@ -6,7 +6,7 @@
 	<title>Ejercicio 8</title>
 	<style>
 		div {
-			position: absolute;
+			position: relative;
 			background-color: #abc;
 			left: 50px;
 			width: 90px;
@@ -18,9 +18,22 @@
 </head>
 
 <body>
-	<button id="left">&laquo;</button>
-	<button id="right">&raquo;</button>
-	<div class="block"></div>
+	<button>Pulsa aquí</button>
+	<div></div>
+	<script>
+		const div = $('div')
+		var clicked = false
+		
+		$('button').on('click', () => {
+			if (clicked) {
+				div.animate({ left: 0 })				
+				clicked = false
+			} else {
+				div.animate({ left: $(document).width() - div.width() * 2 })
+				clicked = true
+			}
+		})
+	</script>
 </body>
 
 </html>

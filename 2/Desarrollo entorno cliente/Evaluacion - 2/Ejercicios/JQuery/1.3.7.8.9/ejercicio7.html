@@ -6,6 +6,7 @@
 	<title>Ejercicio 7</title>
 	<style>
 		img {
+			position: relative;
 			display: block;
 			width: 200px;
 		}
@@ -17,14 +18,19 @@
 	<button>Pulsa aquí</button>
 	<img src="img/logo.png" alt="Logotipo CPIFP Los Enlaces" />
 	<script>
+		const img = $('img')
+		var clicked = false
+		
+		// Prueba a darle muchas veces muy rápido al botón 10/15s y flipa xD.
 		$('button').on('click', () => {
-			const img = $('img');
-			if (img.css('display') == 'none') {
-				img.show("slide", { direction: "left" }, 1000);
+			if (clicked) {
+				img.animate({ width: img.width() / 2, left: 0 })				
+				clicked = false
 			} else {
-				img.fadeOut(1000);
+				img.animate({ width: img.width() * 2, left: $(document).width() - img.width() * 2 })
+				clicked = true
 			}
-		});
+		})
 	</script>
 </body>
 

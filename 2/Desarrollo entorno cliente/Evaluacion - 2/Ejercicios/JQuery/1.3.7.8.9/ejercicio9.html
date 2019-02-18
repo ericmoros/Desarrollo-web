@@ -19,20 +19,21 @@
 		}
 	</style>
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
-		});
-	</script>
 </head>
 
 <body>
 	<div id="imagenes">
-		<a href="index.php"> <img src="img/inicio.gif" /></a> <a href="pisos.html"> <img
-				src="img/pisos.gif" />
-		</a> <a href="cocinas.html"> <img src="img/cocinas.gif" />
-		</a> <a href="banos.html"> <img src="img/baños.gif" />
-		</a> <a href="contactar.html"> <img src="img/contactar.gif" /></a>
+		<img src="img/inicio.gif" />
+		<img src="img/pisos.gif" />
+		<img src="img/cocinas.gif" />
+		<img src="img/baños.gif" />
+		<img src="img/contactar.gif" />
 	</div>
+	<script>
+		$('img').click(function () {
+			$(this).slideToggle()
+		})
+	</script>
 </body>
 
 </html>
