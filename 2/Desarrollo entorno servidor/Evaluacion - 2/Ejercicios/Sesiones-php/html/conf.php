@@ -6,6 +6,13 @@ if (!$session) {
     throw new Exception("Error starting session", 1);
 }
 
+if (isset($_POST['lang'])) $_SESSION['lang'] = $_SESSION['av_langs'][$_POST['lang']];
+if (isset($_POST['visibility'])) $_SESSION['visibility'] = $_SESSION['av_visibilities'][$_POST['visibility']];
+if (isset($_POST['timeZone'])) $_SESSION['timeZone'] = $_SESSION['av_timeZones'][$_POST['timeZone']];
+if (isset($_POST['reset'])) {
+    session_destroy();
+    header('location:/');
+}
 ?>
 
 <!DOCTYPE html>
@@ -20,9 +27,7 @@ if (!$session) {
 <body>
     <nav>
         <a href="/">Home</a> |
-        <a href="">Config</a> |
-        <a href="ex1.php">Example page 1</a> |
-        <a href="ex2.php">Another example page</a>
+        <a href="">Config</a>
     </nav>
     <header>
         <h1>Sesiones con php</h1>
@@ -30,16 +35,23 @@ if (!$session) {
     </header>
     <main>
         <div class="session-info">
-            <form class="inline-form" action="" method="POST">
+            <form name="formLang" class="inline-form" action="" method="POST">
                 <label for="avLang">Lang</label>
                 <select name="lang" id="avLang">
                 </select>
+            </form>
+            <form name="formVisibility" class="inline-form" action="" method="POST">
                 <label for="avVisibility">visibility</label>
                 <select name="visibility" id="avVisibility">
                 </select>
+            </form>
+            <form name="formTimeZone" class="inline-form" action="" method="POST">
                 <label for="avTimeZone">Time zone</label>
                 <select name="timeZone" id="avTimeZone">
                 </select>
+            </form>
+            <form name="formReset" class="inline-form" action="" method="POST">
+                <input name="reset" type="submit" value="Reset all">
             </form>
         </div>
     </main>

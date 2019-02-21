@@ -1,14 +1,25 @@
 function loadIndex() {
+    function warnInfo() {
+        const infoWarns = [...document.getElementsByClassName('server-info')];
+        infoWarns.forEach(iW => {
+            (() => {
+                setTimeout(() => {
+                    iW.style.color = 'red';
+                    setTimeout(() => {
+                        iW.style.color = 'black';
+                    }, 250);
+                }, 250);
+            })();
+        });
+    }
     lang.innerHTML = server.session.lang;
     visibility.innerHTML = server.session.visibility;
     timeZone.innerHTML = server.session.timeZone;
+    document.body.onload = warnInfo;
     console.log('loadIndex done');
 }
 
 function loadConf() {
-    // lang.innerHTML = server.session.lang;
-    // visibility.innerHTML = server.session.visibility;
-    // timeZone.innerHTML = server.session.timeZone;
     const selects = [
         {
             select: avLang,
@@ -40,7 +51,7 @@ function loadConf() {
                 select.append(option);
             }
             let selectedOpt = [...select.children].filter(opt => opt.innerText == optSelected);
-            selectedOpt.selected = true;
+            selectedOpt[0].selected = true;
         } else {
             console.error(`Error loading: ${loadableOption}`);
         }
@@ -52,8 +63,18 @@ function loadConf() {
         });
     }
 
+    function saveOption(select) {
+        select.parentElement.submit();
+    }
+
     function listenChangeOption() {
-        
+        selects.forEach(s => {
+            (() => {
+                s.select.addEventListener('change', () => {
+                    saveOption(s.select);
+                });
+            })();
+        });
     }
 
     function listenEvents() {
