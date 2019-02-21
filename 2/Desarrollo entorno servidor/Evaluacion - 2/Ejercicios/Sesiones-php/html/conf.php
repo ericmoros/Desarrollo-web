@@ -31,7 +31,7 @@ if (isset($_POST['reset'])) {
     </nav>
     <header>
         <h1>Sesiones con php</h1>
-        <h2>Conf</h2>
+        <h2>Configuration</h2>
     </header>
     <main>
         <div class="session-info">
@@ -50,7 +50,7 @@ if (isset($_POST['reset'])) {
                 <select name="timeZone" id="avTimeZone">
                 </select>
             </form>
-            <form name="formReset" class="inline-form" action="" method="POST">
+            <form class="inline-form reset" name="formReset" class="inline-form" action="" method="POST">
                 <input name="reset" type="submit" value="Reset all">
             </form>
         </div>

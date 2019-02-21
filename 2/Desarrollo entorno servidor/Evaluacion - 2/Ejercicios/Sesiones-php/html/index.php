@@ -11,22 +11,6 @@ if(!isset($_SESSION['av_langs'])) $_SESSION['av_langs'] = ['en', 'es', 'pt'];
 if(!isset($_SESSION['av_visibilities'])) $_SESSION['av_visibilities'] = ['public', 'private'];
 if(!isset($_SESSION['av_timeZones'])) $_SESSION['av_timeZones'] = [ 'GMT-2', 'GMT-1', 'GMT', 'GMT+1', 'GMT+2' ];
 
-// User
-if(!isset($_SESSION['lang'])) {
-    $_SESSION['lang'] = $_SESSION['av_langs'][0];
-    echo('<p class="server-info">lang has been set to: ' . $_SESSION['lang'] . '</p>');
-}
-if(!isset($_SESSION['visibility'])) {
-    $_SESSION['visibility'] = $_SESSION['av_visibilities'][0];
-    echo('<p class="server-info">visibility has been set to: ' . $_SESSION['visibility'] . '</p>');
-}
-if(!isset($_SESSION['timeZone'])) {
-    $_SESSION['timeZone'] = $_SESSION['av_timeZones'][0];
-    echo('<p class="server-info">timeZone has been set to: ' . $_SESSION['timeZone'] . '</p>');
-}
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +23,21 @@ if(!isset($_SESSION['timeZone'])) {
 </head>
 
 <body>
+    <?php
+    // User
+    if(!isset($_SESSION['lang'])) {
+        $_SESSION['lang'] = $_SESSION['av_langs'][0];
+        echo('<p class="server-info">lang has been set to: ' . $_SESSION['lang'] . '</p>');
+    }
+    if(!isset($_SESSION['visibility'])) {
+        $_SESSION['visibility'] = $_SESSION['av_visibilities'][0];
+        echo('<p class="server-info">visibility has been set to: ' . $_SESSION['visibility'] . '</p>');
+    }
+    if(!isset($_SESSION['timeZone'])) {
+        $_SESSION['timeZone'] = $_SESSION['av_timeZones'][0];
+        echo('<p class="server-info">timeZone has been set to: ' . $_SESSION['timeZone'] . '</p>');
+    }
+    ?>
     <nav>
         <a href="">Home</a> |
         <a href="conf.php">Config</a>

@@ -7,15 +7,24 @@ function loadIndex() {
                     iW.style.color = 'red';
                     setTimeout(() => {
                         iW.style.color = 'black';
-                    }, 250);
-                }, 250);
+                        setTimeout(() => {
+                            iW.style.color = 'red';
+                            setTimeout(() => {
+                                iW.style.color = 'black';
+                                setTimeout(() => {
+                                    iW.style.display = 'none';
+                                }, 5000);
+                            }, 100);
+                        }, 100);
+                    }, 100);
+                }, 100);
             })();
         });
     }
     lang.innerHTML = server.session.lang;
     visibility.innerHTML = server.session.visibility;
     timeZone.innerHTML = server.session.timeZone;
-    document.body.onload = warnInfo;
+    warnInfo();
     console.log('loadIndex done');
 }
 

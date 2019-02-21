@@ -1,5 +1,24 @@
 .inline-form > * {
     display: list-item;
+    width: 200px;
 }
-.server-info {
+
+.inline-form > label {
+    font-weight: bold;
+    margin-top: 15px;
+}
+.inline-form input, .inline-form select {
+    cursor: pointer;
+}
+.reset {
+    margin: 100px 0 auto;
+}
+.reset input {
+    height: 50px;
+    background: rgb(255, 113, 78);
+    color: white;
+    border: none;
+}
+.reset input:hover {
+    background: rgb(255, 79, 35);
 }
