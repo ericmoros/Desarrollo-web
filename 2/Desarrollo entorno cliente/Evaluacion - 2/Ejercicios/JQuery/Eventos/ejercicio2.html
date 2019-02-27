@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ejercicios eventos jquery</title>
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script>
+		var event;
+		$(document).ready(function () {
+			function clicAlerta() {
+				alert("Has hecho clic");
+			}
+
+			$("p").on("mouseenter mouseleave", function (e) {
+				if ($(this).css("color") == "rgb(0, 0, 0)") $(this).css("color", "rgb(255, 0, 0)");
+				else $(this).css("color", "black");
+			})
+			event = $(".miclase")[0].addEventListener('click', clicAlerta);
+			$(quitarevento).on('click', function () {
+				console.log(event);
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<p class="miclase">Primer párrafo</p>
+	<p>Otro párrafo</p>
+	<input type=button value="Quitar el alert del clic del primer párrafo" id="quitarevento">
+</body>
+
+</html>

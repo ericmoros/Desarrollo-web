@@ -1,0 +1,11 @@
+#logo {
+    position: relative;
+}
+
+button {
+    display: block;
+}
+.interface {
+    position: absolute;
+    top: 300px;
+}

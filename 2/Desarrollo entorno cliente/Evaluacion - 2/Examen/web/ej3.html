@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Examen - ej3</title>
+    <link rel="stylesheet" href="css/ej3.css">
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>ej3</h1>
+    </header>
+    <main>
+        <div class="tooltip"></div>
+        <form>
+            <input type="text" id="name" placeholder="Asignatura">
+            <input type="text" id="description" placeholder="Descripción">
+            <button id="btnAdd" class="add-row">Add Row</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Asignatura</th>
+                    <th>Descripción</th>
+                </tr>
+            </thead>
+            <tbody id="data">
+                <tr>
+                    <td><input type="checkbox" name="record"></td>
+                    <td title="Asignatura">Bases de datos</td>
+                    <td>La asignatura tiene su aplicación en... diseño y normalización de BBDD </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="delete-row">Delete Row</button>
+    </main>
+    <footer>
+        <p>Developed by: Eric Moros Pérez</p>
+    </footer>
+    <script src="js/ej3.js"></script>
+</body>
+
+</html>

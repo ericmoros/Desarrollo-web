@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ejercicios eventos jquery</title>
+	<script src="node_modules/jquery/dist/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			function clicAlerta() {
+				alert("Has hecho clic");
+			}
+
+			$('.miclase').on('click', clicAlerta);
+			$('p').on('mouseover', function () {
+				let colorOld = $(this).css('color');
+				$(this).css('color', 'red');
+				$(this).on('mouseout', function (e) {
+					$(this).css('color', colorOld);
+					$(this).off(e);
+				});
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<p class="miclase">Primer párrafo</p>
+	<p>Otro párrafo</p>
+</body>
+
+</html>
