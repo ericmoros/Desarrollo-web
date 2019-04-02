@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Test with Ajax</h1>
+    </header>
+    <main>
+        <div id="usersDiv">
+            <h2>Users</h2>
+            <div obj-template="users">
+                <h3 class="id">
+                    #<span obj-id>Loading</span>
+                </h3>
+                <p class="name">
+                    Name: <span obj-name>Loading</span>
+                </p>
+                <p class="username">
+                    Username: <span obj-username>Loading</span>
+                </p>
+                <p class="email">
+                    Email: <span obj-email>Loading</span>
+                </p>
+                <p class="remember_token">
+                    Remember token: <span obj-remember_token>Loading</span>
+                </p>
+                <p class="api_token">
+                    Api token: <span obj-api_token>Loading</span>
+                </p>
+                <p class="created_at">
+                    Created at: <span obj-created_at>Loading</span>
+                </p>
+                <p class="updated_at">
+                    Updated at: <span obj-updated_at>Loading</span>
+                </p>
+            </div>
+        </div>
+        <div id="footballDiv" obj-template="football">
+            <h2>Resultados</h2>
+            <p>Away Team: <span obj-filters></span></p>
+            <p>Home Team: <span obj-count></span></p>
+        </div>
+    </main>
+    <footer>
+        Developed by: Eric Moros Pérez.
+    </footer>
+    <script src="index.js"></script>
+</body>
+
+</html>
