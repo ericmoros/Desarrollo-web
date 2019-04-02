@@ -1,0 +1,177 @@
+/* FONTS */
+@font-face {
+    font-family: pacifico;
+    src: url(../fonts/Pacifico-Regular.ttf);
+}
+
+
+/* VARIABLES */
+:root {
+    --bg-color-1: rgb(19, 98, 151);
+    --bg-color-2: rgb(14, 135, 216);
+    --bg-color-3: rgb(202, 234, 255);
+    --color-1: #8c97f0;
+    --main-m-sides: 100px;
+}
+
+/* BODY*/
+body {
+    font-size: 1.5em;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 74px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    height: 100vh;
+    width: 100%;
+}
+
+/* NAV */
+nav {
+    position: fixed;
+    max-width: 1200px;
+    width: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'pacifico';
+    border: solid 1px white;
+    border-top: solid 5px white;
+}
+nav ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    background-color: var(--bg-color-1);
+    width: 100%;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+    border-left: 1px solid var(--bg-color-1);
+    border-right: 1px solid var(--bg-color-1);
+    border-bottom: 1px solid var(--bg-color-1);
+}
+
+nav li a {
+    color: rgb(233, 233, 233);
+    padding: 16px;
+    text-decoration: none;
+    text-align: center;
+    float: left;
+    vertical-align: middle;
+    text-shadow: -2px 0 var(--bg-color-2), 0 2px var(--bg-color-2), 2px 0 var(--bg-color-2), 0 -2px var(--bg-color-2);
+}
+
+
+nav li:hover {
+    background-color: goldenrod;
+    border-left: 1px solid var(--bg-color-1);
+    border-right: 1px solid var(--bg-color-1);
+    border-bottom: 1px solid var(--bg-color-1);
+    -webkit-transition: background-color 500ms linear;
+    -ms-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+}
+
+nav li.active {
+    background-color: var(--bg-color-2);
+}
+
+nav svg {
+    width: auto;
+    max-height: 0.9em;
+    font-weight: bold;
+}
+
+nav li ul {
+    display: none;
+}
+
+/* MAIN */
+main {
+    padding-left: var(--main-m-sides);
+    padding-right: var(--main-m-sides);
+    max-width: 1200px;
+    background-color: #e1e4ff;
+    min-height: 82%;
+    border: solid 1px var(--bg-color-2);
+}
+
+/* SECTION */
+section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section>* {
+    flex: 1;
+}
+
+section article figure {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+section article figure img {
+    width: 100%;
+}
+
+aside {
+    margin-left: 50px;
+    display: flex;
+    width: 25%;
+    font-weight: bolder;
+    text-align: right;
+    max-width: 200px;
+}
+
+code {
+    color: var(--color-1);
+    font-weight: bold;
+    background-color: rgb(44, 44, 44);
+    border-radius: 25px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    margin-bottom: 15px;
+    padding-left: var(--main-m-sides);
+    padding-right: var(--main-m-sides);
+    border: solid 1px white;
+    border-right: 1px solid var(--bg-color-1);
+    border-left: 1px solid var(--bg-color-1);
+    border-bottom: 1px solid var(--bg-color-1);
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer ul a {
+    color: var(--bg-color-1);
+}
+
+footer ul li {
+    display: inline;
+}
+
+/* TABLET */
+@media (min-width: 600px) and (max-width: 900px) {
+    footer ul a {
+        color: red;
+    }
+}
+
+/* MOVIL */
+@media (max-width: 600px) {
+    aside {
+        text-align: center
+    }
+}
