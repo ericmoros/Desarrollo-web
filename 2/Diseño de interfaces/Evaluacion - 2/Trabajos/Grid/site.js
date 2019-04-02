@@ -22,5 +22,3 @@ function afterTime() {
         add.src = site.adds.images[site.adds.current];
     }, 10000);
 }
-
-window.history.back()
