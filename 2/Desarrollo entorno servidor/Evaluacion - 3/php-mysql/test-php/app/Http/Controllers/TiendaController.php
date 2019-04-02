@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Tienda;
 
-class FamiliaController extends Controller 
+class TiendaController extends Controller 
 {
 
   /**
@@ -14,7 +14,8 @@ class FamiliaController extends Controller
    */
   public function index()
   {
-    
+    $tienda = Tienda::all();
+    return response()->json($tienda, 200);
   }
 
   /**

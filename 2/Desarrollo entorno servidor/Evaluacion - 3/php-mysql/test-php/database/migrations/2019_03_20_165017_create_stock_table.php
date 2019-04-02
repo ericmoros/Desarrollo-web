@@ -8,9 +8,10 @@ class CreateStockTable extends Migration {
 	public function up()
 	{
 		Schema::create('stock', function(Blueprint $table) {
-			$table->string('producto', 12)->primary();
-			$table->integer('tienda')->primary();
+			$table->string('producto', 12);
+			$table->integer('tienda');
 			$table->integer('unidades');
+			$table->primary(array('producto', 'tienda'));
 		});
 	}
 

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Stock;
 
-class ProductoController extends Controller 
+class StockController extends Controller 
 {
 
   /**
@@ -14,7 +14,8 @@ class ProductoController extends Controller
    */
   public function index()
   {
-    
+    $stock = Stock::all();
+    return response()->json($stock, 200);
   }
 
   /**
