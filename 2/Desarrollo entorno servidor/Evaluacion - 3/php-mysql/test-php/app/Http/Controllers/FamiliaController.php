@@ -29,16 +29,6 @@ class FamiliaController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
-   *
-   * @return Response
-   */
-  public function store(Request $request)
-  {
-    
-  }
-
-  /**
    * Display the specified resource.
    *
    * @param  int  $id
@@ -46,18 +36,8 @@ class FamiliaController extends Controller
    */
   public function show($id)
   {
-    
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function edit($id)
-  {
-    
+    $familia = Familia::where('cod', $id)->first();
+    return response()->json($familia, 200);
   }
 
   /**

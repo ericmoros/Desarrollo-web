@@ -29,35 +29,25 @@ class StockController extends Controller
   }
 
   /**
-   * Store a newly created resource in storage.
-   *
-   * @return Response
-   */
-  public function store(Request $request)
-  {
-    
-  }
-
-  /**
    * Display the specified resource.
    *
-   * @param  int  $id
+   * @param  int  $idTienda
+   * @param  int  $idProducto
    * @return Response
    */
-  public function show($id)
+  public function show($idTienda = null, $idProducto = null)
   {
-    
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function edit($id)
-  {
-    
+    $stock = null;
+    if (!is_null($idTienda) && is_null($idProducto)) {
+      $stock = Stock::where('tienda', $idTienda)->get();
+    } else if (is_null($idTienda) && !is_null($idProducto)) {
+      $stock = Stock::where('producto', $idProducto)->get();
+    } else {
+      $stock = Stock::where('tienda', $idTienda)
+        ->where('producto', $idProducto)
+        ->get();
+    }
+    return response()->json($stock, 200);
   }
 
   /**
