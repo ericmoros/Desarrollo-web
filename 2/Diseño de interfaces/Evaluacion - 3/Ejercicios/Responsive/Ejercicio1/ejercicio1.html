@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Responsive Design | Part 1</title>
+    <style type="text/css">
+        body {
+            background: #EBEBEB;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #3C3C3C;
+        }
+
+        .box {
+            background: #FFF;
+            border: 1px #666 solid;
+            padding: 10px 20px;
+            margin: 40px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px #999;
+        }
+        @media (min-width: 901px) {
+            .one {
+                background-color: red;
+            }
+        }
+        @media (min-width: 601px) and (max-width: 899px) {
+            .two {
+                background-color: yellow;
+            }
+        }
+        @media (max-width: 599px) {
+            .three {
+                background-color: green;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box one">This div will turn to RED if the viewing area is greater than 900px</div>
+    <div class="box two">This div will turn to YELLOW if the viewing area is between 600px and 900px</div>
+    <div class="box three">This div will turn to GREEN if the viewing area is less than 600px</div>
+</body>
+
+</html>

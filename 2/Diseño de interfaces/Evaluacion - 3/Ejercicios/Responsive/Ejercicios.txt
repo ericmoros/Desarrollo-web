@@ -1,0 +1,10 @@
+﻿Ejercicio 1
+-----------
+Utilizando media queries, modifica el ejercicio 1 para que ocurra tal y como dice el ejercicio1.html.
+
+Ejercicio 2
+-----------
+Modifica el ejercicio 2 para que presente un comportamiento:
+- Responsivo y a dos columnas para tamaños entre 980 y 650px.
+- Responsivo y a una sola columna para tamaños inferiores a 650px.
+- Ancho fijo con margen a los lados para tamaños superiores a 980px.
