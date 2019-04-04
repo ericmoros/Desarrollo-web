@@ -1,0 +1,10 @@
+.user h3 {
+    margin: 10px auto 4px auto;
+}
+.user *:not(h3) {
+    margin: 2px auto;
+}
+
+#userTemplate {
+    display: none;
+}
