@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Ejercicio 10</title>
+
+<meta content="Carlos Gil" name="author"/>
+<meta content="Crea una página igual que la anterior y coloca los valores de la altura total, la del header y la del footer en tres variables diferentes. En este caso utiliza la función outerHeight" name="description"/>
+<meta content="29/02/16" name="fecha"/>
+
+<style>
+    body, h1, p{margin: 0;}
+    header{background-color: orange;}
+    section{background-color: aquamarine;}
+    footer{background-color: bisque;}
+</style>
+
+<script src="js/jquery-2.2.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#centro').mouseover(function(){
+            var c = $('#cabecera').outerHeight();
+            var s = $('#centro');
+            var f = $('#pie').outerHeight();
+            var total = $(window).height();
+
+            s.outerHeight((total) - (c) - (f)) ;
+        });
+    });
+    
+</script>
+</head>
+<body>
+    <header id="cabecera">
+        <h1>Ejercicio 10</h1>
+    </header>
+    <section id="centro">
+        <p>Crea una página igual que la anterior y coloca los valores de la altura total, la del header y la del footer en tres variables diferentes. En este caso utiliza la función outerHeight. Ahora has de modificar la altura del id #centro para que la página se ajuste con exactitud. Para ello tienes que utilizar la misma función outerHeight, pero asignando una operación aritmética entre las diferentes variables de altura que has declarado</p>
+    </section>
+    <footer id="pie">
+        <h1>Aquí va el pie</h1>
+    </footer>
+</body>
+</html>
+
+

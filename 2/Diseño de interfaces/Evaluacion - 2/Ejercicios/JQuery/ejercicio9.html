@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Ejercicio 9</title>
+
+<meta content="Carlos Gil" name="author"/>
+<meta content="Crea una página que contenga un header con un título en h1 y una section.con el id “centro” y dales un poco de estilo (especialmente color de fondo). Añade un párrafo de texto dentro de la section #centro." name="description"/>
+<meta content="29/02/16" name="fecha"/>
+
+<style>
+    body, h1, p{margin: 0;}
+    header{background-color: orange;}
+    section{background-color: aquamarine;}
+    footer{background-color: bisque;}
+</style>
+
+<script src="js/jquery-2.2.0.min.js"></script>
+<script>
+	$(document).ready(function(){
+        var c = $('header');
+        var s = $('#centro');
+        
+        alert('Alto cabecera ' + c.height() + '\nAlto section ' + s.height());
+    });
+</script>
+</head>
+<body>
+    <header>
+        <h1>Ejercicio 9</h1>
+    </header>
+    <section id="centro">
+        <p>Crea una página que contenga un header con un título en h1 y una section.con el id “centro” y dales un poco de estilo (especialmente color de fondo). Añade un párrafo de texto dentro de la section #centro.
+        Tienes que detectar la altura de los diferentes elementos. Para ello tendrás que utilizar los selectores necesarios y la función .height
+        Finalmente, visualiza los valores con un alert.</p>
+    </section>
+</body>
+</html>
+
+

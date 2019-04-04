@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Ejercicio 13</title>
+
+<meta content="Carlos Gil" name="author"/>
+<meta content="Crear un documento con cuatro botones, un cuadro de texto , un enlace a http://www.foxmovies.com/movies/the-revenant y un párrafo" name="description"/>
+<meta content="01/03/16" name="fecha"/>
+
+
+<script src="js/jquery-2.2.0.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $('#boton1').on('click',function(){
+        alert($('p').text());
+	});
+    $('#boton2').on('click',function(){
+        alert($('#parrafo').html());
+    });
+    $('#boton3').on('click',function(){
+        alert($('#textA').val());
+    });
+    $('#boton4').on('click',function(){
+        alert($('a').html());
+    });
+});
+</script>
+</head>
+<body>
+   
+    <input id="boton1" type="button" value="Texto Párrafo">
+    <input id="boton2" type="button" value="Las marcas del parrafo">
+    <input id="boton3" type="button" value="Valor cuadro de texto">
+    <input id="boton4" type="button" value="Contenido del enlace"><br/>
+    <textarea name="textA" id="textA" cols="30" rows="10" value="Sugerencias"></textarea><br/>
+    <a href="http://www.foxmovies.com/movies/the-revenant">Enlace a otro sitio</a>
+   <div id="parrafo">
+    <p><i>"En las profundidades de la América salvaje, el explorador Hugh Glass participa junto a su hijo mestizo Hawk en una expedición de tramperos que recolecta pieles. Glass resulta gravemente herido por el ataque de un oso y es abandonado a su suerte por un traicionero miembro de su equipo, John Fitzgerald. Con la fuerza de voluntad como su única arma, Glass deberá enfrentarse a un territorio hostil, a un invierno brutal y a la guerra constante entre las tribus de nativos americanos, en una búsqueda implacable para conseguir vengarse"</i></p>
+   </div>
+</body>
+</html>
+
+

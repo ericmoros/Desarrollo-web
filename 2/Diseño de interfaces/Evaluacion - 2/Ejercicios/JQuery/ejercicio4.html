@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 4</title>
+
+<meta content="Carlos Gil" name="author"/>
+<meta content="Al dar a cada uno de los dos botones, la caja debe desplazarse a la izquierda o a la derecha de forma rápida." name="description"/>
+<meta content="29/02/16" name="fecha"/>
+
+<style>
+div {
+	position: absolute;
+	background-color: #abc;
+	left: 50px;
+	width: 90px;
+	height: 90px;
+	margin: 5px;
+}
+</style>
+<script src="js/jquery-2.2.0.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $('#left').click(function(){
+            $('div').animate({
+                marginLeft: '0px'
+            },500);
+        });
+        $('#right').click(function(){
+            $('div').animate({
+                marginLeft: '500px'
+            },500);
+        });
+    });
+</script>
+
+</head>
+<body>
+	<button id="left">&laquo;</button>
+	<button id="right">&raquo;</button>
+	<div class="block"></div>
+</body>
+</html>

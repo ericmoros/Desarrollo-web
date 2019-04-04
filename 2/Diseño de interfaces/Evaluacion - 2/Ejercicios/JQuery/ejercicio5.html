@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Reformas de pisos</title>
+
+<meta content="Carlos Gil" name="author"/>
+<meta content="Al dar a cada uno de los dos botones, la caja debe desplazarse a la izquierda o a la derecha de forma rápida." name="description"/>
+<meta content="29/02/16" name="fecha"/>
+
+<style>
+a img {
+	float: left;
+	margin: 1px;
+}
+
+#imagenes {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -207px;
+	margin-left: -290px;
+}
+</style>
+<script src="js/jquery-2.2.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+        $('a').click(function(){
+            $(this).removeAttr('href').slideUp();
+            //$(this).slideUp();
+        });
+	});
+</script>
+</head>
+<body>
+	<div id="imagenes">
+		<a href="index.php"> <img src="img/inicio.gif" /></a>
+        <a href="pisos.html"> <img src="img/pisos.gif" /></a>
+        <a href="cocinas.html"> <img src="img/cocinas.gif" /></a>
+        <a href="banos.html"> <img src="img/baños.gif" /></a>
+        <a href="contactar.html"> <img src="img/contactar.gif" /></a>
+	</div>
+</body>
+</html>
+
+

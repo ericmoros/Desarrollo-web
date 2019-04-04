@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ejercicio 3</title>
+
+<meta content="Carlos Gil" name="author"/>
+<meta content="La imagen del ejercicio 3 deberá moverse hasta el extremo derecho de la pantalla a la vez que aumenta su tamaño al doble." name="description"/>
+<meta content="28/02/16" name="fecha"/>
+
+<style>
+	img{display:block; width:200px;}
+</style>
+<script src="js/jquery-2.2.0.min.js"></script>
+<script>
+    /* lo he probado con float:right en varios navegadores y no funcionaba */
+$(document).ready(function(){
+    $("button").click(function(){
+		$("img").animate({
+            marginLeft: '500px',
+            width: '50%',
+            height: 'auto',
+        },2000);
+	});
+});
+</script>
+</head>
+<body>
+	<button>Pulsa aquí</button>
+	<img id="imagen" src="img/logo.png.jpg" alt="Logotipo CPIFP Bajo Aragón"/>
+</body>
+</html>
