@@ -13,24 +13,124 @@
 </head>
 
 <body>
-    <main>
-        <form action="">
-            <input type="text" name="text-basic" id="text-basic" value="" placeholder="Write something...">
-            <button class="ui-shadow ui-btn ui-corner-all">Send</button>
-        </form>
-    </main>
-    <footer>
-        <div data-role="footer" data-position="fixed">
-            <p>Developed by: Eric Moros Pérez</p>
-            <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
-                <ul>
-                    <li><a href="#" id="chat" data-icon="custom">Chat</a></li>
-                    <li><a href="#" id="beer" data-icon="custom">Settings</a></li>
-                    <li><a href="#" id="skull" data-icon="custom">Exit</a></li>
-                </ul>
+    <div id="chat-page" data-role="page">
+        <div data-role="header" data-theme="b" data-fullscreen="true">
+            <h1>Chatting current servers</h1>
+        </div>
+        <header>
+            <table data-role="table" id="table-custom-2" data-mode="columntoggle"
+                class="ui-body-d ui-shadow table-stripe ui-responsive" data-column-btn-theme="b"
+                data-column-btn-text="Columns to display..." data-column-popup-theme="a">
+                <thead>
+                    <tr class="ui-bar-d">
+                        <th data-priority="2">#Server</th>
+                        <th>Server name</th>
+                        <th data-priority="3">Active since</th>
+                        <th data-priority="1"><abbr title="Rotten Tomato Rating">Availability</abbr></th>
+                        <th data-priority="5">Clients online</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>1</th>
+                        <td><a href="http://en.wikipedia.org/wiki/Citizen_Kane" data-rel="external">Citizen Kane</a>
+                        </td>
+                        <td>1941</td>
+                        <td>100%</td>
+                        <td>74</td>
+                    </tr>
+                    <tr>
+                        <th>2</th>
+                        <td><a href="http://en.wikipedia.org/wiki/Casablanca_(film)" data-rel="external">Casablanca</a>
+                        </td>
+                        <td>1942</td>
+                        <td>97%</td>
+                        <td>64</td>
+                    </tr>
+                    <tr>
+                        <th>3</th>
+                        <td><a href="http://en.wikipedia.org/wiki/The_Godfather" data-rel="external">The Godfather</a>
+                        </td>
+                        <td>1972</td>
+                        <td>97%</td>
+                        <td>87</td>
+                    </tr>
+                </tbody>
+            </table>
+        </header>
+        <main>
+            <br>
+            <form action="">
+                <label for="als">Alias</label>
+                <input type="text" name="als" id="als" value="FuckingBoss1314">
+                <label for="msg">Message</label>
+                <textarea cols="40" rows="8" name="msg" id="msg" placeholder="Write something..."></textarea>
+                <button class="ui-shadow ui-btn ui-corner-all">Send</button>
+            </form>
+            <br>
+            <br>
+            <ul data-role="listview" data-inset="true" style="overflow-y: visible">
+                <li data-role="list-divider">Friday, October 8, 2010 <span class="ui-li-count">2</span></li>
+                <li><a href="index.html">
+                        <h2>Stephen Weber</h2>
+                        <p><strong>You've been invited to a meeting at Filament Group in Boston, MA</strong></p>
+                        <p>Hey Stephen, if you're available at 10am tomorrow, we've got a meeting with the jQuery team.
+                        </p>
+                        <p class="ui-li-aside"><strong>6:24</strong>PM</p>
+                    </a>
+                </li>
+                <li><a href="index.html">
+                        <h2>jQuery Team</h2>
+                        <p><strong>Boston Conference Planning</strong></p>
+                        <p>In preparation for the upcoming conference in Boston, we need to start gathering a list of
+                            sponsors and speakers.</p>
+                        <p class="ui-li-aside"><strong>9:18</strong>AM</p>
+                    </a>
+                </li>
+            </ul>
+        </main>
+        <footer>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+                    <ul>
+                        <li><a href="#" id="chat" data-icon="custom">Chat</a></li>
+                        <li><a href="#popupBasic" id="beer" data-rel="popup" data-icon="custom"
+                                data-transition="pop">Settings</a>
+                        </li>
+                        <div data-role="popup" id="popupBasic">
+                            <p>This page is under development, we apologize for the inconveniences.</p>
+                        </div>
+                        <li><a href="#exit-page" id="skull" data-icon="custom" role="button"
+                                class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="flip">Exit</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div id="exit-page" data-role="page">
+        <div role="dialog" class="ui-dialog-contain ui-overlay-shadow ui-corner-all">
+            <div data-role="header" data-theme="b" role="banner" class="ui-header ui-bar-b">
+                <h1 style="padding: 5px" class="ui-title" role="heading" aria-level="1"> Exit?</h1>
+            </div>
+            <div role="main" class="ui-content">
+                <p>You're are going to exit from the app.</p>
+                <div data-role="collapsible" data-theme="b" data-content-theme="b">
+                    <h4>Donate</h4>
+                    <p>Developed by: Eric Moros Pérez</p>
+                    <p>For contributting to the app send bitcoin to this wallet address:
+                        1234fdsaf1dsa4f56ds4a1f23ds5af4d56sa</p>
+                </div>
+                <br>
+                <a id="closeApp" href="page" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-a">Exit</a>
+                <a href="/" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-btn-active">Cancel</a>
             </div>
         </div>
-    </footer>
+    </div>
+    <div id="bye-page">
+        <h1>See you soon!! :D</h1>
+    </div>
+    <script src="js/site.js"></script>
 </body>
 
 </html>

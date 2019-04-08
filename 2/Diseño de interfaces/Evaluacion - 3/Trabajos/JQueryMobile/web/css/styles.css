@@ -3,3 +3,13 @@
 main {
     margin: 5px;
 }
+
+
+.ui-dialog-contain {
+	width: 92.5%;
+	max-width: 500px;
+	margin: 10% auto 15px auto;
+	padding: 0;
+	position: relative;
+	top: -15px;
+}
