@@ -95,7 +95,7 @@ function dumpData() {
     }
 
     var dumps = [
-        { funcPromise: getUsers(), template: 'users' },
+        // { funcPromise: getUsers(), template: 'users' },
         { funcPromise: getFootball(), template: 'football' }
     ]
 
@@ -109,4 +109,5 @@ function main() {
     dumpData()
 }
 
+debugger
 main()
