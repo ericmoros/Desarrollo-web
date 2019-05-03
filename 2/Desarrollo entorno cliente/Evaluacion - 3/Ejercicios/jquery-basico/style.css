@@ -1,0 +1,27 @@
+.circle {
+    display: flex;
+    width: 150px;
+    height: 150px;
+    border: 3px solid brown;
+    border-radius: 150px;
+    background: brown;
+    margin: auto;
+    justify-items: center;
+    align-items: center;
+}
+
+.circle span {
+    margin: auto;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px red;
+    text-transform: capitalize;
+}
+
+.circle-hover {
+    border: 3px solid red;
+}
+
+.circles {
+    display: flex;
+}
