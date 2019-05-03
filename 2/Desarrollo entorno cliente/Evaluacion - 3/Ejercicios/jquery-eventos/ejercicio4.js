@@ -16,7 +16,6 @@ function listenEvents() {
 
     function listenFormSubmit() {
         addForm.on("submit", function () {
-            if (addForm[0].validate()) return false
             var name = this.product.value
             this.product.value = ""
             addProduct(name)
@@ -26,7 +25,7 @@ function listenEvents() {
 }
 
 function addProduct(name) {
-    if (name == null) return
+    if (name == null || name == "") return
     var product = productTemplate.clone()
     product.text(name)
     productList.append(product)
