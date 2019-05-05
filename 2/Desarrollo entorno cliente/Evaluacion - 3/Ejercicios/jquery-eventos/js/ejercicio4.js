@@ -18,8 +18,16 @@ function listenEvents() {
         addForm.on("submit", function () {
             var name = this.product.value
             this.product.value = ""
-            addProduct(name)
+            var product = addProduct(name)
+            if (product == null) return false
+            listenProductClick(product)
             return false
+        })
+    }
+
+    function listenProductClick(product) {
+        product.on("click", function () {
+            $(this).toggleClass("product-clicked")
         })
     }
 }
@@ -29,6 +37,7 @@ function addProduct(name) {
     var product = productTemplate.clone()
     product.text(name)
     productList.append(product)
+    return product
 }
 
 $(window).ready(function () {

@@ -1,0 +1,10 @@
+.product-clicked {
+    font-weight: bold;
+    list-style-type: none;
+    left: -18px;
+    position: relative;
+}
+
+.product-clicked::before {
+    content: '✓ ';
+}
