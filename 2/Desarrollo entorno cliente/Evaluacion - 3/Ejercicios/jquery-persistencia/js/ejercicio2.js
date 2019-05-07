@@ -13,9 +13,9 @@ function isVisible() {
 
 function render() {
     if (isVisible()){
-        $('paragraph').show()
+        $('.paragraph').show()
     } else {
-        $('paragraph').hide()
+        $('.paragraph').hide()
     }
 }
 
