@@ -1,3 +1,6 @@
 $(document).ready(function () {
-    $('#example').dataTable();
+    $('#example').dataTable({
+        paging: false,
+        filter: false
+    });
 });

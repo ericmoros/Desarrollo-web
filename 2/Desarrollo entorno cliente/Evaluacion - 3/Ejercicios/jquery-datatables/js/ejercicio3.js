@@ -1,3 +1,8 @@
 $(document).ready(function () {
-    $('#example').dataTable();
+    $('#example').dataTable({
+        order: [
+            ['3', 'asc'],
+            ['4', 'desc']
+        ]
+    });
 });
