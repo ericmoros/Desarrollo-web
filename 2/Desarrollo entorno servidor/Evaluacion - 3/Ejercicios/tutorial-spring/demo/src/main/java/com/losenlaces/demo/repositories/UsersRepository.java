@@ -9,7 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 /**
  * UserRepository
  */
-public interface UserRepository extends CrudRepository<User, Integer> {
+public interface UsersRepository extends CrudRepository<User, Integer> {
     List<User> findAll();
     List<User> saveOrUpdateAll();
     void deleteAll();
