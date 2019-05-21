@@ -5,3 +5,11 @@
     background-size: cover;
     background-position: center center;
 }
+
+.border-width-1 {
+    border-width: 3px !important;
+}
+
+body {
+    padding-top: 67.5px;
+}
