@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Ejercicio 1 - Inicialización tabla mediante datatables</title>
+	<style type="text/css" title="currentStyle">
+		@import "datatables/media/css/demo_table.css";
+		@import "datatables/media/css/demo_page.css";
+	</style>
+	<script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+	<script src="node_modules/datatables/media/js/jquery.dataTables.min.js"></script>
+	<script src="js/ej1.js"></script>
+</head>
+
+<body id="dt_example">
+	<div style="padding: 10px;">
+		<form id="tableForm" action="#">
+			<div>
+				<label for="textoABuscar">Texto a buscar</label>
+				<input id="textoABuscar" name="textoABuscar" type="text" required="required" minlength="6" />
+			</div>
+			<div>
+				<label for="webAPI">Web API</label>
+				<input id="webAPI" name="webAPI" type="url"/>
+			</div>
+			<div>
+				<label for="ciudad">Ciudad</label>
+				<input id="ciudad" name="ciudad" type="text"  required="required" minlength="6" />
+			</div>
+			<div>
+				<label for="desplegable">Desplegable</label>
+				<select id="desplegable" name="desplegable" required="required">
+					<option value="monumentos">Monumentos</option>
+					<option value="teatros">Teatros</option>
+					<option value="carrilBici">Carril bici</option>
+				</select>
+			</div>
+			<div>
+				<input id="btnBuscar" name="btnBuscar" type="submit" value="Buscar" />
+				<input id="btnCancelar" name="btnCancelar" type="submit" value="Cancelar" />
+			</div>
+		</form>
+	</div>
+	<div id="container">
+		<div id="demo">
+			<table id="example" class="display">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Apellidos</th>
+						<th>Ingreso</th>
+						<th>Provincia</th>
+						<th>Sector</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="odd gradeX">
+						<td>Rodrigo</td>
+						<td>Torres Fuentes</td>
+						<td>10/10/1985</td>
+						<td class="center">Zamora</td>
+						<td class="center">X</td>
+					</tr>
+					<tr class="even gradeC">
+						<td>Ana</td>
+						<td>Lopez Yago</td>
+						<td>02/06/1985</td>
+						<td class="center">Leon</td>
+						<td class="center">C</td>
+					</tr>
+					<tr class="odd gradeA">
+						<td>Manuel</td>
+						<td>Garcia Lago</td>
+						<td>18/04/1986</td>
+						<td class="center">Barcelona</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="even gradeA">
+						<td>Carmen</td>
+						<td>Ortega Perez</td>
+						<td>23/01/1986</td>
+						<td class="center">Granada</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="odd gradeA">
+						<td>Sonia</td>
+						<td>De Diego Salamanca</td>
+						<td>16/08/1985</td>
+						<td class="center">Madrid</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="even gradeA">
+						<td>Susana</td>
+						<td>Barbera Fina</td>
+						<td>15/02/1987</td>
+						<td class="center">Barcelona</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="gradeA">
+						<td>Luis</td>
+						<td>Moscoso Yanez</td>
+						<td>06/11/1988</td>
+						<td class="center">Madrid</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="gradeA">
+						<td>Pedro</td>
+						<td>Del Arco Garcia</td>
+						<td>17/08/1987</td>
+						<td class="center">Madrid</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="gradeA">
+						<td>Sandra</td>
+						<td>Fernandez Gomez</td>
+						<td>31/10/1985</td>
+						<td class="center">Barcelona</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="gradeA">
+						<td>Carmen</td>
+						<td>Doblado Porras</td>
+						<td>11/09/1988</td>
+						<td class="center">Madrid</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="gradeA">
+						<td>Pedro</td>
+						<td>Blanco Delgado</td>
+						<td>31/01/1986</td>
+						<td class="center">Lugo</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="gradeA">
+						<td>Raul</td>
+						<td>Povedilla Martinez</td>
+						<td>15/03/1988</td>
+						<td class="center">Valencia</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="gradeA">
+						<td>Alfonso</td>
+						<td>Lopez Lopez</td>
+						<td>06/12/1985</td>
+						<td class="center">Sevilla</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="gradeA">
+						<td>Sonia</td>
+						<td>Martin Jaen</td>
+						<td>23/02/1987</td>
+						<td class="center">Zaragoza</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="gradeA">
+						<td>Carmen</td>
+						<td>Morales Torres</td>
+						<td>12/12/1988</td>
+						<td class="center">Madrid</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="gradeA">
+						<td>Antonio</td>
+						<td>De la Mata Fernandez</td>
+						<td>10/04/1986</td>
+						<td class="center">Barcelona</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="gradeA">
+						<td>Diego</td>
+						<td>Torrecuadrada Garcia</td>
+						<td>23/07/1987</td>
+						<td class="center">Caceres</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="gradeA">
+						<td>Rosa</td>
+						<td>Blanco Gomez</td>
+						<td>22/06/1985</td>
+						<td class="center">Cuenca</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="gradeA">
+						<td>Cristina</td>
+						<td>Blanco Gomez</td>
+						<td>11/01/1987</td>
+						<td class="center">Barcelona</td>
+						<td class="center">A</td>
+					</tr>
+					<tr class="gradeA">
+						<td>Cristina</td>
+						<td>Martos Del Angel</td>
+						<td>10/02/1986</td>
+						<td class="center">Madrid</td>
+						<td class="center">A</td>
+					</tr>
+
+				</tbody>
+				<tfoot>
+					<tr>
+						<th>Nombre</th>
+						<th>Apellidos</th>
+						<th>Ingreso</th>
+						<th>Provincia</th>
+						<th>Sector</th>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+</body>
+
+</html>
