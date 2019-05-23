@@ -11,7 +11,7 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface UsersRepository extends CrudRepository<User, Integer> {
     List<User> findAll();
-    List<User> saveOrUpdateAll();
+    List<User> saveOrUpdateAll(List<User> Users);
     void deleteAll();
     User findByUserId(Integer UserId);
     User saveOrUpdate(User user);

@@ -5,12 +5,12 @@ import java.util.List;
 import com.losenlaces.demo.models.ChickenBreast;
 import com.losenlaces.demo.repositories.ChickenBreastsRepository;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
 /**
  * ChickenBreasts
  */
-@Controller
+@Service
 public class ChickenBreastsService {
     private ChickenBreastsRepository ChickenBreastsRepository;
 

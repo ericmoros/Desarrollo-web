@@ -11,6 +11,14 @@ WHERE name = N'TutorialSpring'
 CREATE DATABASE TutorialSpring
 GO
 
+--Login Credentials
+-- CREATE LOGIN [TutorialSpring] WITH PASSWORD=N'TutorialSpring' MUST_CHANGE, DEFAULT_DATABASE=[master], CHECK_EXPIRATION=ON, CHECK_POLICY=ON
+-- GO
+CREATE USER [TutorialSpring] FOR LOGIN [TutorialSpring]
+GO
+ALTER SERVER ROLE [sysadmin] ADD MEMBER [TutorialSpring]
+GO
+
 
 -- Definition
 -- Drop the table if it already exists
