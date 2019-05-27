@@ -18,7 +18,7 @@
 </head>
 
 <body class="bg-light">
-    <nav class="navbar fixed-top p-0 navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar sticky-top p-0 navbar-expand-lg border-bottom border-secundary navbar-light bg-light">
         <ul class="nav mr-auto">
             <li class="nav-item p-1">
                 <a class="nav-link navbar-brand font-weight-bold" href="#">CARLOS ARTURO</a>
@@ -104,8 +104,8 @@
                 </div>
             </div>
         </div>
-        <div id="acerca-de" class="p-3"></div>
-        <div class="container">
+        <div id="acerca-de" class="position-relative" style="bottom: 100px;"></div>
+        <div class="container my-5">
             <div class="row">
                 <div class="col-md-4 m-auto">
                     <div class="row">
@@ -165,37 +165,46 @@
                 </div>
             </div>
         </div>
-        <div id="contacto" class="p-3">
-            <hr>
+        <div id="contacto" class="position-relative" style="bottom: 100px;"></div>
         </div>
-        <div class="container text-center">
+        <hr>
+        <div class="container text-center my-5">
             <div class="row">
-                <div class="col">
-                    <h3>Contacto</h3>
+                <div class="col-md-2">
                 </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <input type="text" name="" id="">
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="pb-4">Contacto</h3>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-sm-6">
+                            <input class="form-control m-1" type="text" name="name" id="name" placeholder="Nombre">
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="form-control m-1" type="text" name="mail" id="mail" placeholder="Correo">
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col">
+                            <textarea class="form-control m-1" name="Message" id="Message" cols="30"
+                                rows="10"></textarea>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col">
+                            <input class="btn btn-primary m-1 px-4" type="submit" value="Enviar">
+                        </div>
+                    </div>
                 </div>
-                <div class="col">
-                    <input type="text" name="" id="">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <input class="btn btn-primary" type="submit" value="">
+                <div class="col-md-4">
                 </div>
             </div>
         </div>
     </main>
-    <footer>
-        <p>Developed by: Eric Moros Pérez</p>
+    <footer class="fixed-bottom px-2 py-1 bg-primary w-25 border border-secundary">
+        <p class="text-white font-italic m-auto text-center">Developed by: Eric Moros Pérez</p>
     </footer>
 </body>
 
